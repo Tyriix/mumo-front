@@ -1,0 +1,24 @@
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$background-color: map.get($colors, background-blue);
+$section-padding: 20px 0 100px 0;
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $section-padding;
+  background-color: $background-color;
+}
+
+.offer__tiles-container {
+  display: flex;
+  gap: 50px;
+}
+
+.offer__tile {
+  width: 260px;
+  height: 400px;
+  background-color: rgb(226, 226, 226);
+}
