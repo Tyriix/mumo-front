@@ -12,11 +12,17 @@ const OfferCard: FC<Props> = ({ title, content, priceContent }) => {
     <div className='offer-card'>
       <h3 className='offer-card__header'>{title}</h3>
       {content.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <p className='offer-card__content' key={index}>
+          {paragraph}
+        </p>
       ))}
-      {priceContent.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
+      <div className='offer-card__price'>
+        {priceContent.map((paragraph, index) => (
+          <p className='offer-card__price-content' key={index}>
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };
