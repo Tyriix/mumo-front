@@ -1,12 +1,12 @@
-import "./AboutParagraphs.scss";
+import "./AboutContent.scss";
 
-const AboutParagraphs = () => {
+const AboutContent = () => {
   return (
     <div className="about">
-      <div className="about__paragraphs">
-        <div className="about__paragraph">
-          <div className="about__paragraph-text">
-            <h2 className="about__paragraph__header">o nas</h2>
+      <div className="about__container">
+        <div className="about__block">
+          <div className="about__content">
+            <h2 className="about__content-header">o nas</h2>
             <p>
               Nazywam się Aleksandra Korczyk, szkoleniem psów metodą naturalną
               zajmuje się od 2010 roku, przez moje ręce przewinęło się już
@@ -22,16 +22,16 @@ const AboutParagraphs = () => {
               zajęciach.
             </p>
           </div>
-          <div className="about__paragraph-image">
+          <div className="about__content-image">
             <img src="assets\HomePage\placeholder.png" alt="Piesek"></img>
           </div>
         </div>
-        <div className="about__paragraph">
-          <div className="about__paragraph-image">
+        <div className="about__block">
+        <div className="about__content-image">
             <img src="assets\HomePage\placeholder.png" alt="Piesek"></img>
           </div>
-          <div className="about__paragraph-text">
-            <h2 className="about__paragraph__header">szkolenie</h2>
+          <div className="about__content">
+            <h2 className="about__content-header">szkolenie</h2>
 
             <p>Zajęcia odbywają się w mieście Trzebnica w różnych lokacjach.</p>
             <p>
@@ -41,8 +41,8 @@ const AboutParagraphs = () => {
             <p>1 cykl szkoleniowy to 8 zajęć po 45 min.</p>
           </div>
         </div>
-        <div className="about__paragraph">
-          <div className="about__paragraph-text">
+        <div className="about__block">
+          <div className="about__content">
             <p>
               Na zajęcia możesz dołączyć w dowolnej chwili już z
               kilkumiesięcznym szczeniakiem jeśli posiada szczepienie na
@@ -55,7 +55,7 @@ const AboutParagraphs = () => {
               dołączyć do zajęć grupowych.
             </p>
           </div>
-          <div className="about__paragraph-image">
+          <div className="about__content-image">
             <img src="assets\HomePage\placeholder.png" alt="Piesek"></img>
           </div>
         </div>
@@ -64,4 +64,4 @@ const AboutParagraphs = () => {
   );
 };
 
-export default AboutParagraphs;
+export default AboutContent;

@@ -1,9 +1,9 @@
-import AboutParagraphs from '../about/AboutParagraphs/AboutParagraphs';
+import AboutContent from '../about/AboutContent/AboutContent';
 import './HomeAboutSection.scss'
 const HomeAboutSection = () => {
   return (
     <div className="home__about">
-      <AboutParagraphs></AboutParagraphs>
+      <AboutContent></AboutContent>
     </div>
   );
 };
