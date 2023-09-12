@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import HomeOfferSection from '../../components/features/home/HomeOfferSection/HomeOfferSection';
 
 const Homepage: FC = () => {

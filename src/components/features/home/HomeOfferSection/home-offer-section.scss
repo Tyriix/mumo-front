@@ -10,15 +10,46 @@ $section-padding: 20px 0 100px 0;
   align-items: center;
   padding: $section-padding;
   background-color: $background-color;
+  position: relative;
+}
+
+.offer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../../assets/images/offer-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.1;
 }
 
 .offer__tiles-container {
   display: flex;
   gap: 50px;
+  z-index: 2;
+}
+
+.offer__tiles-container {
+  height: 500px;
+  width: 1000px;
+}
+
+.offer__header {
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px #42444892;
+  font-size: 3rem;
+  z-index: 2;
+  margin: 0;
+  padding: 25px 0 60px 0;
 }
 
 .offer__tile {
   width: 260px;
   height: 400px;
-  background-color: rgb(226, 226, 226);
+  background-color: map.get($colors, white);
 }

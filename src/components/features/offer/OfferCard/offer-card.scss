@@ -5,7 +5,8 @@ $content-font-color: map-get($colors, light-gray);
 $price-content-font-color: map-get($colors, dark-gray);
 
 .offer-card {
-  width: 310px;
+  height: 370px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   text-align: center;
