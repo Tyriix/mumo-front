@@ -40,7 +40,7 @@ const HomeOfferSection: FC = () => {
   return (
     <div className='offer'>
       <h2 className='offer__header'>Oferta</h2>
-      <div className='offer__tiles-container'>
+      <div className='offer__cards-container'>
         {offerCards.map((offer, index) => (
           <OfferCard
             key={index}

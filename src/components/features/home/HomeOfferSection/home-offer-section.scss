@@ -27,15 +27,10 @@ $section-padding: 20px 0 100px 0;
   opacity: 0.1;
 }
 
-.offer__tiles-container {
+.offer__cards-container {
   display: flex;
   gap: 50px;
   z-index: 2;
-}
-
-.offer__tiles-container {
-  height: 500px;
-  width: 1000px;
 }
 
 .offer__header {
@@ -48,8 +43,10 @@ $section-padding: 20px 0 100px 0;
   padding: 25px 0 60px 0;
 }
 
-.offer__tile {
-  width: 260px;
-  height: 400px;
-  background-color: map.get($colors, white);
+@media screen and (max-width: 930px) {
+  .offer__cards-container {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
 }
