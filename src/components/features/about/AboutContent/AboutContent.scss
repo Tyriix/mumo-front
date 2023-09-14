@@ -59,6 +59,8 @@
   width: 45%;
   display: flex;
   justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .about__image-circles{
   width: 0;
@@ -94,19 +96,19 @@
     &:first-of-type {
       min-width: 42px;
       min-height: 43px;
-      top: -50px;
-      left: -305px;
+      top: 20px;
+      left: -395px;
     }
     &:nth-of-type(2) {
       min-width: 42px;
       min-height: 43px;
-      top: 305px;
-      left: -70px;
+      top: 285px;
+      left: -60px;
     }
     &:nth-of-type(3){
       min-width: 75px;
       min-height: 74px;
-      top: 150px;
+      top: 130px;
       left:-50px;
       z-index: -1;
     }
@@ -119,14 +121,14 @@
     &:first-of-type {
       min-width: 42px;
       min-height: 43px;
-      top: -10  px;
-      left: -360px;
+      top: -10px;
+      left: -340px;
     }
     &:nth-of-type(2) {
       min-width: 55px;
       min-height: 54px;
-      top: 350px;
-      left: -125px;
+      top: 280px;
+      left: -35px;
     }
     &:nth-of-type(3){
       min-width: 75px;
@@ -157,9 +159,6 @@
       .about__content {
         max-width: 80%;
      }
-     .about__image-container{
-      margin-top: 25px;
-     }
      .about__content-header {
       font-size: 2.3rem;
     }
@@ -176,15 +175,15 @@
         .about__image-circle {
           position: relative;
           &:first-of-type {
-            top: -20px;
+            top: 10px;
             left: -305px;
           }
           &:nth-of-type(2) {
-            top: 230px;
-            left: -70px;
+            top: 190px;
+            left: -35px;
           }
           &:nth-of-type(3){
-            top: 90px;
+            top: 50px;
             left:-50px;
             z-index: -1;
           }
@@ -196,11 +195,11 @@
           position: relative;
           &:first-of-type {
             top: -10px;
-            left: -290px;
+            left: -280px;
           }
           &:nth-of-type(2) {
-            top: 250px;
-            left: -105px;
+            top: 190px;
+            left: -35px;
           }
           &:nth-of-type(3){
             top: -50px;
