@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import HomeAboutSection from '../../components/features/home/HomeAboutSection';
-
+import AboutSection from '../../components/features/about/AboutSection'
 const Homepage: FC = () => {
   return(
-    <HomeAboutSection></HomeAboutSection>
+    <AboutSection></AboutSection>
   )
 };
 

@@ -1,7 +1,7 @@
-import { CirclesFirst, CirclesSecond, CirclesThird } from "./AboutCircles";
-import "./AboutContent.scss";
+import { CirclesFirst, CirclesSecond, CirclesThird } from "./about-circles/AboutCircles";
+import "./About.scss";
 import { Fade } from 'react-awesome-reveal'
-const AboutContent = () => {
+const AboutSection = () => {
   return (
     <div className="about">
       <div className="about__container">
@@ -98,4 +98,4 @@ const AboutContent = () => {
   );
 };
 
-export default AboutContent;
+export default AboutSection;
