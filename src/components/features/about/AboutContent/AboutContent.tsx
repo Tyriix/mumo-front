@@ -25,6 +25,8 @@ const AboutContent = () => {
             </Fade>        
           </div>
           <div className="about__image-container about__image-first">
+          <Fade  duration={1500} triggerOnce={true}>
+
             <img
               className="about__image"
               src="assets\HomePage\about_img-1.jpg"
@@ -82,10 +84,13 @@ const AboutContent = () => {
                 />
               </svg>
             </div>
+            </Fade>
           </div>
         </div>
         <div className="about__block">
           <div className="about__image-container about__image-second">
+          <Fade duration={1500} triggerOnce={true}>
+
             <img
               className="about__image"
               src="assets\HomePage\about_img-2.jpg"
@@ -168,6 +173,7 @@ const AboutContent = () => {
               />
             </svg>
             </div>
+            </Fade>
           </div>
           <div className="about__content">
           <Fade cascade duration={1500} triggerOnce={true}>
@@ -204,6 +210,8 @@ const AboutContent = () => {
           </Fade>
           </div>
           <div className="about__image-container about__image-third">
+          <Fade duration={1500} triggerOnce={true}>
+
             <img
               className="about__image"
               src="assets\HomePage\about_img-3.jpg"
@@ -286,6 +294,7 @@ const AboutContent = () => {
               />
             </svg>
             </div>
+            </Fade>
           </div>
         </div>
       </div>
