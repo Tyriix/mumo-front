@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import HomeOfferSection from '../../components/features/home/HomeOfferSection/HomeOfferSection';
+import HomeOfferSection from '../../components/features/home/offer/OfferSection';
 
 const Homepage: FC = () => {
   return (

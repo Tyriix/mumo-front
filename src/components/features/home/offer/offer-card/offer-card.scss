@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import '../../../../styles/helpers/variables';
+@import '../../../../../styles/helpers/variables';
 
 $content-font-color: map-get($colors, light-gray);
 $price-content-font-color: map-get($colors, dark-gray);

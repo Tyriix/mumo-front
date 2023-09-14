@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import './home-offer-section.scss';
-import OfferCard from '../../offer/OfferCard/OfferCard';
+import './offer-section.scss';
+import OfferCard from './offer-card/OfferCard';
 
 const HomeOfferSection: FC = () => {
   const offerCards = [
