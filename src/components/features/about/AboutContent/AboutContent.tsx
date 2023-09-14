@@ -6,8 +6,8 @@ const AboutContent = () => {
       <div className="about__container">
         <div className="about__block">
           <div className="about__content">
-          <Fade cascade duration={1500} triggerOnce={true}>
             <h2 className="about__content-header">o nas</h2>
+            <Fade cascade duration={1500} triggerOnce={true}>
             <p className="about__content-paragraph">
               Nazywam się Aleksandra Korczyk, szkoleniem psów metodą naturalną
               zajmuje się od 2010 roku, przez moje ręce przewinęło się już
@@ -25,8 +25,6 @@ const AboutContent = () => {
             </Fade>        
           </div>
           <div className="about__image-container about__image-first">
-          <Fade  duration={1500} triggerOnce={true}>
-
             <img
               className="about__image"
               src="assets\HomePage\about_img-1.jpg"
@@ -84,12 +82,10 @@ const AboutContent = () => {
                 />
               </svg>
             </div>
-            </Fade>
           </div>
         </div>
         <div className="about__block">
           <div className="about__image-container about__image-second">
-          <Fade duration={1500} triggerOnce={true}>
 
             <img
               className="about__image"
@@ -173,12 +169,11 @@ const AboutContent = () => {
               />
             </svg>
             </div>
-            </Fade>
           </div>
           <div className="about__content">
-          <Fade cascade duration={1500} triggerOnce={true}>
+          
             <h2 className="about__content-header">szkolenie</h2>
-
+            <Fade cascade duration={1500} triggerOnce={true}>
             <p className="about__content-paragraph">
               Zajęcia odbywają się w mieście Trzebnica w różnych lokacjach.
             </p>
@@ -210,8 +205,6 @@ const AboutContent = () => {
           </Fade>
           </div>
           <div className="about__image-container about__image-third">
-          <Fade duration={1500} triggerOnce={true}>
-
             <img
               className="about__image"
               src="assets\HomePage\about_img-3.jpg"
@@ -294,7 +287,6 @@ const AboutContent = () => {
               />
             </svg>
             </div>
-            </Fade>
           </div>
         </div>
       </div>
