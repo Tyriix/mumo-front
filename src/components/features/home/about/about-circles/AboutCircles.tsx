@@ -15,7 +15,7 @@ export const CirclesFirst = () => {
                   rx="21"
                   ry="21.5"
                   fill="#B1E8DF"
-                  fill-opacity="0.66"
+                  fillOpacity="0.66"
                 />
                 <ellipse
                   cx="12.4628"
@@ -40,7 +40,7 @@ export const CirclesFirst = () => {
                   rx="37.5"
                   ry="37"
                   fill="#B1E8DF"
-                  fill-opacity="0.92"
+                  fillOpacity="0.92"
                 />
                 <ellipse
                   cx="22.2407"
@@ -72,7 +72,7 @@ export const CirclesSecond = () => {
                 rx="21"
                 ry="21.5"
                 fill="#B1E8DF"
-                fill-opacity="0.66"
+                fillOpacity="0.66"
               />
               <ellipse
                 cx="12.4628"
@@ -97,7 +97,7 @@ export const CirclesSecond = () => {
                 rx="21"
                 ry="21.5"
                 fill="#B1E8DF"
-                fill-opacity="0.66"
+                fillOpacity="0.66"
               />
               <ellipse
                 cx="12.4628"
@@ -122,7 +122,7 @@ export const CirclesSecond = () => {
                 rx="37.5"
                 ry="37"
                 fill="#B1E8DF"
-                fill-opacity="0.92"
+                fillOpacity="0.92"
               />
               <ellipse
                 cx="22.2407"
@@ -153,7 +153,7 @@ export const CirclesThird = () => {
                 rx="14.9333"
                 ry="15.2889"
                 fill="#B1E8DF"
-                fill-opacity="0.66"
+                fillOpacity="0.66"
               />
               <ellipse
                 cx="8.86242"
@@ -178,7 +178,7 @@ export const CirclesThird = () => {
                 rx="26.6667"
                 ry="26.3111"
                 fill="#B1E8DF"
-                fill-opacity="0.92"
+                fillOpacity="0.92"
               />
               <ellipse
                 cx="15.8156"
@@ -203,7 +203,7 @@ export const CirclesThird = () => {
                 rx="14.9333"
                 ry="15.2889"
                 fill="#B1E8DF"
-                fill-opacity="0.66"
+                fillOpacity="0.66"
               />
               <ellipse
                 cx="8.86242"
