@@ -1,6 +1,13 @@
 import { CirclesFirst, CirclesSecond, CirclesThird } from "./about-circles/AboutCircles";
-import "./About.scss";
+import "./about-section.scss";
 import { Fade } from 'react-awesome-reveal'
+
+const ABOUT_IMAGES = [
+  { src: '/src/assets/images/about_img-1.jpg', alt: 'A woman holding a boston terrier dog.'},
+  { src: '/src/assets/images/about_img-2.jpg', alt: 'A boston terrier dog'},
+  { src: '/src/assets/images/about_img-3.jpg', alt: 'A group of dog owners with their puppies'}
+];
+
 const AboutSection = () => {
   return (
     <div className="about">
@@ -28,8 +35,8 @@ const AboutSection = () => {
           <div className="about__image-container about__image-first">
             <img
               className="about__image"
-              src="assets\HomePage\about_img-1.jpg"
-              alt="Piesek"
+              src={ABOUT_IMAGES[0].src}
+              alt={ABOUT_IMAGES[0].alt}
             ></img>
             <div className="about__image-circles">
             <CirclesFirst />
@@ -41,8 +48,8 @@ const AboutSection = () => {
 
             <img
               className="about__image"
-              src="assets\HomePage\about_img-2.jpg"
-              alt="Piesek"
+              src={ABOUT_IMAGES[1].src}
+              alt={ABOUT_IMAGES[1].alt}
             ></img>
             <div className="about__image-circles">
             <CirclesSecond />
@@ -85,8 +92,8 @@ const AboutSection = () => {
           <div className="about__image-container about__image-third">
             <img
               className="about__image"
-              src="assets\HomePage\about_img-3.jpg"
-              alt="Piesek"
+              src={ABOUT_IMAGES[2].src}
+              alt={ABOUT_IMAGES[2].alt}
             ></img>
             <div className="about__image-circles">
             <CirclesThird />
