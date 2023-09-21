@@ -7,6 +7,7 @@ const ABOUT_IMAGES = [
   { src: '/src/assets/images/about_img-2.jpg', alt: 'A boston terrier dog'},
   { src: '/src/assets/images/about_img-3.jpg', alt: 'A group of dog owners with their puppies'}
 ];
+const FADE_DURATION: number = 1500;
 
 const AboutSection = () => {
   return (
@@ -15,7 +16,7 @@ const AboutSection = () => {
         <div className="about__block">
           <div className="about__content">
             <h2 className="about__content-header">o nas</h2>
-            <Fade cascade duration={1500} triggerOnce={true}>
+            <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
             <p className="about__content-paragraph">
               Nazywam się Aleksandra Korczyk, szkoleniem psów metodą naturalną
               zajmuje się od 2010 roku, przez moje ręce przewinęło się już
@@ -58,7 +59,7 @@ const AboutSection = () => {
           <div className="about__content">
           
             <h2 className="about__content-header">szkolenie</h2>
-            <Fade cascade duration={1500} triggerOnce={true}>
+            <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
             <p className="about__content-paragraph">
               Zajęcia odbywają się w mieście Trzebnica w różnych lokacjach.
             </p>
@@ -75,7 +76,7 @@ const AboutSection = () => {
         <div className="about__block">
         
           <div className="about__content">
-          <Fade cascade duration={1500} triggerOnce={true}>
+          <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
           <p className="about__content-paragraph">
               Na zajęcia możesz dołączyć w dowolnej chwili już z
               kilkumiesięcznym szczeniakiem jeśli posiada szczepienie na
