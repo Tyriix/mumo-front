@@ -1,8 +1,13 @@
 import { FC } from 'react';
+import HomeOfferSection from '../../components/features/home/offer/OfferSection';
 import AboutSection from '../../components/features/home/about/AboutSection'
 const Homepage: FC = () => {
   return(
-    <AboutSection></AboutSection>
+    <>
+    <h1>Main Page</h1>
+    <AboutSection />
+    <HomeOfferSection />
+      </>
   )
 };
 
