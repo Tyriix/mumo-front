@@ -1,0 +1,61 @@
+@use 'sass:map';
+@import '../../../../../styles/helpers/variables';
+@import '../../../../../styles/helpers/mixins';
+
+$font-color: #ffffff;
+
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  background-color: map-get($colors, background-blue);
+  position: relative;
+}
+
+.welcome-section::after {
+  @include pseudo-element-background;
+  background-image: url('../../../../../assets/images/start-background.jpg');
+}
+
+.welcome-section__text {
+  width: 75%;
+  padding-left: 1em;
+  padding-bottom: 5em;
+  z-index: 2;
+}
+
+.welcome-section__header {
+  color: $font-color;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.welcome-section__paragraph {
+  color: $font-color;
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1120px) {
+  .welcome-section__header {
+    font-size: 2.4rem;
+  }
+
+  .welcome-section__paragraph {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .welcome-section__header {
+    font-size: 2.4rem;
+  }
+
+  .welcome-section__paragraph {
+    font-size: 1.2rem;
+  }
+
+  .welcome-section::after {
+    opacity: 0;
+  }
+}
