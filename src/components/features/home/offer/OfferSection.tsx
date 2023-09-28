@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import './offer-section.scss';
-import OfferCard from './offer-card/OfferCard';
+import { FC } from 'react'
+import './offer-section.scss'
+import OfferCard from './offer-card/OfferCard'
 
 const HomeOfferSection: FC = () => {
   const offerCards = [
@@ -35,12 +35,12 @@ const HomeOfferSection: FC = () => {
         'Wystawienia - od 200 zł',
       ],
     },
-  ];
+  ]
 
   return (
-    <div className='offer'>
-      <h2 className='offer__header'>Oferta</h2>
-      <div className='offer__cards-container'>
+    <div className="offer">
+      <h2 className="offer__header">Oferta</h2>
+      <div className="offer__cards-container">
         {offerCards.map((offer, index) => (
           <OfferCard
             key={index}
@@ -51,7 +51,7 @@ const HomeOfferSection: FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomeOfferSection;
+export default HomeOfferSection
