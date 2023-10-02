@@ -55,7 +55,10 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="about__block">
-          <div className="about__image-container about__image-second">
+          <div
+            className="about__image-container about__image-second"
+            role="presentation"
+          >
             <img
               className="about__image"
               src={ABOUT_IMAGES[1].src}
@@ -97,7 +100,10 @@ const AboutSection = () => {
               </p>
             </Fade>
           </div>
-          <div className="about__image-container about__image-third">
+          <div
+            className="about__image-container about__image-third"
+            role="presentation"
+          >
             <img
               className="about__image"
               src={ABOUT_IMAGES[2].src}

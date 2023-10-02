@@ -5,20 +5,24 @@ $content-font-color: map-get($colors, light-gray);
 $price-content-font-color: map-get($colors, dark-gray);
 
 .offer-card {
-  width: 310px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   padding: 5px 0 55px 0;
   background-color: #ffffff;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    box-shadow:
+      rgba(17, 17, 26, 0.1) 0px 4px 16px,
       rgba(17, 17, 26, 0.05) 0px 8px 32px;
   }
 }
@@ -26,9 +30,9 @@ $price-content-font-color: map-get($colors, dark-gray);
 .offer-card__header {
   text-transform: uppercase;
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 300;
 
   &::after {
@@ -46,7 +50,7 @@ $price-content-font-color: map-get($colors, dark-gray);
 .offer-card__content {
   color: $content-font-color;
   width: 70%;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 300;
 }
 
@@ -55,26 +59,26 @@ $price-content-font-color: map-get($colors, dark-gray);
 }
 
 .offer-card__price-content {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   margin: 5px;
   color: $price-content-font-color;
 }
 
-@media screen and (max-width: 1120px) and (min-width: 930px) {
+@media screen and (max-width: 1150px) and (min-width: 960px) {
   .offer-card {
-    width: 250px;
+    width: 280px;
   }
 
   .offer-card__header {
-    height: 2.2rem;
-    font-size: 1.1rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
   }
 
   .offer-card__content {
     width: 70%;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 300;
   }
 
@@ -83,13 +87,13 @@ $price-content-font-color: map-get($colors, dark-gray);
   }
 
   .offer-card__price-content {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
     margin: 5px;
   }
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 960px) {
   .offer-card {
     width: 70%;
     display: flex;
@@ -98,13 +102,17 @@ $price-content-font-color: map-get($colors, dark-gray);
     align-items: center;
     padding: 5px 0 55px 0;
     background-color: #ffffff;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      box-shadow:
+        rgba(17, 17, 26, 0.1) 0px 4px 16px,
         rgba(17, 17, 26, 0.05) 0px 8px 32px;
     }
   }
