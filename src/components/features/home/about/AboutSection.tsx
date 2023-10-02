@@ -57,7 +57,6 @@ const AboutSection = () => {
         <div className="about__block">
           <div
             className="about__image-container about__image-second"
-            role="presentation"
           >
             <img
               className="about__image"
@@ -102,7 +101,6 @@ const AboutSection = () => {
           </div>
           <div
             className="about__image-container about__image-third"
-            role="presentation"
           >
             <img
               className="about__image"
