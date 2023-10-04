@@ -3,12 +3,16 @@
 @import '../../../../../styles/helpers/mixins';
 
 $font-color: #ffffff;
+$expanding-text-duration: 0.5s;
 
 .welcome-section {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background-color: map-get($colors, background-blue);
   position: relative;
+  padding-bottom: 3em;
 }
 
 .welcome-section::after {
@@ -16,10 +20,10 @@ $font-color: #ffffff;
   background-image: url('../../../../../assets/images/start-background.jpg');
 }
 
-.welcome-section__text {
+.welcome-section__content {
   width: 75%;
   padding-left: 1em;
-  padding-bottom: 5em;
+  padding-bottom: 0.5em;
   z-index: 2;
 }
 
@@ -29,11 +33,19 @@ $font-color: #ffffff;
   font-weight: 600;
 }
 
-.welcome-section__paragraph {
+.welcome-section__text {
   color: $font-color;
   font-size: 1.5rem;
   line-height: 2.7rem;
   font-weight: 600;
+}
+
+.welcome-section__button {
+  background-color: #1b1e1e1e;
+  width: 80px;
+  justify-self: center;
+  z-index: 2;
+  display: none;
 }
 
 @media screen and (max-width: 1120px) {
@@ -41,21 +53,76 @@ $font-color: #ffffff;
     font-size: 2.4rem;
   }
 
-  .welcome-section__paragraph {
+  .welcome-section__text {
     font-size: 1.2rem;
   }
 }
 
 @media screen and (max-width: 930px) {
+  .welcome-section__content {
+    max-height: 510px;
+    overflow: hidden;
+    transition: max-height $expanding-text-duration cubic-bezier(0, 0, 0, 1);
+  }
+
+  .welcome-section__content.open {
+    max-height: 200rem;
+    transition: max-height $expanding-text-duration cubic-bezier(0.9, 0, 0.8, 0.2);
+  }
+
   .welcome-section__header {
     font-size: 2.4rem;
   }
 
-  .welcome-section__paragraph {
-    font-size: 1.2rem;
-  }
-
   .welcome-section::after {
     opacity: 0;
+  }
+
+  .welcome-section__button {
+    display: block;
+    margin-top: 3em;
+
+    &:active {
+      outline: none;
+      border: none;
+    }
+    &:focus {
+      outline: 0;
+      border: none;
+    }
+  }
+
+  .welcome-section__text {
+    font-size: 1.2rem;
+    animation: open 0.1s linear 0s forwards;
+  }
+
+  .welcome-section__text.clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    animation: close 0.1s linear 0.1s forwards;
+  }
+}
+
+@keyframes open {
+  from {
+    line-clamp: 15;
+    -webkit-line-clamp: 15;
+  }
+  to {
+    line-clamp: initial;
+    -webkit-line-clamp: initial;
+  }
+}
+@keyframes close {
+  from {
+    line-clamp: initial;
+    -webkit-line-clamp: initial;
+  }
+  to {
+    line-clamp: 15;
+    -webkit-line-clamp: initial;
   }
 }
