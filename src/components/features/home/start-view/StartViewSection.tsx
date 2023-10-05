@@ -1,9 +1,15 @@
-import { FC } from 'react'
+import { FC, RefObject } from 'react'
 import WelcomeText from './welcome-text/WelcomeText'
+import HeroSection from './hero-section/HeroSection'
 
-const StartViewSection: FC = () => {
+interface Props {
+  refOffer: RefObject<HTMLDivElement>
+}
+
+const StartViewSection: FC<Props> = ({ refOffer }) => {
   return (
     <div className="start-view">
+      <HeroSection refOffer={refOffer} />
       <WelcomeText />
     </div>
   )
