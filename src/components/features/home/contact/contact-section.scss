@@ -11,6 +11,10 @@ $background-color: map.get($colors, background-blue);
   background-color: $background-color;
   position: relative;
 }
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
 .contact::before {
   content: '';
   position: absolute;
@@ -31,18 +35,19 @@ $background-color: map.get($colors, background-blue);
   z-index: 2;
 }
 .contact__header {
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 3px 3px #42444892;
-    font-size: 3rem;
-    z-index: 2;
-    margin: 0;
-    padding: 25px 0 60px 0;
-  }
-.contact__map, .contact__form{
-  box-shadow:  0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px #42444892;
+  font-size: 3rem;
+  z-index: 2;
+  margin: 0;
+  padding: 25px 0 60px 0;
 }
-.contact__form{
+.contact__map,
+.contact__form {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.contact__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,45 +55,53 @@ $background-color: map.get($colors, background-blue);
   width: 33em;
   height: 40em;
 }
-.contact__form-container{
+.contact__form-container {
   display: flex;
   height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.contact__icons{
+.contact__icons {
   margin-top: 2em;
 }
-.contact__info{
+.contact__info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.contact__info-phone{
+.contact__info-phone {
   margin-top: 1em;
 }
-.contact__info-email{
+.contact__info-email {
   line-height: 40px;
   margin-bottom: 1.3em;
 }
-.contact__info-phone, .contact__info-email{
+.contact__info-phone,
+.contact__info-email {
   font-size: 1.1em;
   font-weight: 400;
   text-decoration: underline;
 }
 
-.contact__icons svg{
+.contact__icons svg {
   height: 30px;
   width: 30px;
 }
-.contact__icons svg:first-of-type{
+.contact__icons svg:first-of-type {
   margin-right: 1.4em;
 }
 
 @media screen and (max-width: 1180px) {
-  .contact__container{
+  .contact__container {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 580) {
+  .contact__container {
+    .contact__form {
+      max-width: 20em;
+    }
   }
 }
