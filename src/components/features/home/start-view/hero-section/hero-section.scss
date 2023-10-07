@@ -40,5 +40,27 @@
   text-align: center;
 }
 
+.hero-section__wave-shape {
+  display: none;
+}
+
 @media screen and (max-width: 1120px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-section__wave-shape {
+    position: absolute;
+    display: block;
+    width: 1200px;
+    height: 100%;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 930px) {
 }

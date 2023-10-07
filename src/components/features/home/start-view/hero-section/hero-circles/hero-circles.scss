@@ -1,4 +1,4 @@
-.about__image-circle {
+.hero-circles__desktop {
   position: absolute;
   z-index: 1;
 
@@ -14,4 +14,13 @@
     right: 0;
     bottom: 0;
   }
+}
+
+@media screen and (max-width: 1120px) {
+  .hero-circles__desktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 930px) {
 }

@@ -1,17 +1,15 @@
+import { FC } from 'react'
 import HollowCircle from '../../../../../shared/shapes/HollowCircle'
 import './hero-circles.scss'
-import {
-  MouseParallaxChild,
-} from 'react-parallax-mouse'
+import { MouseParallaxChild } from 'react-parallax-mouse'
 
-const CIRCLE_COLOR: string = '#70cabb'
-const CIRCLE_CLASS: string = 'about__image-circle'
+const CIRCLE_COLOR: string = '#0bb299'
 
-export const HeroDesktopCircles = () => {
+export const HeroDesktopCircles: FC = () => {
   return (
     <>
       <MouseParallaxChild
-        className={CIRCLE_CLASS}
+        className="hero-circles__desktop"
         factorX={-0.1}
         factorY={-0.3}
       >
@@ -25,7 +23,11 @@ export const HeroDesktopCircles = () => {
           opacity={0.8}
         />
       </MouseParallaxChild>
-      <MouseParallaxChild className={CIRCLE_CLASS} factorX={0.1} factorY={0.1}>
+      <MouseParallaxChild
+        className="hero-circles__desktop"
+        factorX={0.1}
+        factorY={0.1}
+      >
         <HollowCircle
           svgSize={290}
           cx={150}
@@ -36,7 +38,11 @@ export const HeroDesktopCircles = () => {
           opacity={0.8}
         />
       </MouseParallaxChild>
-      <MouseParallaxChild className={CIRCLE_CLASS} factorX={0.2} factorY={-0.3}>
+      <MouseParallaxChild
+        className="hero-circles__desktop"
+        factorX={0.2}
+        factorY={-0.3}
+      >
         <HollowCircle
           svgSize={200}
           cx={100}
@@ -49,4 +55,8 @@ export const HeroDesktopCircles = () => {
       </MouseParallaxChild>
     </>
   )
+}
+
+const HeroMobileCircles: FC = () => {
+  return <></>
 }

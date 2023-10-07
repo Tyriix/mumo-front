@@ -3,6 +3,7 @@ import MainButton from '../../../../shared/buttons/MainButton'
 import { MouseParallaxContainer } from 'react-parallax-mouse'
 import { HeroDesktopCircles } from './hero-circles/HeroCircles'
 import './hero-section.scss'
+import WaveShape from '../../../../shared/shapes/Wave'
 
 interface Props {
   refOffer: RefObject<HTMLDivElement>
@@ -13,6 +14,7 @@ const HeroSection: FC<Props> = ({ refOffer }) => {
     refOffer.current?.scrollIntoView({ behavior: 'smooth' })
 
   const BUTTON_TEXT = 'Sprawdź ofertę!'
+  const WAVE_COLORS = ['#7be5d5', '#21aa96']
 
   return (
     <MouseParallaxContainer
@@ -36,6 +38,11 @@ const HeroSection: FC<Props> = ({ refOffer }) => {
             className="hero-section__image"
             src="src/assets/images/hero_dog.png"
             alt="Picture of dog"
+          />
+          <WaveShape
+            className="hero-section__wave-shape"
+            colorTop={WAVE_COLORS[0]}
+            colorBottom={WAVE_COLORS[1]}
           />
           <HeroDesktopCircles />
         </div>
