@@ -1,0 +1,17 @@
+.about__image-circle {
+  position: absolute;
+  z-index: 1;
+
+  &:first-of-type {
+    right: 0px;
+    top: 0px;
+  }
+  &:nth-of-type(2) {
+    left: 0;
+    top: 0px;
+  }
+  &:nth-of-type(3) {
+    right: 0;
+    bottom: 0;
+  }
+}

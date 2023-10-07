@@ -13,8 +13,15 @@
   align-items: center;
 }
 
-.hero-section__graphic {
+.hero-section__graphic-container {
   display: flex;
+  justify-content: center;
+  position: relative;
+  width: 500px;
+}
+
+.hero-section__image {
+  z-index: 2;
 }
 
 .hero-section__button {
@@ -34,9 +41,4 @@
 }
 
 @media screen and (max-width: 1120px) {
-}
-
-.circles {
-  display: flex;
-  flex-direction: column;
 }

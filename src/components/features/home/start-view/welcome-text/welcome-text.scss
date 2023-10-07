@@ -67,7 +67,8 @@ $expanding-text-duration: 0.5s;
 
   .welcome-section__content.open {
     max-height: 200rem;
-    transition: max-height $expanding-text-duration cubic-bezier(0.9, 0, 0.8, 0.2);
+    transition: max-height $expanding-text-duration
+      cubic-bezier(0.9, 0, 0.8, 0.2);
   }
 
   .welcome-section__header {
