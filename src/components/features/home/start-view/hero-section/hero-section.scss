@@ -1,21 +1,42 @@
+@use 'sass:map';
+@import '../../../../../styles/helpers/variables';
+@import '../../../../../styles/helpers/mixins';
+
 .hero-section {
   display: flex;
   justify-content: center;
 }
 
 .hero-section__content {
-  border: 1px solid rgba(0, 0, 0, 0.458);
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-section__graphic {
-  border: 1px solid rgba(0, 0, 0, 0.458);
-  width: 500px;
+  display: flex;
 }
 
 .hero-section__button {
   font-size: 1.8rem;
+}
 
-  
-  
+.hero-section__header {
+  width: 600px;
+  background-color: map-get($colors, background-blue);
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(0, 255, 229, 0.217);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  font-size: 4rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 1120px) {
+}
+
+.circles {
+  display: flex;
+  flex-direction: column;
 }
