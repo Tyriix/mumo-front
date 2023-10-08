@@ -1,43 +1,71 @@
-import React, { FC } from 'react'
-import { Form } from 'react-router-dom';
+import { Form } from 'react-router-dom'
 import './contact-form.scss'
-interface Props {
-    onSubmit: (data: FormData) => void;
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+const schema = yup.object({
+  name: yup
+    .string()
+    .required('Proszę podać swoje imię.')
+    .matches(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i),
+  email: yup
+    .string()
+    .email('Proszę podać poprawny adres email.')
+    .required('Proszę podać swój adres email.'),
+  message: yup.string().required('Proszę podać swoją wiadomość.'),
+  agreeTerms: yup
+    .boolean()
+    .required('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.')
+    .oneOf(
+      [true],
+      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.'
+    ),
+})
+
+type FormData = yup.InferType<typeof schema>
+
+const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  })
+  const onSubmit = (data: FormData) => console.log(data)
+
+  return (
+    <Form className="form" onSubmit={handleSubmit(onSubmit)} method="post">
+      <div className="form__container">
+        <input type="text" placeholder="Imię" {...register('name')} />
+        <span className='form__error'>{errors.name?.message}</span>
+        <input type="email" placeholder="Email" {...register('email')} />
+        <span className='form__error'>{errors.email?.message}</span>
+        <textarea
+          placeholder="Wiadomość"
+          className="input__message"
+          {...register('message')}
+        />
+        <span className='form__error'>{errors.message?.message}</span>
+        <div className="checkbox__row">
+          <input
+            type="checkbox"
+            className="input__checkbox"
+            {...register('agreeTerms')}
+          />
+          <label className="checkbox__label">
+            Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+            udzielenia odpowiedzi na składaną wiadomość.
+          </label>
+        </div>
+        <span className='form__error'>{errors.agreeTerms?.message}</span>
+      </div>
+      <button type="submit" className="form__button">
+        Wyślij
+      </button>
+    </Form>
+  )
 }
 
-export interface FormData {
-    name: string,
-    email: string,
-    message: string
-}
-
-const ContactForm: FC<Props> = ({ onSubmit }) =>{
-    
-    const [formData, setFormData] = React.useState<FormData>({name: '', email: '', message: ''})
-
-    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>){
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value})
-    }
-
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>){
-        event.preventDefault();
-        onSubmit(formData);
-    }
-
-    return(    
-        <Form className='form' onSubmit={handleSubmit} method='post'>
-            <div className='form__container'>
-            <input type='text' name="name" placeholder='Imię' value={formData.name} onChange={handleInputChange} />
-            <input type='text' name='email' placeholder='Email' value={formData.email} onChange={handleInputChange}/>
-            <input type='text' name='message' className='input__message' value={formData.message} onChange={handleInputChange}/>
-            <div className='checkbox__row'>
-            <input type='checkbox' name='dataProcessing' className='input__checkbox' /> <label className='checkbox__label'>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na składaną wiadomość.</label>
-            </div>
-            </div>
-            <button type='submit' className='form__button'>Wyślij</button>
-        </Form>
-    )
-}
-
-export default ContactForm;
+export default ContactForm

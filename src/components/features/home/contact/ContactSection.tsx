@@ -1,12 +1,10 @@
-import ContactForm, {FormData} from './contact-form/ContactForm'
+import ContactForm from './contact-form/ContactForm'
 import ContactMap from './contact-map/ContactMap'
 import './contact-section.scss'
 import {FaFacebook, FaInstagram} from 'react-icons/fa'
 
 const ContactSection = () => {
-  function handleSubmit(data: FormData){
-    console.log(data);
-  }
+  
   return (
     <>
       <div className="contact">
@@ -25,7 +23,7 @@ const ContactSection = () => {
               <span className='contact__info-phone'><a href='tel:+48500083369'>(+48) 500-083-369</a></span>
               <span className='contact__info-email'><a href = "mailto:szkolenie.mumo@gmail.com">szkolenie.mumo@gmail.com</a></span>
             </div>
-            <ContactForm onSubmit={handleSubmit}></ContactForm>
+            <ContactForm></ContactForm>
             </div> 
           </div>
         </div>

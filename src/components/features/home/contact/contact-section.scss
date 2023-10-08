@@ -11,10 +11,7 @@ $background-color: map.get($colors, background-blue);
   background-color: $background-color;
   position: relative;
 }
-a {
-  text-decoration: none !important;
-  color: #000 !important;
-}
+
 .contact::before {
   content: '';
   position: absolute;
@@ -52,19 +49,34 @@ a {
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  width: 33em;
-  height: 40em;
+  max-width: 33em;
+  max-height: 46em;
+  justify-content: center;
 }
 .contact__form-container {
   display: flex;
-  height: 100%;
+  max-height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+  height: 2em !important;
+  width: 2em !important;
+}
 .contact__icons {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
   margin-top: 2em;
 }
+.contact__icons svg {
+  height: 2em;
+  width: 2em;
+}
+
 .contact__info {
   display: flex;
   flex-direction: column;
@@ -85,10 +97,7 @@ a {
   text-decoration: underline;
 }
 
-.contact__icons svg {
-  height: 30px;
-  width: 30px;
-}
+
 .contact__icons svg:first-of-type {
   margin-right: 1.4em;
 }
@@ -101,7 +110,7 @@ a {
 @media screen and (max-width: 580) {
   .contact__container {
     .contact__form {
-      max-width: 20em;
+      width: 20em;
     }
   }
 }
