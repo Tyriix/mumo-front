@@ -1,7 +1,10 @@
-import { FC, RefObject } from 'react'
+import { FC, RefObject, useState } from 'react'
 import MainButton from '../../../../shared/buttons/MainButton'
 import { MouseParallaxContainer } from 'react-parallax-mouse'
-import { HeroDesktopCircles } from './hero-circles/HeroCircles'
+import {
+  HeroDesktopCircles,
+  HeroMobileCircles,
+} from './hero-circles/HeroCircles'
 import './hero-section.scss'
 import WaveShape from '../../../../shared/shapes/Wave'
 
@@ -10,6 +13,8 @@ interface Props {
 }
 
 const HeroSection: FC<Props> = ({ refOffer }) => {
+  const [imageLoaded, setImageLoaded] = useState(false)
+
   const handleClick = () =>
     refOffer.current?.scrollIntoView({ behavior: 'smooth' })
 
@@ -32,12 +37,18 @@ const HeroSection: FC<Props> = ({ refOffer }) => {
             onClick={handleClick}
             content={BUTTON_TEXT}
           />
+          <HeroMobileCircles />
         </div>
         <div className="hero-section__graphic-container">
+          {imageLoaded ? null : (
+            <div className="hero-section__image-skeleton" />
+          )}
           <img
             className="hero-section__image"
             src="src/assets/images/hero_dog.png"
             alt="Picture of dog"
+            onLoad={() => setImageLoaded(true)}
+            style={imageLoaded ? {} : { display: 'none' }}
           />
           <WaveShape
             className="hero-section__wave-shape"

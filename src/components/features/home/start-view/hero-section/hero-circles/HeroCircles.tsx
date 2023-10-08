@@ -57,6 +57,54 @@ export const HeroDesktopCircles: FC = () => {
   )
 }
 
-const HeroMobileCircles: FC = () => {
-  return <></>
+export const HeroMobileCircles: FC = () => {
+  return (
+    <>
+      <MouseParallaxChild
+        className="hero-circles__mobile"
+        factorX={-0.1}
+        factorY={-0.3}
+      >
+        <HollowCircle
+          svgSize={110}
+          cx={60}
+          cy={60}
+          radius={40}
+          strokeWidth={20}
+          color={CIRCLE_COLOR}
+          opacity={0.3}
+        />
+      </MouseParallaxChild>
+      <MouseParallaxChild
+        className="hero-circles__mobile"
+        factorX={0.1}
+        factorY={0.1}
+      >
+        <HollowCircle
+          svgSize={290}
+          cx={145}
+          cy={145}
+          radius={120}
+          strokeWidth={45}
+          color={CIRCLE_COLOR}
+          opacity={0.35}
+        />
+      </MouseParallaxChild>
+      <MouseParallaxChild
+        className="hero-circles__mobile"
+        factorX={0.2}
+        factorY={-0.3}
+      >
+        <HollowCircle
+          svgSize={200}
+          cx={100}
+          cy={100}
+          radius={70}
+          strokeWidth={35}
+          color={CIRCLE_COLOR}
+          opacity={0.35}
+        />
+      </MouseParallaxChild>
+    </>
+  )
 }
