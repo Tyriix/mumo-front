@@ -1,54 +1,79 @@
-
-input, .input__message{
-    border: 1px solid #000;
-    width: 90%;
-    height: 2.4em;
-    margin-bottom: 2.2em;
-    box-sizing: border-box;
-    padding-left: 1em;
+input,
+.input__message {
+  border: 1px solid #000;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
 }
 
-::placeholder{
-    font-family: 'Raleway';
-  }
+::placeholder {
+  font-family: 'Raleway';
+}
 
-.form{
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input__message {
+  height: 14em;
+  resize: none;
+}
+.input__checkbox {
+  width: 1em;
+  height: 1em;
+}
+.checkbox__label {
+  font-size: 0.7em;
+}
+.checkbox__row {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+.form__button {
+  background-color: #46b8a7;
+  color: #fff;
+  width: 7em;
+  border-radius: 3.5em;
+  -webkit-border-radius: 3.5em;
+  -moz-border-radius: 3.5em;
+  -ms-border-radius: 3.5em;
+  -o-border-radius: 3.5em;
+  margin-bottom: 2em;
+}
+
+.form__error {
+  color: #cc0000;
+  font-size: 0.9em;
+}
+
+.input__alert-active{
+    border: 1px solid #cc0000;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+.textarea__alert-active{
+    border: 1px solid #cc0000;
+    resize: none;
+  width: 90%;
+  height: 14em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+.error__container{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-.form__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.input__message{
-    height: 14em;
-}
-.input__checkbox{
-    width: 1em;
-    height: 1em;
-}
-.checkbox__label{
-    font-size: 0.7em;
-}
-.checkbox__row{
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-}
-.form__button{
-    background-color: #46B8A7;
-    color: #fff;
-    width: 7em;
-    border-radius: 3.5em;
-    -webkit-border-radius: 3.5em;
-    -moz-border-radius: 3.5em;
-    -ms-border-radius: 3.5em;
-    -o-border-radius: 3.5em;
-    margin-bottom: 2em;
-}
-
-.form__error{
-    color: #cc0000;
+    width: 100%;
+    height: 2.2em;
 }

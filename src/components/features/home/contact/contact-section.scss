@@ -107,10 +107,15 @@ a {
     flex-direction: column;
   }
 }
-@media screen and (max-width: 580) {
+@media screen and (max-width: 580px) {
   .contact__container {
+    width: 20em;
     .contact__form {
       width: 20em;
+    }
+    .contact__map{
+      height: 25em;
+      width: 20em
     }
   }
 }

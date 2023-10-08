@@ -38,17 +38,24 @@ const ContactForm = () => {
   return (
     <Form className="form" onSubmit={handleSubmit(onSubmit)} method="post">
       <div className="form__container">
-        <input type="text" placeholder="Imię" {...register('name')} />
-        <span className='form__error'>{errors.name?.message}</span>
-        <input type="email" placeholder="Email" {...register('email')} />
-        <span className='form__error'>{errors.email?.message}</span>
+        <input type="text" placeholder="Imię" {...register('name')} className={errors.name ? 'input__alert-active': ''} />
+        <div className='error__container'>
+        <span className="form__error">{errors.name?.message}</span>
+        </div>        <input type="email" placeholder="Email" {...register('email')} className={errors.email ? 'input__alert-active': ''}/>
+        <div className='error__container'>
+        <span className="form__error">{errors.email?.message}</span>
+        </div>
         <textarea
           placeholder="Wiadomość"
-          className="input__message"
+          className={`input__message ${
+            errors.message ? 'textarea__alert-active' : ''
+          }`}
           {...register('message')}
+          
         />
-        <span className='form__error'>{errors.message?.message}</span>
-        <div className="checkbox__row">
+<div className='error__container'>
+        <span className="form__error">{errors.message?.message}</span>
+        </div>        <div className="checkbox__row">
           <input
             type="checkbox"
             className="input__checkbox"
@@ -59,8 +66,9 @@ const ContactForm = () => {
             udzielenia odpowiedzi na składaną wiadomość.
           </label>
         </div>
-        <span className='form__error'>{errors.agreeTerms?.message}</span>
-      </div>
+        <div className='error__container'>
+        <span className="form__error">{errors.agreeTerms?.message}</span>
+        </div>      </div>
       <button type="submit" className="form__button">
         Wyślij
       </button>
