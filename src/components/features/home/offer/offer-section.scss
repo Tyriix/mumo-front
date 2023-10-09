@@ -1,6 +1,5 @@
 @use 'sass:map';
 @import '../../../../styles/helpers/variables';
-@import '../../../../styles/helpers/mixins';
 
 $background-color: map.get($colors, background-blue);
 $section-padding: 20px 0 100px 0;
@@ -15,8 +14,17 @@ $section-padding: 20px 0 100px 0;
 }
 
 .offer::before {
-  @include pseudo-element-background;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('../../../../assets/images/offer-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.1;
 }
 
 .offer__cards-container {
