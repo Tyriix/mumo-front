@@ -1,3 +1,4 @@
+
 input,
 .input__message {
   border: 1px solid #000;
@@ -22,6 +23,8 @@ input,
   align-items: center;
 }
 .input__message {
+  color: #000;
+  font-family: 'Raleway';
   height: 14em;
   resize: none;
 }
@@ -52,6 +55,7 @@ input,
 .form__error {
   color: #cc0000;
   font-size: 0.9em;
+  text-align: center;
 }
 
 .input__alert-active{
@@ -76,4 +80,10 @@ input,
     align-items: center;
     width: 100%;
     height: 2.2em;
+}
+@media screen and (max-width: 580px) {
+  .form__error{
+    font-size: 0.8em;
+    margin-left: 0.1em;
+  }
 }
