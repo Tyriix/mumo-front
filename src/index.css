@@ -10,6 +10,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
+::placeholder {
+  font-family: 'Raleway';
+}
 a {
   font-weight: 500;
   color: #646cff;

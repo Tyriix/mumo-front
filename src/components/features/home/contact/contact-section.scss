@@ -2,7 +2,7 @@
 @import '../../../../styles/helpers/variables';
 
 $background-color: map.get($colors, background-blue);
-
+$text-shadow: map.get($colors, text-shadow);
 .contact {
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ $background-color: map.get($colors, background-blue);
 .contact__header {
   color: #ffffff;
   text-transform: uppercase;
-  text-shadow: 0 3px 3px #42444892;
+  text-shadow: 0 3px 3px $text-shadow;
   font-size: 3rem;
   z-index: 2;
   margin: 0;
@@ -60,17 +60,17 @@ $background-color: map.get($colors, background-blue);
   align-items: center;
   justify-content: center;
 }
-a {
-  text-decoration: none !important;
-  color: #000 !important;
-  height: 2em !important;
-  width: 2em !important;
-}
 .contact__icons {
   display: flex;
   flex-direction: row;
   gap: 2em;
   margin-top: 2em;
+}
+.contact__icons-link, .contact__info-link{
+  text-decoration: none;
+  color: #000;
+  height: 2em;
+  width: 2em;
 }
 .contact__icons svg {
   height: 2em;

@@ -16,12 +16,12 @@ const ContactSection = () => {
           <div className='contact__form'>
             <div className='contact__form-container'>
             <div className='contact__icons'>
-            <a href='https://www.facebook.com/tresertrzebnica'><FaFacebook /></a>
-            <a href='https://www.instagram.com/mumo_dogs/'><FaInstagram/></a>
+            <a className='contact__icons-link' href='https://www.facebook.com/tresertrzebnica'><FaFacebook /></a>
+            <a className='contact__icons-link' href='https://www.instagram.com/mumo_dogs/'><FaInstagram/></a>
             </div>
             <div className='contact__info'>
-              <span className='contact__info-phone'><a href='tel:+48500083369'>(+48) 500-083-369</a></span>
-              <span className='contact__info-email'><a href = "mailto:szkolenie.mumo@gmail.com">szkolenie.mumo@gmail.com</a></span>
+              <span className='contact__info-phone'><a className='contact__info-link' href='tel:+48500083369'>(+48) 500-083-369</a></span>
+              <span className='contact__info-email'><a className='contact__info-link' href = "mailto:szkolenie.mumo@gmail.com">szkolenie.mumo@gmail.com</a></span>
             </div>
             <ContactForm></ContactForm>
             </div> 
