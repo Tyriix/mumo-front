@@ -10,10 +10,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
-::placeholder {
+input, ::placeholder {
   font-family: 'Raleway';
   font-size: 1em;
 }
+
 a {
   font-weight: 500;
   color: #646cff;
