@@ -1,0 +1,21 @@
+$transition-duration: 0.3s;
+
+.arrow-chevron__up {
+  transform: rotate(-90deg);
+  transition: transform $transition-duration linear;
+}
+
+.arrow-chevron__right {
+  transform: rotate(0deg);
+  transition: transform $transition-duration linear;
+}
+
+.arrow-chevron__down {
+  transform: rotate(90deg);
+  transition: transform $transition-duration linear;
+}
+
+.arrow-chevron__left {
+  transform: rotate(180deg);
+  transition: transform $transition-duration linear;
+}
