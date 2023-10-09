@@ -1,7 +1,18 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react'
+import HomeOfferSection from '../../components/features/home/offer/OfferSection'
+import AboutSection from '../../components/features/home/about/AboutSection'
+import StartViewSection from '../../components/features/home/start-view/StartViewSection'
 
 const Homepage: FC = () => {
-  return <h1>Main Page</h1>;
-};
+  const refOffer = useRef<HTMLDivElement>(null)
 
-export default Homepage;
+  return (
+    <>
+      <StartViewSection refOffer={refOffer} />
+      <AboutSection />
+      <HomeOfferSection ref={refOffer} />
+    </>
+  )
+}
+
+export default Homepage

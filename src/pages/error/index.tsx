@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 const Error: FC = () => {
-  return <h1>Oh no, something went wrong.</h1>;
-};
+  return <h1>Oh no, something went wrong.</h1>
+}
 
-export default Error;
+export default Error
