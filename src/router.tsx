@@ -1,8 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Homepage from './pages/homepage'
-import Error from './pages/error'
+import { createBrowserRouter } from 'react-router-dom';
+import Homepage from './pages/homepage';
+import Error from './pages/error';
 
-export const NOT_FOUND_PATH = '/404'
+export const NOT_FOUND_PATH = '/404';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +14,6 @@ const router = createBrowserRouter([
     path: NOT_FOUND_PATH,
     element: <Error />,
   },
-])
+]);
 
-export default router
+export default router;
