@@ -1,6 +1,9 @@
+@use 'sass:map';
+@import '../../../../../styles/helpers/variables';
+$error_red: map.get($colors, error-red);
 
-input,
-.input__message {
+.contact-form__input,
+.contact-form__textarea-message {
   border: 1px solid #000;
   width: 90%;
   height: 2.4em;
@@ -8,39 +11,35 @@ input,
   padding-left: 1em;
 }
 
-::placeholder {
-  font-family: 'Raleway';
-}
-
-.form {
+.contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.form__container {
+.contact-form__container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.input__message {
+.contact-form__textarea-message {
   color: #000;
   font-family: 'Raleway';
   height: 14em;
   resize: none;
 }
-.input__checkbox {
+.contact-form__input-checkbox {
   width: 1em;
   height: 1em;
 }
-.checkbox__label {
+.contact-form__checkbox-label {
   font-size: 0.7em;
 }
-.checkbox__row {
+.contact-form__checkbox-row {
   display: flex;
   flex-direction: row;
   width: 90%;
 }
-.form__button {
+.contact-form__submit-button {
   background-color: #46b8a7;
   color: #fff;
   width: 7em;
@@ -52,37 +51,37 @@ input,
   margin-bottom: 2em;
 }
 
-.form__error {
-  color: #cc0000;
+.contact-form__error {
+  color: $error_red;
   font-size: 0.9em;
   text-align: center;
 }
 
-.input__alert-active{
-    border: 1px solid #cc0000;
+.contact-form__input-alert-active {
+  border: 1px solid $error_red;
   width: 90%;
   height: 2.4em;
   box-sizing: border-box;
   padding-left: 1em;
 }
 
-.textarea__alert-active{
-    border: 1px solid #cc0000;
-    resize: none;
+.contact-form__textarea-alert-active {
+  border: 1px solid $error_red;
+  resize: none;
   width: 90%;
   height: 14em;
   box-sizing: border-box;
   padding-left: 1em;
 }
-.error__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 2.2em;
+.contact-form__error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.2em;
 }
 @media screen and (max-width: 580px) {
-  .form__error{
+  .contact-form__error {
     font-size: 0.8em;
     margin-left: 0.1em;
   }

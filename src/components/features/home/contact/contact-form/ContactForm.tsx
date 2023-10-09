@@ -3,6 +3,7 @@ import './contact-form.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import * as classnames from 'classnames'
 
 const schema = yup.object({
   name: yup
@@ -33,43 +34,70 @@ const ContactForm = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (data: FormData) => console.log(data)
+  const onSubmit = (data: FormData) => {
+    return data
+  }
 
   return (
-    <Form className="form" onSubmit={handleSubmit(onSubmit)} method="post">
-      <div className="form__container">
-        <input type="text" placeholder="Imię" {...register('name')} className={errors.name ? 'input__alert-active': ''} />
-        <div className='error__container'>
-        <span className="form__error">{errors.name?.message}</span>
-        </div>        <input type="email" placeholder="Email" {...register('email')} className={errors.email ? 'input__alert-active': ''}/>
-        <div className='error__container'>
-        <span className="form__error">{errors.email?.message}</span>
+    <Form
+      className="contact-form"
+      onSubmit={handleSubmit(onSubmit)}
+      method="post"
+    >
+      <div className="contact-form__container">
+        <input
+          type="text"
+          placeholder="Imię"
+          {...register('name')}
+          className={classnames(
+            'contact-form__input',
+            errors.name && 'contact-form__input-alert-active'
+          )}
+        />
+        <div className="contact-form__error-container">
+          <span className="contact-form__error">{errors.name?.message}</span>
+        </div>{' '}
+        <input
+          type="email"
+          placeholder="Email"
+          {...register('email')}
+          className={classnames(
+            'contact-form__input',
+            errors.email && 'contact-form__input-alert-active'
+          )}
+        />
+        <div className="contact-form__error-container">
+          <span className="contact-form__error">{errors.email?.message}</span>
         </div>
         <textarea
           placeholder="Wiadomość"
-          className={`input__message ${
-            errors.message ? 'textarea__alert-active' : ''
-          }`}
+          className={classnames(
+            'contact-form__textarea-message',
+            errors.name && 'contact-form__textarea-alert-active'
+          )}
           {...register('message')}
-          
         />
-<div className='error__container'>
-        <span className="form__error">{errors.message?.message}</span>
-        </div>        <div className="checkbox__row">
+        <div className="contact-form__error-container">
+          <span className="contact-form__error">{errors.message?.message}</span>
+        </div>{' '}
+        <div className="contact-form__checkbox-row">
           <input
             type="checkbox"
-            className="input__checkbox"
+            className="contact-form__input-checkbox"
             {...register('agreeTerms')}
           />
-          <label className="checkbox__label">
+          <label className="contact-form__checkbox-label">
             Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
             udzielenia odpowiedzi na składaną wiadomość.
           </label>
         </div>
-        <div className='error__container'>
-        <span className="form__error">{errors.agreeTerms?.message}</span>
-        </div>      </div>
-      <button type="submit" className="form__button">
+        <div className="contact-form__error-container">
+          <span className="contact-form__error">
+            {errors.agreeTerms?.message}
+          </span>
+        </div>{' '}
+      </div>
+      <button type="submit" className="contact-form__submit-button">
         Wyślij
       </button>
     </Form>
