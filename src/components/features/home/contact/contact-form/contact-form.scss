@@ -1,0 +1,88 @@
+@use 'sass:map';
+@import '../../../../../styles/helpers/variables';
+$error_red: map.get($colors, error-red);
+
+.contact-form__input,
+.contact-form__textarea-message {
+  border: 1px solid #000;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form__textarea-message {
+  color: #000;
+  font-family: 'Raleway';
+  height: 14em;
+  resize: none;
+}
+.contact-form__input-checkbox {
+  width: 1em;
+  height: 1em;
+}
+.contact-form__checkbox-label {
+  font-size: 0.7em;
+}
+.contact-form__checkbox-row {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+.contact-form__submit-button {
+  background-color: #46b8a7;
+  color: #fff;
+  width: 7em;
+  border-radius: 3.5em;
+  -webkit-border-radius: 3.5em;
+  -moz-border-radius: 3.5em;
+  -ms-border-radius: 3.5em;
+  -o-border-radius: 3.5em;
+  margin-bottom: 2em;
+}
+
+.contact-form__error {
+  color: $error_red;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.contact-form__input-alert-active {
+  border: 1px solid $error_red;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+.contact-form__textarea-alert-active {
+  border: 1px solid $error_red;
+  resize: none;
+  width: 90%;
+  height: 14em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+.contact-form__error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.2em;
+}
+@media screen and (max-width: 580px) {
+  .contact-form__error {
+    font-size: 0.8em;
+    margin-left: 0.1em;
+  }
+}
