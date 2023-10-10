@@ -5,7 +5,7 @@ interface Props {
   cy: number
   className?: string
   radius: number
-  strokeWidth: number
+  strokeWidth?: number
   color: string
   svgSize: number
   opacity?: number
