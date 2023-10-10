@@ -1,8 +1,10 @@
-import { FC } from 'react'
+import { forwardRef } from 'react'
 import './offer-section.scss'
 import OfferCard from './offer-card/OfferCard'
 
-const HomeOfferSection: FC = () => {
+type Ref = HTMLDivElement
+
+const HomeOfferSection = forwardRef<Ref>((_, ref) => {
   const offerCards = [
     {
       title: 'Zajęcia indywidualne',
@@ -38,7 +40,7 @@ const HomeOfferSection: FC = () => {
   ]
 
   return (
-    <div className="offer">
+    <div ref={ref} className="offer">
       <h2 className="offer__header">Oferta</h2>
       <div className="offer__cards-container">
         {offerCards.map((offer, index) => (
@@ -52,6 +54,6 @@ const HomeOfferSection: FC = () => {
       </div>
     </div>
   )
-}
+})
 
 export default HomeOfferSection
