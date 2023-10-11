@@ -3,7 +3,8 @@ import './contact-form.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
+import MainButton from '../../../../components/buttons/MainButton'
 
 const schema = yup.object({
   name: yup
@@ -56,7 +57,7 @@ const ContactForm = () => {
         />
         <div className="contact-form__error-container">
           <span className="contact-form__error">{errors.name?.message}</span>
-        </div>{' '}
+        </div>
         <input
           type="email"
           placeholder="Email"
@@ -79,7 +80,7 @@ const ContactForm = () => {
         />
         <div className="contact-form__error-container">
           <span className="contact-form__error">{errors.message?.message}</span>
-        </div>{' '}
+        </div>
         <div className="contact-form__checkbox-row">
           <input
             type="checkbox"
@@ -95,11 +96,13 @@ const ContactForm = () => {
           <span className="contact-form__error">
             {errors.agreeTerms?.message}
           </span>
-        </div>{' '}
+        </div>
       </div>
-      <button type="submit" className="contact-form__submit-button">
-        Wyślij
-      </button>
+      <MainButton
+        type="submit"
+        className="contact-form__submit-button"
+        content={'Wyślij'}
+      />
     </Form>
   )
 }
