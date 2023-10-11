@@ -21,7 +21,7 @@ $expanding-text-duration: 0.5s;
 }
 
 .welcome-section__content {
-  width: 75%;
+  width: 1100px;
   padding-left: 1em;
   padding-bottom: 0.5em;
   z-index: 2;
@@ -48,7 +48,11 @@ $expanding-text-duration: 0.5s;
   display: none;
 }
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1120px) and (min-width: 930px) {
+  .welcome-section__content {
+    width: 750px;
+  }
+
   .welcome-section__header {
     font-size: 2.4rem;
   }
@@ -60,6 +64,7 @@ $expanding-text-duration: 0.5s;
 
 @media screen and (max-width: 930px) {
   .welcome-section__content {
+    width: 80%;
     max-height: 510px;
     overflow: hidden;
     transition: max-height $expanding-text-duration cubic-bezier(0, 0, 0, 1);
