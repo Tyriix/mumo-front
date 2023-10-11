@@ -1,4 +1,4 @@
-import HollowCircle from '../../../../shared/shapes/HollowCircle'
+import HollowCircle from '../../../../components/shapes/HollowCircle'
 
 const CIRCLE_COLOR: string = '#8dd9cc'
 const CIRCLE_CLASS: string = 'about__image-circle'

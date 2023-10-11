@@ -1,6 +1,6 @@
 @use 'sass:map';
-@import '../../../../../styles/helpers/variables';
-@import '../../../../../styles/helpers/mixins';
+@import '../../../../styles/helpers/variables';
+@import '../../../../styles/helpers/mixins';
 
 .hero-section {
   display: flex;
@@ -26,7 +26,6 @@
 }
 
 .hero-section__image-skeleton {
-  //background: red;
   z-index: 2;
   height: 544px;
   width: 500px;

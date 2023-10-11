@@ -1,6 +1,6 @@
 @use 'sass:map';
-@import '../../../../../styles/helpers/variables';
-@import '../../../../../styles/helpers/mixins';
+@import '../../../../styles/helpers/variables';
+@import '../../../../styles/helpers/mixins';
 
 $font-color: #ffffff;
 $expanding-text-duration: 0.5s;
@@ -17,7 +17,7 @@ $expanding-text-duration: 0.5s;
 
 .welcome-section::after {
   @include pseudo-element-background;
-  background-image: url('../../../../../assets/images/start-background.jpg');
+  background-image: url('../../../../assets/images/start-background.jpg');
 }
 
 .welcome-section__content {

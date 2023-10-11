@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import '../../../../styles/helpers/variables';
+@import '../../../styles/helpers/variables';
 
 $header-color: map-get($colors, header-blue);
 $header-underline-color: rgb(156, 224, 214);

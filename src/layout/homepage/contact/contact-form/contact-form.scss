@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import '../../../../../styles/helpers/variables';
+@import '../../../../styles/helpers/variables';
 $error_red: map.get($colors, error-red);
 
 .contact-form__input,

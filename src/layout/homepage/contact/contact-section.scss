@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import '../../../../styles/helpers/variables';
+@import '../../../styles/helpers/variables';
 
 $background-color: map.get($colors, background-blue);
 $text-shadow: map.get($colors, text-shadow);
@@ -19,7 +19,7 @@ $text-shadow: map.get($colors, text-shadow);
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../../../assets/images/contact-background.jpg');
+  background-image: url('../../../assets/images/contact-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

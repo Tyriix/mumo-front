@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import HollowCircle from '../../../../../shared/shapes/HollowCircle'
+import HollowCircle from '../../../../../components/shapes/HollowCircle'
 import './hero-circles.scss'
 import { MouseParallaxChild } from 'react-parallax-mouse'
 

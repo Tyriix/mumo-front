@@ -1,12 +1,12 @@
 import { FC, RefObject, useState } from 'react'
-import MainButton from '../../../../shared/buttons/MainButton'
+import MainButton from '../../../../components/buttons/MainButton'
 import { MouseParallaxContainer } from 'react-parallax-mouse'
 import {
   HeroDesktopCircles,
   HeroMobileCircles,
 } from './hero-circles/HeroCircles'
 import './hero-section.scss'
-import WaveShape from '../../../../shared/shapes/Wave'
+import WaveShape from '../../../../components/shapes/Wave'
 
 interface Props {
   refOffer: RefObject<HTMLDivElement>
