@@ -49,6 +49,7 @@ const HeroSection: FC<Props> = ({ refOffer }) => {
             alt="Picture of dog"
             onLoad={() => setImageLoaded(true)}
             style={imageLoaded ? {} : { display: 'none' }}
+            draggable="false"
           />
           <WaveShape
             className="hero-section__wave-shape"

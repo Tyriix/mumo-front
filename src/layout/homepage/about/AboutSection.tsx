@@ -48,21 +48,21 @@ const AboutSection = () => {
               className="about__image"
               src={ABOUT_IMAGES[0].src}
               alt={ABOUT_IMAGES[0].alt}
-            ></img>
+              draggable="false"
+            />
             <div className="about__image-circles">
               <CirclesFirst />
             </div>
           </div>
         </div>
         <div className="about__block">
-          <div
-            className="about__image-container about__image-second"
-          >
+          <div className="about__image-container about__image-second">
             <img
               className="about__image"
               src={ABOUT_IMAGES[1].src}
               alt={ABOUT_IMAGES[1].alt}
-            ></img>
+              draggable="false"
+            />
             <div className="about__image-circles">
               <CirclesSecond />
             </div>
@@ -99,14 +99,13 @@ const AboutSection = () => {
               </p>
             </Fade>
           </div>
-          <div
-            className="about__image-container about__image-third"
-          >
+          <div className="about__image-container about__image-third">
             <img
               className="about__image"
               src={ABOUT_IMAGES[2].src}
               alt={ABOUT_IMAGES[2].alt}
-            ></img>
+              draggable="false"
+            />
             <div className="about__image-circles">
               <CirclesThird />
             </div>
