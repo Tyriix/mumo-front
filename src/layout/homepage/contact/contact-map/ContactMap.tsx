@@ -11,7 +11,7 @@ const ContactMap = () => {
     id: 'google-map-script',
     googleMapsApiKey: 'YOUR_API_KEY',
   })
-  
+
   return (
     <>
       {isLoaded ? (

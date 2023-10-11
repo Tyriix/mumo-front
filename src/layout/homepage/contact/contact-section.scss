@@ -46,8 +46,9 @@ $text-shadow: map.get($colors, text-shadow);
   align-items: center;
   background-color: #ffffff;
   max-width: 33em;
-  max-height: 46em;
+  max-height: 47em;
   justify-content: center;
+  padding: 1em 0;
 }
 
 .contact__form-container {
@@ -62,7 +63,7 @@ $text-shadow: map.get($colors, text-shadow);
   display: flex;
   flex-direction: row;
   gap: 2em;
-  margin-top: 2em;
+  padding-top: 2rem;
 }
 
 .contact__icons-link,

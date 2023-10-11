@@ -48,6 +48,7 @@ $error_red: map.get($colors, error-red);
 
 .contact-form__submit-button {
   width: 7em;
+  font-size: 1.2rem;
 }
 
 .contact-form__error {
@@ -78,6 +79,11 @@ $error_red: map.get($colors, error-red);
   align-items: center;
   height: 2.2em;
   width: 90%;
+}
+
+.contact-form_label {
+  width: 90%;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 580px) {

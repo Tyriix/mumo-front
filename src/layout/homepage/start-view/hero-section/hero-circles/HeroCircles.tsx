@@ -2,7 +2,7 @@ import { FC } from 'react'
 import HollowCircle from '../../../../../components/shapes/HollowCircle'
 import './hero-circles.scss'
 import { MouseParallaxChild } from 'react-parallax-mouse'
-import { HOMEPAGE_CIRCLES_COLOR } from '../../../../../models/variables'
+import { HOMEPAGE_CIRCLES_COLOR } from '../../../../../models/constants'
 
 export const HeroDesktopCircles: FC = () => {
   return (
