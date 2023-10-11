@@ -5,27 +5,9 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import classnames from 'classnames'
 import MainButton from '../../../../components/buttons/MainButton'
+import { homeContactSchema } from '../../../../models/schemas.yup'
 
-const schema = yup.object({
-  name: yup
-    .string()
-    .required('Proszę podać swoje imię.')
-    .matches(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i),
-  email: yup
-    .string()
-    .email('Proszę podać poprawny adres email.')
-    .required('Proszę podać swój adres email.'),
-  message: yup.string().required('Proszę podać swoją wiadomość.'),
-  agreeTerms: yup
-    .boolean()
-    .required('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.')
-    .oneOf(
-      [true],
-      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.'
-    ),
-})
-
-type FormData = yup.InferType<typeof schema>
+type FormData = yup.InferType<typeof homeContactSchema>
 
 const ContactForm = () => {
   const {
@@ -33,7 +15,7 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(homeContactSchema),
   })
   const onSubmit = (data: FormData) => {
     return data

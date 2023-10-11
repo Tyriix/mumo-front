@@ -17,36 +17,42 @@ $error_red: map.get($colors, error-red);
   align-items: center;
   padding-bottom: 40px;
 }
+
 .contact-form__container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .contact-form__textarea-message {
   color: #000;
   font-family: 'Raleway';
   height: 14em;
   resize: none;
 }
+
 .contact-form__input-checkbox {
   width: 1em;
   height: 1em;
 }
+
 .contact-form__checkbox-label {
   font-size: 0.7em;
 }
+
 .contact-form__checkbox-row {
   display: flex;
   flex-direction: row;
   width: 90%;
 }
+
 .contact-form__submit-button {
   width: 7em;
 }
 
 .contact-form__error {
   color: $error_red;
-  font-size: 0.9em;
+  font-size: 0.7em;
   text-align: center;
 }
 
@@ -66,13 +72,14 @@ $error_red: map.get($colors, error-red);
   box-sizing: border-box;
   padding-left: 1em;
 }
+
 .contact-form__error-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
   height: 2.2em;
+  width: 90%;
 }
+
 @media screen and (max-width: 580px) {
   .contact-form__error {
     font-size: 0.8em;
