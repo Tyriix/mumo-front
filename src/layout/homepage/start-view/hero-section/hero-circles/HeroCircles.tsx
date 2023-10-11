@@ -2,8 +2,7 @@ import { FC } from 'react'
 import HollowCircle from '../../../../../components/shapes/HollowCircle'
 import './hero-circles.scss'
 import { MouseParallaxChild } from 'react-parallax-mouse'
-
-const CIRCLE_COLOR: string = '#0bb299'
+import { HOMEPAGE_CIRCLES_COLOR } from '../../../../../models/variables'
 
 export const HeroDesktopCircles: FC = () => {
   return (
@@ -19,8 +18,8 @@ export const HeroDesktopCircles: FC = () => {
           cy={60}
           radius={40}
           strokeWidth={20}
-          color={CIRCLE_COLOR}
-          opacity={0.8}
+          color={HOMEPAGE_CIRCLES_COLOR}
+          opacity={0.6}
         />
       </MouseParallaxChild>
       <MouseParallaxChild
@@ -34,8 +33,8 @@ export const HeroDesktopCircles: FC = () => {
           cy={145}
           radius={120}
           strokeWidth={45}
-          color={CIRCLE_COLOR}
-          opacity={0.8}
+          color={HOMEPAGE_CIRCLES_COLOR}
+          opacity={0.7}
         />
       </MouseParallaxChild>
       <MouseParallaxChild
@@ -49,8 +48,8 @@ export const HeroDesktopCircles: FC = () => {
           cy={100}
           radius={70}
           strokeWidth={35}
-          color={CIRCLE_COLOR}
-          opacity={0.8}
+          color={HOMEPAGE_CIRCLES_COLOR}
+          opacity={0.7}
         />
       </MouseParallaxChild>
     </>
@@ -71,7 +70,7 @@ export const HeroMobileCircles: FC = () => {
           cy={60}
           radius={40}
           strokeWidth={20}
-          color={CIRCLE_COLOR}
+          color={HOMEPAGE_CIRCLES_COLOR}
           opacity={0.3}
         />
       </MouseParallaxChild>
@@ -86,7 +85,7 @@ export const HeroMobileCircles: FC = () => {
           cy={145}
           radius={120}
           strokeWidth={45}
-          color={CIRCLE_COLOR}
+          color={HOMEPAGE_CIRCLES_COLOR}
           opacity={0.35}
         />
       </MouseParallaxChild>
@@ -101,7 +100,7 @@ export const HeroMobileCircles: FC = () => {
           cy={100}
           radius={70}
           strokeWidth={35}
-          color={CIRCLE_COLOR}
+          color={HOMEPAGE_CIRCLES_COLOR}
           opacity={0.35}
         />
       </MouseParallaxChild>

@@ -1,6 +1,6 @@
 import { FC, useRef, useState } from 'react'
 import ArrowChevron from '../../../../components/shapes/arrows/ArrowChevron'
-import { Direction } from '../../../../models/app.enums'
+import { Direction } from '../../../../models/enums'
 import classnames from 'classnames'
 import './welcome-text.scss'
 

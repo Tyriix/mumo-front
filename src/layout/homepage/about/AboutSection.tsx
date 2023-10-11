@@ -50,9 +50,7 @@ const AboutSection = () => {
               alt={ABOUT_IMAGES[0].alt}
               draggable="false"
             />
-            <div className="about__image-circles">
-              <CirclesFirst />
-            </div>
+            <CirclesFirst />
           </div>
         </div>
         <div className="about__block">
@@ -63,9 +61,7 @@ const AboutSection = () => {
               alt={ABOUT_IMAGES[1].alt}
               draggable="false"
             />
-            <div className="about__image-circles">
-              <CirclesSecond />
-            </div>
+            <CirclesSecond />
           </div>
           <div className="about__content">
             <h2 className="about__content-header">szkolenie</h2>
@@ -106,9 +102,7 @@ const AboutSection = () => {
               alt={ABOUT_IMAGES[2].alt}
               draggable="false"
             />
-            <div className="about__image-circles">
-              <CirclesThird />
-            </div>
+            <CirclesThird />
           </div>
         </div>
       </div>
