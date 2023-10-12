@@ -1,8 +1,12 @@
 @use 'sass:map';
 
 $colors: (
+  'header-blue': #23a491,
+  'background-blue': #13937f,
+  'hover-blue': #16a792,
+  'error-red': #cc0000,
+  'text-shadow': #42444892,
   'white': #e2e2e2,
-  'background-blue': #73cdc0,
   'light-gray': #5a5a5a,
   'dark-gray': #413b3b,
 );

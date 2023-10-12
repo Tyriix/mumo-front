@@ -1,0 +1,44 @@
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
+@import '../../../styles/helpers/mixins';
+
+$background-color: map.get($colors, background-blue);
+$section-padding: 20px 0 100px 0;
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $section-padding;
+  background-color: $background-color;
+  position: relative;
+}
+
+.offer::before {
+  @include pseudo-element-background;
+  background-image: url('../../../assets/images/offer-background.png');
+}
+
+.offer__cards-container {
+  display: flex;
+  gap: 50px;
+  z-index: 2;
+}
+
+.offer__header {
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px #42444892;
+  font-size: 3rem;
+  z-index: 2;
+  margin: 0;
+  padding: 25px 0 60px 0;
+}
+
+@media screen and (max-width: 930px) {
+  .offer__cards-container {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+}

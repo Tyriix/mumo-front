@@ -1,0 +1,30 @@
+@use 'sass:map';
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.main-button {
+  color: #ffffff;
+  background-color: map-get($colors, background-blue);
+  border-radius: 10em;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 4px 0px inset;
+  transition:
+    background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+    box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+
+  &:active {
+    outline: none;
+    border: none;
+  }
+  &:focus {
+    outline: 0;
+    border: none;
+  }
+
+  &:hover {
+    border: none;
+    background-color: map-get($colors, hover-blue);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    scale: 1.05;
+  }
+}
