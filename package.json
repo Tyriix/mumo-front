@@ -17,7 +17,6 @@
     "classnames": "^2.3.2",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
-    "react-awesome-reveal": "^4.2.5",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-icons": "^4.11.0",
@@ -33,11 +32,9 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.49.0",
-    "eslint-plugin-react": "^7.33.2",
+    "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "prettier": "3.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }

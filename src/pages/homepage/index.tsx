@@ -17,4 +17,4 @@ const Homepage: FC = () => {
   )
 }
 
-export default Homepage
+export default Homepage;
