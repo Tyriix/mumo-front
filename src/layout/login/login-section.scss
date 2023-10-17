@@ -1,0 +1,26 @@
+@use 'sass:map';
+@import '../../styles/helpers/variables';
+
+$light-gray: map.get($colors, light-gray);
+$background-blue: map.get($colors, background-blue);
+$border-gray: map.get($colors, border-gray);
+
+.login{
+
+    max-width: 55%;
+    border-right: 2px solid $border-gray;
+}
+
+.login__header{
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.login__text{
+    color: $light-gray;
+    font-weight: 300;
+}
+.login__text-accent{
+    color: $background-blue;
+    font-weight: 500;
+}

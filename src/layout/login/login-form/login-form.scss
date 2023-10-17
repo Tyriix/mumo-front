@@ -1,0 +1,46 @@
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
+
+$input-gray: map.get($colors, input-gray);
+$facebook-blue: map.get($colors, facebook-blue);
+$light-gray: map.get($colors, light-gray);
+$placeholder-gray: map.get($colors, placeholder-gray);
+
+.login-form__container{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.login-form__button-icon-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form__input{
+    width: 30em;
+    height: 3.5em;
+    border: 0em;
+    background-color: $input-gray;
+    margin-bottom: 2em;
+}
+
+::placeholder{
+    padding-left: 1.5em;
+    color: $placeholder-gray;
+    font-size: 1.2em;
+    font-weight: 200;
+}
+.login-form__icon-facebook{
+    color: $facebook-blue;
+}
+.login-form__icon{
+    font-size: 2.3em;
+}
+.login-form__text{
+    color: $light-gray;
+    font-weight: 300;
+}
