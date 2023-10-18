@@ -1,11 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-
-  color: #fff;
+  justify-content: space-between;
   position: relative;
+  padding: 1em 5em;
 }
 
 .header__logo {
@@ -45,6 +43,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   background-color: aquamarine;
+  display: none;
 }
 
 .header__close-icon {
