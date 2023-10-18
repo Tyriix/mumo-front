@@ -6,21 +6,102 @@ $background-blue: map.get($colors, background-blue);
 $border-gray: map.get($colors, border-gray);
 
 .login{
-
-    max-width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+.login__column-first{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15em;
+    width: 40%;
     border-right: 2px solid $border-gray;
 }
-
+.login__column-second{
+    display: flex;
+    justify-content: flex-end;
+    width: 55%;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 3em;
+    overflow: hidden;
+}
 .login__header{
     font-size: 3em;
     font-weight: 400;
+    margin-top: 0px;
 }
 
 .login__text{
     color: $light-gray;
     font-weight: 300;
 }
+.login__list{
+    width: 35em;
+    font-size: 1em;
+    line-height: 2.7em;
+    margin-right: 3em;
+    white-space: nowrap;
+}
 .login__text-accent{
     color: $background-blue;
     font-weight: 500;
+}
+.login__image-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 700px;
+}
+.login__image-skeleton{
+    display: flex;
+    width: 300px;
+    height: 600px;
+    position:absolute;
+    overflow: hidden;
+    padding-right: 14em;
+}
+.login__image-circle{
+    position: absolute;
+    border-radius: 864px;
+    z-index: -1;
+    margin-top: 14em;
+    width: 868px;
+    height: 868px;
+    background-color: $background-blue;
+    -webkit-border-radius: 864px;
+    -moz-border-radius: 864px;
+    -ms-border-radius: 864px;
+    -o-border-radius: 864px;
+}
+.login__image{
+    position: absolute;
+}
+
+@media screen and (max-width: 1120px)
+{
+    .login{
+        flex-direction: column;
+    }
+    .login__column-first{
+        margin-left: 0px;
+        width: 55%;
+        border-right: 0px;
+    }
+    .login__column-second{
+        margin-left: 0px;
+    }
+    .login__image-circle{
+        display: none;
+    }
+    .login__image-container{
+        width: 30em;
+    }
+    .login__image-skeleton{
+        padding-right: 0px;
+    }
 }

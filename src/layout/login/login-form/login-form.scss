@@ -9,7 +9,9 @@ $placeholder-gray: map.get($colors, placeholder-gray);
 .login-form__container{
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    max-width: 30em;
+    margin-bottom: 6em;
+    margin-right: 3em;
 }
 
 .login-form__button-icon-row{
@@ -21,18 +23,20 @@ $placeholder-gray: map.get($colors, placeholder-gray);
 }
 
 .login-form__input{
-    width: 30em;
-    height: 3.5em;
+    height: 4em;
     border: 0em;
     background-color: $input-gray;
     margin-bottom: 2em;
 }
 
 ::placeholder{
-    padding-left: 1.5em;
     color: $placeholder-gray;
     font-size: 1.2em;
     font-weight: 200;
+}
+.login-form__icons{
+    display: flex;
+    flex-direction: row;
 }
 .login-form__icon-facebook{
     color: $facebook-blue;
@@ -40,7 +44,36 @@ $placeholder-gray: map.get($colors, placeholder-gray);
 .login-form__icon{
     font-size: 2.3em;
 }
+.login-form__icon:nth-child(2){
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
 .login-form__text{
+
     color: $light-gray;
     font-weight: 300;
+}
+.login-form__submit-button{
+    height: 3.5em;
+    width: 9em;
+    font-weight: 600;
+}
+input[type='email']{
+    padding-left: 1.5em;
+}
+input[type='password']{
+    padding-left: 1.5em;
+}
+
+@media screen and (max-width: 1120px)
+{
+    .login-form__container{
+        max-width: 100%;
+        margin-left: 0px;
+        
+    }
+    .login-form__input{
+        height: 4.5em;
+    }
+    
 }

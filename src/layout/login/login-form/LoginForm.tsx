@@ -51,8 +51,11 @@ const LoginForm = () => {
       <span className='login-form__text'>
         Lub zaloguj się przez:
       </span>
+      <div className='login-form__icons'>
       <FaFacebook className='login-form__icon login-form__icon-facebook'/>
       <FcGoogle className='login-form__icon'/>
+      </div>
+      
         </div>
         
         </div>
