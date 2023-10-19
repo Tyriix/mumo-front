@@ -1,10 +1,15 @@
 import { FC } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import './navbar.scss';
+import classNames from 'classnames';
 
-const Navbar: FC = () => {
+interface Props {
+  className?: string;
+}
+
+const Navbar: FC<Props> = ({ className }) => {
   return (
-    <div className='navbar'>
+    <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
         <a className='navbar__element-link' href='#'>
           Główna

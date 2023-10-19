@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import './navbar-desktop.scss';
 import Navbar from '../Navbar';
+import './navbar-desktop.scss';
 
 const NavbarDesktop: FC = () => {
   return (
-    <>
+    <div className='navbar-desktop'>
       <Navbar />
-    </>
+    </div>
   );
 };
 

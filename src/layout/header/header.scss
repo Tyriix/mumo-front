@@ -1,8 +1,13 @@
+$logo-size: 120px;
+
+.header__container {
+  position: relative;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
   padding: 1em 5em;
 }
 
@@ -12,8 +17,8 @@
 }
 
 .header__logo-img {
-  width: 120px;
-  height: 120px;
+  width: $logo-size;
+  height: $logo-size;
 }
 
 .header__logo-name {
@@ -57,4 +62,43 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+@media screen and (min-width: 1600px) {
+  .header__box {
+    display: flex;
+    justify-content: center;
+  }
+  .header {
+    padding: 1em 0;
+    width: 1250px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  // .header__hamburger-icon {
+  //   display: block;
+  // }
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  // .header__hamburger-icon {
+  //   display: block;
+  // }
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .header {
+    padding-bottom: 0px;
+  }
 }

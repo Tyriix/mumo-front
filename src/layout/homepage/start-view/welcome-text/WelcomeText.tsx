@@ -1,25 +1,25 @@
-import { FC, useRef, useState } from 'react'
-import ArrowChevron from '../../../../components/shapes/arrows/ArrowChevron'
-import { Direction } from '../../../../models/enums'
-import classnames from 'classnames'
-import './welcome-text.scss'
+import { FC, useRef, useState } from 'react';
+import ArrowChevron from '../../../../components/shapes/arrows/ArrowChevron';
+import { Direction } from '../../../../models/enums';
+import classnames from 'classnames';
+import './welcome-text.scss';
 
 const WelcomeText: FC = () => {
-  const [clamped, setClamped] = useState(true)
-  const ref = useRef<null | HTMLDivElement>(null)
+  const [clamped, setClamped] = useState(true);
+  const ref = useRef<null | HTMLDivElement>(null);
 
   const handleClick = () => {
-    setClamped(!clamped)
-    if (!clamped) ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+    setClamped(!clamped);
+    if (!clamped) ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className="welcome-section">
+    <div className='welcome-section'>
       <div
         ref={ref}
         className={classnames('welcome-section__content', !clamped && 'open')}
       >
-        <h3 className="welcome-section__header">Witaj!</h3>
+        <h3 className='welcome-section__header'>Witaj!</h3>
         <p className={classnames('welcome-section__text', clamped && 'clamp')}>
           Zrobiłeś już pierwszy krok do naprawienia lub stworzenia relacji ze
           swoim psem.
@@ -42,7 +42,7 @@ const WelcomeText: FC = () => {
         </p>
       </div>
       <button
-        className="welcome-section__button"
+        className='welcome-section__button'
         onClick={handleClick}
         aria-label={clamped ? 'Read more' : 'Read less'}
       >
@@ -52,7 +52,7 @@ const WelcomeText: FC = () => {
         />
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default WelcomeText
+export default WelcomeText;
