@@ -1,14 +1,14 @@
 import { Form } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./login-form.scss";
+import * as yup from 'yup'
 import MainButton from "../../../components/buttons/MainButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { loginFormSchema } from "../../../models/schemas.yup";
 
-type FormData = {
-  email: string;
-  password: string;
-};
+type FormData = yup.InferType<typeof loginFormSchema>
+
 const LoginForm = () => {
   const {
     register,
