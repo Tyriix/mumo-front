@@ -1,0 +1,21 @@
+.register {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+  .register__container {
+    display: flex;
+  }
+  .register__section-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .register__header {
+      font-size: 3em;
+      font-weight: 400;
+      margin-top: 0px;
+    }

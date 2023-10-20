@@ -1,0 +1,21 @@
+@use "sass:map";
+@import "../../../styles/helpers/variables";
+
+$input-gray: map.get($colors, input-gray);
+$facebook-blue: map.get($colors, facebook-blue);
+$light-gray: map.get($colors, light-gray);
+$placeholder-gray: map.get($colors, placeholder-gray);
+
+.register__form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 30em;
+    margin-bottom: 6em;
+    margin-right: 3em;
+  }
+  .register__form-input {
+    height: 4em;
+    border: 0em;
+    background-color: $input-gray;
+    margin-bottom: 2em;
+  }
