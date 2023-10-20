@@ -3,19 +3,59 @@
 
 $input-gray: map.get($colors, input-gray);
 $facebook-blue: map.get($colors, facebook-blue);
-$light-gray: map.get($colors, light-gray);
-$placeholder-gray: map.get($colors, placeholder-gray);
-
-.register__form-container {
+$error_red: map.get($colors, error-red);
+.register-form {
     display: flex;
     flex-direction: column;
-    max-width: 30em;
-    margin-bottom: 6em;
+    align-items: center;
+  }
+.register-form__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 30em;
+
+}
+.register-form__input-label__container{
+    display: flex;
+    align-items: center;
+    
+}
+.register-form__input {
+  height: 4em;
+  border: 0em;
+  background-color: $input-gray;
+  flex-grow: 1;
+}
+
+.register-form__input-row{
+    display: flex;
+    flex-direction: column;
+}
+.register-form__label{
+    float: left;
+    width: 10em;
+    white-space: nowrap;
+    text-align: right;
     margin-right: 3em;
-  }
-  .register__form-input {
-    height: 4em;
-    border: 0em;
-    background-color: $input-gray;
-    margin-bottom: 2em;
-  }
+}
+.register-form__error-container {
+  display: flex;
+  align-items: center;
+  height: 2.2em;
+  width: 90%;
+}
+
+.register-form__error {
+  color: $error_red;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.register-form__input-alert-active {
+  border: 1px solid $error_red;
+}
+.register-form__checkbox-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
