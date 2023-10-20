@@ -62,12 +62,6 @@ $placeholder-gray: map.get($colors, placeholder-gray);
 .login__form-wave-shape{
   display: none;
 }
-input[type="email"] {
-  padding-left: 1.5em;
-}
-input[type="password"] {
-  padding-left: 1.5em;
-}
 
 @media screen and (max-width: 1180px) {
   .login__form-container {
