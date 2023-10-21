@@ -39,3 +39,33 @@
 .navbar__element-link:hover::before {
   height: 3px;
 }
+
+@media screen and (max-width: 755px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__element {
+    display: flex;
+    justify-content: center;
+    border-bottom: #0000001a solid 1px;
+    width: 100%;
+    padding: 0.5em 0;
+  }
+
+  .navbar__element-link::before {
+    content: none;
+  }
+
+  .navbar__element-link {
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: #000000;
+  }
+
+  .navbar__login-button {
+    font-size: 1.3rem;
+    width: 180px;
+    margin-top: 1em;
+  }
+}

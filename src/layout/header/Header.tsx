@@ -1,10 +1,10 @@
 import { FC, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import './header.scss';
 import classNames from 'classnames';
 import NavbarMobile from './navbar/navbar-mobile/NavbarMobile';
 import NavbarDesktop from './navbar/navbar-dekstop/NavbarDesktop';
 import MediaHeader from './media-header/MediaHeader';
+import './header.scss';
 
 const TRANSITION_DURATION = 300;
 
@@ -19,7 +19,7 @@ const Header: FC = () => {
   return (
     <>
       <div className='header__container'>
-        <MediaHeader className='header__media' />
+        <MediaHeader className='header__media-desktop' />
         <div className='header__box'>
           <div className='header'>
             <div className='header__logo'>

@@ -35,7 +35,7 @@ const Navbar: FC<Props> = ({ className }) => {
           Kontakt
         </a>
       </div>
-      <MainButton content={'Zaloguj się'} />
+      <MainButton className='navbar__login-button' content={'Zaloguj się'} />
     </div>
   );
 };

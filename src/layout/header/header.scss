@@ -1,4 +1,5 @@
 $logo-size: 120px;
+$logo-size-mobile: 110px;
 
 .header__container {
   position: relative;
@@ -57,13 +58,6 @@ $logo-size: 120px;
   background-color: rgb(255, 127, 127);
 }
 
-.header__nav {
-  background-color: aquamarine;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 @media screen and (min-width: 1600px) {
   .header__box {
     display: flex;
@@ -76,20 +70,6 @@ $logo-size: 120px;
 }
 
 @media screen and (max-width: 1250px) {
-  // .header__hamburger-icon {
-  //   display: block;
-  // }
-  .header {
-    flex-direction: column;
-    gap: 20px;
-    padding-bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  // .header__hamburger-icon {
-  //   display: block;
-  // }
   .header {
     flex-direction: column;
     gap: 20px;
@@ -100,5 +80,25 @@ $logo-size: 120px;
 @media screen and (max-width: 1120px) {
   .header {
     padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  .header__hamburger-icon {
+    display: block;
+  }
+
+  .header__media-desktop {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row;
+    padding: 2em 2em 0;
+  }
+
+  .header__logo-img {
+    width: $logo-size-mobile;
+    height: $logo-size-mobile;
   }
 }

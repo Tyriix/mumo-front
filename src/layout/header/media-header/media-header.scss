@@ -25,6 +25,10 @@ $icon-size: 20px;
   color: #ffffff;
   width: $icon-size;
   height: $icon-size;
+
+  &:hover {
+    color: #ffffffcb;
+  }
 }
 
 @media screen and (min-width: 1600px) {
@@ -42,5 +46,16 @@ $icon-size: 20px;
   .media-header {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  .media-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .media-header__box {
+    padding: 13px 0;
   }
 }
