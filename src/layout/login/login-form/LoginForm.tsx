@@ -6,6 +6,7 @@ import MainButton from "../../../components/buttons/MainButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { loginFormSchema } from "../../../models/schemas.yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 type FormData = yup.InferType<typeof loginFormSchema>
 
@@ -14,7 +15,10 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    resolver: yupResolver(loginFormSchema)
+  });
+
   const onSubmit = (data: FormData) => {
     return data;
   };

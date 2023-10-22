@@ -5,6 +5,7 @@ $input-gray: map.get($colors, input-gray);
 $facebook-blue: map.get($colors, facebook-blue);
 $light-gray: map.get($colors, light-gray);
 $placeholder-gray: map.get($colors, placeholder-gray);
+$error-red: map.get($colors, error-red);
 
 .login__form-container {
   display: flex;
@@ -23,12 +24,14 @@ $placeholder-gray: map.get($colors, placeholder-gray);
 }
 
 .login__form-input {
+  box-sizing: border-box;
   height: 4em;
   border: 0em;
   background-color: $input-gray;
-  margin-bottom: 2em;
 }
-
+.login__form-error{
+  color: $error-red;
+}
 ::placeholder {
   color: $placeholder-gray;
   font-size: 1.2em;
@@ -58,6 +61,11 @@ $placeholder-gray: map.get($colors, placeholder-gray);
   width: 9em;
   font-weight: 600;
   white-space: nowrap;
+}
+.login__form-error-container{
+  display: flex;
+  align-items: center;
+  height: 3em;
 }
 .login__form-wave-shape{
   display: none;
