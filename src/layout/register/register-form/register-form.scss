@@ -1,93 +1,97 @@
-@use "sass:map";
-@import "../../../styles/helpers/variables";
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
 
 $input-gray: map.get($colors, input-gray);
 $facebook-blue: map.get($colors, facebook-blue);
 $error_red: map.get($colors, error-red);
+$input-width: 450px;
+
 .register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .register-form__container {
   display: flex;
   flex-direction: column;
   max-width: 40em;
 }
+
 .register-form__input-row {
   display: flex;
   flex-direction: column;
 }
+
 .register-form__label {
   display: flex;
   align-items: baseline;
   white-space: nowrap;
 }
-.register-form__input-label-text{
+
+.register-form__input-label-text {
   font-size: 1.2em;
   width: 7.5em;
   height: 100%;
 }
-.register-form__input-error-column{
+
+.register-form__input-error-column {
   display: flex;
   flex-direction: column;
-  flex:1;
   margin-left: 3em;
 }
+
 .register-form__input {
   box-sizing: border-box;
-  max-width: 100%;
   height: 4em;
+  width: $input-width;
   border: 0em;
   background-color: $input-gray;
 }
+
 .register-form__input-alert-active {
   border: 1px solid $error_red;
 }
+
 .register-form__error-container {
   display: flex;
   align-items: center;
   min-height: 3em;
   max-height: 3em;
 }
+
 .register-form__error {
   color: $error_red;
   font-size: 0.7em;
 }
 
-.register-form__checkbox-row{
+.register-form__checkbox-row {
   display: flex;
-  flex-direction: row;
-  flex:1;
+  justify-content: end;
 }
-.register-form__checkbox-label {
-  display: flex;
-}
-.register-form__flex-helper{
-  width:7.5em;
-  height: 100%;
-}
-.register-form__checkbox-wrapper{
+
+.register-form__checkbox-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: $input-width;
   margin-left: 4.2em;
 }
-.register-form__checkbox-input-text-row{
+
+.register-form__checkbox-input-text-row {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  flex: 1;
 }
+
 .register-form__input-checkbox {
   box-sizing: border-box;
   width: 2em;
   margin: 0 1em 0 0;
 }
-.register-form__checkbox-label-text{
+
+.register-form__checkbox-label-text {
   font-size: 0.9em;
 }
-
 
 .register-form__submit-button {
   height: 3em;
