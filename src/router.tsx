@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Homepage from './pages/homepage';
 import Error from './pages/error';
+import Login from './pages/login';
 
 export const NOT_FOUND_PATH = '/404';
 
@@ -11,8 +12,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: NOT_FOUND_PATH,
-    element: <Error />,
+    path: '/login',
+    element: <Login />,
   },
 ]);
 
