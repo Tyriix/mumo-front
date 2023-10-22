@@ -4,7 +4,6 @@ import AboutSection from '../../layout/homepage/about/AboutSection'
 import StartViewSection from '../../layout/homepage/start-view/StartViewSection'
 import ContactSection from '../../layout/homepage/contact/ContactSection'
 import LoginSection from '../../layout/login/LoginSection'
-import RegisterSection from '../../layout/register/RegisterSection'
 
 const Homepage: FC = () => {
   const refOffer = useRef<HTMLDivElement>(null)
@@ -16,7 +15,6 @@ const Homepage: FC = () => {
       <HomeOfferSection ref={refOffer} />
       <ContactSection />
       <LoginSection />
-      <RegisterSection />
     </>
   )
 }
