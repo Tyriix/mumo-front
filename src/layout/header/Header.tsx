@@ -23,7 +23,10 @@ const Header: FC = () => {
         <MediaHeader className='header__media-desktop' />
         <div className='header__box'>
           <div className='header'>
-            <Logotype className='header__logotype' />
+            <Logotype
+              className='header__logotype'
+              isSecondNameVisible={false}
+            />
             <NavbarDesktop />
             <button onClick={toggleNavbar} className='header__button'>
               <FaBars className='header__button-icon' />

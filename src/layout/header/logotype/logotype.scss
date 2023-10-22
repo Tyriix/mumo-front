@@ -1,5 +1,5 @@
 $logo-size: 120px;
-$logo-mobile-size: 110px;
+$logo-mobile-size: 100px;
 
 .logotype {
   display: flex;
@@ -40,16 +40,16 @@ $logo-mobile-size: 110px;
     height: $logo-mobile-size;
   }
 
+  .invisible {
+    display: none;
+  }
+
   .logotype__name {
+    padding-left: 15px;
+
     .logotype__name-child {
-
       &:first-of-type {
-        font-size: 2rem;
-
-      }
-
-      &:nth-of-type(2) {
-        font-size: 1rem;
+        font-size: 1.9rem;
       }
     }
   }

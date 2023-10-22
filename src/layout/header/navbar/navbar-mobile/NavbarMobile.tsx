@@ -47,7 +47,6 @@ const NavbarMobile: FC<Props> = ({ duration, state, toggleNavbar }) => {
       }}
     >
       <div className='menu-mobile__box'>
-        <Logotype className='menu-mobile__logotype' />
         <button onClick={toggleNavbar} className='menu-mobile__close-button'>
           <FaTimes className='menu-mobile__close-icon' />
         </button>

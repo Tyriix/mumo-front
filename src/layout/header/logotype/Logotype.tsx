@@ -4,11 +4,17 @@ import classNames from 'classnames';
 
 interface Props {
   className?: string;
+  isFirstNameVisible?: boolean;
+  isSecondNameVisible?: boolean;
 }
 
 const LOGO_SRC = '/src/assets/images/logo-bg-01.png';
 
-const Logotype: FC<Props> = ({ className }) => {
+const Logotype: FC<Props> = ({
+  className,
+  isFirstNameVisible = true,
+  isSecondNameVisible = true,
+}) => {
   return (
     <div className={classNames('logotype', className)}>
       <img
@@ -17,8 +23,22 @@ const Logotype: FC<Props> = ({ className }) => {
         alt='Logo Mumo pozytywne szkolenie psów'
       />
       <div className='logotype__name'>
-        <p className='logotype__name-child'>Mumo</p>
-        <p className='logotype__name-child'>pozytywne szkolenie psów</p>
+        <p
+          className={classNames(
+            'logotype__name-child',
+            !isFirstNameVisible && 'invisible'
+          )}
+        >
+          Mumo
+        </p>
+        <p
+          className={classNames(
+            'logotype__name-child',
+            !isSecondNameVisible && 'invisible'
+          )}
+        >
+          pozytywne szkolenie psów
+        </p>
       </div>
     </div>
   );
