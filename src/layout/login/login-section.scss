@@ -61,7 +61,7 @@ $border-gray: map.get($colors, border-gray);
 .login__list {
   font-size: 1em;
   line-height: 2.7em;
-  margin-right: 3em;
+  margin: 0 3em 0 4em;
   white-space: nowrap;
 }
 .login__text-accent {
@@ -87,7 +87,7 @@ $border-gray: map.get($colors, border-gray);
   -ms-border-radius: 864px;
   -o-border-radius: 864px;
 }
-@media screen and (max-width:1300px)
+@media screen and (max-width:1400px)
 {
   .login__section-image{
     opacity: 0.3;
