@@ -13,10 +13,30 @@
   .register__section-form {
     display: flex;
     flex-direction: column;
-    margin: 0 4em 0 4em;
+    margin-right: 28em;
   }
   .register__header {
       font-size: 3em;
       font-weight: 400;
       margin-top: 0px;
     }
+  .register__section-image{
+    position: absolute;
+    right: -1.9em;
+    top: 2em;
+  }
+  .register__image{
+  }
+  .register__section-image-circle{
+    position: absolute;
+    bottom: -6em;
+    height: 72em;
+    width: 72em;
+    border-radius: 72em;
+    -webkit-border-radius: 72em;
+    -moz-border-radius: 72em;
+    -ms-border-radius: 72em;
+    -o-border-radius: 72em;
+    background-color: #13937f;
+    z-index: -1;
+}

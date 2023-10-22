@@ -157,7 +157,6 @@ const RegisterForm = () => {
                     className='register-form__input-checkbox'
                     {...register('agreeTerms')}
                   />
-                  <span className='register-form__input-checkbox-custom'></span>
                   <span className='register-form__checkbox-label-text'>
                     Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
                     udzielenia odpowiedzi na składaną wiadomość.

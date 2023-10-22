@@ -13,7 +13,7 @@ const RegisterSection = () => {
         </div>
         <div className='register__section-image'>
           <div className='register__section-image-circle'></div>
-          {/* <img className='register__image' src="src\assets\images\register-dog.png" alt="Adult dog facing left and holding a toy." /> */}
+          <img className='register__image' src="src\assets\images\register-dog.png" alt="Adult dog facing left and holding a toy." />
         </div>
       </div>
     </>
