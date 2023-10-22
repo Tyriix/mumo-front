@@ -6,7 +6,7 @@ $close-icon-size: 35px;
 .menu-mobile {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -31,8 +31,8 @@ $close-icon-size: 35px;
 .menu-mobile__close-button {
   position: absolute;
   background-color: #ffffff;
-  top: 1em;
-  right: 1em;
+  top: 4em;
+  right: 2.5em;
 }
 
 .menu-mobile__close-icon {
