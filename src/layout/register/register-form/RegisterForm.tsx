@@ -30,14 +30,12 @@ const RegisterForm = () => {
         method="post"
       >
         <div className="register-form__container">
-          <div className="register-form__input-row">
-            <div className="register-form__input-label__container">
+          <div className="register-form__input-row">  
               <label
                 className="register-form__label"
                 htmlFor="register-form__input-name"
               >
                 Imię i nazwisko
-              </label>
               <input
                 id="register-form__input-name"
                 type="text"
@@ -47,7 +45,7 @@ const RegisterForm = () => {
                   errors.name && "register-form__input-alert-active"
                 )}
               />
-            </div>
+              </label>
             <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.name?.message}
@@ -55,20 +53,19 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="register-form__input-row">
-            <div className="register-form__input-label__container">
               <label
                 className="register-form__label"
                 htmlFor="register-form__input-email"
               >
                 Adres email
-              </label>
+              
               <input
                 id="register-form__input-email"
                 type="email"
                 {...register("email")}
                 className="register-form__input"
               />
-            </div>
+              </label>
             <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.email?.message}
@@ -76,20 +73,19 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="register-form__input-row">
-            <div className="register-form__input-label__container">
               <label
                 className="register-form__label"
                 htmlFor="register-form__input-phone"
               >
                 Numer telefonu
-              </label>
+              
               <input
                 id="register-form__input-phone"
                 type="text"
                 {...register("phone")}
                 className="register-form__input"
               />
-            </div>
+              </label>
             <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.phone?.message}
@@ -97,20 +93,19 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="register-form__input-row">
-            <div className="register-form__input-label__container">
               <label
                 className="register-form__label"
                 htmlFor="register-form__input-password"
               >
                 Hasło
-              </label>
+              
               <input
                 id="register-form__input-password"
                 type="password"
                 {...register("password")}
                 className="register-form__input"
               />
-            </div>
+              </label>
             <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.password?.message}
@@ -118,20 +113,19 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="register-form__input-row">
-            <div className="register-form__input-label__container">
               <label
                 className="register-form__label"
                 htmlFor="register-form__input-password-repeat"
               >
                 Powtórz hasło
-              </label>
+              
               <input
                 id="register-form__input-password-repeat"
                 type="password"
                 {...register("repeatPassword")}
                 className="register-form__input"
               />
-            </div>
+              </label>
             <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.repeatPassword?.message}
@@ -139,18 +133,17 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="register-form__input-row">
-          <div className="register-form__checkbox-row">
-          <input
-              type="checkbox"
-              className="contact__form-input-checkbox"
-              {...register('agreeTerms')}
-            />
           <label className="register-form__checkbox-label">
-            Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
-            udzielenia odpowiedzi na składaną wiadomość.
+          
+          <span className="register-form__input-text"><input
+              type="checkbox"
+              className="register-form__input-checkbox"
+              {...register('agreeTerms')}
+            />Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+            udzielenia odpowiedzi na składaną wiadomość.</span>
+            
           </label>
           
-        </div>
         <div className="register-form__error-container">
               <span className="register-form__error">
                 {errors.agreeTerms?.message}
