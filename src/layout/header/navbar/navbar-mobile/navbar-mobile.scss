@@ -1,21 +1,48 @@
-.header__nav {
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$close-icon-size: 35px;
+
+.menu-mobile {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 100;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
+.menu-mobile__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-mobile__logotype {
+  padding: 3em 0 2em;
+}
+
+.menu-mobile__close-button {
+  position: absolute;
+  background-color: #ffffff;
+  top: 1em;
+  right: 1em;
+}
+
+.menu-mobile__close-icon {
+  width: $close-icon-size;
+  height: $close-icon-size;
+  color: map.get($colors, hover-blue);
+}
+
 @media screen and (min-width: 755px) {
-  .header__nav {
+  .menu-mobile__nav {
     display: none;
   }
 }

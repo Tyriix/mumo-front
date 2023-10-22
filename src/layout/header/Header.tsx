@@ -1,12 +1,13 @@
 import { FC, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import classNames from 'classnames';
 import NavbarMobile from './navbar/navbar-mobile/NavbarMobile';
 import NavbarDesktop from './navbar/navbar-dekstop/NavbarDesktop';
 import MediaHeader from './media-header/MediaHeader';
+import Logotype from './logotype/Logotype';
+import { FaBars } from 'react-icons/fa';
 import './header.scss';
 
-const TRANSITION_DURATION = 300;
+const TRANSITION_DURATION = 600;
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,27 +23,12 @@ const Header: FC = () => {
         <MediaHeader className='header__media-desktop' />
         <div className='header__box'>
           <div className='header'>
-            <div className='header__logo'>
-              <img
-                className='header__logo-img'
-                src='/src/assets/images/logo-bg-01.png'
-                alt='Logo Mumo pozytywne szkolenie psów'
-              />
-              <div className='header__logo-name'>
-                <p className='header__logo-name-child'>Mumo</p>
-                <p className='header__logo-name-child'>
-                  pozytywne szkolenie psów
-                </p>
-              </div>
-            </div>
+            <Logotype className='header__logotype' />
             <NavbarDesktop />
-            <button
-              onClick={toggleNavbar}
-              className={classNames(
-                'header__hamburger-icon',
-                isOpen && 'header__close-icon'
-              )}
-            ></button>
+            <button onClick={toggleNavbar} className='header__button'>
+              <FaBars className='header__button-icon' />
+            </button>
+
             <Transition
               nodeRef={nodeRef}
               in={isOpen}

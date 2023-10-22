@@ -1,5 +1,7 @@
-$logo-size: 120px;
-$logo-size-mobile: 110px;
+@use 'sass:map';
+@import '../../styles/helpers/variables';
+
+$hamburger-icon-size: 30px;
 
 .header__container {
   position: relative;
@@ -12,50 +14,15 @@ $logo-size-mobile: 110px;
   padding: 1em 5em;
 }
 
-.header__logo {
-  display: flex;
-  align-content: center;
-}
-
-.header__logo-img {
-  width: $logo-size;
-  height: $logo-size;
-}
-
-.header__logo-name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #000000;
-  font-family: 'Inter';
-  font-weight: 100;
-  padding-left: 20px;
-
-  .header__logo-name-child {
-    margin: 0;
-
-    &:first-of-type {
-      font-size: 2.3rem;
-      text-transform: uppercase;
-    }
-
-    &:nth-of-type(2) {
-      font-size: 1.3rem;
-    }
-  }
-}
-
-.header__hamburger-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background-color: aquamarine;
+.header__button {
   display: none;
+  background-color: #ffffff;
 }
 
-.header__close-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background-color: rgb(255, 127, 127);
+.header__button-icon {
+  width: $hamburger-icon-size;
+  height: $hamburger-icon-size;
+  color: map.get($colors, background-blue);
 }
 
 @media screen and (min-width: 1600px) {
@@ -84,7 +51,7 @@ $logo-size-mobile: 110px;
 }
 
 @media screen and (max-width: 755px) {
-  .header__hamburger-icon {
+  .header__button {
     display: block;
   }
 
@@ -95,10 +62,5 @@ $logo-size-mobile: 110px;
   .header {
     flex-direction: row;
     padding: 2em 2em 0;
-  }
-
-  .header__logo-img {
-    width: $logo-size-mobile;
-    height: $logo-size-mobile;
   }
 }

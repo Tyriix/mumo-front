@@ -1,9 +1,10 @@
 import { FC, useEffect } from 'react';
-import './navbar-mobile.scss';
 import { TransitionStatus } from 'react-transition-group';
-import classNames from 'classnames';
 import Navbar from '../Navbar';
 import MediaHeader from '../../media-header/MediaHeader';
+import Logotype from '../../logotype/Logotype';
+import { FaTimes } from 'react-icons/fa';
+import './navbar-mobile.scss';
 
 interface Props {
   duration: number;
@@ -39,19 +40,19 @@ const NavbarMobile: FC<Props> = ({ duration, state, toggleNavbar }) => {
 
   return (
     <div
-      className='header__nav'
+      className='menu-mobile'
       style={{
         ...defaultStyle,
         ...transitionStyles[state],
       }}
     >
-      <button
-        onClick={toggleNavbar}
-        className={classNames('header__hamburger-icon')}
-      >
-        X
-      </button>
-      <Navbar />
+      <div className='menu-mobile__box'>
+        <Logotype className='menu-mobile__logotype' />
+        <button onClick={toggleNavbar} className='menu-mobile__close-button'>
+          <FaTimes className='menu-mobile__close-icon' />
+        </button>
+        <Navbar />
+      </div>
       <MediaHeader />
     </div>
   );
