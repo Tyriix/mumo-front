@@ -1,4 +1,4 @@
-import { FC, RefObject, useState } from 'react';
+import { FC, useState } from 'react';
 import MainButton from '../../../../components/buttons/MainButton';
 import { MouseParallaxContainer } from 'react-parallax-mouse';
 import {
@@ -7,16 +7,10 @@ import {
 } from './hero-circles/HeroCircles';
 import './hero-section.scss';
 import WaveShape from '../../../../components/shapes/Wave';
+import { scrollToSection } from '../../../../utils/scrollUtils';
 
-interface Props {
-  refOffer: RefObject<HTMLDivElement>;
-}
-
-const HeroSection: FC<Props> = ({ refOffer }) => {
+const HeroSection: FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  const handleClick = () =>
-    refOffer.current?.scrollIntoView({ behavior: 'smooth' });
 
   const BUTTON_TEXT = 'Sprawdź ofertę!';
   const MOBILE_WAVE_COLORS = ['#7be5d5', '#21aa96'];
@@ -34,7 +28,7 @@ const HeroSection: FC<Props> = ({ refOffer }) => {
           </h2>
           <MainButton
             className='hero-section__button'
-            onClick={handleClick}
+            onClick={() => scrollToSection('offer')}
             content={BUTTON_TEXT}
           />
           <HeroMobileCircles />

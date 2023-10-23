@@ -22,7 +22,12 @@ const Logotype: FC<Props> = ({
         src={LOGO_SRC}
         alt='Logo Mumo pozytywne szkolenie psów'
       />
-      <div className='logotype__name'>
+      <div
+        className={classNames(
+          'logotype__name',
+          !isFirstNameVisible && 'invisible'
+        )}
+      >
         <p
           className={classNames(
             'logotype__name-child',

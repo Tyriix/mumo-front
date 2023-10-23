@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import * as constants from '../../../models/constants';
+import * as constants from '../../../models/constants.app';
 import {
   FaFacebook,
   FaInstagram,

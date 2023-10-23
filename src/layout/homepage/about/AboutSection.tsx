@@ -1,10 +1,12 @@
+import { FC } from 'react';
 import {
   CirclesFirst,
   CirclesSecond,
   CirclesThird,
 } from './about-circles/AboutCircles';
-import './about-section.scss';
 import { Fade } from 'react-awesome-reveal';
+import './about-section.scss';
+import { HomepageSections } from '../../../models/enums.app';
 
 const ABOUT_IMAGES = [
   {
@@ -17,11 +19,12 @@ const ABOUT_IMAGES = [
     alt: 'A group of dog owners with their puppies',
   },
 ];
+
 const FADE_DURATION: number = 1500;
 
-const AboutSection = () => {
+const AboutSection: FC = () => {
   return (
-    <div className='about'>
+    <div className='about' id={HomepageSections.About}>
       <div className='about__container'>
         <div className='about__block'>
           <div className='about__content'>
