@@ -86,7 +86,7 @@ $input-width: 450px;
 .register-form__input-checkbox {
   box-sizing: border-box;
   width: 2em;
-  margin: 0 1em 0 0;
+  margin: 0.3em 1em 0 0;
 }
 
 .register-form__checkbox-label-text {
@@ -95,4 +95,54 @@ $input-width: 450px;
 
 .register-form__submit-button {
   height: 3em;
+}
+.register-form__error-container-mobile{
+  display: none;
+}
+@media screen  and (max-width: 1124px){
+  .register-form__label{
+    flex-direction: column;
+    align-items: normal;
+  }
+  .register-form__checkbox-wrapper{
+    margin-left: 0em;
+  }
+  .register-form__input-error-column{
+    margin-left: 0em;
+  }
+  
+  
+  
+}
+
+@media screen and (max-width: 524px){
+  .register-form__error-container-mobile{
+    display: flex;
+  align-items: center;
+  min-height: 3em;
+  max-height: 3em;
+  }
+  .register-form__input-row{
+    display: block;
+  }
+  .register-form__label{
+    display: block;
+    max-width: 100%;
+  }
+  .register-form__checkbox-row{
+    display:block;  
+  }
+  .register-form__input{
+    flex: 1;
+    max-width: 100%;
+  }
+  .register-form__input-error-column{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .register-form__error-container{
+    display:none;
+  }
 }

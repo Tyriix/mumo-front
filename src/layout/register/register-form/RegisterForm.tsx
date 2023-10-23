@@ -55,6 +55,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.name?.message}
+                  </span>
+                </div>
             </label>
           </div>
           <div className='register-form__input-row'>
@@ -78,6 +83,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.email?.message}
+                  </span>
+                </div>
             </label>
           </div>
           <div className='register-form__input-row'>
@@ -101,6 +111,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.phone?.message}
+                  </span>
+                </div>
             </label>
           </div>
           <div className='register-form__input-row'>
@@ -122,6 +137,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.password?.message}
+                  </span>
+                </div>
             </label>
           </div>
           <div className='register-form__input-row'>
@@ -145,6 +165,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.repeatPassword?.message}
+                  </span>
+                </div>
             </label>
           </div>
           <div className='register-form__checkbox-row'>
@@ -168,6 +193,11 @@ const RegisterForm = () => {
                   </span>
                 </div>
               </div>
+              <div className='register-form__error-container-mobile'>
+                  <span className='register-form__error'>
+                    {errors.agreeTerms?.message}
+                  </span>
+                </div>
             </label>
           </div>
         </div>
