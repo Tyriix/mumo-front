@@ -4,3 +4,10 @@ export const scrollToSection = (sectionId: string) => {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 };
+
+export const scrollToTop = () => {
+  const section = document.getElementById('header');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};

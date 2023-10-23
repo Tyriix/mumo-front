@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import classNames from 'classnames';
-import './navbar.scss';
 import { scrollToSection } from '../../../utils/scrollUtils';
 import { HomepageSections } from '../../../models/enums.app';
+import './navbar.scss';
 
 interface Props {
   className?: string;

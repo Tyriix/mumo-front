@@ -19,7 +19,7 @@ const Header: FC = () => {
 
   return (
     <>
-      <div className='header__container'>
+      <div className='header__container' id='header'>
         <MediaHeader className='header__media-desktop' />
         <div className='header__box'>
           <div className='header'>

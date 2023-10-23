@@ -2,6 +2,8 @@
 @import '../../styles/helpers/variables';
 @import '../../styles/helpers/mixins';
 
+$scroll-top-button-size: 35px;
+
 .main-button {
   color: #ffffff;
   background-color: map-get($colors, background-blue);
@@ -25,5 +27,20 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     scale: 1.05;
     border-color: map-get($colors, hover-blue);
+  }
+}
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 1.5em;
+  right: 2em;
+  padding: 0.4em 0.6em;
+  z-index: 100;
+  background-color: #ffffff;
+
+  .scroll-top-button__icon {
+    color: map-get($colors, hover-blue);
+    width: $scroll-top-button-size;
+    height: $scroll-top-button-size;
   }
 }
