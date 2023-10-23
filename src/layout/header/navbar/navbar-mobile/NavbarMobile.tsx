@@ -55,7 +55,7 @@ const NavbarMobile: FC<Props> = ({ duration, state, toggleNavbar }) => {
           isFirstNameVisible={false}
           isSecondNameVisible={false}
         />
-        <Navbar />
+        <Navbar toggleMobileNavbar={toggleNavbar} />
       </div>
       <MediaHeader />
     </div>

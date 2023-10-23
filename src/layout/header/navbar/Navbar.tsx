@@ -7,9 +7,15 @@ import { HomepageSections } from '../../../models/enums.app';
 
 interface Props {
   className?: string;
+  toggleMobileNavbar?: () => void;
 }
 
-const Navbar: FC<Props> = ({ className }) => {
+const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
+  const onNavbarLinkClick = (section: string) => {
+    if (toggleMobileNavbar) toggleMobileNavbar();
+    scrollToSection(section);
+  };
+
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
@@ -20,7 +26,7 @@ const Navbar: FC<Props> = ({ className }) => {
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
-          onClick={() => scrollToSection(HomepageSections.About)}
+          onClick={() => onNavbarLinkClick(HomepageSections.About)}
         >
           O nas
         </a>
@@ -28,7 +34,7 @@ const Navbar: FC<Props> = ({ className }) => {
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
-          onClick={() => scrollToSection(HomepageSections.Offer)}
+          onClick={() => onNavbarLinkClick(HomepageSections.Offer)}
         >
           Oferta
         </a>
@@ -39,7 +45,7 @@ const Navbar: FC<Props> = ({ className }) => {
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
-          onClick={() => scrollToSection(HomepageSections.Contact)}
+          onClick={() => onNavbarLinkClick(HomepageSections.Contact)}
         >
           Kontakt
         </a>
