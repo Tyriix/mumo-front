@@ -48,7 +48,7 @@ const NavbarMobile: FC<Props> = ({ duration, state, toggleNavbar }) => {
     >
       <div className='menu-mobile__box'>
         <button onClick={toggleNavbar} className='menu-mobile__close-button'>
-          <FaTimes className='menu-mobile__close-icon' />
+          <FaTimes className='menu-mobile__close-icon' aria-label='Close navbar button' />
         </button>
         <Logotype
           className='menu-mobile__logotype'

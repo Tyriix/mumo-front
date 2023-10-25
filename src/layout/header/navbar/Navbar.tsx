@@ -19,7 +19,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
-        <a className='navbar__element-link' href='#'>
+        <a
+          className='navbar__element-link'
+          onClick={() => onNavbarLinkClick(HomepageSections.About)}
+          tabIndex={0}
+        >
           Główna
         </a>
       </div>
@@ -27,6 +31,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
         <a
           className='navbar__element-link'
           onClick={() => onNavbarLinkClick(HomepageSections.About)}
+          tabIndex={0}
         >
           O nas
         </a>
@@ -35,17 +40,25 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
         <a
           className='navbar__element-link'
           onClick={() => onNavbarLinkClick(HomepageSections.Offer)}
+          tabIndex={0}
         >
           Oferta
         </a>
       </div>
       <div className='navbar__element'>
-        <a className='navbar__element-link'>Nasi Klienci</a>
+        <a
+          className='navbar__element-link'
+          onClick={() => onNavbarLinkClick(HomepageSections.About)}
+          tabIndex={0}
+        >
+          Nasi Klienci
+        </a>
       </div>
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
           onClick={() => onNavbarLinkClick(HomepageSections.Contact)}
+          tabIndex={0}
         >
           Kontakt
         </a>
