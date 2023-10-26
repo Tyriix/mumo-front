@@ -67,3 +67,14 @@
     z-index: 1;
   }
 }
+@media screen  and (max-width: 580px){
+  .register__section-form{
+    width: 60%;
+  }
+  .register__header{
+    white-space: nowrap;
+  }
+  .register__container{
+    justify-content: center;
+  }
+}
