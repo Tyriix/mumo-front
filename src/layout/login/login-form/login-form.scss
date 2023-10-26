@@ -10,7 +10,6 @@ $error-red: map.get($colors, error-red);
 .login__form-container {
   display: flex;
   flex-direction: column;
-  max-width: 30em;
   margin-bottom: 6em;
   margin-right: 3em;
 }
