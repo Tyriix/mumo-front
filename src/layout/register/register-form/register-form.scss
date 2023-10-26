@@ -15,6 +15,7 @@ $input-width: 450px;
 .register-form__container {
   display: flex;
   flex-direction: column;
+  margin: 0 2em 0 2em;
   max-width: 40em;
 }
 
@@ -31,20 +32,21 @@ $input-width: 450px;
 
 .register-form__input-label-text {
   font-size: 1.2em;
-  width: 7.5em;
+  min-width: 7.5em;
   height: 100%;
 }
 
 .register-form__input-error-column {
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin-left: 3em;
 }
 
 .register-form__input {
   box-sizing: border-box;
   height: 4em;
-  width: $input-width;
+  width: 100%;
   border: 0em;
   background-color: $input-gray;
 }
@@ -73,7 +75,7 @@ $input-width: 450px;
 .register-form__checkbox-wrapper {
   display: flex;
   flex-direction: column;
-  width: $input-width;
+  max-width: $input-width;
   margin-left: 4.2em;
 }
 
