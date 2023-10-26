@@ -61,8 +61,8 @@ const LoginForm = () => {
             />
             <span className="login__form-text">Lub zaloguj się przez:</span>
             <div className="login__form-icons">
-              <FaFacebook className="login__form-icon login__form-icon-facebook" />
-              <FcGoogle className="login__form-icon" />
+              <FaFacebook aria-label='Facebook' className="login__form-icon login__form-icon-facebook" />
+              <FcGoogle aria-label='Google' className="login__form-icon" />
             </div>
           </div>
         </div>

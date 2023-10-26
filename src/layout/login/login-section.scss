@@ -4,7 +4,7 @@
 $light-gray: map.get($colors, light-gray);
 $background-blue: map.get($colors, background-blue);
 $border-gray: map.get($colors, border-gray);
-
+$circle-size: 834px;
 .login {
   position: relative;
   display: flex;
@@ -38,13 +38,13 @@ $border-gray: map.get($colors, border-gray);
 .login__section-image-circle{
     position: absolute;
     bottom: -6em;
-    height: 834px;
-    width: 834px;
-    border-radius: 834px;
-    -webkit-border-radius: 834px;
-    -moz-border-radius: 834px;
-    -ms-border-radius: 834px;
-    -o-border-radius: 834px;
+    height: $circle-size;
+    width: $circle-size;
+    border-radius: $circle-size;
+    -webkit-border-radius: $circle-size;
+    -moz-border-radius: $circle-size;
+    -ms-border-radius: $circle-size;
+    -o-border-radius: $circle-size;
     background-color: $background-blue;
     z-index: -1;
 }
@@ -76,16 +76,16 @@ $border-gray: map.get($colors, border-gray);
 }
 .login__image-circle {
   position: absolute;
-  border-radius: 864px;
+  border-radius: $circle-size;
   z-index: -1;
   margin-top: 14em;
-  width: 868px;
-  height: 868px;
+  width: $circle-size;
+  height: $circle-size;
   background-color: $background-blue;
-  -webkit-border-radius: 864px;
-  -moz-border-radius: 864px;
-  -ms-border-radius: 864px;
-  -o-border-radius: 864px;
+  -webkit-border-radius: $circle-size;
+  -moz-border-radius: $circle-size;
+  -ms-border-radius: $circle-size;
+  -o-border-radius: $circle-size;
 }
 @media screen and (max-width:1400px)
 {
