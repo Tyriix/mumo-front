@@ -1,0 +1,144 @@
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
+
+$input-gray: map.get($colors, input-gray);
+$facebook-blue: map.get($colors, facebook-blue);
+$error_red: map.get($colors, error-red);
+$input-width: 450px;
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-form__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 40em;
+}
+
+.register-form__label {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.register-form__input-label-text {
+  font-size: 1.2em;
+  min-width: 7.5em;
+  height: 100%;
+}
+
+.register-form__input-error-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 3em;
+}
+
+.register-form__input {
+  box-sizing: border-box;
+  height: 4em;
+  width: 100%;
+  border: 0em;
+  background-color: $input-gray;
+}
+
+.register-form__input-alert-active {
+  border: 1px solid $error_red;
+}
+
+.register-form__error-container {
+  display: flex;
+  align-items: center;
+  min-height: 3em;
+  max-height: 3em;
+}
+
+.register-form__error {
+  color: $error_red;
+  font-size: 0.7em;
+}
+
+.register-form__checkbox-row {
+  display: flex;
+  justify-content: end;
+}
+
+.register-form__checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: $input-width;
+  margin-left: 12em;
+}
+
+.register-form__checkbox-input-text-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.register-form__input-checkbox {
+  box-sizing: border-box;
+  width: 2em;
+  margin: 0.3em 1em 0 0;
+}
+
+.register-form__checkbox-label-text {
+  font-size: 0.9em;
+}
+
+.register-form__submit-button {
+  height: 3em;
+}
+.register-form__error-container-mobile{
+  display: none;
+}
+@media screen  and (max-width: 1124px){
+  .register-form__label{
+    flex-direction: column;
+    align-items: normal;
+  }
+  .register-form__checkbox-wrapper{
+    margin-left: 0em;
+  }
+  .register-form__input-error-column{
+    margin-left: 0em;
+  }
+  
+  
+  
+}
+
+@media screen and (max-width: 524px){
+  .register-form__error-container-mobile{
+    display: flex;
+  align-items: center;
+  min-height: 3em;
+  max-height: 3em;
+  }
+  .register-form__input-row{
+    display: block;
+  }
+  .register-form__label{
+    display: block;
+    max-width: 100%;
+  }
+  .register-form__checkbox-row{
+    display:block;  
+  }
+  .register-form__input{
+    flex: 1;
+    max-width: 100%;
+  }
+  .register-form__input-error-column{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .register-form__error-container{
+    display:none;
+  }
+}

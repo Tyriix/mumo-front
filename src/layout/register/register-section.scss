@@ -1,0 +1,89 @@
+@use "sass:map";
+@import "../../styles/helpers/variables";
+
+$background-blue: map.get($colors, background-blue);
+$circle-size: 75em;
+
+.register {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+  .register__container {
+    display: flex;
+  }
+  .register__section-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 28em;
+  }
+  .register__header {
+      font-size: 3em;
+      font-weight: 400;
+      margin-top: 0px;
+    }
+  .register__section-image{
+    position: absolute;
+    right: -27em;
+    top: 4em;
+  }
+  .register__section-image-circle{
+    position: absolute;
+    bottom: -6em;
+    height: $circle-size;
+    width: $circle-size;
+    border-radius: $circle-size;
+    -webkit-border-radius: $circle-size;
+    -moz-border-radius: $circle-size;
+    -ms-border-radius: $circle-size;
+    -o-border-radius: $circle-size;
+    background-color: $background-blue;
+    z-index: -1;
+}
+.register__image{
+  width: 70%;
+}
+.register__form-wave-shape{
+  display: none;
+}
+@media screen  and (max-width: 1260px){
+  .register__section-image{
+    opacity: 0.3;
+  }
+  
+}
+@media screen  and (max-width: 1124px){
+  .register{
+    overflow: visible;
+  }
+  .register__section-image{
+    display: none;
+  }
+  .register__section-form{
+    align-items: center;
+    margin-right: 0em;
+  }
+  .register__form-wave-shape{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 14em;
+    bottom:0.5em;
+    z-index: 1;
+  }
+}
+@media screen  and (max-width: 580px){
+  .register__section-form{
+    width: 60%;
+  }
+  .register__header{
+    white-space: nowrap;
+  }
+  .register__container{
+    justify-content: center;
+  }
+}
