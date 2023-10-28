@@ -31,11 +31,11 @@ $scroll-top-button-size: 35px;
 }
 
 .scroll-top-button {
+  display: none;
   position: fixed;
   bottom: 1.5em;
   right: 2em;
   padding: 0.4em 0.6em;
-  z-index: 100;
   background-color: #ffffff;
 
   .scroll-top-button__icon {
@@ -43,4 +43,8 @@ $scroll-top-button-size: 35px;
     width: $scroll-top-button-size;
     height: $scroll-top-button-size;
   }
+}
+
+.show-button {
+  display: block;
 }
