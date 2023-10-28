@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react'
 import RegisterSection from '../../layout/register/RegisterSection'
 
-const Registerpage: FC = () => {
+const Register: FC = () => {
   const refOffer = useRef<HTMLDivElement>(null)
 
   return (

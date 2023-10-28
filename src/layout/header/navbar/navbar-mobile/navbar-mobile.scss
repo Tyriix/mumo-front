@@ -1,0 +1,48 @@
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$close-icon-size: 35px;
+
+.menu-mobile {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.menu-mobile__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-mobile__logotype {
+  padding: 3em 0 2em;
+}
+
+.menu-mobile__close-button {
+  position: absolute;
+  background-color: #ffffff;
+  top: 4em;
+  right: 2.5em;
+}
+
+.menu-mobile__close-icon {
+  width: $close-icon-size;
+  height: $close-icon-size;
+  color: map.get($colors, hover-blue);
+}
+
+@media screen and (min-width: 755px) {
+  .menu-mobile__nav {
+    display: none;
+  }
+}

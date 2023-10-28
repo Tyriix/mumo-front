@@ -1,18 +1,14 @@
-import { FC, RefObject } from 'react'
-import WelcomeText from './welcome-text/WelcomeText'
-import HeroSection from './hero-section/HeroSection'
+import { FC } from 'react';
+import WelcomeText from './welcome-text/WelcomeText';
+import HeroSection from './hero-section/HeroSection';
 
-interface Props {
-  refOffer: RefObject<HTMLDivElement>
-}
-
-const StartViewSection: FC<Props> = ({ refOffer }) => {
+const StartViewSection: FC = () => {
   return (
-    <div className="start-view">
-      <HeroSection refOffer={refOffer} />
+    <div className='start-view'>
+      <HeroSection />
       <WelcomeText />
     </div>
-  )
-}
+  );
+};
 
-export default StartViewSection
+export default StartViewSection;

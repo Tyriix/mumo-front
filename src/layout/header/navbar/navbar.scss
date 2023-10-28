@@ -1,0 +1,71 @@
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
+@import '../../../styles/helpers/mixins';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__element-link {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #000000;
+  position: relative;
+  opacity: 0.75;
+}
+
+.navbar__element-link:hover {
+  opacity: 1;
+  color: #000000;
+}
+
+.navbar__element-link::before {
+  transition: 300ms;
+  height: 5px;
+  content: '';
+  position: absolute;
+  background-color: map-get($colors, header-blue);
+}
+
+.navbar__element-link::before {
+  height: 0%;
+  width: 100%;
+  bottom: -15px;
+}
+
+.navbar__element-link:hover::before {
+  height: 3px;
+}
+
+@media screen and (max-width: 755px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__element {
+    display: flex;
+    justify-content: center;
+    border-bottom: #0000001a solid 1px;
+    width: 100vw;
+    padding: 0.5em 0;
+  }
+
+  .navbar__element-link::before {
+    content: none;
+  }
+
+  .navbar__element-link {
+    font-weight: 300;
+    font-size: 1.3rem;
+    color: #000000;
+  }
+
+  .navbar__login-button {
+    font-size: 1.3rem;
+    width: 180px;
+    margin-top: 1em;
+  }
+}
