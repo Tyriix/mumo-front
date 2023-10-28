@@ -36,6 +36,7 @@ $scroll-top-button-size: 35px;
   bottom: 1.5em;
   right: 2em;
   padding: 0.4em 0.6em;
+  z-index: 500;
   background-color: #ffffff;
 
   .scroll-top-button__icon {
