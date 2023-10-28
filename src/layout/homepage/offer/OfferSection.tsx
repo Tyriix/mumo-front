@@ -1,10 +1,9 @@
-import { forwardRef } from 'react'
-import './offer-section.scss'
-import OfferCard from './offer-card/OfferCard'
+import { FC } from 'react';
+import './offer-section.scss';
+import OfferCard from './offer-card/OfferCard';
+import { HomepageSections } from '../../../models/enums.app';
 
-type Ref = HTMLDivElement
-
-const HomeOfferSection = forwardRef<Ref>((_, ref) => {
+const HomeOfferSection: FC = () => {
   const offerCards = [
     {
       title: 'Zajęcia indywidualne',
@@ -37,12 +36,12 @@ const HomeOfferSection = forwardRef<Ref>((_, ref) => {
         'Wystawienia - od 200 zł',
       ],
     },
-  ]
+  ];
 
   return (
-    <div ref={ref} className="offer">
-      <h2 className="offer__header">Oferta</h2>
-      <div className="offer__cards-container">
+    <div className='offer' id={HomepageSections.Offer}>
+      <h2 className='offer__header'>Oferta</h2>
+      <div className='offer__cards-container'>
         {offerCards.map((offer, index) => (
           <OfferCard
             key={index}
@@ -53,7 +52,7 @@ const HomeOfferSection = forwardRef<Ref>((_, ref) => {
         ))}
       </div>
     </div>
-  )
-})
+  );
+};
 
-export default HomeOfferSection
+export default HomeOfferSection;
