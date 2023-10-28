@@ -5,7 +5,6 @@ import StartViewSection from '../../layout/homepage/start-view/StartViewSection'
 import ContactSection from '../../layout/homepage/contact/ContactSection';
 import Header from '../../layout/header/Header';
 import ScrollTopButton from '../../components/buttons/ScrollTopButton';
-import LoginSection from '../../layout/login/LoginSection'
 
 const Homepage: FC = () => {
   const tempElement = {
@@ -22,7 +21,6 @@ const Homepage: FC = () => {
       <HomeOfferSection />
       <div className='ghost-temp-element' style={tempElement}></div>
       <ContactSection />
-      <LoginSection />
       <ScrollTopButton />
     </>
   );
