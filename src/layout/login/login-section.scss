@@ -104,7 +104,9 @@ $circle-size: 834px;
     width: 30em;
   }
   .login__section-form{
-    margin-bottom: 4em;
+    margin-bottom: 2em;
+    padding-bottom: 4em;
+    border-bottom: 1px solid $border-gray;
   }
   .login__section-text{
     margin: 0;
@@ -119,6 +121,9 @@ $circle-size: 834px;
   }
   .login__section-image-circle{
     display: none;
+  }
+  .login__list{
+    margin: 0 0 0 1.2em;
   }
 }
 @media screen and (max-width: 1040px){
@@ -143,8 +148,10 @@ $circle-size: 834px;
   }
   .login__list ul{
     padding-left: 0;
+    white-space: wrap;
   }
   .login__header{
     white-space: nowrap;
   }
+
 }
