@@ -1,8 +1,8 @@
-import { FC, useRef } from 'react'
+import { FC } from 'react'
 import RegisterSection from '../../layout/register/RegisterSection'
 
 const Register: FC = () => {
-  const refOffer = useRef<HTMLDivElement>(null)
+  // const refOffer = useRef<HTMLDivElement>(null)
 
   return (
     <>
@@ -11,4 +11,4 @@ const Register: FC = () => {
     )
   }
   
-  export default Registerpage;
+  export default Register;
