@@ -1,0 +1,22 @@
+.client-card{
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    justify-content: center;
+    align-items: center;
+}
+.client-card__quote{
+    display: flex;
+
+}
+.quotation-mark__down{
+    align-self: end;
+}
+.client-card__image{
+    width: 100px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
