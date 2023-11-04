@@ -5,6 +5,7 @@ import StartViewSection from '../../layout/homepage/start-view/StartViewSection'
 import ContactSection from '../../layout/homepage/contact/ContactSection';
 import Header from '../../layout/header/Header';
 import ScrollTopButton from '../../components/buttons/ScrollTopButton';
+import Footer from '../../layout/footer/Footer';
 
 const Homepage: FC = () => {
   const tempElement = {
@@ -22,6 +23,7 @@ const Homepage: FC = () => {
       <div className='ghost-temp-element' style={tempElement}></div>
       <ContactSection />
       <ScrollTopButton />
+      <Footer />
     </>
   );
 };
