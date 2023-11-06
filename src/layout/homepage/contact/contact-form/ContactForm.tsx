@@ -20,7 +20,7 @@ export interface EmailDataForm {
 }
 
 const ContactForm = () => {
-  const [isMessageSent, setMessageSent] = useState(true);
+  const [isMessageSent, setMessageSent] = useState(false);
 
   const {
     register,
