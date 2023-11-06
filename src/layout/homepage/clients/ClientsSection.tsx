@@ -6,11 +6,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./clients-section.scss";
 import ClientCard from "./clients-card/ClientCard";
+import { HomepageSections } from "../../../models/enums.app";
 
 const ClientSection: FC = () => {
   return (
     <>
-      <div className="clients">
+      <div className="clients" id={HomepageSections.Clients}>
         <h2 className="clients__header">Nasi klienci</h2>
         <div className="clients__card-container">
           <div className='clients__swiper-button-left'></div>
