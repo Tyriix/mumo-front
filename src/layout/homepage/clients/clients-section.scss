@@ -44,13 +44,16 @@ $dark-gray: map.get($colors, dark-gray);
   width: 85%;
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.swiper-wrapper{
+  transition-timing-function: linear;
+}
 .clients__swiper-button-left, .clients__swiper-button-right{
     display: block;
   width: 25px;
@@ -59,6 +62,7 @@ $dark-gray: map.get($colors, dark-gray);
   padding: 0;
   border-top: 2px solid $dark-gray;
   border-left: 2px solid $dark-gray;
+  cursor: pointer;
 }
 .clients__swiper-button-left{
     transform: rotate(-45deg);
