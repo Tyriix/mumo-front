@@ -61,10 +61,24 @@ $error_red: map.get($colors, error-red);
   width: 10em;
 }
 
-.contact-form__message-sent-info{
+.contact-form__message-sent-info {
   font-weight: 400;
   color: #262626;
   font-size: 1.4rem;
+}
+
+.contact-form__message-sent-back {
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: map.get($colors, hover-link-blue);
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #ffffff;
+  }
 }
 
 @media screen and (max-width: 580px) {

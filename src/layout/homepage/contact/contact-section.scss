@@ -107,7 +107,7 @@ $text-shadow: map.get($colors, text-shadow);
 }
 
 .contact__link-hover:hover {
-  color: #17adb2;
+  color: map.get($colors, hover-link-blue);
 }
 
 @media screen and (max-width: 1180px) {

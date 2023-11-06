@@ -20,7 +20,7 @@ export interface EmailDataForm {
 }
 
 const ContactForm = () => {
-  const [isMessageSent, setMessageSent] = useState(false);
+  const [isMessageSent, setMessageSent] = useState(true);
 
   const {
     register,
@@ -39,6 +39,8 @@ const ContactForm = () => {
     }
   };
 
+  const onNewMessage = () => setMessageSent(false);
+
   return (
     <>
       {isMessageSent ? (
@@ -50,6 +52,7 @@ const ContactForm = () => {
             draggable='false'
           />
           <p className='contact-form__message-sent-info'>Wiadomość wysłana</p>
+          <a className='contact-form__message-sent-back' onClick={onNewMessage}>Wyślij nową wiadomość</a>
         </div>
       ) : (
         <Form
