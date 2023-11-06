@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.3.1",
     "@react-google-maps/api": "^2.19.2",
     "@types/node": "^20.8.2",
+    "axios": "^1.6.0",
     "classnames": "^2.3.2",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",

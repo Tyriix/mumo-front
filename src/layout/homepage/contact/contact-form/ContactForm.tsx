@@ -6,20 +6,35 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import classnames from 'classnames';
 import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
+import Axios from 'axios';
+import { BASE_URL_API } from '../../../../models/constants.app';
 
-type FormData = yup.InferType<typeof homeContactSchema>;
+type FormDataYup = yup.InferType<typeof homeContactSchema>;
+
+interface FormData {
+  name: string;
+  email: string;
+  subject?: string;
+  text?: string;
+  agreeTerms: boolean;
+}
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<FormDataYup>({
     resolver: yupResolver(homeContactSchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    return data;
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await Axios.post(`${BASE_URL_API}/form-email`, data);
+      console.log('Email sent successfully', response);
+    } catch (error) {
+      console.error('Error sending email', error);
+    }
   };
 
   return (
