@@ -63,23 +63,6 @@ const ContactForm = () => {
           method='post'
         >
           <div className='contact-form__container'>
-            <label className='contact-form_label' htmlFor='contact-form_name'>
-              Imię
-            </label>
-            <input
-              id='contact-form_name'
-              type='text'
-              {...register('name')}
-              className={classnames(
-                'contact-form__input',
-                errors.name && 'contact-form__input-alert-active'
-              )}
-            />
-            <div className='contact-form__error-container'>
-              <span className='contact-form__error'>
-                {errors.name?.message}
-              </span>
-            </div>
             <label className='contact-form_label' htmlFor='contact-form_email'>
               Email
             </label>
@@ -95,6 +78,23 @@ const ContactForm = () => {
             <div className='contact-form__error-container'>
               <span className='contact-form__error'>
                 {errors.email?.message}
+              </span>
+            </div>
+            <label className='contact-form_label' htmlFor='contact-form_name'>
+              Imię
+            </label>
+            <input
+              id='contact-form_name'
+              type='text'
+              {...register('name')}
+              className={classnames(
+                'contact-form__input',
+                errors.name && 'contact-form__input-alert-active'
+              )}
+            />
+            <div className='contact-form__error-container'>
+              <span className='contact-form__error'>
+                {errors.name?.message}
               </span>
             </div>
             <label
