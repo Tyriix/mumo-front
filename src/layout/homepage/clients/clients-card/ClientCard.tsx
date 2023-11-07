@@ -8,17 +8,18 @@ interface Props {
     pictureURL: string
     pictureAlt: string
 }
+const QUESTION_MARK_COLOR = '#B1E8DF'
 
 const ClientCard: FC<Props> = ({name, content, pictureURL, pictureAlt}) => {
     return(
         <>
         <div className='client-card'>
             <div className='client-card__quote'>
-            <QuotationMark direction={Direction.Up} color='#B1E8DF'/>
+            <QuotationMark direction={Direction.Up} color={QUESTION_MARK_COLOR}/>
             <p className='client-card__content' >
                 {content}
             </p>
-            <QuotationMark direction={Direction.Down} color='#B1E8DF'/>
+            <QuotationMark direction={Direction.Down} color={QUESTION_MARK_COLOR}/>
             </div>
             
             <img className='client-card__image' src={pictureURL} alt={pictureAlt} />

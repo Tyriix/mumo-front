@@ -34,12 +34,12 @@ const ClientSection: FC = () => {
         }
           }
           navigation={{ nextEl: '.clients__swiper-button-right', prevEl: '.clients__swiper-button-left' }}
-          modules={[Autoplay, Navigation]}
+          modules={[ Navigation]}
           >
             <SwiperSlide>
               <ClientCard
                 name="Dominika i Azorek"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. "
+                content="Lorem ipsum dolor sit amet "
                 pictureURL="src\assets\images\client-dog1.png"
                 pictureAlt="A corgi staring to the front with it's tongue out."
               ></ClientCard>
