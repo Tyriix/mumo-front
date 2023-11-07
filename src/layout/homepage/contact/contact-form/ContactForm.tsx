@@ -8,7 +8,7 @@ import { homeContactSchema } from '../../../../models/schemas.yup';
 import Axios from 'axios';
 import { BASE_URL_API } from '../../../../models/constants.app';
 import { useState } from 'react';
-import ContactFormField from './contact-form-field/ContactFormField';
+import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
@@ -52,7 +52,9 @@ const ContactForm = () => {
             draggable='false'
           />
           <p className='contact-form__message-sent-info'>Wiadomość wysłana</p>
-          <a className='contact-form__message-sent-back' onClick={onNewMessage}>Wyślij nową wiadomość</a>
+          <a className='contact-form__message-sent-back' onClick={onNewMessage}>
+            Wyślij nową wiadomość
+          </a>
         </div>
       ) : (
         <Form
@@ -61,28 +63,60 @@ const ContactForm = () => {
           method='post'
         >
           <div className='contact-form__container'>
-            <ContactFormField
-              register={register('email')}
-              errors={errors}
-              fieldType={'email'}
-              label={'Email'}
-              elementHTML={'input'}
+            <label className='contact-form_label' htmlFor='contact-form_name'>
+              Imię
+            </label>
+            <input
+              id='contact-form_name'
+              type='text'
+              {...register('name')}
+              className={classnames(
+                'contact-form__input',
+                errors.name && 'contact-form__input-alert-active'
+              )}
             />
-            <ContactFormField
-              register={register('name')}
-              errors={errors}
-              fieldType={'name'}
-              label={'Imię'}
-              elementHTML={'input'}
+            <div className='contact-form__error-container'>
+              <span className='contact-form__error'>
+                {errors.name?.message}
+              </span>
+            </div>
+            <label className='contact-form_label' htmlFor='contact-form_email'>
+              Email
+            </label>
+            <input
+              id='contact-form_email'
+              type='email'
+              {...register('email')}
+              className={classnames(
+                'contact-form__input',
+                errors.email && 'contact-form__input-alert-active'
+              )}
             />
-            <ContactFormField
-              register={register('message')}
-              errors={errors}
-              fieldType={'message'}
-              label={'Wiadomość'}
-              elementHTML={'textarea'}
+            <div className='contact-form__error-container'>
+              <span className='contact-form__error'>
+                {errors.email?.message}
+              </span>
+            </div>
+            <label
+              className='contact-form_label'
+              htmlFor='contact-form_message'
+            >
+              Wiadomość
+            </label>
+            <textarea
+              id='contact-form_message'
+              className={classnames(
+                'contact-form__textarea-message',
+                errors.name && 'contact-form__textarea-alert-active'
+              )}
+              {...register('message')}
             />
-            <div className='contact-form__checkbox'>
+            <div className='contact-form__error-container'>
+              <span className='contact-form__error'>
+                {errors.message?.message}
+              </span>
+            </div>
+            <div className='contact-form__checkbox-row'>
               <label className='contact-form__checkbox-label'>
                 <input
                   type='checkbox'

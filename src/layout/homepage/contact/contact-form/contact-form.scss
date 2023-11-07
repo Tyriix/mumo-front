@@ -2,6 +2,15 @@
 @import '../../../../styles/helpers/variables';
 $error_red: map.get($colors, error-red);
 
+.contact-form__input,
+.contact-form__textarea-message {
+  border: 1px solid #000;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -15,6 +24,13 @@ $error_red: map.get($colors, error-red);
   align-items: center;
 }
 
+.contact-form__textarea-message {
+  color: #000;
+  font-family: 'Raleway';
+  height: 14em;
+  resize: none;
+}
+
 .contact-form__input-checkbox {
   width: 1em;
   height: 1em;
@@ -24,7 +40,7 @@ $error_red: map.get($colors, error-red);
   font-size: 0.7em;
 }
 
-.contact-form__checkbox {
+.contact-form__checkbox-row {
   display: flex;
   flex-direction: row;
   width: 90%;
@@ -41,11 +57,33 @@ $error_red: map.get($colors, error-red);
   text-align: center;
 }
 
+.contact-form__input-alert-active {
+  border: 1px solid $error_red;
+  width: 90%;
+  height: 2.4em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+.contact-form__textarea-alert-active {
+  border: 1px solid $error_red;
+  resize: none;
+  width: 90%;
+  height: 14em;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
 .contact-form__error-container {
   display: flex;
   align-items: center;
   height: 2.2em;
   width: 90%;
+}
+
+.contact-form_label {
+  width: 90%;
+  font-size: 0.9rem;
 }
 
 .contact-form__message-sent {
