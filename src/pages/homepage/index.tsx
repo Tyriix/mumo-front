@@ -8,12 +8,6 @@ import ScrollTopButton from '../../components/buttons/ScrollTopButton';
 import ClientSection from '../../layout/homepage/clients/ClientsSection';
 
 const Homepage: FC = () => {
-  // const tempElement = {
-  //   color: 'white',
-  //   width: '100%',
-  //   height: '600px',
-  // };
-
   return (
     <>
       <Header />
