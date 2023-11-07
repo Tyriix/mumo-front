@@ -12,13 +12,6 @@ import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-export interface EmailDataForm {
-  email: string;
-  message: string;
-  name: string;
-  agreeTerms: NonNullable<boolean | undefined>;
-}
-
 const ContactForm = () => {
   const [isMessageSent, setMessageSent] = useState(false);
 
@@ -30,7 +23,7 @@ const ContactForm = () => {
     resolver: yupResolver(homeContactSchema),
   });
 
-  const onSubmit = async (data: EmailDataForm) => {
+  const onSubmit = async (data: FormDataYup) => {
     try {
       await Axios.post(`${BASE_URL_API}/form-email`, data);
       setMessageSent(true);
