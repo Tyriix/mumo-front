@@ -5,22 +5,18 @@ import StartViewSection from '../../layout/homepage/start-view/StartViewSection'
 import ContactSection from '../../layout/homepage/contact/ContactSection';
 import Header from '../../layout/header/Header';
 import ScrollTopButton from '../../components/buttons/ScrollTopButton';
+import ClientSection from '../../layout/homepage/clients/ClientsSection';
 import Footer from '../../layout/footer/Footer';
 
-const Homepage: FC = () => {
-  const tempElement = {
-    color: 'white',
-    width: '100%',
-    height: '600px',
-  };
 
+const Homepage: FC = () => {
   return (
     <>
       <Header />
       <StartViewSection />
       <AboutSection />
       <HomeOfferSection />
-      <div className='ghost-temp-element' style={tempElement}></div>
+      <ClientSection />
       <ContactSection />
       <ScrollTopButton />
       <Footer />

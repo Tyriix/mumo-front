@@ -1,0 +1,91 @@
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+$dark-gray: map.get($colors, dark-gray);
+$text-shadow: map.get($colors, text-shadow);
+$media-card-image-size: 6.5em;
+$card-image-size: 8em;
+
+.client-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20em;
+  height: 25em;
+  align-items: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 5em 1em 3em 1em;
+  margin-bottom: 3em;
+}
+.client-card__quote {
+  display: flex;
+  width: 100%;
+  height: 15em;
+  align-items: center;
+}
+.client-card__content {
+  width: 55em;
+  text-align: left;
+  line-height: 2em;
+  font-weight: 300;
+}
+.quotation-mark__up{
+  align-self: flex-start;
+}
+.quotation-mark__down{
+  align-self: flex-end;
+}
+.quotation-mark__up, .quotation-mark__down{
+  width: 15em;
+}
+.client-card__image {
+  object-fit: cover;
+  width: $card-image-size;
+  height: $card-image-size;
+  border-radius: $card-image-size;
+  -webkit-border-radius: $card-image-size;
+  -moz-border-radius: $card-image-size;
+  -ms-border-radius: $card-image-size;
+  -o-border-radius: $card-image-size;
+}
+
+.client-card__name{
+  color: $dark-gray;
+  font-weight: 600;
+}
+@media screen and (max-width: 900px){
+  .client-card{
+    height: 80%;
+  }
+  .client-card__quote{
+    height: 10em;
+  }
+}
+@media screen  and (max-width: 1150px){
+  .client-card__image{
+    width: 5em;
+    height: 5em;
+  }
+  .client-card__content{
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width:1300px){
+  .client-card{
+    width: 80%;
+    padding: 2em 1em 2em 1em;
+  }
+  .client-card__content {
+  line-height: 1.5em;
+  }
+  .client-card__image{
+    width: $media-card-image-size;
+    height: $media-card-image-size;
+    border-radius: $media-card-image-size;
+    -webkit-border-radius: $media-card-image-size;
+    -moz-border-radius: $media-card-image-size;
+    -ms-border-radius: $media-card-image-size;
+    -o-border-radius: $media-card-image-size;
+}
+}

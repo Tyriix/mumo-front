@@ -1,0 +1,89 @@
+@use "sass:map";
+@import "../../../styles/helpers/variables";
+$text-shadow: map.get($colors, text-shadow);
+$dark-gray: map.get($colors, dark-gray);
+
+.clients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0 150px 0;
+  position: relative;
+}
+.clients__card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  max-width: 100%;
+  padding: 10px 0 10px 0;
+}
+.clients__header {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #23a491;
+  width: fit-content;
+  text-shadow: 0px 2px 2px $text-shadow;
+}
+.clients__header:after {
+  content: "";
+  float: inline-end;
+  background: rgb(156, 224, 214);
+  width: 90%;
+  height: 0.4rem;
+  left: -5%;
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.swiper {
+  width: 85%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-wrapper{
+  transition-timing-function: linear;
+}
+.clients__swiper-button-left, .clients__swiper-button-right{
+    display: block;
+  width: 25px;
+  height: 25px;
+  border:0;
+  padding: 0;
+  border-top: 2px solid $dark-gray;
+  border-left: 2px solid $dark-gray;
+  cursor: pointer;
+}
+.clients__swiper-button-left{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+.clients__swiper-button-right{
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+}
+
+@media screen and (max-width:600px){
+    .clients{
+        padding-bottom: 50px;
+    }
+    .swiper{
+        width: 70%;
+    }
+}

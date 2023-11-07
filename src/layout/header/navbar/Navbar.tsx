@@ -48,7 +48,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
-          onClick={() => onNavbarLinkClick(HomepageSections.About)}
+          onClick={() => onNavbarLinkClick(HomepageSections.Clients)}
           tabIndex={0}
         >
           Nasi Klienci
