@@ -107,7 +107,7 @@ const ContactForm = () => {
               id='contact-form_message'
               className={classnames(
                 'contact-form__textarea-message',
-                errors.name && 'contact-form__textarea-alert-active'
+                errors.message && 'contact-form__textarea-alert-active'
               )}
               {...register('message')}
             />
