@@ -21,6 +21,7 @@ const Logotype: FC<Props> = ({
         className='logotype__img'
         src={LOGO_SRC}
         alt='Logo Mumo pozytywne szkolenie psów'
+        draggable='false'
       />
       <div
         className={classNames(
