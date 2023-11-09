@@ -7,12 +7,16 @@ $border-gray: map.get($colors, border-gray);
 $circle-size: 834px;
 .login {
   position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
   padding-top: 6em;
-  padding-bottom: 6em;
+  padding-bottom: 7em;
+}
+.login__body{
+  height: 100vh;
 }
 .login__container{
   display: flex;
@@ -63,6 +67,9 @@ $circle-size: 834px;
 .login__text-accent {
   color: $background-blue;
   font-weight: 500;
+}
+.login__text-accent:hover{
+  color: map.get($colors, hover-link-blue);
 }
 .login__image-container {
   display: flex;
