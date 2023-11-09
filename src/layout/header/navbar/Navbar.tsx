@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { scrollToSection } from '../../../utils/scrollUtils';
 import { HomepageSections } from '../../../models/enums.app';
 import './navbar.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   className?: string;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
+  const navigate = useNavigate();
+
   const onNavbarLinkClick = (section: string) => {
     if (toggleMobileNavbar) toggleMobileNavbar();
     scrollToSection(section);
@@ -63,7 +66,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           Kontakt
         </a>
       </div>
-      <MainButton className='navbar__login-button' content={'Zaloguj się'} />
+      <MainButton className='navbar__login-button' content={'Zaloguj się'} onClick={() => navigate('/login')} />
     </div>
   );
 };
