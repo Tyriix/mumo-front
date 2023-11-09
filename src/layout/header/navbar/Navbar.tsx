@@ -20,9 +20,13 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   }
   async function onNavbarAsyncClick(section:string){
     if(toggleMobileNavbar) toggleMobileNavbar();
-    await navigate('/')
+    await navigateNotHome()
     scrollToSection(section);
   } 
+  async function navigateNotHome(){
+    const res = navigate('/');
+    return res;
+  }
  
   return (
     <div className={classNames("navbar", className)}>
