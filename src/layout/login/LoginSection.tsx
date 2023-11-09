@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import WaveShape from '../../components/shapes/Wave';
 import LoginForm from './login-form/LoginForm';
 import './login-section.scss';
 
 const LoginSection = () => {
+  const navigate = useNavigate();
   const WAVE_COLORS = ['#7be5d5', '#21aa96']
 
   return (
@@ -20,7 +22,9 @@ const LoginSection = () => {
           <LoginForm />
           <span className='login__text'>
             Nie masz konta?{' '}
+            <a onClick={() => navigate('/register')}>
             <span className='login__text-accent'>Zarejestruj się</span>
+              </a>
           </span>
          </div>
         </div>

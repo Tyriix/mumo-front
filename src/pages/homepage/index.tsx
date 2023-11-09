@@ -10,6 +10,8 @@ import Footer from '../../layout/footer/Footer';
 
 
 const Homepage: FC = () => {
+  
+
   return (
     <>
       <Header />
@@ -19,7 +21,7 @@ const Homepage: FC = () => {
       <ClientSection />
       <ContactSection />
       <ScrollTopButton />
-      <Footer />
+      <Footer isLogin={false} />
     </>
   );
 };

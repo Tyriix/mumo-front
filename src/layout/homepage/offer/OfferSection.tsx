@@ -4,6 +4,7 @@ import OfferCard from './offer-card/OfferCard';
 import { HomepageSections } from '../../../models/enums.app';
 
 const HomeOfferSection: FC = () => {
+
   const offerCards = [
     {
       title: 'Zajęcia indywidualne',

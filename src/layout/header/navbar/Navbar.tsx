@@ -5,7 +5,6 @@ import { scrollToSection } from '../../../utils/scrollUtils';
 import { HomepageSections } from '../../../models/enums.app';
 import './navbar.scss';
 import { useNavigate } from 'react-router-dom';
-
 interface Props {
   className?: string;
   toggleMobileNavbar?: () => void;
@@ -22,6 +21,8 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
+        {
+        }
         <a
           className='navbar__element-link'
           onClick={() => onNavbarLinkClick(HomepageSections.About)}
@@ -42,8 +43,10 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className='navbar__element'>
         <a
           className='navbar__element-link'
+          // onClick={() => onNavbarLinkClick(HomepageSections.Offer)}
           onClick={() => onNavbarLinkClick(HomepageSections.Offer)}
           tabIndex={0}
+          id='navbar__anchor'
         >
           Oferta
         </a>
