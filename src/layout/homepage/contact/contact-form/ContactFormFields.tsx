@@ -1,5 +1,5 @@
 import { Form } from 'react-router-dom';
-import './contact-form.scss';
+import './contact-form-fields.scss';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-const ContactForm = () => {
+const ContactFormFields = () => {
   const [isMessageSent, setMessageSent] = useState(false);
 
   const {
@@ -137,4 +137,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactFormFields;
