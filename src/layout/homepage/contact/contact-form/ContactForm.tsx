@@ -63,6 +63,7 @@ const ContactForm = () => {
               id='contact-form_email'
               type='email'
               {...register('email')}
+              autoComplete='on'
               className={classnames(
                 'contact-form__input',
                 errors.email && 'contact-form__input-alert-active'
@@ -80,6 +81,7 @@ const ContactForm = () => {
               id='contact-form_name'
               type='text'
               {...register('name')}
+              autoComplete='on'
               className={classnames(
                 'contact-form__input',
                 errors.name && 'contact-form__input-alert-active'

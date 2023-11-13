@@ -37,6 +37,7 @@ const LoginForm = () => {
             {...register('email')}
             className='login__form-input'
             placeholder='Adres email'
+            autoComplete='on'
           />
           <div className='login__form-error-container'>
             <span className='login__form-error'>{errors.email?.message}</span>
