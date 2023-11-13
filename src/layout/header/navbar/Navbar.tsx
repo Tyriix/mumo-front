@@ -13,6 +13,7 @@ interface Props {
 const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isHomePage = location.pathname != '/';
 
   const onNavbarLinkClick = (section: string) =>{
     if (toggleMobileNavbar) toggleMobileNavbar();
@@ -20,10 +21,13 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   }
   async function onNavbarAsyncClick(section:string){
     if(toggleMobileNavbar) toggleMobileNavbar();
-    let isResolved: boolean = false;
-    await navigateNotHome().then(function() {isResolved = true})
-    if(isResolved)
-    scrollToSection(section);
+    try{
+      await navigateNotHome();
+      scrollToSection(section);
+    }
+    catch (error){
+      console.error('Navigation:', error);
+    }
   } 
   async function navigateNotHome(){
     const res = navigate('/');
@@ -36,7 +40,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
         {}
         <a
           className="navbar__element-link"
-          onClick={() => location.pathname != '/' ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
+          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
           tabIndex={0}
         >
           Główna
@@ -45,7 +49,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => location.pathname != '/' ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
+          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
           tabIndex={0}
         >
           O nas
@@ -54,8 +58,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          // onClick={() => onNavbarLinkClick(HomepageSections.Offer)}
-          onClick={() => location.pathname != '/' ? onNavbarAsyncClick(HomepageSections.Offer) : onNavbarLinkClick(HomepageSections.Offer)}
+          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Offer) : onNavbarLinkClick(HomepageSections.Offer)}
           tabIndex={0}
           id="navbar__anchor"
         >
@@ -65,7 +68,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => location.pathname != '/' ? onNavbarAsyncClick(HomepageSections.Clients) : onNavbarLinkClick(HomepageSections.Clients)}
+          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Clients) : onNavbarLinkClick(HomepageSections.Clients)}
           tabIndex={0}
         >
           Nasi Klienci
@@ -74,7 +77,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => location.pathname != '/' ? onNavbarAsyncClick(HomepageSections.Contact) : onNavbarLinkClick(HomepageSections.Contact)}
+          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Contact) : onNavbarLinkClick(HomepageSections.Contact)}
           tabIndex={0}
         >
           Kontakt

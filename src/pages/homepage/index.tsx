@@ -21,7 +21,7 @@ const Homepage: FC = () => {
       <ClientSection />
       <ContactSection />
       <ScrollTopButton />
-      <Footer isLogin={false} />
+      <Footer isLoginRegister={false} />
     </>
   );
 };

@@ -4,15 +4,19 @@ import './footer.scss';
 interface Props{
   isLoginRegister: boolean;
 }
+const ApplyLoginPageStyles = (isLoginRegister: boolean) => {
+  useEffect(() => {
+    if(isLoginRegister){
+      const footer = document.querySelector('.footer')
+      footer?.classList.add('footer__login-register-page');
+    }
+  }, [isLoginRegister])
+}
 
 const Footer: FC<Props> = (props: Props) => {
   const currentYear = new Date().getFullYear();
-  useEffect(() => {
-    if(props.isLoginRegister == true){
-      const footer = document.querySelector('.footer')
-      footer?.classList.add('footer__login-page');
-    }
-  })
+  
+  ApplyLoginPageStyles(props.isLoginRegister)
 
   return (
     <div className='footer' id='footer'>
