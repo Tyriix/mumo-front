@@ -35,7 +35,7 @@ const ClientSection: FC = () => {
         }
           }
           navigation={{ nextEl: '.clients__swiper-button-right', prevEl: '.clients__swiper-button-left' }}
-          modules={[ Navigation]}
+          modules={[Autoplay, Navigation]}
           >
             <SwiperSlide>
               <ClientCard
