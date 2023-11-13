@@ -19,7 +19,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
     if (toggleMobileNavbar) toggleMobileNavbar();
     scrollToSection(section);
   }
-  async function onNavbarAsyncClick(section: HomepageSections){
+  const onNavbarAsyncClick = async (section: HomepageSections) => {
     if(toggleMobileNavbar) toggleMobileNavbar();
     try{
       await navigateNotHome();
@@ -29,7 +29,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       console.error('Navigation:', error);
     }
   } 
-  async function navigateNotHome(){
+  const navigateNotHome = async () =>{
     const res = navigate('/');
     return res;
   }
