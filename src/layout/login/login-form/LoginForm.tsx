@@ -47,6 +47,7 @@ const LoginForm = () => {
             {...register('password')}
             className='login__form-input'
             placeholder='Hasło'
+            autoComplete='on'
           />
           <div className='login__form-error-container'>
             <span className='login__form-error'>
