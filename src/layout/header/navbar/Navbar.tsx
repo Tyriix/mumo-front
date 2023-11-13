@@ -23,10 +23,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
     if(toggleMobileNavbar) toggleMobileNavbar();
     try{
       await navigateNotHome();
-      setTimeout(() => {
       scrollToSection(section)
-      }, 100)
-      // scrollToSection(section);
     }
     catch (error){
       console.error('Navigation:', error);
