@@ -130,6 +130,7 @@ const RegisterForm = () => {
                   type='password'
                   {...register('password')}
                   className='register-form__input'
+                  autoComplete='off'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
@@ -158,6 +159,7 @@ const RegisterForm = () => {
                   type='password'
                   {...register('repeatPassword')}
                   className='register-form__input'
+                  autoComplete='off'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
