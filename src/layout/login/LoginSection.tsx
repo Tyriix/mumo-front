@@ -18,14 +18,14 @@ const LoginSection = () => {
         <div className='login__container'>
         <div className='login__section-form'>
          <div className='login__section-border'>
-         <h2 className='login__header'>Zaloguj się</h2>
-          <LoginForm />
-          <span className='login__text'>
+         <span className='login__text'>
             Nie masz konta?{' '}
             <a onClick={() => navigate('/register')}>
             <span className='login__text-accent'>Zarejestruj się</span>
               </a>
           </span>
+         <h2 className='login__header'>Zaloguj się</h2>
+          <LoginForm />
          </div>
         </div>
         <div className='login__section-text'>

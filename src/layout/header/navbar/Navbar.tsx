@@ -15,11 +15,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const location = useLocation();
   const isHomePage = location.pathname != '/';
 
-  const onNavbarLinkClick = (section: string) =>{
+  const onNavbarLinkClick = (section: HomepageSections) =>{
     if (toggleMobileNavbar) toggleMobileNavbar();
     scrollToSection(section);
   }
-  async function onNavbarAsyncClick(section:string){
+  async function onNavbarAsyncClick(section: HomepageSections){
     if(toggleMobileNavbar) toggleMobileNavbar();
     try{
       await navigateNotHome();
