@@ -4,7 +4,7 @@ import HeroSection from './hero-section/HeroSection';
 
 const StartViewSection: FC = () => {
   return (
-    <div className="start-view">
+    <div className='start-view'>
       <HeroSection />
       <WelcomeText />
     </div>

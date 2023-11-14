@@ -40,21 +40,21 @@ const NavbarMobile: FC<Props> = ({ duration, state, toggleNavbar }) => {
 
   return (
     <div
-      className="menu-mobile"
+      className='menu-mobile'
       style={{
         ...defaultStyle,
         ...transitionStyles[state],
       }}
     >
-      <div className="menu-mobile__box">
-        <button onClick={toggleNavbar} className="menu-mobile__close-button">
+      <div className='menu-mobile__box'>
+        <button onClick={toggleNavbar} className='menu-mobile__close-button'>
           <FaTimes
-            className="menu-mobile__close-icon"
-            aria-label="Close navbar button"
+            className='menu-mobile__close-icon'
+            aria-label='Close navbar button'
           />
         </button>
         <Logotype
-          className="menu-mobile__logotype"
+          className='menu-mobile__logotype'
           isFirstNameVisible={false}
           isSecondNameVisible={false}
         />

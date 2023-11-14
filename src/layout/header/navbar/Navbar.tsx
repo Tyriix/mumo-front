@@ -35,10 +35,10 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
 
   return (
     <div className={classNames('navbar', className)}>
-      <div className="navbar__element">
+      <div className='navbar__element'>
         {}
         <a
-          className="navbar__element-link"
+          className='navbar__element-link'
           onClick={() =>
             isHomePage
               ? onNavbarAsyncClick(HomepageSections.About)
@@ -49,9 +49,9 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           Główna
         </a>
       </div>
-      <div className="navbar__element">
+      <div className='navbar__element'>
         <a
-          className="navbar__element-link"
+          className='navbar__element-link'
           onClick={() =>
             isHomePage
               ? onNavbarAsyncClick(HomepageSections.About)
@@ -62,23 +62,23 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           O nas
         </a>
       </div>
-      <div className="navbar__element">
+      <div className='navbar__element'>
         <a
-          className="navbar__element-link"
+          className='navbar__element-link'
           onClick={() =>
             isHomePage
               ? onNavbarAsyncClick(HomepageSections.Offer)
               : onNavbarLinkClick(HomepageSections.Offer)
           }
           tabIndex={0}
-          id="navbar__anchor"
+          id='navbar__anchor'
         >
           Oferta
         </a>
       </div>
-      <div className="navbar__element">
+      <div className='navbar__element'>
         <a
-          className="navbar__element-link"
+          className='navbar__element-link'
           onClick={() =>
             isHomePage
               ? onNavbarAsyncClick(HomepageSections.Clients)
@@ -89,9 +89,9 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           Nasi Klienci
         </a>
       </div>
-      <div className="navbar__element">
+      <div className='navbar__element'>
         <a
-          className="navbar__element-link"
+          className='navbar__element-link'
           onClick={() =>
             isHomePage
               ? onNavbarAsyncClick(HomepageSections.Contact)
@@ -103,7 +103,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
         </a>
       </div>
       <MainButton
-        className="navbar__login-button"
+        className='navbar__login-button'
         content={'Zaloguj się'}
         onClick={() => navigate('/login')}
       />

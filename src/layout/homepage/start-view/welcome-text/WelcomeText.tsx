@@ -14,12 +14,12 @@ const WelcomeText: FC = () => {
   };
 
   return (
-    <div className="welcome-section">
+    <div className='welcome-section'>
       <div
         ref={ref}
         className={classnames('welcome-section__content', !clamped && 'open')}
       >
-        <h3 className="welcome-section__header">Witaj!</h3>
+        <h3 className='welcome-section__header'>Witaj!</h3>
         <p className={classnames('welcome-section__text', clamped && 'clamp')}>
           Zrobiłeś już pierwszy krok do naprawienia lub stworzenia relacji ze
           swoim psem.
@@ -42,7 +42,7 @@ const WelcomeText: FC = () => {
         </p>
       </div>
       <button
-        className="welcome-section__button"
+        className='welcome-section__button'
         onClick={handleClick}
         aria-label={clamped ? 'Read more' : 'Read less'}
       >

@@ -13,18 +13,18 @@ const QUESTION_MARK_COLOR = '#B1E8DF';
 const ClientCard: FC<Props> = ({ name, content, pictureURL, pictureAlt }) => {
   return (
     <>
-      <div className="client-card">
-        <div className="client-card__quote">
+      <div className='client-card'>
+        <div className='client-card__quote'>
           <QuotationMark direction={Direction.Up} color={QUESTION_MARK_COLOR} />
-          <p className="client-card__content">{content}</p>
+          <p className='client-card__content'>{content}</p>
           <QuotationMark
             direction={Direction.Down}
             color={QUESTION_MARK_COLOR}
           />
         </div>
 
-        <img className="client-card__image" src={pictureURL} alt={pictureAlt} />
-        <h3 className="client-card__name">{name}</h3>
+        <img className='client-card__image' src={pictureURL} alt={pictureAlt} />
+        <h3 className='client-card__name'>{name}</h3>
       </div>
     </>
   );
