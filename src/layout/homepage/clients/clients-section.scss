@@ -1,5 +1,5 @@
-@use "sass:map";
-@import "../../../styles/helpers/variables";
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
 $text-shadow: map.get($colors, text-shadow);
 $dark-gray: map.get($colors, dark-gray);
 
@@ -27,7 +27,7 @@ $dark-gray: map.get($colors, dark-gray);
   text-shadow: 0px 2px 2px $text-shadow;
 }
 .clients__header:after {
-  content: "";
+  content: '';
   float: inline-end;
   background: rgb(156, 224, 214);
   width: 90%;
@@ -51,39 +51,40 @@ $dark-gray: map.get($colors, dark-gray);
   justify-content: center;
   align-items: center;
 }
-.swiper-wrapper{
+.swiper-wrapper {
   transition-timing-function: linear;
 }
-.clients__swiper-button-left, .clients__swiper-button-right{
-    display: block;
+.clients__swiper-button-left,
+.clients__swiper-button-right {
+  display: block;
   width: 25px;
   height: 25px;
-  border:0;
+  border: 0;
   padding: 0;
   border-top: 2px solid $dark-gray;
   border-left: 2px solid $dark-gray;
   cursor: pointer;
 }
-.clients__swiper-button-left{
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
+.clients__swiper-button-left {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
 }
-.clients__swiper-button-right{
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -ms-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
+.clients__swiper-button-right {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
 }
 
-@media screen and (max-width:600px){
-    .clients{
-        padding-bottom: 50px;
-    }
-    .swiper{
-        width: 70%;
-    }
+@media screen and (max-width: 600px) {
+  .clients {
+    padding-bottom: 50px;
+  }
+  .swiper {
+    width: 70%;
+  }
 }

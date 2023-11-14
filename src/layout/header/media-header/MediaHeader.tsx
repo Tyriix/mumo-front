@@ -16,43 +16,43 @@ interface Props {
 const MediaHeader: FC<Props> = ({ className }) => {
   return (
     <div className={classNames('media-header', className)}>
-      <div className='media-header__box'>
+      <div className="media-header__box">
         <a
-          className='media-header__icon-link'
+          className="media-header__icon-link"
           href={constants.FACEBOOK_LINK}
-          target='_blank'
+          target="_blank"
         >
           <FaFacebook
-            className='media-header__icon'
-            aria-label='Facebook icon'
+            className="media-header__icon"
+            aria-label="Facebook icon"
           />
         </a>
 
         <a
-          className='media-header__icon-link'
+          className="media-header__icon-link"
           href={constants.INSTAGRAM_LINK}
-          target='_blank'
+          target="_blank"
         >
           <FaInstagram
-            className='media-header__icon'
-            aria-label='Instagram icon'
+            className="media-header__icon"
+            aria-label="Instagram icon"
           />
         </a>
 
         <a
-          className='media-header__icon-link'
+          className="media-header__icon-link"
           href={`tel:+48${constants.PHONE_NUMBER}`}
-          target='_blank'
+          target="_blank"
         >
-          <FaPhoneAlt className='media-header__icon' aria-label='Phone icon' />
+          <FaPhoneAlt className="media-header__icon" aria-label="Phone icon" />
         </a>
 
         <a
-          className='media-header__icon-link'
+          className="media-header__icon-link"
           href={`mailto:${constants.MAIL_ADRESS}`}
-          target='_blank'
+          target="_blank"
         >
-          <FaEnvelope className='media-header__icon' aria-label='Mail icon' />
+          <FaEnvelope className="media-header__icon" aria-label="Mail icon" />
         </a>
       </div>
     </div>

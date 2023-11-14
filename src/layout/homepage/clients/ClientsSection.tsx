@@ -1,12 +1,12 @@
-import { FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "./clients-section.scss";
-import ClientCard from "./clients-card/ClientCard";
-import { HomepageSections } from "../../../models/enums.app";
+import { FC } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './clients-section.scss';
+import ClientCard from './clients-card/ClientCard';
+import { HomepageSections } from '../../../models/enums.app';
 
 const ClientSection: FC = () => {
   return (
@@ -14,28 +14,29 @@ const ClientSection: FC = () => {
       <div className="clients" id={HomepageSections.Clients}>
         <h2 className="clients__header">Nasi klienci</h2>
         <div className="clients__card-container">
-          <div className='clients__swiper-button-left'></div>
-          <Swiper 
-          slidesPerView={1}
-          spaceBetween={10}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          allowTouchMove={false}
-          breakpoints= {{
-            901: {
+          <div className="clients__swiper-button-left"></div>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            allowTouchMove={false}
+            breakpoints={{
+              901: {
                 slidesPerView: 3,
-            },
-            600:{
-              slidesPerView:2,
-            }
-
-        }
-          }
-          navigation={{ nextEl: '.clients__swiper-button-right', prevEl: '.clients__swiper-button-left' }}
-          modules={[Autoplay, Navigation]}
+              },
+              600: {
+                slidesPerView: 2,
+              },
+            }}
+            navigation={{
+              nextEl: '.clients__swiper-button-right',
+              prevEl: '.clients__swiper-button-left',
+            }}
+            modules={[Autoplay, Navigation]}
           >
             <SwiperSlide>
               <ClientCard
@@ -70,7 +71,7 @@ const ClientSection: FC = () => {
               ></ClientCard>
             </SwiperSlide>
           </Swiper>
-          <div className='clients__swiper-button-right'></div>
+          <div className="clients__swiper-button-right"></div>
         </div>
       </div>
     </>

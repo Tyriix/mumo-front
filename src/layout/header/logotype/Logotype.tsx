@@ -18,21 +18,21 @@ const Logotype: FC<Props> = ({
   return (
     <div className={classNames('logotype', className)}>
       <img
-        className='logotype__img'
+        className="logotype__img"
         src={LOGO_SRC}
-        alt='Logo Mumo pozytywne szkolenie psów'
-        draggable='false'
+        alt="Logo Mumo pozytywne szkolenie psów"
+        draggable="false"
       />
       <div
         className={classNames(
           'logotype__name',
-          !isFirstNameVisible && 'invisible'
+          !isFirstNameVisible && 'invisible',
         )}
       >
         <p
           className={classNames(
             'logotype__name-child',
-            !isFirstNameVisible && 'invisible'
+            !isFirstNameVisible && 'invisible',
           )}
         >
           Mumo
@@ -40,7 +40,7 @@ const Logotype: FC<Props> = ({
         <p
           className={classNames(
             'logotype__name-child',
-            !isSecondNameVisible && 'invisible'
+            !isSecondNameVisible && 'invisible',
           )}
         >
           pozytywne szkolenie psów

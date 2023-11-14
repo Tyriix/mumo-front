@@ -1,5 +1,5 @@
-@use "sass:map";
-@import "../../styles/helpers/variables";
+@use 'sass:map';
+@import '../../styles/helpers/variables';
 
 $light-gray: map.get($colors, light-gray);
 $background-blue: map.get($colors, background-blue);
@@ -15,14 +15,14 @@ $circle-size: 834px;
   padding-top: 6em;
   padding-bottom: 7em;
 }
-.login__body{
+.login__body {
   height: 100vh;
 }
-.login__container{
+.login__container {
   display: flex;
 }
-.login__section-border{
-    border-right: 2px solid $border-gray;
+.login__section-border {
+  border-right: 2px solid $border-gray;
 }
 .login__section-text {
   display: flex;
@@ -30,23 +30,23 @@ $circle-size: 834px;
   flex-direction: row;
   align-items: center;
 }
-.login__section-image{
-    position: absolute;
-    right: -1.9em; 
-    top: 2em;   
+.login__section-image {
+  position: absolute;
+  right: -1.9em;
+  top: 2em;
 }
-.login__section-image-circle{
-    position: absolute;
-    bottom: -6em;
-    height: $circle-size;
-    width: $circle-size;
-    border-radius: $circle-size;
-    -webkit-border-radius: $circle-size;
-    -moz-border-radius: $circle-size;
-    -ms-border-radius: $circle-size;
-    -o-border-radius: $circle-size;
-    background-color: $background-blue;
-    z-index: -1;
+.login__section-image-circle {
+  position: absolute;
+  bottom: -6em;
+  height: $circle-size;
+  width: $circle-size;
+  border-radius: $circle-size;
+  -webkit-border-radius: $circle-size;
+  -moz-border-radius: $circle-size;
+  -ms-border-radius: $circle-size;
+  -o-border-radius: $circle-size;
+  background-color: $background-blue;
+  z-index: -1;
 }
 .login__header {
   font-size: 3em;
@@ -68,7 +68,7 @@ $circle-size: 834px;
   color: $background-blue;
   font-weight: 500;
 }
-.login__text-accent:hover{
+.login__text-accent:hover {
   color: map.get($colors, hover-link-blue);
 }
 .login__image-container {
@@ -90,9 +90,8 @@ $circle-size: 834px;
   -ms-border-radius: $circle-size;
   -o-border-radius: $circle-size;
 }
-@media screen and (max-width:1400px)
-{
-  .login__section-image{
+@media screen and (max-width: 1400px) {
+  .login__section-image {
     opacity: 0.3;
   }
 }
@@ -101,7 +100,7 @@ $circle-size: 834px;
     flex-direction: column;
     height: 100%;
   }
-  .login__section-border{
+  .login__section-border {
     border-right: 0px;
   }
   .login__image-circle {
@@ -110,55 +109,53 @@ $circle-size: 834px;
   .login__image-container {
     width: 30em;
   }
-  .login__section-form{
+  .login__section-form {
     margin-bottom: 2em;
     padding-bottom: 4em;
     border-bottom: 1px solid $border-gray;
   }
-  .login__section-text{
+  .login__section-text {
     margin: 0;
   }
-  .login__section-image{
+  .login__section-image {
     opacity: 1;
     right: -10em;
     top: 27em;
   }
-  .login__image{
+  .login__image {
     width: 80%;
   }
-  .login__section-image-circle{
+  .login__section-image-circle {
     display: none;
   }
-  .login__list{
+  .login__list {
     margin: 0 0 0 1.2em;
   }
 }
-@media screen and (max-width: 1040px){
-  .login__section-image{
+@media screen and (max-width: 1040px) {
+  .login__section-image {
     display: none;
   }
 }
-@media screen and (max-width:1040px){
-  .login__form-wave-shape{
+@media screen and (max-width: 1040px) {
+  .login__form-wave-shape {
     position: absolute;
     display: block;
-    top:8em;
+    top: 8em;
     z-index: -1;
     width: 100%;
     height: 25%;
   }
 }
-@media screen and (max-width:580px)
-{
-  .login__container{
+@media screen and (max-width: 580px) {
+  .login__container {
     width: 67%;
   }
-  .login__list ul{
+  .login__list ul {
     padding-left: 0;
     white-space: wrap;
   }
-  .login__header{
+  .login__header {
     white-space: nowrap;
   }
-
 }

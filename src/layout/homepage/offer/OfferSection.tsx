@@ -4,7 +4,6 @@ import OfferCard from './offer-card/OfferCard';
 import { HomepageSections } from '../../../models/enums.app';
 
 const HomeOfferSection: FC = () => {
-
   const offerCards = [
     {
       title: 'Zajęcia indywidualne',
@@ -40,9 +39,9 @@ const HomeOfferSection: FC = () => {
   ];
 
   return (
-    <div className='offer' id={HomepageSections.Offer}>
-      <h2 className='offer__header'>Oferta</h2>
-      <div className='offer__cards-container'>
+    <div className="offer" id={HomepageSections.Offer}>
+      <h2 className="offer__header">Oferta</h2>
+      <div className="offer__cards-container">
         {offerCards.map((offer, index) => (
           <OfferCard
             key={index}

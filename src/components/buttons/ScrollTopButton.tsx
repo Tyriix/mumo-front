@@ -16,7 +16,7 @@ const ScrollTopButton: FC = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, {passive: true});
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -28,8 +28,8 @@ const ScrollTopButton: FC = () => {
       onClick={scrollToTop}
     >
       <FaArrowCircleUp
-        className='scroll-top-button__icon'
-        aria-label='Scroll to top button'
+        className="scroll-top-button__icon"
+        aria-label="Scroll to top button"
       />
     </button>
   );

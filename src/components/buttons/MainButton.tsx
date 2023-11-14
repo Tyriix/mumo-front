@@ -1,12 +1,12 @@
-import { FC } from 'react'
-import './button-components.scss'
-import classNames from 'classnames'
+import { FC } from 'react';
+import './button-components.scss';
+import classNames from 'classnames';
 
 interface Props {
-  content: string
-  className?: string
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-  type?: 'button' | 'submit' | 'reset' | undefined
+  content: string;
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 const MainButton: FC<Props> = ({ content, className, type, onClick }) => {
@@ -18,7 +18,7 @@ const MainButton: FC<Props> = ({ content, className, type, onClick }) => {
     >
       {content}
     </button>
-  )
-}
+  );
+};
 
-export default MainButton
+export default MainButton;

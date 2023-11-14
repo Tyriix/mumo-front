@@ -24,18 +24,18 @@ const FADE_DURATION: number = 1500;
 
 const AboutSection: FC = () => {
   return (
-    <div className='about' id={HomepageSections.About}>
-      <div className='about__container'>
-        <div className='about__block'>
-          <div className='about__content'>
-            <h2 className='about__content-header'>o nas</h2>
+    <div className="about" id={HomepageSections.About}>
+      <div className="about__container">
+        <div className="about__block">
+          <div className="about__content">
+            <h2 className="about__content-header">o nas</h2>
             <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Nazywam się Aleksandra Korczyk, szkoleniem psów metodą naturalną
                 zajmuje się od 2010 roku, przez moje ręce przewinęło się już
                 dziesiątki psów wielu ras i z różnymi problemami.
               </p>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                 ultricies odio quis euismod blandit. Vestibulum a luctus metus.{' '}
                 <br /> <br /> Prywatnie jestem hodowcą i właścicielem 7 psów
@@ -44,33 +44,33 @@ const AboutSection: FC = () => {
               </p>
             </Fade>
           </div>
-          <div className='about__image-container about__image-first'>
+          <div className="about__image-container about__image-first">
             <img
-              className='about__image'
+              className="about__image"
               src={ABOUT_IMAGES[0].src}
               alt={ABOUT_IMAGES[0].alt}
-              draggable='false'
+              draggable="false"
             />
             <CirclesFirst />
           </div>
         </div>
-        <div className='about__block'>
-          <div className='about__image-container about__image-second'>
+        <div className="about__block">
+          <div className="about__image-container about__image-second">
             <img
-              className='about__image'
+              className="about__image"
               src={ABOUT_IMAGES[1].src}
               alt={ABOUT_IMAGES[1].alt}
-              draggable='false'
+              draggable="false"
             />
             <CirclesSecond />
           </div>
-          <div className='about__content'>
-            <h2 className='about__content-header'>szkolenie</h2>
+          <div className="about__content">
+            <h2 className="about__content-header">szkolenie</h2>
             <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Zajęcia odbywają się w mieście Trzebnica w różnych lokacjach.
               </p>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Kursy miesięczne odbywają się również w Obornikach Śląskich i
                 Miliczu po zebraniu grupy min 5 psów. <br /> <br /> 1 cykl
                 szkoleniowy to 8 zajęć po 45 min.
@@ -78,15 +78,15 @@ const AboutSection: FC = () => {
             </Fade>
           </div>
         </div>
-        <div className='about__block'>
-          <div className='about__content'>
+        <div className="about__block">
+          <div className="about__content">
             <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Na zajęcia możesz dołączyć w dowolnej chwili już z
                 kilkumiesięcznym szczeniakiem jeśli posiada szczepienie na
                 wściekliznę, które ukazujesz na pierwszych zajęciach.
               </p>
-              <p className='about__content-paragraph'>
+              <p className="about__content-paragraph">
                 Na zajęcia indywidualne zapraszam już szczenięta nawet od 10
                 tygodnia życia, ustalimy plan działania, wprowadzimy zasady
                 domowe a po szczepieniu na wściekliznę maluch będzie już gotowy
@@ -94,12 +94,12 @@ const AboutSection: FC = () => {
               </p>
             </Fade>
           </div>
-          <div className='about__image-container about__image-third'>
+          <div className="about__image-container about__image-third">
             <img
-              className='about__image'
+              className="about__image"
               src={ABOUT_IMAGES[2].src}
               alt={ABOUT_IMAGES[2].alt}
-              draggable='false'
+              draggable="false"
             />
             <CirclesThird />
           </div>

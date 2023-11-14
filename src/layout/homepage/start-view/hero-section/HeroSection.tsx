@@ -21,32 +21,32 @@ const HeroSection: FC = () => {
       globalFactorY={0.3}
       resetOnLeave
     >
-      <div className='hero-section'>
-        <div className='hero-section__content'>
-          <h2 className='hero-section__header'>
+      <div className="hero-section">
+        <div className="hero-section__content">
+          <h2 className="hero-section__header">
             Szkolenia psów metodą naturalną
           </h2>
           <MainButton
-            className='hero-section__button'
+            className="hero-section__button"
             onClick={() => scrollToSection('offer')}
             content={BUTTON_TEXT}
           />
           <HeroMobileCircles />
         </div>
-        <div className='hero-section__graphic-container'>
+        <div className="hero-section__graphic-container">
           {imageLoaded ? null : (
-            <div className='hero-section__image-skeleton' />
+            <div className="hero-section__image-skeleton" />
           )}
           <img
-            className='hero-section__image'
-            src='src/assets/images/hero_dog.png'
-            alt='Picture of dog'
+            className="hero-section__image"
+            src="src/assets/images/hero_dog.png"
+            alt="Picture of dog"
             onLoad={() => setImageLoaded(true)}
             style={imageLoaded ? {} : { display: 'none' }}
-            draggable='false'
+            draggable="false"
           />
           <WaveShape
-            className='hero-section__wave-shape'
+            className="hero-section__wave-shape"
             colorTop={MOBILE_WAVE_COLORS[0]}
             colorBottom={MOBILE_WAVE_COLORS[1]}
           />

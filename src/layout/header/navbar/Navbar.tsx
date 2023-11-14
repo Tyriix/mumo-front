@@ -1,10 +1,10 @@
-import { FC } from "react";
-import MainButton from "../../../components/buttons/MainButton";
-import classNames from "classnames";
-import { scrollToSection } from "../../../utils/scrollUtils";
-import { HomepageSections } from "../../../models/enums.app";
-import "./navbar.scss";
-import { useLocation, useNavigate } from "react-router-dom";
+import { FC } from 'react';
+import MainButton from '../../../components/buttons/MainButton';
+import classNames from 'classnames';
+import { scrollToSection } from '../../../utils/scrollUtils';
+import { HomepageSections } from '../../../models/enums.app';
+import './navbar.scss';
+import { useLocation, useNavigate } from 'react-router-dom';
 interface Props {
   className?: string;
   toggleMobileNavbar?: () => void;
@@ -15,32 +15,35 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const location = useLocation();
   const isHomePage = location.pathname != '/';
 
-  const onNavbarLinkClick = (section: HomepageSections) =>{
+  const onNavbarLinkClick = (section: HomepageSections) => {
     if (toggleMobileNavbar) toggleMobileNavbar();
     scrollToSection(section);
-  }
+  };
   const onNavbarAsyncClick = async (section: HomepageSections) => {
-    if(toggleMobileNavbar) toggleMobileNavbar();
-    try{
+    if (toggleMobileNavbar) toggleMobileNavbar();
+    try {
       await navigateNotHome();
-      scrollToSection(section)
-    }
-    catch (error){
+      scrollToSection(section);
+    } catch (error) {
       console.error('Navigation:', error);
     }
-  } 
-  const navigateNotHome = async () =>{
+  };
+  const navigateNotHome = async () => {
     const res = navigate('/');
     return res;
-  }
- 
+  };
+
   return (
-    <div className={classNames("navbar", className)}>
+    <div className={classNames('navbar', className)}>
       <div className="navbar__element">
         {}
         <a
           className="navbar__element-link"
-          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
+          onClick={() =>
+            isHomePage
+              ? onNavbarAsyncClick(HomepageSections.About)
+              : onNavbarLinkClick(HomepageSections.About)
+          }
           tabIndex={0}
         >
           Główna
@@ -49,7 +52,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.About) : onNavbarLinkClick(HomepageSections.About)}
+          onClick={() =>
+            isHomePage
+              ? onNavbarAsyncClick(HomepageSections.About)
+              : onNavbarLinkClick(HomepageSections.About)
+          }
           tabIndex={0}
         >
           O nas
@@ -58,7 +65,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Offer) : onNavbarLinkClick(HomepageSections.Offer)}
+          onClick={() =>
+            isHomePage
+              ? onNavbarAsyncClick(HomepageSections.Offer)
+              : onNavbarLinkClick(HomepageSections.Offer)
+          }
           tabIndex={0}
           id="navbar__anchor"
         >
@@ -68,7 +79,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Clients) : onNavbarLinkClick(HomepageSections.Clients)}
+          onClick={() =>
+            isHomePage
+              ? onNavbarAsyncClick(HomepageSections.Clients)
+              : onNavbarLinkClick(HomepageSections.Clients)
+          }
           tabIndex={0}
         >
           Nasi Klienci
@@ -77,7 +92,11 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       <div className="navbar__element">
         <a
           className="navbar__element-link"
-          onClick={() => isHomePage ? onNavbarAsyncClick(HomepageSections.Contact) : onNavbarLinkClick(HomepageSections.Contact)}
+          onClick={() =>
+            isHomePage
+              ? onNavbarAsyncClick(HomepageSections.Contact)
+              : onNavbarLinkClick(HomepageSections.Contact)
+          }
           tabIndex={0}
         >
           Kontakt
@@ -85,8 +104,8 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       </div>
       <MainButton
         className="navbar__login-button"
-        content={"Zaloguj się"}
-        onClick={() => navigate("/login")}
+        content={'Zaloguj się'}
+        onClick={() => navigate('/login')}
       />
     </div>
   );

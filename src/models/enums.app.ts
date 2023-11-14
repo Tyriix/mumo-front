@@ -9,5 +9,5 @@ export enum HomepageSections {
   About = 'about',
   Offer = 'offer',
   Contact = 'contact',
-  Clients = 'clients'
+  Clients = 'clients',
 }

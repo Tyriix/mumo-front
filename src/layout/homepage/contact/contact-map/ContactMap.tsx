@@ -1,16 +1,16 @@
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api'
-import './contact-map.scss'
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import './contact-map.scss';
 
 const center = {
   lat: 51.307016313473405,
   lng: 17.067984857672194,
-}
+};
 
 const ContactMap = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'api-key',
-  })
+  });
 
   return (
     <>
@@ -31,7 +31,7 @@ const ContactMap = () => {
         </>
       ) : null}
     </>
-  )
-}
+  );
+};
 
-export default ContactMap
+export default ContactMap;

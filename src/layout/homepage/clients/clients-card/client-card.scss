@@ -30,13 +30,14 @@ $card-image-size: 8em;
   line-height: 2em;
   font-weight: 300;
 }
-.quotation-mark__up{
+.quotation-mark__up {
   align-self: flex-start;
 }
-.quotation-mark__down{
+.quotation-mark__down {
   align-self: flex-end;
 }
-.quotation-mark__up, .quotation-mark__down{
+.quotation-mark__up,
+.quotation-mark__down {
   width: 15em;
 }
 .client-card__image {
@@ -50,36 +51,36 @@ $card-image-size: 8em;
   -o-border-radius: $card-image-size;
 }
 
-.client-card__name{
+.client-card__name {
   color: $dark-gray;
   font-weight: 600;
 }
-@media screen and (max-width: 900px){
-  .client-card{
+@media screen and (max-width: 900px) {
+  .client-card {
     height: 80%;
   }
-  .client-card__quote{
+  .client-card__quote {
     height: 10em;
   }
 }
-@media screen  and (max-width: 1150px){
-  .client-card__image{
+@media screen and (max-width: 1150px) {
+  .client-card__image {
     width: 5em;
     height: 5em;
   }
-  .client-card__content{
+  .client-card__content {
     font-size: 0.9em;
   }
 }
-@media screen and (max-width:1300px){
-  .client-card{
+@media screen and (max-width: 1300px) {
+  .client-card {
     width: 80%;
     padding: 2em 1em 2em 1em;
   }
   .client-card__content {
-  line-height: 1.5em;
+    line-height: 1.5em;
   }
-  .client-card__image{
+  .client-card__image {
     width: $media-card-image-size;
     height: $media-card-image-size;
     border-radius: $media-card-image-size;
@@ -87,5 +88,5 @@ $card-image-size: 8em;
     -moz-border-radius: $media-card-image-size;
     -ms-border-radius: $media-card-image-size;
     -o-border-radius: $media-card-image-size;
-}
+  }
 }

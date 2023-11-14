@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Direction } from "../../../models/enums.app";
-import "../quotation-mark/quotation-mark.scss";
+import { FC } from 'react';
+import { Direction } from '../../../models/enums.app';
+import '../quotation-mark/quotation-mark.scss';
 
 interface Props {
   direction: Direction;

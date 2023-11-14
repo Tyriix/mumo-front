@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 interface Props {
-  className: string
-  colorTop: string
-  colorBottom: string
+  className: string;
+  colorTop: string;
+  colorBottom: string;
 }
 
 const WaveShape: FC<Props> = ({ className, colorTop, colorBottom }) => {
@@ -28,7 +28,7 @@ const WaveShape: FC<Props> = ({ className, colorTop, colorBottom }) => {
         fill="white"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default WaveShape
+export default WaveShape;
