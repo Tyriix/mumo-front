@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import * as constants from '../../../models/constants.app';
-import ContactForm from './contact-form/ContactForm';
+import ContactFormFields from './contact-form/ContactForm';
 import ContactMap from './contact-map/ContactMap';
 import './contact-section.scss';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
@@ -67,7 +67,7 @@ const ContactSection: FC = () => {
                 </a>
               </span>
             </div>
-            <ContactForm />
+            <ContactFormFields />
           </div>
         </div>
       </div>

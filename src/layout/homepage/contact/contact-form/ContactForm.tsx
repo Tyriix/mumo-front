@@ -12,7 +12,7 @@ import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-const ContactForm = () => {
+const ContactFormFields = () => {
   const [isMessageSent, setMessageSent] = useState(false);
 
   const {
@@ -63,6 +63,7 @@ const ContactForm = () => {
               id='contact-form_email'
               type='email'
               {...register('email')}
+              autoComplete='on'
               className={classnames(
                 'contact-form__input',
                 errors.email && 'contact-form__input-alert-active'
@@ -80,6 +81,7 @@ const ContactForm = () => {
               id='contact-form_name'
               type='text'
               {...register('name')}
+              autoComplete='on'
               className={classnames(
                 'contact-form__input',
                 errors.name && 'contact-form__input-alert-active'
@@ -137,4 +139,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactFormFields;

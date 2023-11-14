@@ -45,6 +45,7 @@ $text-shadow: map.get($colors, text-shadow);
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  outline: 1em solid #ffffff;
   width: 33em;
   height: 47em;
   justify-content: center;
