@@ -1,5 +1,5 @@
 :root {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,6 +12,7 @@
 
 a {
   text-decoration: inherit;
+  cursor: pointer;
 }
 
 html,
@@ -28,7 +29,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-ul{
+ul {
   padding-left: 0px;
 }
 button {
@@ -50,9 +51,9 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type='text'],
+input[type='email'],
+input[type='password'] {
   padding-left: 1.5em;
 }
 @media (prefers-color-scheme: light) {

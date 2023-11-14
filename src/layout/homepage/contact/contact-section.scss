@@ -45,15 +45,16 @@ $text-shadow: map.get($colors, text-shadow);
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  max-width: 33em;
-  max-height: 47em;
+  outline: 1em solid #ffffff;
+  width: 33em;
+  height: 47em;
   justify-content: center;
   padding: 1em 0;
 }
 
 .contact__form-container {
   display: flex;
-  max-height: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -104,6 +105,10 @@ $text-shadow: map.get($colors, text-shadow);
 
 .contact__icons svg:first-of-type {
   margin-right: 1.4em;
+}
+
+.contact__link-hover:hover {
+  color: map.get($colors, hover-link-blue);
 }
 
 @media screen and (max-width: 1180px) {

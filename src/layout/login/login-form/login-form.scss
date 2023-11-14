@@ -1,5 +1,5 @@
-@use "sass:map";
-@import "../../../styles/helpers/variables";
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
 
 $input-gray: map.get($colors, input-gray);
 $facebook-blue: map.get($colors, facebook-blue);
@@ -10,14 +10,13 @@ $error-red: map.get($colors, error-red);
 .login__form-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 6em;
-  margin-right: 3em;
+  margin: 2em 3em 4em 0;
 }
 
 .login__form-button-icon-row {
   display: flex;
   flex-direction: row;
-  gap:1em;
+  gap: 1em;
   justify-content: space-between;
   align-items: center;
 }
@@ -28,7 +27,7 @@ $error-red: map.get($colors, error-red);
   border: 0em;
   background-color: $input-gray;
 }
-.login__form-error{
+.login__form-error {
   color: $error-red;
 }
 ::placeholder {
@@ -61,12 +60,12 @@ $error-red: map.get($colors, error-red);
   font-weight: 600;
   white-space: nowrap;
 }
-.login__form-error-container{
+.login__form-error-container {
   display: flex;
   align-items: center;
   height: 3em;
 }
-.login__form-wave-shape{
+.login__form-wave-shape {
   display: none;
 }
 
@@ -79,8 +78,8 @@ $error-red: map.get($colors, error-red);
     height: 4.5em;
   }
 }
-@media screen and (max-width: 580px){
-  .login__form-button-icon-row{
-   flex-direction: column;
+@media screen and (max-width: 580px) {
+  .login__form-button-icon-row {
+    flex-direction: column;
   }
 }

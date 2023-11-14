@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import './offer-card.scss'
+import { FC } from 'react';
+import './offer-card.scss';
 
 interface Props {
-  title: string
-  content: string[]
-  priceContent: string[]
+  title: string;
+  content: string[];
+  priceContent: string[];
 }
 
 const OfferCard: FC<Props> = ({ title, content, priceContent }) => {
@@ -24,7 +24,7 @@ const OfferCard: FC<Props> = ({ title, content, priceContent }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OfferCard
+export default OfferCard;

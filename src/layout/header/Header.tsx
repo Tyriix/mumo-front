@@ -19,17 +19,17 @@ const Header: FC = () => {
 
   return (
     <>
-      <div className='header__container' id='header'>
-        <MediaHeader className='header__media-desktop' />
-        <div className='header__box'>
-          <div className='header'>
+      <div className="header__container" id="header">
+        <MediaHeader className="header__media-desktop" />
+        <div className="header__box">
+          <div className="header">
             <Logotype
-              className='header__logotype'
+              className="header__logotype"
               isSecondNameVisible={false}
             />
             <NavbarDesktop />
-            <button onClick={toggleNavbar} className='header__button'>
-              <FaBars className='header__button-icon' />
+            <button onClick={toggleNavbar} className="header__button">
+              <FaBars className="header__button-icon" />
             </button>
 
             <Transition

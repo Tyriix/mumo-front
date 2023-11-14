@@ -1,14 +1,14 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 interface Props {
-  cx: number
-  cy: number
-  className?: string
-  radius: number
-  strokeWidth?: number
-  color: string
-  svgSize: number
-  opacity?: number
+  cx: number;
+  cy: number;
+  className?: string;
+  radius: number;
+  strokeWidth?: number;
+  color: string;
+  svgSize: number;
+  opacity?: number;
 }
 
 const HollowCircle: FC<Props> = ({
@@ -41,7 +41,7 @@ const HollowCircle: FC<Props> = ({
         opacity={`${opacity}`}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default HollowCircle
+export default HollowCircle;

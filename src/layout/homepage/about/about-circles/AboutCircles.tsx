@@ -1,7 +1,7 @@
-import HollowCircle from '../../../../components/shapes/HollowCircle'
+import HollowCircle from '../../../../components/shapes/HollowCircle';
 
-const HOMEPAGE_CIRCLES_COLOR: string = '#8dd9cc'
-const CIRCLE_CLASS: string = 'about__image-circle'
+const HOMEPAGE_CIRCLES_COLOR: string = '#8dd9cc';
+const CIRCLE_CLASS: string = 'about__image-circle';
 
 export const CirclesFirst = () => {
   return (
@@ -26,8 +26,8 @@ export const CirclesFirst = () => {
         color={HOMEPAGE_CIRCLES_COLOR}
       />
     </div>
-  )
-}
+  );
+};
 
 export const CirclesSecond = () => {
   return (
@@ -62,40 +62,40 @@ export const CirclesSecond = () => {
         color={HOMEPAGE_CIRCLES_COLOR}
       />
     </div>
-  )
-}
+  );
+};
 export const CirclesThird = () => {
   return (
-      <div className="about__image-circles">
-        <HollowCircle
-          className={CIRCLE_CLASS}
-          svgSize={45}
-          cx={22}
-          cy={22}
-          radius={17}
-          strokeWidth={9}
-          color={HOMEPAGE_CIRCLES_COLOR}
-          opacity={0.7}
-        />
-        <HollowCircle
-          className={CIRCLE_CLASS}
-          svgSize={0}
-          cx={24}
-          cy={24}
-          radius={19}
-          strokeWidth={10}
-          color={HOMEPAGE_CIRCLES_COLOR}
-          opacity={0.8}
-        />
-        <HollowCircle
-          className={CIRCLE_CLASS}
-          svgSize={0}
-          cx={37}
-          cy={37}
-          radius={29}
-          strokeWidth={15}
-          color={HOMEPAGE_CIRCLES_COLOR}
-        />
-      </div>
-  )
-}
+    <div className="about__image-circles">
+      <HollowCircle
+        className={CIRCLE_CLASS}
+        svgSize={45}
+        cx={22}
+        cy={22}
+        radius={17}
+        strokeWidth={9}
+        color={HOMEPAGE_CIRCLES_COLOR}
+        opacity={0.7}
+      />
+      <HollowCircle
+        className={CIRCLE_CLASS}
+        svgSize={0}
+        cx={24}
+        cy={24}
+        radius={19}
+        strokeWidth={10}
+        color={HOMEPAGE_CIRCLES_COLOR}
+        opacity={0.8}
+      />
+      <HollowCircle
+        className={CIRCLE_CLASS}
+        svgSize={0}
+        cx={37}
+        cy={37}
+        radius={29}
+        strokeWidth={15}
+        color={HOMEPAGE_CIRCLES_COLOR}
+      />
+    </div>
+  );
+};

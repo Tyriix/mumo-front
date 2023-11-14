@@ -10,7 +10,8 @@ $scroll-top-button-size: 35px;
   border-radius: 10em;
   font-weight: 600;
   box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 4px 0px inset;
-  transition: background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+  transition:
+    background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
     box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 
   &:active {
