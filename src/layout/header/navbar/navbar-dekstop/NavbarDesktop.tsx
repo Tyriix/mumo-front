@@ -4,7 +4,7 @@ import './navbar-desktop.scss';
 
 const NavbarDesktop: FC = () => {
   return (
-    <div className="navbar-desktop">
+    <div className='navbar-desktop'>
       <Navbar />
     </div>
   );

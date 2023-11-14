@@ -19,8 +19,8 @@ const Footer: FC<Props> = (props: Props) => {
   useLoginPageStyles(props.isLoginRegister);
 
   return (
-    <div className="footer" id="footer">
-      <p className="footer__text">
+    <div className='footer' id='footer'>
+      <p className='footer__text'>
         &copy; {currentYear} Mumo - Szkolenie Psów Aleksandra Linek
       </p>
     </div>

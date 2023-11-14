@@ -24,11 +24,11 @@ const HollowCircle: FC<Props> = ({
   return (
     <svg
       className={`${className}`}
-      xmlns="http://www.w3.org/2000/svg"
-      version="1.1"
+      xmlns='http://www.w3.org/2000/svg'
+      version='1.1'
       width={`${svgSize}`}
       height={`${svgSize}`}
-      role="img"
+      role='img'
     >
       <title>Hollow circle image decoration</title>
       <circle
@@ -37,7 +37,7 @@ const HollowCircle: FC<Props> = ({
         r={`${radius}`}
         stroke={color}
         strokeWidth={`${strokeWidth}`}
-        fill="none"
+        fill='none'
         opacity={`${opacity}`}
       />
     </svg>

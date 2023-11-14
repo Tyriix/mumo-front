@@ -11,10 +11,10 @@ import { HomepageSections } from '../../../models/enums.app';
 const ClientSection: FC = () => {
   return (
     <>
-      <div className="clients" id={HomepageSections.Clients}>
-        <h2 className="clients__header">Nasi klienci</h2>
-        <div className="clients__card-container">
-          <div className="clients__swiper-button-left"></div>
+      <div className='clients' id={HomepageSections.Clients}>
+        <h2 className='clients__header'>Nasi klienci</h2>
+        <div className='clients__card-container'>
+          <div className='clients__swiper-button-left'></div>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -40,38 +40,38 @@ const ClientSection: FC = () => {
           >
             <SwiperSlide>
               <ClientCard
-                name="Dominika i Azorek"
-                content="Lorem ipsum dolor sit amet "
-                pictureURL="src\assets\images\client-dog1.png"
+                name='Dominika i Azorek'
+                content='Lorem ipsum dolor sit amet '
+                pictureURL='src\assets\images\client-dog1.png'
                 pictureAlt="A corgi staring to the front with it's tongue out."
               ></ClientCard>
             </SwiperSlide>
             <SwiperSlide>
               <ClientCard
-                name="Małgosia i Puszek"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. "
-                pictureURL="src\assets\images\client-dog2.png"
-                pictureAlt="A cocker spaniel staring to the front while sitting."
+                name='Małgosia i Puszek'
+                content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. '
+                pictureURL='src\assets\images\client-dog2.png'
+                pictureAlt='A cocker spaniel staring to the front while sitting.'
               ></ClientCard>
             </SwiperSlide>
             <SwiperSlide>
               <ClientCard
-                name="Artur i Nemo"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. "
-                pictureURL="src\assets\images\client-dog3.png"
+                name='Artur i Nemo'
+                content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. '
+                pictureURL='src\assets\images\client-dog3.png'
                 pictureAlt="A leonberger staring to the side with it's tongue out."
               ></ClientCard>
             </SwiperSlide>
             <SwiperSlide>
               <ClientCard
-                name="Paweł i Ciapek"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. "
-                pictureURL="src\assets\images\client-dog4.png"
-                pictureAlt="A beagle staring to the front."
+                name='Paweł i Ciapek'
+                content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies odio quis euismod blandit. Vestibulum a luctus metus. '
+                pictureURL='src\assets\images\client-dog4.png'
+                pictureAlt='A beagle staring to the front.'
               ></ClientCard>
             </SwiperSlide>
           </Swiper>
-          <div className="clients__swiper-button-right"></div>
+          <div className='clients__swiper-button-right'></div>
         </div>
       </div>
     </>

@@ -5,7 +5,7 @@ const CIRCLE_CLASS: string = 'about__image-circle';
 
 export const CirclesFirst = () => {
   return (
-    <div className="about__image-circles">
+    <div className='about__image-circles'>
       <HollowCircle
         className={CIRCLE_CLASS}
         svgSize={43}
@@ -31,7 +31,7 @@ export const CirclesFirst = () => {
 
 export const CirclesSecond = () => {
   return (
-    <div className="about__image-circles">
+    <div className='about__image-circles'>
       <HollowCircle
         className={CIRCLE_CLASS}
         svgSize={45}
@@ -66,7 +66,7 @@ export const CirclesSecond = () => {
 };
 export const CirclesThird = () => {
   return (
-    <div className="about__image-circles">
+    <div className='about__image-circles'>
       <HollowCircle
         className={CIRCLE_CLASS}
         svgSize={45}
