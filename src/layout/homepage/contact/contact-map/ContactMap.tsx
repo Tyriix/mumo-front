@@ -9,7 +9,7 @@ const center = {
 const ContactMap = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'YOUR_API_KEY',
+    googleMapsApiKey: 'api-key',
   })
 
   return (
@@ -19,7 +19,7 @@ const ContactMap = () => {
           <GoogleMap
             mapContainerClassName="contact__map"
             center={center}
-            zoom={10}
+            zoom={17}
           >
             <Marker
               position={{

@@ -12,7 +12,7 @@ import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-const ContactForm = () => {
+const ContactFormFields = () => {
   const [isMessageSent, setMessageSent] = useState(false);
 
   const {
@@ -139,4 +139,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactFormFields;
