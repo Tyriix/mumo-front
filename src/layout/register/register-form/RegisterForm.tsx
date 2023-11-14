@@ -44,6 +44,7 @@ const RegisterForm = () => {
                   id='register-form__input-name'
                   type='text'
                   {...register('name')}
+                  autoComplete='name'
                   className={classnames(
                     'register-form__input',
                     errors.name && 'register-form__input-alert-active',
@@ -75,6 +76,7 @@ const RegisterForm = () => {
                   id='register-form__input-email'
                   type='email'
                   {...register('email')}
+                  autoComplete='email'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
@@ -103,6 +105,7 @@ const RegisterForm = () => {
                   id='register-form__input-phone'
                   type='text'
                   {...register('phone')}
+                  autoComplete='tel'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
