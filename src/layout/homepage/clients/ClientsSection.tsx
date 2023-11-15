@@ -25,10 +25,10 @@ const ClientSection: FC = () => {
             }}
             allowTouchMove={false}
             breakpoints={{
-              901: {
+              1000: {
                 slidesPerView: 3,
               },
-              600: {
+              650: {
                 slidesPerView: 2,
               },
             }}
