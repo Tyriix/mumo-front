@@ -8,7 +8,7 @@ export const HeroDesktopCircles: FC = () => {
   return (
     <>
       <MouseParallaxChild
-        className="hero-circles__desktop"
+        className='hero-circles__desktop'
         factorX={-0.1}
         factorY={-0.3}
       >
@@ -23,7 +23,7 @@ export const HeroDesktopCircles: FC = () => {
         />
       </MouseParallaxChild>
       <MouseParallaxChild
-        className="hero-circles__desktop"
+        className='hero-circles__desktop'
         factorX={0.1}
         factorY={0.1}
       >
@@ -38,7 +38,7 @@ export const HeroDesktopCircles: FC = () => {
         />
       </MouseParallaxChild>
       <MouseParallaxChild
-        className="hero-circles__desktop"
+        className='hero-circles__desktop'
         factorX={0.2}
         factorY={-0.3}
       >
@@ -60,7 +60,7 @@ export const HeroMobileCircles: FC = () => {
   return (
     <>
       <MouseParallaxChild
-        className="hero-circles__mobile"
+        className='hero-circles__mobile'
         factorX={-0.1}
         factorY={-0.3}
       >
@@ -75,7 +75,7 @@ export const HeroMobileCircles: FC = () => {
         />
       </MouseParallaxChild>
       <MouseParallaxChild
-        className="hero-circles__mobile"
+        className='hero-circles__mobile'
         factorX={0.1}
         factorY={0.1}
       >
@@ -90,7 +90,7 @@ export const HeroMobileCircles: FC = () => {
         />
       </MouseParallaxChild>
       <MouseParallaxChild
-        className="hero-circles__mobile"
+        className='hero-circles__mobile'
         factorX={0.2}
         factorY={-0.3}
       >

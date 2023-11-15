@@ -18,7 +18,7 @@ export const homeContactSchema = yup.object({
     .required('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.')
     .oneOf(
       [true],
-      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.',
+      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.'
     ),
 });
 
@@ -40,7 +40,7 @@ export const registerFormSchema = yup.object({
     .required('Proszę podać swoje hasło.')
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-      'Hasło musi zawierać minimum: 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny.',
+      'Hasło musi zawierać minimum: 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny.'
     ),
   repeatPassword: yup
     .string()
@@ -51,7 +51,7 @@ export const registerFormSchema = yup.object({
     .required('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.')
     .oneOf(
       [true],
-      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.',
+      'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.'
     ),
 });
 
@@ -60,5 +60,5 @@ export const loginFormSchema = yup.object({
     .string()
     .email('Wpisz poprawny email')
     .required('Wpisz swój email'),
-  password: yup.string().required('Proszę podać swoje imię.').length(6),
+  password: yup.string().required('Proszę podać swoje hasło.'),
 });

@@ -14,9 +14,11 @@ $card-image-size: 8em;
   align-items: center;
   border-radius: 8px;
   background: #fff;
-  box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
   padding: 5em 1em 3em 1em;
-  margin-bottom: 3em;
+  margin: 2.5em 0;
 }
 .client-card__quote {
   display: flex;
@@ -45,17 +47,13 @@ $card-image-size: 8em;
   width: $card-image-size;
   height: $card-image-size;
   border-radius: $card-image-size;
-  -webkit-border-radius: $card-image-size;
-  -moz-border-radius: $card-image-size;
-  -ms-border-radius: $card-image-size;
-  -o-border-radius: $card-image-size;
 }
 
 .client-card__name {
   color: $dark-gray;
   font-weight: 600;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .client-card {
     height: 80%;
   }
@@ -69,7 +67,7 @@ $card-image-size: 8em;
     height: 5em;
   }
   .client-card__content {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 1300px) {
@@ -84,9 +82,5 @@ $card-image-size: 8em;
     width: $media-card-image-size;
     height: $media-card-image-size;
     border-radius: $media-card-image-size;
-    -webkit-border-radius: $media-card-image-size;
-    -moz-border-radius: $media-card-image-size;
-    -ms-border-radius: $media-card-image-size;
-    -o-border-radius: $media-card-image-size;
   }
 }
