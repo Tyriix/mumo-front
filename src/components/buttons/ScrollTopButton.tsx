@@ -28,8 +28,8 @@ const ScrollTopButton: FC = () => {
       onClick={scrollToTop}
     >
       <FaArrowCircleUp
-        className="scroll-top-button__icon"
-        aria-label="Scroll to top button"
+        className='scroll-top-button__icon'
+        aria-label='Scroll to top button'
       />
     </button>
   );

@@ -17,7 +17,7 @@ const ContactMap = () => {
       {isLoaded ? (
         <>
           <GoogleMap
-            mapContainerClassName="contact__map"
+            mapContainerClassName='contact__map'
             center={center}
             zoom={17}
           >

@@ -9,38 +9,38 @@ import classNames from 'classnames';
 
 const ContactSection: FC = () => {
   return (
-    <div className="contact" id={HomepageSections.Contact}>
-      <h2 className="contact__header">Kontakt</h2>
-      <div className="contact__container">
-        <div role="presentation" className="contact__map">
+    <div className='contact' id={HomepageSections.Contact}>
+      <h2 className='contact__header'>Kontakt</h2>
+      <div className='contact__container'>
+        <div role='presentation' className='contact__map'>
           <ContactMap />
         </div>
-        <div className="contact__form">
-          <div className="contact__form-container">
-            <div className="contact__icons">
+        <div className='contact__form'>
+          <div className='contact__form-container'>
+            <div className='contact__icons'>
               <a
-                className="contact__icons-link"
+                className='contact__icons-link'
                 href={constants.FACEBOOK_LINK}
-                target="_blank"
+                target='_blank'
               >
                 <FaFacebook
-                  className="contact__link-hover"
-                  aria-label="Facebook icon"
+                  className='contact__link-hover'
+                  aria-label='Facebook icon'
                 />
               </a>
               <a
-                className="contact__icons-link"
+                className='contact__icons-link'
                 href={constants.INSTAGRAM_LINK}
-                target="_blank"
+                target='_blank'
               >
                 <FaInstagram
-                  className="contact__link-hover"
-                  aria-label="Instagram icon"
+                  className='contact__link-hover'
+                  aria-label='Instagram icon'
                 />
               </a>
             </div>
-            <div className="contact__info">
-              <span className="contact__info-phone">
+            <div className='contact__info'>
+              <span className='contact__info-phone'>
                 <a
                   className={classNames(
                     'contact__info-link',
@@ -55,7 +55,7 @@ const ContactSection: FC = () => {
                   )}
                 </a>
               </span>
-              <span className="contact__info-email">
+              <span className='contact__info-email'>
                 <a
                   className={classNames(
                     'contact__info-link',

@@ -60,5 +60,5 @@ export const loginFormSchema = yup.object({
     .string()
     .email('Wpisz poprawny email')
     .required('Wpisz swój email'),
-  password: yup.string().required('Proszę podać swoje imię.').length(6),
+  password: yup.string().required('Proszę podać swoje hasło.'),
 });
