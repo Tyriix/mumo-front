@@ -112,15 +112,21 @@ $circle-size: 834px;
   .login__section-form {
     margin-bottom: 2em;
     padding-bottom: 4em;
-    border-bottom: 1px solid $border-gray;
   }
   .login__section-text {
     margin: 0;
   }
+  .login__form-wave-shape {
+    position: absolute;
+    display: block;
+    top: 34em;
+    z-index: -1;
+    width: 100%;
+    height: 25%;
+    opacity: 0.4;
+  }
   .login__section-image {
-    opacity: 1;
-    right: -10em;
-    top: 27em;
+    display: none;
   }
   .login__image {
     width: 80%;
@@ -138,15 +144,6 @@ $circle-size: 834px;
   }
   .login__section-form{
     border: none;
-  }
-  .login__form-wave-shape {
-    position: absolute;
-    display: block;
-    top: 34em;
-    z-index: -1;
-    width: 100%;
-    height: 25%;
-    opacity: 0.4;
   }
 }
 
