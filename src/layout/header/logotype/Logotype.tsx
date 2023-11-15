@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import {
   onNavbarAsyncClick,
-  onNavbarLinkClick,
+
 } from '../../../utils/navigateUtils';
 import { HomepageSections } from '../../../models/enums.app';
 
@@ -40,7 +40,7 @@ const Logotype: FC<Props> = ({
               navigateNotHome,
               toggleNavbar
             )
-          : onNavbarLinkClick(HomepageSections.Home, toggleNavbar)
+          : null
       }
       tabIndex={0}
     >
