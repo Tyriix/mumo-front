@@ -21,7 +21,7 @@ const LoginSection = () => {
               <h2 className='login__header'>Zaloguj się</h2>
               <span className='login__text'>
                 Nie masz konta?{' '}
-                <a onClick={() => navigate('/register')}>
+                <a onClick={() => navigate('/register')} tabIndex={0}>
                   <span className='login__text-accent'>Zarejestruj się</span>
                 </a>
               </span>
@@ -46,6 +46,7 @@ const LoginSection = () => {
             className='login__image'
             src='src\assets\images\login-dog.png'
             alt='Boston Terrier dog facing left.'
+            draggable={false}
           />
         </div>
       </div>

@@ -23,7 +23,7 @@ const ClientCard: FC<Props> = ({ name, content, pictureURL, pictureAlt }) => {
           />
         </div>
 
-        <img className='client-card__image' src={pictureURL} alt={pictureAlt} />
+        <img className='client-card__image' src={pictureURL} alt={pictureAlt} draggable={false}/>
         <h3 className='client-card__name'>{name}</h3>
       </div>
     </>

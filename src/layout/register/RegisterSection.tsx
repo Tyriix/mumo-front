@@ -19,6 +19,7 @@ const RegisterSection = () => {
             className='register__image'
             src='src\assets\images\register-dog.png'
             alt='Adult dog facing left and holding a toy.'
+            draggable={false}
           />
         </div>
         <WaveShape

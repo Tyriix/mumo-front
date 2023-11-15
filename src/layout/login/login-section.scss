@@ -5,9 +5,9 @@ $light-gray: map.get($colors, light-gray);
 $background-blue: map.get($colors, background-blue);
 $border-gray: map.get($colors, border-gray);
 $circle-size: 834px;
+
 .login {
   position: relative;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +15,20 @@ $circle-size: 834px;
   padding-top: 6em;
   padding-bottom: 7em;
 }
-.login__body {
-  height: 100vh;
-}
 .login__container {
   display: flex;
 }
+
+.login__body {
+  height: 100vh;
+}
+
 .login__section-border {
   border-right: 2px solid $border-gray;
 }
 .login__section-text {
   display: flex;
   margin-right: 15em;
-  flex-direction: row;
   align-items: center;
 }
 .login__section-image {
@@ -98,7 +99,6 @@ $circle-size: 834px;
 @media screen and (max-width: 1180px) {
   .login__container {
     flex-direction: column;
-    height: 100%;
   }
   .login__section-border {
     border-right: 0px;
@@ -112,15 +112,21 @@ $circle-size: 834px;
   .login__section-form {
     margin-bottom: 2em;
     padding-bottom: 4em;
-    border-bottom: 1px solid $border-gray;
   }
   .login__section-text {
     margin: 0;
   }
+  .login__form-wave-shape {
+    position: absolute;
+    display: block;
+    top: 34em;
+    z-index: -1;
+    width: 100%;
+    height: 25%;
+    opacity: 0.4;
+  }
   .login__section-image {
-    opacity: 1;
-    right: -10em;
-    top: 27em;
+    display: none;
   }
   .login__image {
     width: 80%;
@@ -136,17 +142,11 @@ $circle-size: 834px;
   .login__section-image {
     display: none;
   }
-}
-@media screen and (max-width: 1040px) {
-  .login__form-wave-shape {
-    position: absolute;
-    display: block;
-    top: 8em;
-    z-index: -1;
-    width: 100%;
-    height: 25%;
+  .login__section-form{
+    border: none;
   }
 }
+
 @media screen and (max-width: 580px) {
   .login__container {
     width: 67%;
@@ -157,5 +157,8 @@ $circle-size: 834px;
   }
   .login__header {
     white-space: nowrap;
+  }
+  .login__form-wave-shape{
+    top: 39.8em;
   }
 }
