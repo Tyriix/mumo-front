@@ -66,7 +66,7 @@ const ContactFormFields = () => {
               autoComplete='on'
               className={classnames(
                 'contact-form__input',
-                errors.email && 'contact-form__input-alert-active',
+                errors.email && 'contact-form__input-alert-active'
               )}
             />
             <div className='contact-form__error-container'>
@@ -84,7 +84,7 @@ const ContactFormFields = () => {
               autoComplete='on'
               className={classnames(
                 'contact-form__input',
-                errors.name && 'contact-form__input-alert-active',
+                errors.name && 'contact-form__input-alert-active'
               )}
             />
             <div className='contact-form__error-container'>
@@ -102,7 +102,7 @@ const ContactFormFields = () => {
               id='contact-form_message'
               className={classnames(
                 'contact-form__textarea-message',
-                errors.message && 'contact-form__textarea-alert-active',
+                errors.message && 'contact-form__textarea-alert-active'
               )}
               {...register('message')}
             />

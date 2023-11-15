@@ -47,7 +47,7 @@ const RegisterForm = () => {
                   autoComplete='name'
                   className={classnames(
                     'register-form__input',
-                    errors.name && 'register-form__input-alert-active',
+                    errors.name && 'register-form__input-alert-active'
                   )}
                 />
                 <div className='register-form__error-container'>

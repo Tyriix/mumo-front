@@ -44,14 +44,14 @@ const ContactSection: FC = () => {
                 <a
                   className={classNames(
                     'contact__info-link',
-                    'contact__link-hover',
+                    'contact__link-hover'
                   )}
                   href={`tel:+48${constants.PHONE_NUMBER}`}
                 >
                   (+48){' '}
                   {constants.PHONE_NUMBER.replace(
                     /(\d{3})(\d{3})(\d{3})/,
-                    '$1-$2-$3',
+                    '$1-$2-$3'
                   )}
                 </a>
               </span>
@@ -59,7 +59,7 @@ const ContactSection: FC = () => {
                 <a
                   className={classNames(
                     'contact__info-link',
-                    'contact__link-hover',
+                    'contact__link-hover'
                   )}
                   href={`mailto:${constants.MAIL_ADRESS}`}
                 >

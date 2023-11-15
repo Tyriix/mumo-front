@@ -6,6 +6,7 @@ export enum Direction {
 }
 
 export enum HomepageSections {
+  Home = 'home',
   About = 'about',
   Offer = 'offer',
   Contact = 'contact',

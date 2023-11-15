@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import classNames from 'classnames';
-import { scrollToSection } from '../../../utils/scrollUtils';
 import { HomepageSections } from '../../../models/enums.app';
 import './navbar.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  onNavbarAsyncClick,
+  onNavbarLinkClick,
+} from '../../../utils/navigateUtils';
 interface Props {
   className?: string;
   toggleMobileNavbar?: () => void;
@@ -15,19 +18,6 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const location = useLocation();
   const isHomePage = location.pathname != '/';
 
-  const onNavbarLinkClick = (section: HomepageSections) => {
-    if (toggleMobileNavbar) toggleMobileNavbar();
-    scrollToSection(section);
-  };
-  const onNavbarAsyncClick = async (section: HomepageSections) => {
-    if (toggleMobileNavbar) toggleMobileNavbar();
-    try {
-      await navigateNotHome();
-      scrollToSection(section);
-    } catch (error) {
-      console.error('Navigation:', error);
-    }
-  };
   const navigateNotHome = async () => {
     const res = navigate('/');
     return res;
@@ -41,8 +31,12 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           className='navbar__element-link'
           onClick={() =>
             isHomePage
-              ? onNavbarAsyncClick(HomepageSections.About)
-              : onNavbarLinkClick(HomepageSections.About)
+              ? onNavbarAsyncClick(
+                  HomepageSections.Home,
+                  navigateNotHome,
+                  toggleMobileNavbar
+                )
+              : onNavbarLinkClick(HomepageSections.Home, toggleMobileNavbar)
           }
           tabIndex={0}
         >
@@ -54,8 +48,12 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           className='navbar__element-link'
           onClick={() =>
             isHomePage
-              ? onNavbarAsyncClick(HomepageSections.About)
-              : onNavbarLinkClick(HomepageSections.About)
+              ? onNavbarAsyncClick(
+                  HomepageSections.About,
+                  navigateNotHome,
+                  toggleMobileNavbar
+                )
+              : onNavbarLinkClick(HomepageSections.About, toggleMobileNavbar)
           }
           tabIndex={0}
         >
@@ -67,8 +65,12 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           className='navbar__element-link'
           onClick={() =>
             isHomePage
-              ? onNavbarAsyncClick(HomepageSections.Offer)
-              : onNavbarLinkClick(HomepageSections.Offer)
+              ? onNavbarAsyncClick(
+                  HomepageSections.Offer,
+                  navigateNotHome,
+                  toggleMobileNavbar
+                )
+              : onNavbarLinkClick(HomepageSections.Offer, toggleMobileNavbar)
           }
           tabIndex={0}
           id='navbar__anchor'
@@ -81,8 +83,12 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           className='navbar__element-link'
           onClick={() =>
             isHomePage
-              ? onNavbarAsyncClick(HomepageSections.Clients)
-              : onNavbarLinkClick(HomepageSections.Clients)
+              ? onNavbarAsyncClick(
+                  HomepageSections.Clients,
+                  navigateNotHome,
+                  toggleMobileNavbar
+                )
+              : onNavbarLinkClick(HomepageSections.Clients, toggleMobileNavbar)
           }
           tabIndex={0}
         >
@@ -94,8 +100,12 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           className='navbar__element-link'
           onClick={() =>
             isHomePage
-              ? onNavbarAsyncClick(HomepageSections.Contact)
-              : onNavbarLinkClick(HomepageSections.Contact)
+              ? onNavbarAsyncClick(
+                  HomepageSections.Contact,
+                  navigateNotHome,
+                  toggleMobileNavbar
+                )
+              : onNavbarLinkClick(HomepageSections.Contact, toggleMobileNavbar)
           }
           tabIndex={0}
         >

@@ -26,6 +26,7 @@ const Header: FC = () => {
             <Logotype
               className='header__logotype'
               isSecondNameVisible={false}
+              toggleNavbar={toggleNavbar}
             />
             <NavbarDesktop />
             <button onClick={toggleNavbar} className='header__button'>
