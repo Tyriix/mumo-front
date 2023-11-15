@@ -46,6 +46,7 @@ const LoginSection = () => {
             className='login__image'
             src='src\assets\images\login-dog.png'
             alt='Boston Terrier dog facing left.'
+            draggable={false}
           />
         </div>
       </div>
