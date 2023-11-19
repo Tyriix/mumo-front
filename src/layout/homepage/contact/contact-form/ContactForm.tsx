@@ -7,12 +7,12 @@ import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
 import Axios from 'axios';
 import { BASE_URL_API } from '../../../../models/constants.app';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import classnames from 'classnames';
 
 type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-const ContactFormFields = () => {
+const ContactForm: FC = () => {
   const [isMessageSent, setMessageSent] = useState(false);
 
   const {
@@ -139,4 +139,4 @@ const ContactFormFields = () => {
   );
 };
 
-export default ContactFormFields;
+export default ContactForm;
