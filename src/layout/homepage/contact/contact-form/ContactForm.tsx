@@ -5,15 +5,15 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
-import Axios from 'axios';
-import { BASE_URL_API } from '../../../../models/constants.app';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import classnames from 'classnames';
+import { useSendMessageFromContactMutation } from '../../../../features/messages/messagesSlice';
 
-type FormDataYup = yup.InferType<typeof homeContactSchema>;
+export type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
-const ContactFormFields = () => {
+const ContactForm: FC = () => {
   const [isMessageSent, setMessageSent] = useState(false);
+  const [sendMessage] = useSendMessageFromContactMutation();
 
   const {
     register,
@@ -25,10 +25,9 @@ const ContactFormFields = () => {
 
   const onSubmit = async (data: FormDataYup) => {
     try {
-      await Axios.post(`${BASE_URL_API}/form-email`, data);
-      setMessageSent(true);
+      await sendMessage(data);
     } catch (error) {
-      console.error('Error sending email', error);
+      console.error('Error sending mail:', error);
     }
   };
 
@@ -139,4 +138,4 @@ const ContactFormFields = () => {
   );
 };
 
-export default ContactFormFields;
+export default ContactForm;
