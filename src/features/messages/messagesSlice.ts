@@ -30,4 +30,5 @@ export const messagesSlice = createApi({
   }),
 });
 
+export const messageReducer = messagesSlice.reducer;
 export const { useSendMessageFromContactMutation } = messagesSlice;

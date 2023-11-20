@@ -1,4 +1,4 @@
-import { Form } from 'react-router-dom';
+
 import './contact-form.scss';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -49,7 +49,7 @@ const ContactForm: FC = () => {
           </a>
         </div>
       ) : (
-        <Form
+        <form
           className='contact-form'
           onSubmit={handleSubmit(onSubmit)}
           method='post'
@@ -132,7 +132,7 @@ const ContactForm: FC = () => {
             className='contact-form__submit-button'
             content={'Wyślij'}
           />
-        </Form>
+        </form>
       )}
     </>
   );
