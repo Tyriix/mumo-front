@@ -15,6 +15,7 @@ const MainButton: FC<Props> = ({ content, className, type, onClick }) => {
       type={type}
       onClick={onClick}
       className={classNames('main-button', className)}
+      aria-label={content}
     >
       {content}
     </button>
