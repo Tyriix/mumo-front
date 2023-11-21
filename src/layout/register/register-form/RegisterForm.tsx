@@ -1,4 +1,3 @@
-import { Form } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './register-form.scss';
 import * as yup from 'yup';
@@ -24,7 +23,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Form
+      <form
         className='register-form'
         onSubmit={handleSubmit(onSubmit)}
         method='post'
@@ -36,29 +35,62 @@ const RegisterForm = () => {
               htmlFor='register-form__input-name'
             >
               <span className='register-form__input-label-text'>
-                Imię i nazwisko
+                Imię
               </span>
 
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-name'
                   type='text'
-                  {...register('name')}
-                  autoComplete='name'
+                  {...register('first_name')}
+                  autoComplete='first_name'
                   className={classnames(
                     'register-form__input',
-                    errors.name && 'register-form__input-alert-active'
+                    errors.first_name && 'register-form__input-alert-active'
                   )}
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.name?.message}
+                    {errors.first_name?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.name?.message}
+                  {errors.first_name?.message}
+                </span>
+              </div>
+            </label>
+          </div>
+          <div className='register-form__input-row'>
+            <label
+              className='register-form__label'
+              htmlFor='register-form__input-name'
+            >
+              <span className='register-form__input-label-text'>
+                Nazwisko
+              </span>
+
+              <div className='register-form__input-error-column'>
+                <input
+                  id='register-form__input-name'
+                  type='text'
+                  {...register('last_name')}
+                  autoComplete='name'
+                  className={classnames(
+                    'register-form__input',
+                    errors.last_name && 'register-form__input-alert-active'
+                  )}
+                />
+                <div className='register-form__error-container'>
+                  <span className='register-form__error'>
+                    {errors.last_name?.message}
+                  </span>
+                </div>
+              </div>
+              <div className='register-form__error-container-mobile'>
+                <span className='register-form__error'>
+                  {errors.last_name?.message}
                 </span>
               </div>
             </label>
@@ -104,19 +136,19 @@ const RegisterForm = () => {
                 <input
                   id='register-form__input-phone'
                   type='text'
-                  {...register('phone')}
+                  {...register('phone_number')}
                   autoComplete='tel'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.phone?.message}
+                    {errors.phone_number?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.phone?.message}
+                  {errors.phone_number?.message}
                 </span>
               </div>
             </label>
@@ -160,19 +192,19 @@ const RegisterForm = () => {
                 <input
                   id='register-form__input-password-repeat'
                   type='password'
-                  {...register('repeatPassword')}
+                  {...register('repeat_password')}
                   className='register-form__input'
                   autoComplete='off'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.repeatPassword?.message}
+                    {errors.repeat_password?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.repeatPassword?.message}
+                  {errors.repeat_password?.message}
                 </span>
               </div>
             </label>
@@ -185,7 +217,7 @@ const RegisterForm = () => {
                     id='check'
                     type='checkbox'
                     className='register-form__input-checkbox'
-                    {...register('agreeTerms')}
+                    {...register('agree_terms')}
                   />
                   <span className='register-form__checkbox-label-text'>
                     Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
@@ -194,13 +226,13 @@ const RegisterForm = () => {
                 </div>
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.agreeTerms?.message}
+                    {errors.agree_terms?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.agreeTerms?.message}
+                  {errors.agree_terms?.message}
                 </span>
               </div>
             </label>
@@ -211,7 +243,7 @@ const RegisterForm = () => {
           className='register-form__submit-button'
           content={'Zarejestruj się'}
         />
-      </Form>
+      </form>
     </>
   );
 };
