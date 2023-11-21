@@ -4,20 +4,28 @@ import MainButton from '../../../components/buttons/MainButton';
 import { registerFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './register-form.scss';
+import { useRegisterUserMutation } from '../../../features/auth/authSlice';
+import { FC } from 'react';
 
-type FormData = yup.InferType<typeof registerFormSchema>;
+export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
 
-const RegisterForm = () => {
+const RegisterForm: FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<RegisterSchemaType>({
     resolver: yupResolver(registerFormSchema),
   });
+  const [registerUser] = useRegisterUserMutation();
 
-  const onSubmit = (data: FormData) => {
-    return data;
+  const onSubmit = async (data: RegisterSchemaType) => {
+    try {
+      await registerUser(data);
+      console.log('gowno');
+    } catch (error) {
+      console.error('Error sending mail:', error);
+    }
   };
 
   return (

@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '../../models/constants.app';
-import { FormDataYup } from '../../layout/homepage/contact/contact-form/ContactForm';
+import { RegisterSchemaType } from '../../layout/register/register-form/RegisterForm';
 
 const REDUCER_PATH = 'authApi';
 const URL_AUTH = '/auth';
 const URL_REGISTER_USER = '/form-email';
 
-type InitialPost = FormDataYup;
+type InitialPost = RegisterSchemaType;
 
 interface RegisterResponse {
   success: boolean;
