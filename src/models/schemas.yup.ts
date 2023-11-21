@@ -44,7 +44,7 @@ export const registerFormSchema = yup.object({
     .required('Proszę podać swoje hasło.')
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-      'Hasło musi zawierać minimum: 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny.'
+      'Wymagane: 8 znaków, duża i mała litera, cyfra, znak specjalny.'
     ),
   repeat_password: yup
     .string()

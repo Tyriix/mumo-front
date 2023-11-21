@@ -1,10 +1,9 @@
 import { useForm } from 'react-hook-form';
-import './register-form.scss';
 import * as yup from 'yup';
 import MainButton from '../../../components/buttons/MainButton';
 import { registerFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classnames from 'classnames';
+import './register-form.scss';
 
 type FormData = yup.InferType<typeof registerFormSchema>;
 
@@ -34,9 +33,7 @@ const RegisterForm = () => {
               className='register-form__label'
               htmlFor='register-form__input-name'
             >
-              <span className='register-form__input-label-text'>
-                Imię
-              </span>
+              <span className='register-form__input-label-text'>Imię</span>
 
               <div className='register-form__input-error-column'>
                 <input
@@ -44,10 +41,7 @@ const RegisterForm = () => {
                   type='text'
                   {...register('first_name')}
                   autoComplete='first_name'
-                  className={classnames(
-                    'register-form__input',
-                    errors.first_name && 'register-form__input-alert-active'
-                  )}
+                  className='register-form__input'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
@@ -67,9 +61,7 @@ const RegisterForm = () => {
               className='register-form__label'
               htmlFor='register-form__input-name'
             >
-              <span className='register-form__input-label-text'>
-                Nazwisko
-              </span>
+              <span className='register-form__input-label-text'>Nazwisko</span>
 
               <div className='register-form__input-error-column'>
                 <input
@@ -77,10 +69,7 @@ const RegisterForm = () => {
                   type='text'
                   {...register('last_name')}
                   autoComplete='name'
-                  className={classnames(
-                    'register-form__input',
-                    errors.last_name && 'register-form__input-alert-active'
-                  )}
+                  className='register-form__input'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
