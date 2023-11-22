@@ -4,7 +4,7 @@ import { RegisterSchemaType } from '../../layout/register/register-form/Register
 
 const REDUCER_PATH = 'authApi';
 const URL_AUTH = '/auth';
-const URL_REGISTER_USER = '/form-email';
+const URL_REGISTER_USER = '/register';
 
 type InitialPost = RegisterSchemaType;
 

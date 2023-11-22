@@ -22,7 +22,6 @@ const RegisterForm: FC = () => {
   const onSubmit = async (data: RegisterSchemaType) => {
     try {
       await registerUser(data);
-      console.log('gowno');
     } catch (error) {
       console.error('Error sending mail:', error);
     }
@@ -45,7 +44,7 @@ const RegisterForm: FC = () => {
 
               <div className='register-form__input-error-column'>
                 <input
-                  id='register-form__input-name'
+                  id='register-form__input-first-name'
                   type='text'
                   {...register('first_name')}
                   autoComplete='first_name'
@@ -73,7 +72,7 @@ const RegisterForm: FC = () => {
 
               <div className='register-form__input-error-column'>
                 <input
-                  id='register-form__input-name'
+                  id='register-form__input-last-name'
                   type='text'
                   {...register('last_name')}
                   autoComplete='name'
