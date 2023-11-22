@@ -6,8 +6,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import './register-form.scss';
 import { useRegisterUserMutation } from '../../../features/auth/authSlice';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
+const DUPLICATE_USER_ERROR_MESSAGE =
+  'Użytkownik o podanej nazwie już istnieje.';
 
 const RegisterForm: FC = () => {
   const {
@@ -17,11 +20,24 @@ const RegisterForm: FC = () => {
   } = useForm<RegisterSchemaType>({
     resolver: yupResolver(registerFormSchema),
   });
+
   const [registerUser] = useRegisterUserMutation();
+  const navigate = useNavigate();
 
   const onSubmit = async (data: RegisterSchemaType) => {
     try {
-      await registerUser(data);
+      const response = await registerUser(data);
+
+      if ('error' in response) {
+        const error = response.error as Error;
+        if (error.message === DUPLICATE_USER_ERROR_MESSAGE) {
+          console.log('Error:', error.message);
+        } else {
+          console.log('Error:', error);
+        }
+      } else {
+        navigate('/login');
+      }
     } catch (error) {
       console.error('Error sending mail:', error);
     }
