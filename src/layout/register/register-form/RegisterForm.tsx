@@ -1,16 +1,27 @@
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import MainButton from '../../../components/buttons/MainButton';
 import { registerFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './register-form.scss';
 import { useRegisterUserMutation } from '../../../api/auth/authApi';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
-const DUPLICATE_USER_ERROR_MESSAGE =
+const USER_EXIST_ERROR_MESSAGE =
   'Użytkownik o podanej nazwie już istnieje.';
+export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
+
+const useClearUserExistErrorEffect = (
+  errors: FieldErrors<RegisterSchemaType>,
+  setUserExistError: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  useEffect(() => {
+    if (errors.email?.message) {
+      setUserExistError(false);
+    }
+  }, [errors.email?.message, setUserExistError]);
+};
 
 const RegisterForm: FC = () => {
   const {
@@ -21,19 +32,25 @@ const RegisterForm: FC = () => {
     resolver: yupResolver(registerFormSchema),
   });
 
+  const [isUserExistError, setUserExistError] = useState(false);
+  const [isRegisterError, setRegisterError] = useState(false);
   const [registerUser] = useRegisterUserMutation();
   const navigate = useNavigate();
+  useClearUserExistErrorEffect(errors, setUserExistError);
 
   const onSubmit = async (data: RegisterSchemaType) => {
     try {
       const response = await registerUser(data);
-
       if ('error' in response) {
         const error = response.error as Error;
-        if (error.message === DUPLICATE_USER_ERROR_MESSAGE) {
-          console.log('Error:', error.message);
-        } else {
-          console.log('Error:', error);
+        if ('data' in error) {
+          if (error.data === USER_EXIST_ERROR_MESSAGE) {
+            setUserExistError(true);
+            setRegisterError(false);
+          } else {
+            setUserExistError(false);
+            setRegisterError(true);
+          }
         }
       } else {
         navigate('/login');
@@ -127,6 +144,11 @@ const RegisterForm: FC = () => {
                   <span className='register-form__error'>
                     {errors.email?.message}
                   </span>
+                  {isUserExistError && (
+                    <span className='register-form__error'>
+                      Uzytkownik o tym mailu juz istnieje
+                    </span>
+                  )}
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
