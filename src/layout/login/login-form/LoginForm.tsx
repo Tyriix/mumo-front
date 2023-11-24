@@ -1,4 +1,4 @@
-import { Form } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
@@ -7,20 +7,28 @@ import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useLoginUserMutation } from '../../../api/auth/authApi';
 
-type FormData = yup.InferType<typeof loginFormSchema>;
+export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<LoginSchemaType>({
     resolver: yupResolver(loginFormSchema),
   });
+  const [loginUser] = useLoginUserMutation();
+  const navigate = useNavigate();
 
-  const onSubmit = (data: FormData) => {
-    return data;
+  const onSubmit = async (data: LoginSchemaType) => {
+    try {
+        await loginUser(data);
+        navigate('/');
+    } catch (error) {
+      console.error('Error sending mail:', error);
+    }
   };
 
   return (
