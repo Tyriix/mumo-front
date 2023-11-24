@@ -8,7 +8,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
+import { useState } from 'react';
 
+const WRONG_EMAIL_OR_PASSWORD_ERROR_MESSAGE =
+  'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
 const LoginForm = () => {
@@ -19,13 +22,29 @@ const LoginForm = () => {
   } = useForm<LoginSchemaType>({
     resolver: yupResolver(loginFormSchema),
   });
+  const [isUserExistError, setUserExistError] = useState(false);
+  const [isLoginError, setLoginError] = useState(false);
   const [loginUser] = useLoginUserMutation();
   const navigate = useNavigate();
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
-        await loginUser(data);
-        navigate('/');
+        const response = await loginUser(data);
+        if ('error' in response) {
+          const error = response.error as Error;
+          console.log(error)
+          if ('data' in error) {
+            if (error.data === WRONG_EMAIL_OR_PASSWORD_ERROR_MESSAGE) {
+              setUserExistError(true);
+              setLoginError(false);
+            } else {
+              setUserExistError(false);
+              setLoginError(true);
+            }
+          }
+        } else {
+          navigate('/');
+        }
     } catch (error) {
       console.error('Error sending mail:', error);
     }
@@ -62,6 +81,11 @@ const LoginForm = () => {
             <span className='login__form-error'>
               {errors.password?.message}
             </span>
+            {isUserExistError && (
+                    <span className='register-form__error'>
+                      Błędny email lub hasło.
+                    </span>
+                  )}
           </div>
           <div className='login__form-button-icon-row'>
             <MainButton
