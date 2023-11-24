@@ -13,7 +13,7 @@ interface RegisterResponse {
   message: string;
 }
 
-export const authSlice = createApi({
+export const authApi = createApi({
   reducerPath: REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
@@ -31,5 +31,5 @@ export const authSlice = createApi({
   }),
 });
 
-export const authReducer = authSlice.reducer;
-export const { useRegisterUserMutation } = authSlice;
+export const authReducer = authApi.reducer;
+export const { useRegisterUserMutation } = authApi;

@@ -4,7 +4,7 @@ import MainButton from '../../../components/buttons/MainButton';
 import { registerFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './register-form.scss';
-import { useRegisterUserMutation } from '../../../features/auth/authSlice';
+import { useRegisterUserMutation } from '../../../api/auth/authApi';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
