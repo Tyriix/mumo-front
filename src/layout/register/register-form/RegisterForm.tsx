@@ -8,8 +8,7 @@ import { useRegisterUserMutation } from '../../../api/auth/authApi';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const USER_EXIST_ERROR_MESSAGE =
-  'Użytkownik o podanej nazwie już istnieje.';
+const USER_EXIST_ERROR_MESSAGE = 'Użytkownik o podanej nazwie już istnieje.';
 export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
 
 const useClearUserExistErrorEffect = (
@@ -277,6 +276,13 @@ const RegisterForm: FC = () => {
           className='register-form__submit-button'
           content={'Zarejestruj się'}
         />
+            <div className='register-form__error-container'>
+          {isRegisterError && (
+            <span className='register-form__error'>
+              Wystąpił nieoczekiwany problem podczas procesu rejestracji.
+            </span>
+          )}
+        </div>
       </form>
     </>
   );
