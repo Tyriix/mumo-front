@@ -69,10 +69,6 @@ $error-red: map.get($colors, error-red);
   display: none;
 }
 
-.is-login-error{
-  margin-top: 2em
-}
-
 @media screen and (max-width: 1180px) {
   .login__form-container {
     max-width: 100%;
