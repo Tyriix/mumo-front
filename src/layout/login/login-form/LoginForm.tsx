@@ -1,5 +1,5 @@
 import { Form, useNavigate } from 'react-router-dom';
-import { FieldErrors, useForm } from 'react-hook-form';
+import {  useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
 import MainButton from '../../../components/buttons/MainButton';
@@ -8,26 +8,17 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
 const WRONG_EMAIL_OR_PASSWORD =
-  'Użytkownik o takim adresie email nie istnieje. Spróbuj ponownie';
+  'Błędny email lub hasło. Spróbuj ponownie.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
-const useClearUserExistErrorEffect = (
-  errors: FieldErrors<LoginSchemaType>,
-  setIsWrongEmailOrPassword: React.Dispatch<React.SetStateAction<boolean>>
-) => {
-  useEffect(() => {
-    if (errors.email?.message) {
-      setIsWrongEmailOrPassword(false);
-    }
-  }, [errors.email?.message, setIsWrongEmailOrPassword]);
-};
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<LoginSchemaType>({
     resolver: yupResolver(loginFormSchema),
@@ -36,28 +27,33 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [isWrongEmailOrPassword, setIsWrongEmailOrPassword] = useState(false);
   const [setLoginError] = useLoginUserMutation();
-  useClearUserExistErrorEffect(errors, setIsWrongEmailOrPassword);
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
       const response = await setLoginError(data);
-      if ('error' in response) {
-        const error = response.error as Error;
-        if ('data' in error) {
-          if (error.data === WRONG_EMAIL_OR_PASSWORD) {
-            setIsWrongEmailOrPassword(false);
-          } else {
-            setIsWrongEmailOrPassword(true);
-          }
-        }
-      } else {
+      console.log(response)
+
+      if ('data' in response && 'message' in response.data && response.data.message === 'Logowanie pomyślne.') {
+        console.log(response.data.message);
+        setIsWrongEmailOrPassword(false);
         navigate('/login');
+      } else if ('error' in response) {
+        const error = response.error as Error;
+        if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
+          setIsWrongEmailOrPassword(true);
+        } else {
+          setIsWrongEmailOrPassword(false);
+  
+          setError('password', {
+            type: 'manual',
+            message: `${WRONG_EMAIL_OR_PASSWORD}`,
+          });
+        }
       }
     } catch (error) {
-      console.error('Register error:', error);
+      console.error('Login error:', error);
     }
   };
-
   return (
     <>
       <Form
@@ -88,13 +84,15 @@ const LoginForm = () => {
           />
           <div className='login__form-error-container'>
             <span className='login__form-error'>
-              {errors.password?.message}
+            {errors.password?.message && !isWrongEmailOrPassword
+            ? errors.password.message
+            :''}
             </span>
             {isWrongEmailOrPassword && (
-              <span className='register-form__error'>   
-                Błędny email lub hasło.
-              </span>
-            )}
+            <span className='register-form__error'>
+              Błędny email lub hasło.
+            </span>
+          )}
           </div>
           <div className='login__form-button-icon-row'>
             <MainButton

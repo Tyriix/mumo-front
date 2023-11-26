@@ -62,7 +62,7 @@ export const registerFormSchema = yup.object({
 export const loginFormSchema = yup.object({
   email: yup
     .string()
-    .email('Wpisz poprawny email')
-    .required('Wpisz swój email'),
+    .email('Proszę wpisać poprawny email.')
+    .required('Proszę wpisać swój email.'),
   password: yup.string().required('Proszę podać swoje hasło.'),
 });
