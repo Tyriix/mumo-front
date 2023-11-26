@@ -55,7 +55,7 @@ const RegisterForm: FC = () => {
         navigate('/login');
       }
     } catch (error) {
-      console.error('Error sending mail:', error);
+      console.error('Register error:', error);
     }
   };
 
