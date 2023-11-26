@@ -1,5 +1,5 @@
 import { Form, useNavigate } from 'react-router-dom';
-import {  useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
 import MainButton from '../../../components/buttons/MainButton';
@@ -8,10 +8,9 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import {  useState } from 'react';
+import { useState } from 'react';
 
-const WRONG_EMAIL_OR_PASSWORD =
-  'Błędny email lub hasło. Spróbuj ponownie.';
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło. Spróbuj ponownie.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
 const LoginForm = () => {
@@ -31,19 +30,21 @@ const LoginForm = () => {
   const onSubmit = async (data: LoginSchemaType) => {
     try {
       const response = await setLoginError(data);
-      console.log(response)
 
-      if ('data' in response && 'message' in response.data && response.data.message === 'Logowanie pomyślne.') {
-        console.log(response.data.message);
+      if (
+        'data' in response &&
+        'message' in response.data &&
+        response.data.message === 'Logowanie pomyślne.'
+      ) {
         setIsWrongEmailOrPassword(false);
-        navigate('/login');
+        navigate('/');
       } else if ('error' in response) {
         const error = response.error as Error;
         if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
           setIsWrongEmailOrPassword(true);
         } else {
           setIsWrongEmailOrPassword(false);
-  
+
           setError('password', {
             type: 'manual',
             message: `${WRONG_EMAIL_OR_PASSWORD}`,
@@ -84,15 +85,15 @@ const LoginForm = () => {
           />
           <div className='login__form-error-container'>
             <span className='login__form-error'>
-            {errors.password?.message && !isWrongEmailOrPassword
-            ? errors.password.message
-            :''}
+              {errors.password?.message && !isWrongEmailOrPassword
+                ? errors.password.message
+                : ''}
             </span>
             {isWrongEmailOrPassword && (
-            <span className='register-form__error'>
-              Błędny email lub hasło.
-            </span>
-          )}
+              <span className='register-form__error'>
+                Błędny email lub hasło.
+              </span>
+            )}
           </div>
           <div className='login__form-button-icon-row'>
             <MainButton
