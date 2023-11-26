@@ -10,17 +10,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
 import { useEffect, useState } from 'react';
 
-const WRONG_EMAIL_OR_PASSWORD = 'Użytkownik o takim adresie email nie istnieje. Spróbuj ponownie';
+const WRONG_EMAIL_OR_PASSWORD =
+  'Użytkownik o takim adresie email nie istnieje. Spróbuj ponownie';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 const useClearUserExistErrorEffect = (
   errors: FieldErrors<LoginSchemaType>,
-  setWrongEmailOrPassword: React.Dispatch<React.SetStateAction<boolean>>
+  setIsWrongEmailOrPassword: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   useEffect(() => {
     if (errors.email?.message) {
-      setWrongEmailOrPassword(false);
+      setIsWrongEmailOrPassword(false);
     }
-  }, [errors.email?.message, setWrongEmailOrPassword]);
+  }, [errors.email?.message, setIsWrongEmailOrPassword]);
 };
 
 const LoginForm = () => {
@@ -31,25 +32,22 @@ const LoginForm = () => {
   } = useForm<LoginSchemaType>({
     resolver: yupResolver(loginFormSchema),
   });
- 
+
   const navigate = useNavigate();
-  const [isEmailWrongOrPassword, setWrongEmailOrPassword] = useState(false);
-  const [isLoginError, setIsLoginError] = useState(false);
-  const [loginUser] = useLoginUserMutation();
-  useClearUserExistErrorEffect(errors, setWrongEmailOrPassword);
+  const [isWrongEmailOrPassword, setIsWrongEmailOrPassword] = useState(false);
+  const [setLoginError] = useLoginUserMutation();
+  useClearUserExistErrorEffect(errors, setIsWrongEmailOrPassword);
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
-      const response = await loginUser(data);
+      const response = await setLoginError(data);
       if ('error' in response) {
         const error = response.error as Error;
         if ('data' in error) {
           if (error.data === WRONG_EMAIL_OR_PASSWORD) {
-            setWrongEmailOrPassword(true);
-            setIsLoginError(false);
+            setIsWrongEmailOrPassword(false);
           } else {
-            setWrongEmailOrPassword(false);
-            setIsLoginError(true);
+            setIsWrongEmailOrPassword(true);
           }
         }
       } else {
@@ -79,11 +77,7 @@ const LoginForm = () => {
           <div className='login__form-error-container'>
             <span className='login__form-error'>{errors.email?.message}</span>
           </div>
-          {isEmailWrongOrPassword && (
-                    <span className='register-form__error'>
-                      Uzytkownik o tym mailu juz istnieje.
-                    </span>
-                  )}
+
           <input
             id='login__-form-input-password'
             type='password'
@@ -96,6 +90,11 @@ const LoginForm = () => {
             <span className='login__form-error'>
               {errors.password?.message}
             </span>
+            {isWrongEmailOrPassword && (
+              <span className='register-form__error'>   
+                Błędny email lub hasło.
+              </span>
+            )}
           </div>
           <div className='login__form-button-icon-row'>
             <MainButton
@@ -111,11 +110,6 @@ const LoginForm = () => {
               />
               <FcGoogle aria-label='Google' className='login__form-icon' />
             </div>
-            {isLoginError && (
-            <span className='register-form__error'>
-              Wystąpił nieoczekiwany problem podczas procesu rejestracji.
-            </span>
-          )}
           </div>
         </div>
       </Form>
