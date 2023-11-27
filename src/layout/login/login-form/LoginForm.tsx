@@ -24,26 +24,26 @@ const LoginForm = () => {
   });
 
   const navigate = useNavigate();
-  const [isWrongEmailOrPassword, setIsWrongEmailOrPassword] = useState(false);
-  const [setLoginError] = useLoginUserMutation();
+  const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
+  const [loginUser] = useLoginUserMutation();
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
-      const response = await setLoginError(data);
+      const response = await loginUser(data);
 
       if (
         'data' in response &&
         'message' in response.data &&
         response.data.message === 'Logowanie pomyślne.'
       ) {
-        setIsWrongEmailOrPassword(false);
+        setWrongEmailOrPassword(false);
         navigate('/');
       } else if ('error' in response) {
         const error = response.error as Error;
         if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
-          setIsWrongEmailOrPassword(true);
+          setWrongEmailOrPassword(true);
         } else {
-          setIsWrongEmailOrPassword(false);
+          setWrongEmailOrPassword(false);
 
           setError('password', {
             type: 'manual',
