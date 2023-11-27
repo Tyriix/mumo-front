@@ -1,4 +1,3 @@
-import { Form } from 'react-router-dom';
 import './contact-form.scss';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -7,9 +6,9 @@ import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
 import { FC, useState } from 'react';
 import classnames from 'classnames';
-import { useSendMessageFromContactMutation } from '../../../../features/messages/messagesSlice';
+import { useSendMessageFromContactMutation } from '../../../../api/messages/messagesApi';
 
-export type FormDataYup = yup.InferType<typeof homeContactSchema>;
+export type ContactSchemaType = yup.InferType<typeof homeContactSchema>;
 
 const ContactForm: FC = () => {
   const [isMessageSent, setMessageSent] = useState(false);
@@ -19,13 +18,14 @@ const ContactForm: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormDataYup>({
+  } = useForm<ContactSchemaType>({
     resolver: yupResolver(homeContactSchema),
   });
 
-  const onSubmit = async (data: FormDataYup) => {
+  const onSubmit = async (data: ContactSchemaType) => {
     try {
       await sendMessage(data);
+      setMessageSent(true);
     } catch (error) {
       console.error('Error sending mail:', error);
     }
@@ -49,7 +49,7 @@ const ContactForm: FC = () => {
           </a>
         </div>
       ) : (
-        <Form
+        <form
           className='contact-form'
           onSubmit={handleSubmit(onSubmit)}
           method='post'
@@ -132,7 +132,7 @@ const ContactForm: FC = () => {
             className='contact-form__submit-button'
             content={'Wyślij'}
           />
-        </Form>
+        </form>
       )}
     </>
   );

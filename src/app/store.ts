@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { messagesSlice } from '../features/messages/messagesSlice';
+import { messagesApi } from '../api/messages/messagesApi';
+import { authApi } from '../api/auth/authApi';
 
 export const store = configureStore({
   reducer: {
-    [messagesSlice.reducerPath]: messagesSlice.reducer,
+    [messagesApi.reducerPath]: messagesApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(messagesSlice.middleware);
+    return getDefaultMiddleware()
+      .concat(messagesApi.middleware)
+      .concat(authApi.middleware);
   },
 });
 

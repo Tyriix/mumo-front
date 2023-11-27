@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '../../models/constants.app';
-import { FormDataYup } from '../../layout/homepage/contact/contact-form/ContactForm';
+import { ContactSchemaType } from '../../layout/homepage/contact/contact-form/ContactForm';
 
 const REDUCER_PATH = 'messagesApi';
 const URL_SEND_FORM_MESSAGE = '/form-email';
 
-type InitialPost = FormDataYup;
+type InitialPost = ContactSchemaType;
 
 interface SendMessageResponse {
   success: boolean;
   message: string;
 }
 
-export const messagesSlice = createApi({
+export const messagesApi = createApi({
   reducerPath: REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
@@ -30,4 +30,4 @@ export const messagesSlice = createApi({
   }),
 });
 
-export const { useSendMessageFromContactMutation } = messagesSlice;
+export const { useSendMessageFromContactMutation } = messagesApi;

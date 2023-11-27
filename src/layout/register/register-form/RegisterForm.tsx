@@ -1,30 +1,67 @@
-import { Form } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import './register-form.scss';
+import { FieldErrors, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import MainButton from '../../../components/buttons/MainButton';
 import { registerFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classnames from 'classnames';
+import './register-form.scss';
+import { useRegisterUserMutation } from '../../../api/auth/authApi';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-type FormData = yup.InferType<typeof registerFormSchema>;
+const USER_EXIST_ERROR_MESSAGE = 'Użytkownik o podanej nazwie już istnieje.';
+export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
 
-const RegisterForm = () => {
+const useClearUserExistErrorEffect = (
+  errors: FieldErrors<RegisterSchemaType>,
+  setUserExistError: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  useEffect(() => {
+    if (errors.email?.message) {
+      setUserExistError(false);
+    }
+  }, [errors.email?.message, setUserExistError]);
+};
+
+const RegisterForm: FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<RegisterSchemaType>({
     resolver: yupResolver(registerFormSchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    return data;
+  const [isUserExistError, setUserExistError] = useState(false);
+  const [isRegisterError, setRegisterError] = useState(false);
+  const [registerUser] = useRegisterUserMutation();
+  const navigate = useNavigate();
+  useClearUserExistErrorEffect(errors, setUserExistError);
+
+  const onSubmit = async (data: RegisterSchemaType) => {
+    try {
+      const response = await registerUser(data);
+      if ('error' in response) {
+        const error = response.error as Error;
+        if ('data' in error) {
+          if (error.data === USER_EXIST_ERROR_MESSAGE) {
+            setUserExistError(true);
+            setRegisterError(false);
+          } else {
+            setUserExistError(false);
+            setRegisterError(true);
+          }
+        }
+      } else {
+        navigate('/login');
+      }
+    } catch (error) {
+      console.error('Register error:', error);
+    }
   };
 
   return (
     <>
-      <Form
+      <form
         className='register-form'
         onSubmit={handleSubmit(onSubmit)}
         method='post'
@@ -35,30 +72,53 @@ const RegisterForm = () => {
               className='register-form__label'
               htmlFor='register-form__input-name'
             >
-              <span className='register-form__input-label-text'>
-                Imię i nazwisko
-              </span>
+              <span className='register-form__input-label-text'>Imię</span>
 
               <div className='register-form__input-error-column'>
                 <input
-                  id='register-form__input-name'
+                  id='register-form__input-first-name'
                   type='text'
-                  {...register('name')}
-                  autoComplete='name'
-                  className={classnames(
-                    'register-form__input',
-                    errors.name && 'register-form__input-alert-active'
-                  )}
+                  {...register('first_name')}
+                  autoComplete='first_name'
+                  className='register-form__input'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.name?.message}
+                    {errors.first_name?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.name?.message}
+                  {errors.first_name?.message}
+                </span>
+              </div>
+            </label>
+          </div>
+          <div className='register-form__input-row'>
+            <label
+              className='register-form__label'
+              htmlFor='register-form__input-name'
+            >
+              <span className='register-form__input-label-text'>Nazwisko</span>
+
+              <div className='register-form__input-error-column'>
+                <input
+                  id='register-form__input-last-name'
+                  type='text'
+                  {...register('last_name')}
+                  autoComplete='name'
+                  className='register-form__input'
+                />
+                <div className='register-form__error-container'>
+                  <span className='register-form__error'>
+                    {errors.last_name?.message}
+                  </span>
+                </div>
+              </div>
+              <div className='register-form__error-container-mobile'>
+                <span className='register-form__error'>
+                  {errors.last_name?.message}
                 </span>
               </div>
             </label>
@@ -83,6 +143,11 @@ const RegisterForm = () => {
                   <span className='register-form__error'>
                     {errors.email?.message}
                   </span>
+                  {isUserExistError && (
+                    <span className='register-form__error'>
+                      Uzytkownik o tym mailu juz istnieje
+                    </span>
+                  )}
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
@@ -104,19 +169,19 @@ const RegisterForm = () => {
                 <input
                   id='register-form__input-phone'
                   type='text'
-                  {...register('phone')}
+                  {...register('phone_number')}
                   autoComplete='tel'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.phone?.message}
+                    {errors.phone_number?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.phone?.message}
+                  {errors.phone_number?.message}
                 </span>
               </div>
             </label>
@@ -160,19 +225,19 @@ const RegisterForm = () => {
                 <input
                   id='register-form__input-password-repeat'
                   type='password'
-                  {...register('repeatPassword')}
+                  {...register('repeat_password')}
                   className='register-form__input'
                   autoComplete='off'
                 />
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.repeatPassword?.message}
+                    {errors.repeat_password?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.repeatPassword?.message}
+                  {errors.repeat_password?.message}
                 </span>
               </div>
             </label>
@@ -185,7 +250,7 @@ const RegisterForm = () => {
                     id='check'
                     type='checkbox'
                     className='register-form__input-checkbox'
-                    {...register('agreeTerms')}
+                    {...register('agree_terms')}
                   />
                   <span className='register-form__checkbox-label-text'>
                     Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
@@ -194,13 +259,13 @@ const RegisterForm = () => {
                 </div>
                 <div className='register-form__error-container'>
                   <span className='register-form__error'>
-                    {errors.agreeTerms?.message}
+                    {errors.agree_terms?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
-                  {errors.agreeTerms?.message}
+                  {errors.agree_terms?.message}
                 </span>
               </div>
             </label>
@@ -211,7 +276,14 @@ const RegisterForm = () => {
           className='register-form__submit-button'
           content={'Zarejestruj się'}
         />
-      </Form>
+            <div className='register-form__error-container'>
+          {isRegisterError && (
+            <span className='register-form__error'>
+              Wystąpił nieoczekiwany problem podczas procesu rejestracji.
+            </span>
+          )}
+        </div>
+      </form>
     </>
   );
 };
