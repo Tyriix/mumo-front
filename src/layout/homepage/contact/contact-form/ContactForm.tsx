@@ -1,4 +1,3 @@
-
 import './contact-form.scss';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -7,7 +6,7 @@ import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
 import { FC, useState } from 'react';
 import classnames from 'classnames';
-import { useSendMessageFromContactMutation } from '../../../../features/messages/messagesSlice';
+import { useSendMessageFromContactMutation } from '../../../../features/messages/messagesApi';
 
 export type FormDataYup = yup.InferType<typeof homeContactSchema>;
 
@@ -25,6 +24,7 @@ const ContactForm: FC = () => {
 
   const onSubmit = async (data: FormDataYup) => {
     try {
+      setMessageSent(true);
       await sendMessage(data);
     } catch (error) {
       console.error('Error sending mail:', error);
@@ -53,12 +53,14 @@ const ContactForm: FC = () => {
           className='contact-form'
           onSubmit={handleSubmit(onSubmit)}
           method='post'
+          role='form'
         >
           <div className='contact-form__container'>
             <label className='contact-form_label' htmlFor='contact-form_email'>
               Email
             </label>
             <input
+              data-testid='contact-form_email'
               id='contact-form_email'
               type='email'
               {...register('email')}
@@ -77,6 +79,7 @@ const ContactForm: FC = () => {
               Imię
             </label>
             <input
+              data-testid='contact-form_name'
               id='contact-form_name'
               type='text'
               {...register('name')}
@@ -98,6 +101,7 @@ const ContactForm: FC = () => {
               Wiadomość
             </label>
             <textarea
+              data-testid='contact-form_message'
               id='contact-form_message'
               className={classnames(
                 'contact-form__textarea-message',
@@ -113,6 +117,7 @@ const ContactForm: FC = () => {
             <div className='contact-form__checkbox-row'>
               <label className='contact-form__checkbox-label'>
                 <input
+                  data-testid='contact-form_agreeTerms'
                   type='checkbox'
                   className='contact-form__input-checkbox'
                   {...register('agreeTerms')}

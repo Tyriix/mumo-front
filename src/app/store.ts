@@ -1,32 +1,21 @@
-import {
-  messageReducer,
-  messagesSlice,
-} from '../features/messages/messagesSlice';
-import {
-  combineReducers,
-  configureStore,
-  PreloadedState,
-} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import { messageReducer, messagesApi } from '../features/messages/messagesApi';
+import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   message: messageReducer,
+  [messagesApi.reducerPath]: messagesApi.reducer,
 });
 
-export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    preloadedState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(messagesApi.middleware),
   });
 };
 
-export const store = configureStore({
-  reducer: {
-    [messagesSlice.reducerPath]: messagesSlice.reducer,
-  },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(messagesSlice.middleware);
-  },
-});
+const store = setupStore();
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

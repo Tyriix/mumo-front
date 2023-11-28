@@ -12,7 +12,7 @@ interface SendMessageResponse {
   message: string;
 }
 
-export const messagesSlice = createApi({
+export const messagesApi = createApi({
   reducerPath: REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
@@ -30,5 +30,5 @@ export const messagesSlice = createApi({
   }),
 });
 
-export const messageReducer = messagesSlice.reducer;
-export const { useSendMessageFromContactMutation } = messagesSlice;
+export const messageReducer = messagesApi.reducer;
+export const { useSendMessageFromContactMutation } = messagesApi;
