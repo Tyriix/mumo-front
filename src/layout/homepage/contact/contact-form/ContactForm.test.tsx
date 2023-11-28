@@ -46,33 +46,7 @@ describe('Contact', async () => {
     });
   });
 
-  it('Triggers submit on populated form', async () => {
-    renderWithProviders(<ContactForm />);
-
-    const email = 'test@test.com';
-    const name = 'Test';
-    const message = 'This is a test message.';
-
-    const emailNode = screen.getByLabelText('Email');
-    const nameNode = screen.getByLabelText('Imię');
-    const messageNode = screen.getByLabelText('Wiadomość');
-    const submitButton = screen.getByRole('button', {
-      name: /Wyślij/i,
-    });
-
-    await waitFor(() =>
-      fireEvent.change(emailNode, { target: { value: email } })
-    );
-    await waitFor(() =>
-      fireEvent.change(nameNode, { target: { value: name } })
-    );
-    await waitFor(() =>
-      fireEvent.change(messageNode, { target: { value: message } })
-    );
-    await waitFor(() => fireEvent.click(submitButton));
-  });
-
-  it('submits the form successfully', async () => {
+  it('Should submit the form successfully', async () => {
     const { getByTestId } = renderWithProviders(<ContactForm />);
 
     fireEvent.input(getByTestId('contact-form_email'), {
@@ -91,6 +65,33 @@ describe('Contact', async () => {
     await waitFor(() => {
       const successMessage = screen.getByText('Wiadomość wysłana');
       expect(successMessage).toBeDefined();
+    });
+  });
+
+  it('Should display input error messages', async () => {
+    const { getByTestId } = renderWithProviders(<ContactForm />);
+
+    fireEvent.input(getByTestId('contact-form_email'), {
+      target: { value: 'testexample.com' },
+    });
+    fireEvent.input(getByTestId('contact-form_name'), {
+      target: { value: 'John1 Doe' },
+    });
+    fireEvent.input(getByTestId('contact-form_message'), {
+      target: { value: '' },
+    });
+
+    fireEvent.submit(screen.getByRole('form'));
+
+    await waitFor(() => {
+      const emailErrorMessage = screen.getByText('Proszę podać poprawny adres email.');
+      const nameErrorMessage = screen.getByText('Pole zawiera niedozwolone znaki.');
+      const messageErrorMessage = screen.getByText('Proszę podać swoją wiadomość.');
+      const termsErrorMessage = screen.getByText('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.');
+      expect(emailErrorMessage).toBeDefined();
+      expect(nameErrorMessage).toBeDefined();
+      expect(messageErrorMessage).toBeDefined();
+      expect(termsErrorMessage).toBeDefined();
     });
   });
 });
