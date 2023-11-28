@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import { renderWithProviders } from '../../../../utils/testUtils';
+import { renderWithProviders } from '../../../../test/utils.test';
 import ContactForm from './ContactForm';
 
 describe('Contact', async () => {
