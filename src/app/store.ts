@@ -13,7 +13,9 @@ export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(messagesApi.middleware).concat(authApi.middleware),
+      getDefaultMiddleware()
+        .concat(messagesApi.middleware)
+        .concat(authApi.middleware),
   });
 };
 

@@ -84,10 +84,18 @@ describe('Contact', async () => {
     fireEvent.submit(screen.getByRole('form'));
 
     await waitFor(() => {
-      const emailErrorMessage = screen.getByText('Proszę podać poprawny adres email.');
-      const nameErrorMessage = screen.getByText('Pole zawiera niedozwolone znaki.');
-      const messageErrorMessage = screen.getByText('Proszę podać swoją wiadomość.');
-      const termsErrorMessage = screen.getByText('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.');
+      const emailErrorMessage = screen.getByText(
+        'Proszę podać poprawny adres email.'
+      );
+      const nameErrorMessage = screen.getByText(
+        'Pole zawiera niedozwolone znaki.'
+      );
+      const messageErrorMessage = screen.getByText(
+        'Proszę podać swoją wiadomość.'
+      );
+      const termsErrorMessage = screen.getByText(
+        'Proszę zaakceptować zgodę na przetwarzanie danych osobowych.'
+      );
       expect(emailErrorMessage).toBeDefined();
       expect(nameErrorMessage).toBeDefined();
       expect(messageErrorMessage).toBeDefined();

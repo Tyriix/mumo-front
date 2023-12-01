@@ -8,7 +8,6 @@ import { FC, useState } from 'react';
 import classnames from 'classnames';
 import { useSendMessageFromContactMutation } from '../../../../api/messages/messagesApi';
 
-
 export type ContactSchemaType = yup.InferType<typeof homeContactSchema>;
 
 const ContactForm: FC = () => {

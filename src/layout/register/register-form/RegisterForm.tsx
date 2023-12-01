@@ -276,7 +276,7 @@ const RegisterForm: FC = () => {
           className='register-form__submit-button'
           content={'Zarejestruj się'}
         />
-            <div className='register-form__error-container'>
+        <div className='register-form__error-container'>
           {isRegisterError && (
             <span className='register-form__error'>
               Wystąpił nieoczekiwany problem podczas procesu rejestracji.

@@ -14,9 +14,9 @@ interface RegisterResponse {
   success: boolean;
   message: string;
 }
-interface LoginResponse{
+interface LoginResponse {
   success: boolean;
-  message: string
+  message: string;
 }
 
 export const authApi = createApi({
@@ -39,7 +39,7 @@ export const authApi = createApi({
         url: URL_AUTH + URL_LOGIN_USER,
         method: 'POST',
         body: initialLoginPost,
-        credentials: 'include'
+        credentials: 'include',
       }),
     }),
   }),
