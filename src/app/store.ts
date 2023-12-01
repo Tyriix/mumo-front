@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { messageReducer, messagesApi } from '../features/messages/messagesApi';
+import { messageReducer, messagesApi } from '../api/messages/messagesApi';
 import { combineReducers } from 'redux';
 import { authApi } from '../api/auth/authApi';
 
