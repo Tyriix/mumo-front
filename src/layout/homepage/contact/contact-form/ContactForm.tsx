@@ -8,7 +8,8 @@ import { FC, useState } from 'react';
 import classnames from 'classnames';
 import { useSendMessageFromContactMutation } from '../../../../features/messages/messagesApi';
 
-export type FormDataYup = yup.InferType<typeof homeContactSchema>;
+
+export type ContactSchemaType = yup.InferType<typeof homeContactSchema>;
 
 const ContactForm: FC = () => {
   const [isMessageSent, setMessageSent] = useState(false);
@@ -18,14 +19,15 @@ const ContactForm: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormDataYup>({
+  } = useForm<ContactSchemaType>({
     resolver: yupResolver(homeContactSchema),
   });
 
-  const onSubmit = async (data: FormDataYup) => {
+  const onSubmit = async (data: ContactSchemaType) => {
     try {
       setMessageSent(true);
       await sendMessage(data);
+      setMessageSent(true);
     } catch (error) {
       console.error('Error sending mail:', error);
     }

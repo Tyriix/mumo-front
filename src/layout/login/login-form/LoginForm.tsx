@@ -1,4 +1,4 @@
-import { Form } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
@@ -7,22 +7,54 @@ import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useLoginUserMutation } from '../../../api/auth/authApi';
+import { useState } from 'react';
 
-type FormData = yup.InferType<typeof loginFormSchema>;
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło. Spróbuj ponownie.';
+export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<LoginSchemaType>({
     resolver: yupResolver(loginFormSchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    return data;
-  };
+  const navigate = useNavigate();
+  const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
+  const [loginUser] = useLoginUserMutation();
 
+  const onSubmit = async (data: LoginSchemaType) => {
+    try {
+      const response = await loginUser(data);
+
+      if (
+        'data' in response &&
+        'message' in response.data &&
+        response.data.message === 'Logowanie pomyślne.'
+      ) {
+        setWrongEmailOrPassword(false);
+        navigate('/');
+      } else if ('error' in response) {
+        const error = response.error as Error;
+        if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
+          setWrongEmailOrPassword(true);
+        } else {
+          setWrongEmailOrPassword(false);
+
+          setError('password', {
+            type: 'manual',
+            message: `${WRONG_EMAIL_OR_PASSWORD}`,
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
   return (
     <>
       <Form
@@ -42,6 +74,7 @@ const LoginForm = () => {
           <div className='login__form-error-container'>
             <span className='login__form-error'>{errors.email?.message}</span>
           </div>
+
           <input
             id='login__-form-input-password'
             type='password'
@@ -52,8 +85,15 @@ const LoginForm = () => {
           />
           <div className='login__form-error-container'>
             <span className='login__form-error'>
-              {errors.password?.message}
+              {errors.password?.message && !isWrongEmailOrPassword
+                ? errors.password.message
+                : ''}
             </span>
+            {isWrongEmailOrPassword && (
+              <span className='register-form__error'>
+                Błędny email lub hasło.
+              </span>
+            )}
           </div>
           <div className='login__form-button-icon-row'>
             <MainButton

@@ -1,17 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { messageReducer, messagesApi } from '../features/messages/messagesApi';
 import { combineReducers } from 'redux';
+import { authApi } from '../api/auth/authApi';
 
 const rootReducer = combineReducers({
   message: messageReducer,
   [messagesApi.reducerPath]: messagesApi.reducer,
+  [authApi.reducerPath]: authApi.reducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(messagesApi.middleware),
+      getDefaultMiddleware().concat(messagesApi.middleware).concat(authApi.middleware),
   });
 };
 
