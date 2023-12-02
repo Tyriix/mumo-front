@@ -75,6 +75,7 @@ $input-width: 450px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  margin: 1em 0;
 }
 
 .register-form__input-checkbox {
@@ -89,6 +90,8 @@ $input-width: 450px;
 
 .register-form__submit-button {
   height: 3em;
+  font-size: 1.2rem;
+  margin-bottom: 1em;
 }
 .register-form__error-container-mobile {
   display: none;
