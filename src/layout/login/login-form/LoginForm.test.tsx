@@ -12,5 +12,6 @@ describe('LoginForm', () => {
     expect(emailInput).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument();
     expect(loginButton).toBeInTheDocument();
+
   });
 });
