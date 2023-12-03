@@ -18,6 +18,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
     "@types/node": "^20.8.2",
     "axios": "^1.6.0",
     "classnames": "^2.3.2",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@types/google.maps": "^3.54.3",
+    "@types/jest": "^29.5.10",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-transition-group": "^4.4.7",
