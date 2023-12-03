@@ -65,6 +65,7 @@ const LoginForm = () => {
         <div className='login__form-container'>
           <input
             id='login__form-input-email'
+            data-testid='login__form-input-email'
             type='email'
             {...register('email')}
             className='login__form-input'
@@ -76,7 +77,8 @@ const LoginForm = () => {
           </div>
 
           <input
-            id='login__-form-input-password'
+            id='login__form-input-password'
+            data-testid='login__form-input-password'
             type='password'
             {...register('password')}
             className='login__form-input'
