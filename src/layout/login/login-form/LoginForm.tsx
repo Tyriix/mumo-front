@@ -1,4 +1,4 @@
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
@@ -57,7 +57,7 @@ const LoginForm = () => {
   };
   return (
     <>
-      <Form
+      <form
         className='login__form'
         onSubmit={handleSubmit(onSubmit)}
         method='post'
@@ -111,7 +111,7 @@ const LoginForm = () => {
             </div>
           </div>
         </div>
-      </Form>
+      </form>
     </>
   );
 };
