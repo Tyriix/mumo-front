@@ -20,9 +20,7 @@ vi.mock('../../../api/auth/authApi', async () => ({
 
 describe('LoginForm', () => {
   beforeEach(() => {
-    mockUserLogin.mockReset().mockResolvedValue({
-      data: { success: true, message: 'Logowanie pomyślne.' },
-    });
+    mockUserLogin.mockReset();
   });
 
   afterAll(() => {
@@ -42,7 +40,11 @@ describe('LoginForm', () => {
 
   it('Logs in successfully', async () => {
     renderWithProviders(<LoginForm />);
-    window.history.pushState({}, 'Login', '/login');
+    
+    mockUserLogin.mockResolvedValue({
+      data: { success: true, message: 'Logowanie pomyślne.' },
+    });
+
     const emailInput = screen.getByTestId('login__form-input-email');
     const passwordInput = screen.getByTestId('login__form-input-password');
     const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
@@ -57,6 +59,26 @@ describe('LoginForm', () => {
     await waitFor(() => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
       expect(mockUseNavigate).toHaveBeenCalledWith('/');
+    });
+  });
+
+  it('Displays error messages for empty form submission', async () => {
+    renderWithProviders(<LoginForm />);
+
+    const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
+
+    await act(async () => {
+      fireEvent.click(loginButton);
+    });
+
+    await waitFor(() => {
+      const emailErrorMessage = screen.getByText('Proszę wpisać swój email.');
+      const passwordErrorMessage = screen.getByText(
+        'Proszę podać swoje hasło.'
+      );
+
+      expect(emailErrorMessage).toBeInTheDocument();
+      expect(passwordErrorMessage).toBeInTheDocument();
     });
   });
 });
