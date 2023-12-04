@@ -1,17 +1,26 @@
 import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import LoginForm from './LoginForm';
 import { renderWithProviders } from '../../../test/utils';
-import sinon from 'sinon';
 import { vi } from 'vitest';
 
-const useLoginUserMutation = vi.fn().mockResolvedValue({
-  success: true,
-  message: 'Logowanie pomyślne.',
-});
+const mockUserLogin = vi.fn();
+
+vi.mock('../../../api/auth/authApi', async () => ({
+  ...(await vi.importActual<Record<string, unknown>>(
+    '../../../api/auth/authApi'
+  )),
+  useLoginUserMutation: () => [mockUserLogin],
+}));
 
 describe('LoginForm', () => {
-  afterEach(() => {
-    sinon.restore();
+  beforeEach(() => {
+    mockUserLogin.mockReset().mockResolvedValue({
+      data: { success: true, message: 'Logowanie pomyślne.' },
+    });
+  });
+
+  afterAll(() => {
+    vi.restoreAllMocks();
   });
 
   it('Renders login form correctly', () => {
@@ -40,7 +49,17 @@ describe('LoginForm', () => {
     });
 
     await waitFor(() => {
-      expect(useLoginUserMutation).toHaveBeenCalledWith(1);
+      expect(mockUserLogin).toHaveBeenCalledTimes(1);
     });
+
+    const cookies = document.cookie.split(';').map((cookie) => cookie.trim());
+    console.log('Cookies:', cookies); 
+
+    const authCookie = cookies.find((cookie) =>
+      cookie.startsWith('accessToken=')
+    );
+    console.log('Auth Cookie:', authCookie);
+
+    // expect(authCookie).toBeDefined();
   });
 });
