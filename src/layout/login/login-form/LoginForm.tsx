@@ -8,12 +8,12 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło. Spróbuj ponownie.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,

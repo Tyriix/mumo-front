@@ -14,7 +14,7 @@ interface RegisterResponse {
   success: boolean;
   message: string;
 }
-interface LoginResponse {
+export interface LoginResponse {
   success: boolean;
   message: string;
 }
