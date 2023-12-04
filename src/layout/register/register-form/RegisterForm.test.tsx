@@ -2,10 +2,32 @@ import { describe, expect, it, vi } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import { renderWithProviders } from '../../../test/utils';
 import RegisterForm from './RegisterForm';
-import { createMemoryHistory } from 'history';
-import * as Navigation from 'react-router-dom';
+
+const mockUserRegister= vi.fn();
+const mockUseNavigate= vi.fn();
+
+vi.mock('react-router-dom', async () => ({
+  ...(await vi.importActual<Record<string, unknown>>('react-router-dom')),
+  useNavigate: () => mockUseNavigate
+}));
+
+vi.mock('../../../api/auth/authApi', async () => ({
+  ...(await vi.importActual<Record<string, unknown>>(
+    '../../../api/auth/authApi'
+  )),
+  useRegisterUserMutation: () => [mockUserRegister],
+}));
 
 describe('Register', async () => {
+  beforeEach(() => {
+    mockUserRegister.mockReset().mockResolvedValue({
+      data: { success: true, message: 'Rejestracja pomyślna.' },
+    });
+  });
+
+  afterAll(() => {
+    vi.restoreAllMocks();
+  });
 
 
     it('Should render correctly', async () => {
@@ -70,33 +92,32 @@ describe('Register', async () => {
       });
 
       it('Should submit the form successfully', async () => {
-        const spy = vi.spyOn(Navigation, 'useNavigation')
-        const history = createMemoryHistory();
-        const { getByTestId } = renderWithProviders(<RegisterForm />);
-        history.push('/register');
-        fireEvent.input(getByTestId('register-form__input-first-name'), {
-            target: { value: 'Tescik' },
-          });
-        fireEvent.input(getByTestId('register-form__input-last-name'), {
-            target: { value: 'Tescikowy' },
-          });
-        fireEvent.input(getByTestId('register-form__input-email'), {
-            target: { value: 'test@test.com' },
-          });
-        fireEvent.input(getByTestId('register-form__input-phone'), {
-            target: { value: '132244132' },
-          });
-        fireEvent.input(getByTestId('register-form__input-password'), {
-            target: { value: 'Teścik123' },
-          });
-        fireEvent.input(getByTestId('register-form__input-repeat-password'), {
-            target: { value: 'Teścik123' },
-          });
+        renderWithProviders(<RegisterForm />);
+        window.history.pushState({}, 'Register', '/register');
+        
+        const firstNameInput = screen.getByTestId('register-form__input-first-name');
+        const lastNameInput = screen.getByTestId('register-form__input-last-name');
+        const emailInput = screen.getByTestId('register-form__input-email');
+        const phoneInput = screen.getByTestId('register-form__input-phone');
+        const passwordInput = screen.getByTestId('register-form__input-password');
+        const repeatPasswordInput = screen.getByTestId('register-form__input-repeat-password');
+        const agreeTermsCheckbox = screen.getByTestId('register-form__input-checkbox');
+
+
+        fireEvent.change(firstNameInput,  {target: { value: 'Tescik' }})
+        fireEvent.change(lastNameInput,  {target: { value: 'Tescikowy' }})
+        fireEvent.change(emailInput,  {target: { value: 'test@test.com' }})
+        fireEvent.change(phoneInput,  {target: { value: '132244132' }})
+        fireEvent.change(passwordInput,  {target: { value: 'Teścik123' }})
+        fireEvent.change(repeatPasswordInput,  {target: { value: 'Teścik123' }})
+        fireEvent.click(agreeTermsCheckbox);
 
         fireEvent.submit(screen.getByRole('form'));
 
         await waitFor(() => {
-            console.log(spy);
-          });
+          expect(mockUserRegister).toHaveBeenCalledTimes(1);
+          expect(mockUseNavigate).toHaveBeenCalledWith('/login');
+          
+        })
       });
 })
