@@ -65,6 +65,7 @@ const RegisterForm: FC = () => {
         className='register-form'
         onSubmit={handleSubmit(onSubmit)}
         method='post'
+        role='form'
       >
         <div className='register-form__container'>
           <div className='register-form__input-row'>
@@ -77,18 +78,19 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-first-name'
+                  data-testid='register-form__input-first-name'
                   type='text'
                   {...register('first_name')}
                   autoComplete='first_name'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-first-name'>
                     {errors.first_name?.message}
                   </span>
                 </div>
               </div>
-              <div className='register-form__error-container-mobile'>
+              <div className='register-form__error-container-mobile' data-testid='register-form__error-first-name-mobile'>
                 <span className='register-form__error'>
                   {errors.first_name?.message}
                 </span>
@@ -105,19 +107,20 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-last-name'
+                  data-testid='register-form__input-last-name'
                   type='text'
                   {...register('last_name')}
                   autoComplete='name'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-last-name'>
                     {errors.last_name?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-last-name-mobile'>
                   {errors.last_name?.message}
                 </span>
               </div>
@@ -134,13 +137,14 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-email'
+                  data-testid='register-form__input-email'
                   type='email'
                   {...register('email')}
                   autoComplete='email'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-email'>
                     {errors.email?.message}
                   </span>
                   {isUserExistError && (
@@ -151,7 +155,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-email-mobile'>
                   {errors.email?.message}
                 </span>
               </div>
@@ -168,19 +172,20 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-phone'
+                  data-testid='register-form__input-phone'
                   type='text'
                   {...register('phone_number')}
                   autoComplete='tel'
                   className='register-form__input'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-phone'>
                     {errors.phone_number?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-phone-mobile'>
                   {errors.phone_number?.message}
                 </span>
               </div>
@@ -195,19 +200,20 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-password'
+                  data-testid='register-form__input-password'
                   type='password'
                   {...register('password')}
                   className='register-form__input'
                   autoComplete='off'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-password'>
                     {errors.password?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-password-mobile'>
                   {errors.password?.message}
                 </span>
               </div>
@@ -224,19 +230,20 @@ const RegisterForm: FC = () => {
               <div className='register-form__input-error-column'>
                 <input
                   id='register-form__input-password-repeat'
+                  data-testid='register-form__input-repeat-password'
                   type='password'
                   {...register('repeat_password')}
                   className='register-form__input'
                   autoComplete='off'
                 />
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-repeat-password'>
                     {errors.repeat_password?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-repeat-password-mobile'>
                   {errors.repeat_password?.message}
                 </span>
               </div>
@@ -250,6 +257,7 @@ const RegisterForm: FC = () => {
                     id='check'
                     type='checkbox'
                     className='register-form__input-checkbox'
+                    data-testid='register-form__input-checkbox'
                     {...register('agree_terms')}
                   />
                   <span className='register-form__checkbox-label-text'>
@@ -258,13 +266,13 @@ const RegisterForm: FC = () => {
                   </span>
                 </div>
                 <div className='register-form__error-container'>
-                  <span className='register-form__error'>
+                  <span className='register-form__error' data-testid='register-form__error-agree-terms'>
                     {errors.agree_terms?.message}
                   </span>
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error'>
+                <span className='register-form__error' data-testid='register-form__error-agree-terms-mobile'>
                   {errors.agree_terms?.message}
                 </span>
               </div>
