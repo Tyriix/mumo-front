@@ -4,7 +4,15 @@ import { renderWithProviders } from '../../../test/utils';
 import { vi } from 'vitest';
 
 const mockUserLogin = vi.fn();
+const mockUseNavigate= vi.fn();
 
+vi.mock('react-router-dom', async () => {
+  const actual = await vi.importActual('react-router-dom') as any;
+  return {
+    ...actual,
+    useNavigate: () => mockUseNavigate
+  };    
+});
 vi.mock('../../../api/auth/authApi', async () => ({
   ...(await vi.importActual<Record<string, unknown>>(
     '../../../api/auth/authApi'
@@ -36,7 +44,7 @@ describe('LoginForm', () => {
 
   it('Logs in successfully', async () => {
     renderWithProviders(<LoginForm />);
-
+    window.history.pushState({}, 'Login', '/login')
     const emailInput = screen.getByTestId('login__form-input-email');
     const passwordInput = screen.getByTestId('login__form-input-password');
     const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
@@ -50,15 +58,17 @@ describe('LoginForm', () => {
 
     await waitFor(() => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
-    });
+      expect(mockUseNavigate).toHaveBeenCalledWith('/');
+      
+    })
+    
+    // const cookies = document.cookie.split(';').map((cookie) => cookie.trim());
+    // console.log('Cookies:', cookies); 
 
-    const cookies = document.cookie.split(';').map((cookie) => cookie.trim());
-    console.log('Cookies:', cookies); 
-
-    const authCookie = cookies.find((cookie) =>
-      cookie.startsWith('accessToken=')
-    );
-    console.log('Auth Cookie:', authCookie);
+    // const authCookie = cookies.find((cookie) =>
+    //   cookie.startsWith('accessToken=')
+    // );
+    // console.log('Auth Cookie:', authCookie);
 
     // expect(authCookie).toBeDefined();
   });
