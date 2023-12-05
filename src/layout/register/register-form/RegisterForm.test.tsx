@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { renderWithProviders } from '../../../test/utils';
 import RegisterForm from './RegisterForm';
 
@@ -20,12 +20,11 @@ vi.mock('../../../api/auth/authApi', async () => ({
 
 describe('Register', async () => {
   beforeEach(() => {
-    mockUserRegister.mockReset().mockResolvedValue({
-      data: { success: true, message: 'Rejestracja pomyślna.' },
-    });
+    mockUserRegister.mockReset();
+    mockUseNavigate.mockReset();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     vi.restoreAllMocks();
   });
 
@@ -93,7 +92,10 @@ describe('Register', async () => {
 
       it('Should submit the form successfully', async () => {
         renderWithProviders(<RegisterForm />);
-        window.history.pushState({}, 'Register', '/register');
+
+        mockUserRegister.mockResolvedValue({
+          data: {success: true, message: 'Logowanie pomyślne.', error: null}
+        })
         
         const firstNameInput = screen.getByTestId('register-form__input-first-name');
         const lastNameInput = screen.getByTestId('register-form__input-last-name');
@@ -102,7 +104,7 @@ describe('Register', async () => {
         const passwordInput = screen.getByTestId('register-form__input-password');
         const repeatPasswordInput = screen.getByTestId('register-form__input-repeat-password');
         const agreeTermsCheckbox = screen.getByTestId('register-form__input-checkbox');
-
+        const registerButton = screen.getByRole('button', { name: /Zarejestruj się/i });
 
         fireEvent.change(firstNameInput,  {target: { value: 'Tescik' }})
         fireEvent.change(lastNameInput,  {target: { value: 'Tescikowy' }})
@@ -112,7 +114,9 @@ describe('Register', async () => {
         fireEvent.change(repeatPasswordInput,  {target: { value: 'Teścik123' }})
         fireEvent.click(agreeTermsCheckbox);
 
-        fireEvent.submit(screen.getByRole('form'));
+        await act(async () => {
+          fireEvent.click(registerButton);
+        });
 
         await waitFor(() => {
           expect(mockUserRegister).toHaveBeenCalledTimes(1);
