@@ -42,14 +42,12 @@ const RegisterForm: FC = () => {
       const response = await registerUser(data);
       if ('error' in response) {
         const error = response.error as Error;
-        if ('data' in error) {
-          if (error.data === USER_EXIST_ERROR_MESSAGE) {
-            setUserExistError(true);
-            setRegisterError(false);
-          } else {
-            setUserExistError(false);
-            setRegisterError(true);
-          }
+        if ('data' in error && error.data === USER_EXIST_ERROR_MESSAGE) {
+          setUserExistError(true);
+          setRegisterError(false);
+        } else {
+          setUserExistError(false);
+          setRegisterError(true);
         }
       } else {
         navigate('/login');
