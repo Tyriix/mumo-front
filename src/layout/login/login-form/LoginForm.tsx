@@ -9,8 +9,9 @@ import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
 import { FC, useState } from 'react';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
-const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło. Spróbuj ponownie.';
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
 const LoginForm: FC = () => {
@@ -39,15 +40,14 @@ const LoginForm: FC = () => {
         setWrongEmailOrPassword(false);
         navigate('/');
       } else if ('error' in response) {
-        const error = response.error as Error;
+        const error = response.error as FetchBaseQueryError;
         if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
           setWrongEmailOrPassword(true);
         } else {
           setWrongEmailOrPassword(false);
-
           setError('password', {
             type: 'manual',
-            message: `${WRONG_EMAIL_OR_PASSWORD}`,
+            message: `Wystąpił błąd podczas logowania.`,
           });
         }
       }

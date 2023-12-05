@@ -65,11 +65,8 @@ describe('LoginForm', () => {
   it('Logs in unsuccessfully', async () => {
     renderWithProviders(<LoginForm />);
 
-    mockUserLogin.mockResolvedValue({
-      data: {
-        success: false,
-        message: 'Błędny email lub hasło. Spróbuj ponownie.',
-      },
+    mockUserLogin.mockReturnValue({
+      error: { status: 400, data: 'Błędny email lub hasło.' },
     });
 
     const emailInput = screen.getByTestId('login__form-input-email');
@@ -82,6 +79,9 @@ describe('LoginForm', () => {
     await waitFor(() => fireEvent.click(loginButton)).then(async () => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
       expect(mockUseNavigate).not.toHaveBeenCalledWith('/');
+      expect(
+        screen.getByText('Błędny email lub hasło.')
+      ).toBeInTheDocument();
     });
   });
 
