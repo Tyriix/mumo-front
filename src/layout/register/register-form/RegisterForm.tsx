@@ -90,7 +90,7 @@ const RegisterForm: FC = () => {
                   </span>
                 </div>
               </div>
-              <div className='register-form__error-container-mobile' data-testid='register-form__error-first-name-mobile'>
+              <div className='register-form__error-container-mobile'>
                 <span className='register-form__error'>
                   {errors.first_name?.message}
                 </span>
@@ -120,7 +120,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-last-name-mobile'>
+                <span className='register-form__error'>
                   {errors.last_name?.message}
                 </span>
               </div>
@@ -155,7 +155,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-email-mobile'>
+                <span className='register-form__error'>
                   {errors.email?.message}
                 </span>
               </div>
@@ -185,7 +185,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-phone-mobile'>
+                <span className='register-form__error'>
                   {errors.phone_number?.message}
                 </span>
               </div>
@@ -213,7 +213,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-password-mobile'>
+                <span className='register-form__error'>
                   {errors.password?.message}
                 </span>
               </div>
@@ -243,7 +243,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-repeat-password-mobile'>
+                <span className='register-form__error'>
                   {errors.repeat_password?.message}
                 </span>
               </div>
@@ -272,7 +272,7 @@ const RegisterForm: FC = () => {
                 </div>
               </div>
               <div className='register-form__error-container-mobile'>
-                <span className='register-form__error' data-testid='register-form__error-agree-terms-mobile'>
+                <span className='register-form__error'>
                   {errors.agree_terms?.message}
                 </span>
               </div>

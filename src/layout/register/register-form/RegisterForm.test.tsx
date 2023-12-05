@@ -61,11 +61,11 @@ describe('Register', async () => {
     it('Should display error messages on all empty imputs', async () => {
         renderWithProviders(<RegisterForm />);
 
-        const submitButton = screen.getByRole('button', {
+        const registerButton = screen.getByRole('button', {
           name: /Zarejestruj się/i,
         });
 
-        await waitFor(() => fireEvent.click(submitButton)).then(async () => {
+        await waitFor(() => fireEvent.click(registerButton)).then(async () => {
           expect(
             screen.getByTestId('register-form__error-first-name')).toHaveTextContent('Proszę podać swoje imię.');
 
@@ -110,8 +110,8 @@ describe('Register', async () => {
         fireEvent.change(lastNameInput,  {target: { value: 'Tescikowy' }})
         fireEvent.change(emailInput,  {target: { value: 'test@test.com' }})
         fireEvent.change(phoneInput,  {target: { value: '132244132' }})
-        fireEvent.change(passwordInput,  {target: { value: 'Teścik123' }})
-        fireEvent.change(repeatPasswordInput,  {target: { value: 'Teścik123' }})
+        fireEvent.change(passwordInput,  {target: { value: 'ABCabc123@' }})
+        fireEvent.change(repeatPasswordInput,  {target: { value: 'ABCabc123@' }})
         fireEvent.click(agreeTermsCheckbox);
 
         await act(async () => {
@@ -121,7 +121,53 @@ describe('Register', async () => {
         await waitFor(() => {
           expect(mockUserRegister).toHaveBeenCalledTimes(1);
           expect(mockUseNavigate).toHaveBeenCalledWith('/login');
-          
+        })
+      });
+
+      it('Should show validation errors', async () => {
+        renderWithProviders(<RegisterForm />);
+
+        const registerButton = screen.getByRole('button', {
+          name: /Zarejestruj się/i,
+        });
+        
+        const firstNameInput = screen.getByTestId('register-form__input-first-name');
+        const lastNameInput = screen.getByTestId('register-form__input-last-name');
+        const emailInput = screen.getByTestId('register-form__input-email');
+        const phoneInput = screen.getByTestId('register-form__input-phone');
+        const passwordInput = screen.getByTestId('register-form__input-password');
+        const repeatPasswordInput = screen.getByTestId('register-form__input-repeat-password');
+
+        fireEvent.change(firstNameInput,  {target: { value: '@escik' }})
+        fireEvent.change(lastNameInput,  {target: { value: 'Tesc1kowy' }})
+        fireEvent.change(emailInput,  {target: { value: 'testtest.com' }})
+        fireEvent.change(phoneInput,  {target: { value: '13224413' }})
+        fireEvent.change(passwordInput,  {target: { value: 'ABCabc123' }})
+        fireEvent.change(repeatPasswordInput,  {target: { value: 'ABCabc13@' }})
+       
+        console.log(`Input value: ${firstNameInput.innerHTML}`)
+
+        await waitFor(() => fireEvent.click(registerButton)).then(async () => {
+          expect(
+            screen.getByTestId('register-form__error-first-name')).toHaveTextContent('Niepoprawny format imienia.');
+
+          expect(
+            screen.getByTestId('register-form__error-last-name')).toHaveTextContent('Niepoprawny format nazwiska.');
+
+          expect(
+            screen.getByTestId('register-form__error-email')).toHaveTextContent('Proszę podać poprawny adres email.');
+
+          expect(
+            screen.getByTestId('register-form__error-phone')).toHaveTextContent('Numer telefonu musi składać się z 9 cyfr.');
+
+          expect(
+            screen.getByTestId('register-form__error-password')).toHaveTextContent('Wymagane: 8 znaków, duża i mała litera, cyfra, znak specjalny.');
+
+          expect(
+            screen.getByTestId('register-form__error-repeat-password')).toHaveTextContent('Hasła muszą się zgadzać.');
+
+          expect(
+            screen.getByTestId('register-form__error-agree-terms')).toHaveTextContent('Proszę zaakceptować zgodę na przetwarzanie danych osobowych.');
         })
       });
 })
