@@ -125,29 +125,30 @@ describe('Register', async () => {
       });
 
       it('Should show validation errors', async () => {
-        renderWithProviders(<RegisterForm />);
+        const { getByTestId } = renderWithProviders(<RegisterForm />);
 
-        const registerButton = screen.getByRole('button', {
-          name: /Zarejestruj się/i,
+        fireEvent.input(getByTestId('register-form__input-first-name'), {
+          target: { value: '@escik' },
         });
-        
-        const firstNameInput = screen.getByTestId('register-form__input-first-name');
-        const lastNameInput = screen.getByTestId('register-form__input-last-name');
-        const emailInput = screen.getByTestId('register-form__input-email');
-        const phoneInput = screen.getByTestId('register-form__input-phone');
-        const passwordInput = screen.getByTestId('register-form__input-password');
-        const repeatPasswordInput = screen.getByTestId('register-form__input-repeat-password');
+        fireEvent.input(getByTestId('register-form__input-last-name'), {
+          target: { value: 'Tesc1kowy' },
+        });
+        fireEvent.input(getByTestId('register-form__input-email'), {
+          target: { value: 'testtest.com' },
+        });
+        fireEvent.input(getByTestId('register-form__input-phone'), {
+          target: { value: '13224413' },
+        });
+        fireEvent.input(getByTestId('register-form__input-password'), {
+          target: { value: 'ABCabc123' },
+        });
+        fireEvent.input(getByTestId('register-form__input-repeat-password'), {
+          target: { value: 'ABCabc13@' },
+        });
+        fireEvent.submit(screen.getByRole('form'));
 
-        fireEvent.change(firstNameInput,  {target: { value: '@escik' }})
-        fireEvent.change(lastNameInput,  {target: { value: 'Tesc1kowy' }})
-        fireEvent.change(emailInput,  {target: { value: 'testtest.com' }})
-        fireEvent.change(phoneInput,  {target: { value: '13224413' }})
-        fireEvent.change(passwordInput,  {target: { value: 'ABCabc123' }})
-        fireEvent.change(repeatPasswordInput,  {target: { value: 'ABCabc13@' }})
        
-        console.log(`Input value: ${firstNameInput.innerHTML}`)
-
-        await waitFor(() => fireEvent.click(registerButton)).then(async () => {
+        await waitFor(() => {
           expect(
             screen.getByTestId('register-form__error-first-name')).toHaveTextContent('Niepoprawny format imienia.');
 
