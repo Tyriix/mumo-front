@@ -23,7 +23,7 @@ describe('LoginForm', () => {
     mockUserLogin.mockReset();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     vi.restoreAllMocks();
   });
 
@@ -40,7 +40,7 @@ describe('LoginForm', () => {
 
   it('Logs in successfully', async () => {
     renderWithProviders(<LoginForm />);
-    
+
     mockUserLogin.mockResolvedValue({
       data: { success: true, message: 'Logowanie pomyślne.' },
     });
@@ -59,6 +59,29 @@ describe('LoginForm', () => {
     await waitFor(() => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
       expect(mockUseNavigate).toHaveBeenCalledWith('/');
+    });
+  });
+
+  it('Logs in unsuccessfully', async () => {
+    renderWithProviders(<LoginForm />);
+
+    mockUserLogin.mockResolvedValue({
+      data: {
+        success: false,
+        message: 'Błędny email lub hasło. Spróbuj ponownie.',
+      },
+    });
+
+    const emailInput = screen.getByTestId('login__form-input-email');
+    const passwordInput = screen.getByTestId('login__form-input-password');
+    const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
+
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(passwordInput, { target: { value: 'P@ssword123' } });
+
+    await waitFor(() => fireEvent.click(loginButton)).then(async () => {
+      expect(mockUserLogin).toHaveBeenCalledTimes(1);
+      expect(mockUseNavigate).not.toHaveBeenCalledWith('/');
     });
   });
 
