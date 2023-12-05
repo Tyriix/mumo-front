@@ -79,8 +79,29 @@ describe('LoginForm', () => {
     await waitFor(() => fireEvent.click(loginButton)).then(async () => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
       expect(mockUseNavigate).not.toHaveBeenCalledWith('/');
+      expect(screen.getByText('Błędny email lub hasło.')).toBeInTheDocument();
+    });
+  });
+
+  it('Error while logging in', async () => {
+    renderWithProviders(<LoginForm />);
+
+    mockUserLogin.mockReturnValue({
+      error: { status: 400, data: 'Wystąpił błąd podczas logowania.' },
+    });
+
+    const emailInput = screen.getByTestId('login__form-input-email');
+    const passwordInput = screen.getByTestId('login__form-input-password');
+    const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
+
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(passwordInput, { target: { value: 'P@ssword123' } });
+
+    await waitFor(() => fireEvent.click(loginButton)).then(async () => {
+      expect(mockUserLogin).toHaveBeenCalledTimes(1);
+      expect(mockUseNavigate).not.toHaveBeenCalledWith('/');
       expect(
-        screen.getByText('Błędny email lub hasło.')
+        screen.getByText('Wystąpił błąd podczas logowania.')
       ).toBeInTheDocument();
     });
   });
