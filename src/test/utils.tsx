@@ -17,7 +17,11 @@ export function renderWithProviders(
   { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}><MemoryRouter>{children}</MemoryRouter></Provider>;
+    return (
+      <Provider store={store}>
+        <MemoryRouter>{children}</MemoryRouter>
+      </Provider>
+    );
   }
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
