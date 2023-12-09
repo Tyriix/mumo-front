@@ -59,7 +59,7 @@ describe('Register', async () => {
     expect(submitButton).toBeInTheDocument();
   });
 
-  it('Should display error messages on all empty imputs', async () => {
+  it('Should display error messages on all empty inputs', async () => {
     renderWithProviders(<RegisterForm />);
 
     const registerButton = screen.getByRole('button', {
