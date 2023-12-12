@@ -6,6 +6,7 @@ import type { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 import { setupStore, type AppStore, type RootState } from '../app/store';
+import { MemoryRouter } from 'react-router';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>;
