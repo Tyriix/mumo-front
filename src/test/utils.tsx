@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom'; // Import MemoryRouter
 import type { RenderOptions } from '@testing-library/react';
 import type { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
@@ -16,7 +17,11 @@ export function renderWithProviders(
   { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>;
+    return (
+      <Provider store={store}>
+        <MemoryRouter>{children}</MemoryRouter>
+      </Provider>
+    );
   }
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };

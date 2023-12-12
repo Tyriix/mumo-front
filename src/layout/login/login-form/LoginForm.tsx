@@ -1,4 +1,4 @@
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './login-form.scss';
 import * as yup from 'yup';
@@ -8,12 +8,13 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import { useState } from 'react';
+import { FC, useState } from 'react';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
-const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło. Spróbuj ponownie.';
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
@@ -39,15 +40,14 @@ const LoginForm = () => {
         setWrongEmailOrPassword(false);
         navigate('/');
       } else if ('error' in response) {
-        const error = response.error as Error;
+        const error = response.error as FetchBaseQueryError;
         if ('data' in error && error.data === WRONG_EMAIL_OR_PASSWORD) {
           setWrongEmailOrPassword(true);
         } else {
           setWrongEmailOrPassword(false);
-
           setError('password', {
             type: 'manual',
-            message: `${WRONG_EMAIL_OR_PASSWORD}`,
+            message: `Wystąpił błąd podczas logowania.`,
           });
         }
       }
@@ -57,7 +57,7 @@ const LoginForm = () => {
   };
   return (
     <>
-      <Form
+      <form
         className='login__form'
         onSubmit={handleSubmit(onSubmit)}
         method='post'
@@ -65,6 +65,7 @@ const LoginForm = () => {
         <div className='login__form-container'>
           <input
             id='login__form-input-email'
+            data-testid='login__form-input-email'
             type='email'
             {...register('email')}
             className='login__form-input'
@@ -76,7 +77,8 @@ const LoginForm = () => {
           </div>
 
           <input
-            id='login__-form-input-password'
+            id='login__form-input-password'
+            data-testid='login__form-input-password'
             type='password'
             {...register('password')}
             className='login__form-input'
@@ -111,7 +113,7 @@ const LoginForm = () => {
             </div>
           </div>
         </div>
-      </Form>
+      </form>
     </>
   );
 };
