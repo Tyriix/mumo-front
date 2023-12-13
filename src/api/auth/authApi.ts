@@ -10,6 +10,7 @@ const URL_LOGIN_USER = '/login';
 
 type InitialPost = RegisterSchemaType;
 type InitialLoginPost = LoginSchemaType;
+
 interface RegisterResponse {
   success: boolean;
   message: string;
