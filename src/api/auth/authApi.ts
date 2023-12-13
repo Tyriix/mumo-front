@@ -2,11 +2,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '../../models/constants.app';
 import { RegisterSchemaType } from '../../layout/register/register-form/RegisterForm';
 import { LoginSchemaType } from '../../layout/login/login-form/LoginForm';
+import { User } from '../../models/types/auth';
 
 const REDUCER_PATH = 'authApi';
 const URL_AUTH = '/auth';
 const URL_REGISTER_USER = '/register';
 const URL_LOGIN_USER = '/login';
+const URL_GET_ME = '/me';
 
 type InitialPost = RegisterSchemaType;
 type InitialLoginPost = LoginSchemaType;
@@ -43,8 +45,16 @@ export const authApi = createApi({
         credentials: 'include',
       }),
     }),
+    getMe: builder.query<User, void>({
+      query: () => ({
+        url: URL_AUTH + URL_GET_ME,
+        method: 'GET',
+        credentials: 'include',
+      }),
+    }),
   }),
 });
 
 export const authReducer = authApi.reducer;
-export const { useRegisterUserMutation, useLoginUserMutation } = authApi;
+export const { useRegisterUserMutation, useLoginUserMutation, useGetMeQuery } =
+  authApi;

@@ -8,8 +8,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import Cookies from 'universal-cookie';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
@@ -27,6 +29,8 @@ const LoginForm: FC = () => {
   const navigate = useNavigate();
   const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
   const [loginUser] = useLoginUserMutation();
+  const { login } = useContext(AuthContext);
+  const cookies = new Cookies();
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
@@ -53,6 +57,9 @@ const LoginForm: FC = () => {
       }
     } catch (error) {
       console.error('Login error:', error);
+    } finally {
+      const accessToken = cookies.get('access_tkn');
+      login(accessToken);
     }
   };
   return (
