@@ -7,7 +7,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useLoginUserMutation } from '../../../api/auth/authApi';
+import { useGetMeQuery, useLoginUserMutation } from '../../../api/auth/authApi';
 import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Cookies from 'universal-cookie';
@@ -31,7 +31,7 @@ const LoginForm: FC = () => {
   const [loginUser] = useLoginUserMutation();
   const { login } = useContext(AuthContext);
   const cookies = new Cookies();
-
+  const {data: userDataFromApi } = useGetMeQuery();
   const onSubmit = async (data: LoginSchemaType) => {
     try {
       const response = await loginUser(data);
@@ -60,6 +60,7 @@ const LoginForm: FC = () => {
     } finally {
       const accessToken = cookies.get('access_tkn');
       login(accessToken);
+      console.log(userDataFromApi);
     }
   };
   return (
