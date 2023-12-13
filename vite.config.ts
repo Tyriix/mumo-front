@@ -8,4 +8,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
   },
+  server: {
+    host: 'localhost',
+    port: 5173
+  }
 });
