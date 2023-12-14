@@ -7,7 +7,7 @@ import {
 } from './hero-circles/HeroCircles';
 import './hero-section.scss';
 import WaveShape from '../../../../components/shapes/Wave';
-import { scrollToSection } from '../../../../utils/scrollUtils';
+import { scrollToSection } from '../../../../utils/scroll.utils';
 
 const HeroSection: FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);

@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   onNavbarAsyncClick,
   onNavbarLinkClick,
-} from '../../../utils/navigateUtils';
+} from '../../../utils/navigate.utils';
 import { AuthContext } from '../../../context/AuthProvider';
 interface Props {
   className?: string;
