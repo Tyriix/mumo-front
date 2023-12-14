@@ -25,8 +25,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
     Boolean(cookies.get(`${IS_LOGGED_IN_COOKIE}`))
   );
-  const { data: userDataFromApi, isSuccess: getMeSuccess } = useGetMeQuery();
-
+  const { data: userDataFromApi, isSuccess: getMeSuccess, refetch: refetchGetMe } = useGetMeQuery();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [userData, setUserData] = useState<User | null>(null);
@@ -37,11 +36,17 @@ const AuthProvider: FC<Props> = ({ children }) => {
       setIsAdmin(userDataFromApi.role === 'admin');
       setUserData(userDataFromApi);
       setIsAuthenticated(true);
+      console.log('dupa');
     }
   }, [isLoggedIn, getMeSuccess, userDataFromApi]);
 
   const login = async () => {
     setIsLoggedIn(true);
+    try {
+      await refetchGetMe();
+    } catch (error) {
+      console.error('Error fetching user data after login:', error);
+    }
   };
 
   const logout = async () => {

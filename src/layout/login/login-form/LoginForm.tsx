@@ -11,7 +11,6 @@ import { useLoginUserMutation } from '../../../api/auth/authApi';
 import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { AuthContext } from '../../../context/AuthProvider';
-import { infoConstants } from '../../../models/constants/info.constant';
 
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
 const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
