@@ -23,7 +23,7 @@ export const AuthContext = createContext<AuthContextType>(initialValue);
 const AuthProvider: FC<Props> = ({ children }) => {
   const cookies = useMemo(() => new Cookies(), []);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
-    Boolean(cookies.get(IS_LOGGED_IN_COOKIE))
+    Boolean(cookies.get(`${IS_LOGGED_IN_COOKIE}`))
   );
   const { data: userDataFromApi, isSuccess: getMeSuccess } = useGetMeQuery();
 
