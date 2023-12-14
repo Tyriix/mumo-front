@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_BASE_URL } from '../../models/constants.app';
 import { RegisterSchemaType } from '../../layout/register/register-form/RegisterForm';
 import { LoginSchemaType } from '../../layout/login/login-form/LoginForm';
 import { User } from '../../models/types/auth.types';
+import { infoConstants } from '../../models/constants/info.constant';
 
-const REDUCER_PATH = 'authApi';
+type InitialRegisterPost = RegisterSchemaType;
+type InitialLoginPost = LoginSchemaType;
+
 const URL_AUTH = '/auth';
+const AUTH_REDUCER_PATH = 'authApi';
 const URL_REGISTER_USER = '/register';
 const URL_LOGIN_USER = '/login';
 const URL_GET_ME = '/me';
 const URL_LOGOUT = '/logout';
-
-type InitialRegisterPost = RegisterSchemaType;
-type InitialLoginPost = LoginSchemaType;
 
 interface RegisterResponse {
   success: boolean;
@@ -24,10 +24,10 @@ export interface LoginResponse {
 }
 
 export const authApi = createApi({
-  reducerPath: REDUCER_PATH,
+  reducerPath: AUTH_REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL,
+    baseUrl: infoConstants.API_BASE_URL,
   }),
 
   endpoints: (builder) => ({

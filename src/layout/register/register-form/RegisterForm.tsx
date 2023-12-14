@@ -9,8 +9,8 @@ import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
-const USER_EXIST_ERROR_MESSAGE = 'Użytkownik o podanej nazwie już istnieje.';
 export type RegisterSchemaType = yup.InferType<typeof registerFormSchema>;
+const USER_EXIST_ERROR_MESSAGE = 'Użytkownik o podanej nazwie już istnieje.';
 
 const useClearUserExistErrorEffect = (
   errors: FieldErrors<RegisterSchemaType>,

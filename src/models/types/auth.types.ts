@@ -1,4 +1,4 @@
-import { Role } from "../enums.app";
+import { Role } from '../enums.app';
 
 export type User = {
   user_id: number;

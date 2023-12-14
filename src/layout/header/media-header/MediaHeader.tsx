@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import * as constants from '../../../models/constants.app';
 import {
   FaFacebook,
   FaInstagram,
@@ -8,6 +7,7 @@ import {
 } from 'react-icons/fa';
 import './media-header.scss';
 import classNames from 'classnames';
+import { infoConstants } from '../../../models/constants/info.constant';
 
 interface Props {
   className?: string;
@@ -19,7 +19,7 @@ const MediaHeader: FC<Props> = ({ className }) => {
       <div className='media-header__box'>
         <a
           className='media-header__icon-link'
-          href={constants.FACEBOOK_LINK}
+          href={infoConstants.FACEBOOK_LINK}
           target='_blank'
         >
           <FaFacebook
@@ -30,7 +30,7 @@ const MediaHeader: FC<Props> = ({ className }) => {
 
         <a
           className='media-header__icon-link'
-          href={constants.INSTAGRAM_LINK}
+          href={infoConstants.INSTAGRAM_LINK}
           target='_blank'
         >
           <FaInstagram
@@ -41,7 +41,7 @@ const MediaHeader: FC<Props> = ({ className }) => {
 
         <a
           className='media-header__icon-link'
-          href={`tel:+48${constants.PHONE_NUMBER}`}
+          href={`tel:+48${infoConstants.PHONE_NUMBER}`}
           target='_blank'
         >
           <FaPhoneAlt className='media-header__icon' aria-label='Phone icon' />
@@ -49,7 +49,7 @@ const MediaHeader: FC<Props> = ({ className }) => {
 
         <a
           className='media-header__icon-link'
-          href={`mailto:${constants.MAIL_ADRESS}`}
+          href={`mailto:${infoConstants.MAIL_ADRESS}`}
           target='_blank'
         >
           <FaEnvelope className='media-header__icon' aria-label='Mail icon' />

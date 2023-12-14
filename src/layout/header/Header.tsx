@@ -6,8 +6,7 @@ import MediaHeader from './media-header/MediaHeader';
 import Logotype from './logotype/Logotype';
 import { FaBars } from 'react-icons/fa';
 import './header.scss';
-
-const TRANSITION_DURATION = 600;
+import { styleConstants } from '../../models/constants/style.constant';
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +35,11 @@ const Header: FC = () => {
             <Transition
               nodeRef={nodeRef}
               in={isOpen}
-              timeout={TRANSITION_DURATION}
+              timeout={styleConstants.TRANSITION_DURATION}
             >
               {(state) => (
                 <NavbarMobile
-                  duration={TRANSITION_DURATION}
+                  duration={styleConstants.TRANSITION_DURATION}
                   state={state}
                   toggleNavbar={toggleNavbar}
                 />

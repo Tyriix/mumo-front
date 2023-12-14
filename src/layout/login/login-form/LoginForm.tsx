@@ -11,9 +11,10 @@ import { useLoginUserMutation } from '../../../api/auth/authApi';
 import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { AuthContext } from '../../../context/AuthProvider';
+import { infoConstants } from '../../../models/constants/info.constant';
 
-const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 
 const LoginForm: FC = () => {
   const {
@@ -28,7 +29,7 @@ const LoginForm: FC = () => {
   const navigate = useNavigate();
   const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
   const [loginUser] = useLoginUserMutation();
-  const { login } = useContext(AuthContext); 
+  const { login } = useContext(AuthContext);
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {

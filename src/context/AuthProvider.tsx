@@ -6,6 +6,7 @@ import { useGetMeQuery, useLogoutUserMutation } from '../api/auth/authApi';
 interface Props {
   children: React.ReactNode;
 }
+const IS_LOGGED_IN_COOKIE = 'is_logged_in';
 
 const initialValue: AuthContextType = {
   isAdmin: false,
@@ -22,7 +23,7 @@ export const AuthContext = createContext<AuthContextType>(initialValue);
 const AuthProvider: FC<Props> = ({ children }) => {
   const cookies = useMemo(() => new Cookies(), []);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
-    Boolean(cookies.get('is_logged_in'))
+    Boolean(cookies.get(IS_LOGGED_IN_COOKIE))
   );
   const { data: userDataFromApi, isSuccess: getMeSuccess } = useGetMeQuery();
 
