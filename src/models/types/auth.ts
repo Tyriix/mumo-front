@@ -15,10 +15,8 @@ export type AuthContextType = {
   isAdmin: boolean;
   setIsAdmin: (isAdmin: boolean) => void;
   isAuthenticated: boolean;
-  accessToken: string | null;
-  login: (accessToken: string) => void;
+  login: () => void;
   logout: () => void;
   userData: User | null;
   setUserData: (userData: User | null) => void;
-  getAuthentication: () => boolean;
 };

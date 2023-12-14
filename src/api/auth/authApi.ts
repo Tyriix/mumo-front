@@ -9,8 +9,9 @@ const URL_AUTH = '/auth';
 const URL_REGISTER_USER = '/register';
 const URL_LOGIN_USER = '/login';
 const URL_GET_ME = '/me';
+const URL_LOGOUT = '/logout';
 
-type InitialPost = RegisterSchemaType;
+type InitialRegisterPost = RegisterSchemaType;
 type InitialLoginPost = LoginSchemaType;
 
 interface RegisterResponse {
@@ -30,7 +31,7 @@ export const authApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    registerUser: builder.mutation<RegisterResponse, InitialPost>({
+    registerUser: builder.mutation<RegisterResponse, InitialRegisterPost>({
       query: (initialPost) => ({
         url: URL_AUTH + URL_REGISTER_USER,
         method: 'POST',
@@ -45,6 +46,13 @@ export const authApi = createApi({
         credentials: 'include',
       }),
     }),
+    logoutUser: builder.mutation<void, void>({
+      query: () => ({
+        url: URL_AUTH + URL_LOGOUT,
+        method: 'POST',
+        credentials: 'include',
+      }),
+    }),
     getMe: builder.query<User, void>({
       query: () => ({
         url: URL_AUTH + URL_GET_ME,
@@ -56,5 +64,9 @@ export const authApi = createApi({
 });
 
 export const authReducer = authApi.reducer;
-export const { useRegisterUserMutation, useLoginUserMutation, useGetMeQuery } =
-  authApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useLogoutUserMutation,
+  useGetMeQuery,
+} = authApi;

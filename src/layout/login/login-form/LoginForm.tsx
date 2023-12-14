@@ -7,10 +7,9 @@ import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useGetMeQuery, useLoginUserMutation } from '../../../api/auth/authApi';
+import { useLoginUserMutation } from '../../../api/auth/authApi';
 import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import Cookies from 'universal-cookie';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
@@ -29,9 +28,8 @@ const LoginForm: FC = () => {
   const navigate = useNavigate();
   const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
   const [loginUser] = useLoginUserMutation();
-  const { login } = useContext(AuthContext);
-  const cookies = new Cookies();
-  const {data: userDataFromApi } = useGetMeQuery();
+  const { login } = useContext(AuthContext); 
+
   const onSubmit = async (data: LoginSchemaType) => {
     try {
       const response = await loginUser(data);
@@ -42,6 +40,7 @@ const LoginForm: FC = () => {
         response.data.message === 'Logowanie pomyślne.'
       ) {
         setWrongEmailOrPassword(false);
+        login();
         navigate('/');
       } else if ('error' in response) {
         const error = response.error as FetchBaseQueryError;
@@ -57,10 +56,6 @@ const LoginForm: FC = () => {
       }
     } catch (error) {
       console.error('Login error:', error);
-    } finally {
-      const accessToken = cookies.get('access_tkn');
-      login(accessToken);
-      console.log(userDataFromApi);
     }
   };
   return (
