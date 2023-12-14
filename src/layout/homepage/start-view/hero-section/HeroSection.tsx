@@ -7,13 +7,12 @@ import {
 } from './hero-circles/HeroCircles';
 import './hero-section.scss';
 import WaveShape from '../../../../components/shapes/Wave';
-import { scrollToSection } from '../../../../utils/scrollUtils';
+import { scrollToSection } from '../../../../utils/scroll.utils';
+import { colorsConstants } from '../../../../models/constants/style.constant';
 
 const HeroSection: FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-
   const BUTTON_TEXT = 'Sprawdź ofertę!';
-  const MOBILE_WAVE_COLORS = ['#7be5d5', '#21aa96'];
 
   return (
     <MouseParallaxContainer
@@ -47,8 +46,8 @@ const HeroSection: FC = () => {
           />
           <WaveShape
             className='hero-section__wave-shape'
-            colorTop={MOBILE_WAVE_COLORS[0]}
-            colorBottom={MOBILE_WAVE_COLORS[1]}
+            colorTop={colorsConstants.MOBILE_WAVE_COLORS[0]}
+            colorBottom={colorsConstants.MOBILE_WAVE_COLORS[1]}
           />
           <HeroDesktopCircles />
         </div>

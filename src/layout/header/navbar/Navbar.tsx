@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import classNames from 'classnames';
 import { HomepageSections } from '../../../models/enums.app';
@@ -7,7 +7,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   onNavbarAsyncClick,
   onNavbarLinkClick,
-} from '../../../utils/navigateUtils';
+} from '../../../utils/navigate.utils';
+import { AuthContext } from '../../../context/AuthProvider';
 interface Props {
   className?: string;
   toggleMobileNavbar?: () => void;
@@ -17,6 +18,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname != '/';
+  const { isAuthenticated, userData } = useContext(AuthContext);
 
   const navigateNotHome = async () => {
     const res = navigate('/');
@@ -112,11 +114,17 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           Kontakt
         </a>
       </div>
-      <MainButton
-        className='navbar__login-button'
-        content={'Zaloguj się'}
-        onClick={() => navigate('/login')}
-      />
+      {isAuthenticated ? (
+        <div className='navbar__element'>
+          <p className='navbar__element-link'>Witaj {userData?.first_name}!</p>
+        </div>
+      ) : (
+        <MainButton
+          className='navbar__login-button'
+          content={'Zaloguj się'}
+          onClick={() => navigate('/login')}
+        />
+      )}
     </div>
   );
 };

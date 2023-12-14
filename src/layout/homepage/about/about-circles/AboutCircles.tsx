@@ -1,6 +1,6 @@
 import HollowCircle from '../../../../components/shapes/HollowCircle';
+import { colorsConstants } from '../../../../models/constants/style.constant';
 
-const HOMEPAGE_CIRCLES_COLOR: string = '#8dd9cc';
 const CIRCLE_CLASS: string = 'about__image-circle';
 
 export const CirclesFirst = () => {
@@ -13,7 +13,7 @@ export const CirclesFirst = () => {
         cy={20}
         radius={15}
         strokeWidth={8}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
         opacity={0.8}
       />
       <HollowCircle
@@ -23,7 +23,7 @@ export const CirclesFirst = () => {
         cy={37}
         radius={29}
         strokeWidth={15}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
       />
     </div>
   );
@@ -39,7 +39,7 @@ export const CirclesSecond = () => {
         cy={21}
         radius={17}
         strokeWidth={9}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
         opacity={0.7}
       />
       <HollowCircle
@@ -49,7 +49,7 @@ export const CirclesSecond = () => {
         cy={21}
         radius={17}
         strokeWidth={9}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
         opacity={0.6}
       />
       <HollowCircle
@@ -59,7 +59,7 @@ export const CirclesSecond = () => {
         cy={37}
         radius={29}
         strokeWidth={15}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
       />
     </div>
   );
@@ -74,7 +74,7 @@ export const CirclesThird = () => {
         cy={22}
         radius={17}
         strokeWidth={9}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
         opacity={0.7}
       />
       <HollowCircle
@@ -84,7 +84,7 @@ export const CirclesThird = () => {
         cy={24}
         radius={19}
         strokeWidth={10}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
         opacity={0.8}
       />
       <HollowCircle
@@ -94,7 +94,7 @@ export const CirclesThird = () => {
         cy={37}
         radius={29}
         strokeWidth={15}
-        color={HOMEPAGE_CIRCLES_COLOR}
+        color={colorsConstants.ABOUT_CIRCLES_COLOR}
       />
     </div>
   );

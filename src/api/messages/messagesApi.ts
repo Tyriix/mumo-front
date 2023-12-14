@@ -1,22 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_BASE_URL } from '../../models/constants.app';
 import { ContactSchemaType } from '../../layout/homepage/contact/contact-form/ContactForm';
-
-const REDUCER_PATH = 'messagesApi';
-const URL_SEND_FORM_MESSAGE = '/form-email';
+import { infoConstants } from '../../models/constants/info.constant';
 
 type InitialPost = ContactSchemaType;
-
+const MESSAGE_REDUCER_PATH = 'messagesApi';
+const URL_SEND_FORM_MESSAGE = '/form-email';
 interface SendMessageResponse {
   success: boolean;
   message: string;
 }
 
 export const messagesApi = createApi({
-  reducerPath: REDUCER_PATH,
+  reducerPath: MESSAGE_REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL,
+    baseUrl: infoConstants.API_BASE_URL,
   }),
 
   endpoints: (builder) => ({

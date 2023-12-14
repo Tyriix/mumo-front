@@ -8,11 +8,13 @@ import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useLoginUserMutation } from '../../../api/auth/authApi';
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { AuthContext } from '../../../context/AuthProvider';
+import { infoConstants } from '../../../models/constants/info.constant';
 
-const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 export type LoginSchemaType = yup.InferType<typeof loginFormSchema>;
+const WRONG_EMAIL_OR_PASSWORD = 'Błędny email lub hasło.';
 
 const LoginForm: FC = () => {
   const {
@@ -27,6 +29,7 @@ const LoginForm: FC = () => {
   const navigate = useNavigate();
   const [isWrongEmailOrPassword, setWrongEmailOrPassword] = useState(false);
   const [loginUser] = useLoginUserMutation();
+  const { login } = useContext(AuthContext);
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
@@ -38,6 +41,7 @@ const LoginForm: FC = () => {
         response.data.message === 'Logowanie pomyślne.'
       ) {
         setWrongEmailOrPassword(false);
+        login();
         navigate('/');
       } else if ('error' in response) {
         const error = response.error as FetchBaseQueryError;

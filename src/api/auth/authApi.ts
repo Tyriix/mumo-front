@@ -1,15 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_BASE_URL } from '../../models/constants.app';
 import { RegisterSchemaType } from '../../layout/register/register-form/RegisterForm';
 import { LoginSchemaType } from '../../layout/login/login-form/LoginForm';
+import { User } from '../../models/types/auth.types';
+import { infoConstants } from '../../models/constants/info.constant';
 
-const REDUCER_PATH = 'authApi';
+type InitialRegisterPost = RegisterSchemaType;
+type InitialLoginPost = LoginSchemaType;
+
 const URL_AUTH = '/auth';
+const AUTH_REDUCER_PATH = 'authApi';
 const URL_REGISTER_USER = '/register';
 const URL_LOGIN_USER = '/login';
+const URL_GET_ME = '/me';
+const URL_LOGOUT = '/logout';
 
-type InitialPost = RegisterSchemaType;
-type InitialLoginPost = LoginSchemaType;
 interface RegisterResponse {
   success: boolean;
   message: string;
@@ -20,14 +24,14 @@ export interface LoginResponse {
 }
 
 export const authApi = createApi({
-  reducerPath: REDUCER_PATH,
+  reducerPath: AUTH_REDUCER_PATH,
 
   baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL,
+    baseUrl: infoConstants.API_BASE_URL,
   }),
 
   endpoints: (builder) => ({
-    registerUser: builder.mutation<RegisterResponse, InitialPost>({
+    registerUser: builder.mutation<RegisterResponse, InitialRegisterPost>({
       query: (initialPost) => ({
         url: URL_AUTH + URL_REGISTER_USER,
         method: 'POST',
@@ -42,8 +46,27 @@ export const authApi = createApi({
         credentials: 'include',
       }),
     }),
+    logoutUser: builder.mutation<void, void>({
+      query: () => ({
+        url: URL_AUTH + URL_LOGOUT,
+        method: 'POST',
+        credentials: 'include',
+      }),
+    }),
+    getMe: builder.query<User, void>({
+      query: () => ({
+        url: URL_AUTH + URL_GET_ME,
+        method: 'GET',
+        credentials: 'include',
+      }),
+    }),
   }),
 });
 
 export const authReducer = authApi.reducer;
-export const { useRegisterUserMutation, useLoginUserMutation } = authApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useLogoutUserMutation,
+  useGetMeQuery,
+} = authApi;

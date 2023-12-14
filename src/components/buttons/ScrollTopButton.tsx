@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
-import { scrollToTop } from '../../utils/scrollUtils';
+import { scrollToTop } from '../../utils/scroll.utils';
 import './button-components.scss';
 import classNames from 'classnames';
 

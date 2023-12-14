@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './logotype.scss';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
-import { onNavbarAsyncClick } from '../../../utils/navigateUtils';
+import { onNavbarAsyncClick } from '../../../utils/navigate.utils';
 import { HomepageSections } from '../../../models/enums.app';
 
 interface Props {

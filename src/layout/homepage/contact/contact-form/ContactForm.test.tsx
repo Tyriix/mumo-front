@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import { renderWithProviders } from '../../../../test/utils';
+import { renderWithProviders } from '../../../../__test__/utils';
 import ContactForm from './ContactForm';
+import {
+  testInvalidConstants,
+  testValidConstants,
+} from '../../../../models/constants/test.constant';
 
 describe('Contact', async () => {
   it('Should render correctly', async () => {
@@ -50,13 +54,13 @@ describe('Contact', async () => {
     const { getByTestId } = renderWithProviders(<ContactForm />);
 
     fireEvent.input(getByTestId('contact-form_email'), {
-      target: { value: 'test@example.com' },
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
     });
     fireEvent.input(getByTestId('contact-form_name'), {
-      target: { value: 'John Doe' },
+      target: { value: testValidConstants.TEST_VALID_FIRST_NAME },
     });
     fireEvent.input(getByTestId('contact-form_message'), {
-      target: { value: 'This is a test message' },
+      target: { value: testValidConstants.TEST_VALID_MESSAGE },
     });
     fireEvent.click(getByTestId('contact-form_agreeTerms'));
 
@@ -72,10 +76,10 @@ describe('Contact', async () => {
     const { getByTestId } = renderWithProviders(<ContactForm />);
 
     fireEvent.input(getByTestId('contact-form_email'), {
-      target: { value: 'testexample.com' },
+      target: { value: testInvalidConstants.TEST_INVALID_EMAIL },
     });
     fireEvent.input(getByTestId('contact-form_name'), {
-      target: { value: 'John1 Doe' },
+      target: { value: testInvalidConstants.TEST_INVALID_FIRST_NAME },
     });
     fireEvent.input(getByTestId('contact-form_message'), {
       target: { value: '' },

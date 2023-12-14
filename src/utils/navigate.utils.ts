@@ -1,5 +1,5 @@
 import { HomepageSections } from '../models/enums.app';
-import { scrollToSection } from './scrollUtils';
+import { scrollToSection } from './scroll.utils';
 
 export const onNavbarLinkClick = (
   section: HomepageSections,

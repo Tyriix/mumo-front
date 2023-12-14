@@ -12,3 +12,8 @@ export enum HomepageSections {
   Contact = 'contact',
   Clients = 'clients',
 }
+
+export enum Role {
+  Admin = 'admin',
+  User = 'user',
+}
