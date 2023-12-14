@@ -1,7 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { screen, fireEvent, waitFor, act } from '@testing-library/react';
-import { renderWithProviders } from '../../../test/utils';
+import { renderWithProviders } from '../../../__test__/utils';
 import RegisterForm from './RegisterForm';
+import {
+  testInvalidConstants,
+  testValidConstants,
+} from '../../../models/constants/test.app';
 
 const mockUserRegister = vi.fn();
 const mockUseNavigate = vi.fn();
@@ -123,12 +127,24 @@ describe('Register', async () => {
       name: /Zarejestruj się/i,
     });
 
-    fireEvent.change(firstNameInput, { target: { value: 'Tescik' } });
-    fireEvent.change(lastNameInput, { target: { value: 'Tescikowy' } });
-    fireEvent.change(emailInput, { target: { value: 'test@test.com' } });
-    fireEvent.change(phoneInput, { target: { value: '132244132' } });
-    fireEvent.change(passwordInput, { target: { value: 'ABCabc123@' } });
-    fireEvent.change(repeatPasswordInput, { target: { value: 'ABCabc123@' } });
+    fireEvent.change(firstNameInput, {
+      target: { value: testValidConstants.TEST_VALID_FIRST_NAME },
+    });
+    fireEvent.change(lastNameInput, {
+      target: { value: testValidConstants.TEST_VALID_LAST_NAME },
+    });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(phoneInput, {
+      target: { value: testValidConstants.TEST_VALID_PHONE },
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
+    fireEvent.change(repeatPasswordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
     fireEvent.click(agreeTermsCheckbox);
 
     await act(async () => {
@@ -167,12 +183,24 @@ describe('Register', async () => {
       name: /Zarejestruj się/i,
     });
 
-    fireEvent.change(firstNameInput, { target: { value: 'Tescik' } });
-    fireEvent.change(lastNameInput, { target: { value: 'Tescikowy' } });
-    fireEvent.change(emailInput, { target: { value: 'test@test.com' } });
-    fireEvent.change(phoneInput, { target: { value: '132244132' } });
-    fireEvent.change(passwordInput, { target: { value: 'ABCabc123@' } });
-    fireEvent.change(repeatPasswordInput, { target: { value: 'ABCabc123@' } });
+    fireEvent.change(firstNameInput, {
+      target: { value: testValidConstants.TEST_VALID_FIRST_NAME },
+    });
+    fireEvent.change(lastNameInput, {
+      target: { value: testValidConstants.TEST_VALID_LAST_NAME },
+    });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(phoneInput, {
+      target: { value: testValidConstants.TEST_VALID_PHONE },
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
+    fireEvent.change(repeatPasswordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
     fireEvent.click(agreeTermsCheckbox);
 
     await act(async () => {
@@ -213,12 +241,24 @@ describe('Register', async () => {
       name: /Zarejestruj się/i,
     });
 
-    fireEvent.change(firstNameInput, { target: { value: 'Tescik' } });
-    fireEvent.change(lastNameInput, { target: { value: 'Tescikowy' } });
-    fireEvent.change(emailInput, { target: { value: 'test@test.com' } });
-    fireEvent.change(phoneInput, { target: { value: '132244132' } });
-    fireEvent.change(passwordInput, { target: { value: 'ABCabc123@' } });
-    fireEvent.change(repeatPasswordInput, { target: { value: 'ABCabc123@' } });
+    fireEvent.change(firstNameInput, {
+      target: { value: testValidConstants.TEST_VALID_FIRST_NAME },
+    });
+    fireEvent.change(lastNameInput, {
+      target: { value: testValidConstants.TEST_VALID_LAST_NAME },
+    });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(phoneInput, {
+      target: { value: testValidConstants.TEST_VALID_PHONE },
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
+    fireEvent.change(repeatPasswordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
     fireEvent.click(agreeTermsCheckbox);
 
     await act(async () => {
@@ -238,22 +278,22 @@ describe('Register', async () => {
     const { getByTestId } = renderWithProviders(<RegisterForm />);
 
     fireEvent.input(getByTestId('register-form__input-first-name'), {
-      target: { value: '@escik' },
+      target: { value: testInvalidConstants.TEST_INVALID_FIRST_NAME },
     });
     fireEvent.input(getByTestId('register-form__input-last-name'), {
-      target: { value: 'Tesc1kowy' },
+      target: { value: testInvalidConstants.TEST_INVALID_LAST_NAME },
     });
     fireEvent.input(getByTestId('register-form__input-email'), {
-      target: { value: 'testtest.com' },
+      target: { value: testInvalidConstants.TEST_INVALID_EMAIL },
     });
     fireEvent.input(getByTestId('register-form__input-phone'), {
-      target: { value: '13224413' },
+      target: { value: testInvalidConstants.TEST_INVALID_PHONE },
     });
     fireEvent.input(getByTestId('register-form__input-password'), {
-      target: { value: 'ABCabc123' },
+      target: { value: testInvalidConstants.TEST_INVALID_PASS },
     });
     fireEvent.input(getByTestId('register-form__input-repeat-password'), {
-      target: { value: 'ABCabc13@' },
+      target: { value: testInvalidConstants.TEST_INVALID_REPEAT_PASS },
     });
     fireEvent.submit(screen.getByRole('form'));
 

@@ -1,12 +1,10 @@
 import React, { PropsWithChildren } from 'react';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom'; // Import MemoryRouter
+import { MemoryRouter } from 'react-router-dom';
 import type { RenderOptions } from '@testing-library/react';
 import type { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-
 import { setupStore, type AppStore, type RootState } from '../app/store';
-import { MemoryRouter } from 'react-router';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>;
@@ -17,6 +15,7 @@ export function renderWithProviders(
   ui: React.ReactElement,
   { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) {
+  // eslint-disable-next-line
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
       <Provider store={store}>

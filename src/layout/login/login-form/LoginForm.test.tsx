@@ -1,7 +1,8 @@
 import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import LoginForm from './LoginForm';
-import { renderWithProviders } from '../../../test/utils';
+import { renderWithProviders } from '../../../__test__/utils';
 import { vi } from 'vitest';
+import { testValidConstants } from '../../../models/constants/test.app';
 
 const mockUserLogin = vi.fn();
 const mockUseNavigate = vi.fn();
@@ -49,8 +50,12 @@ describe('LoginForm', () => {
     const passwordInput = screen.getByTestId('login__form-input-password');
     const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
 
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(passwordInput, { target: { value: 'P@ssword123' } });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
 
     await act(async () => {
       fireEvent.click(loginButton);
@@ -73,8 +78,10 @@ describe('LoginForm', () => {
     const passwordInput = screen.getByTestId('login__form-input-password');
     const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
 
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(passwordInput, { target: { value: 'P@ssword123' } });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(passwordInput, { target: { value: testValidConstants.TEST_VALID_PASS } });
 
     await waitFor(() => fireEvent.click(loginButton)).then(async () => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
@@ -94,8 +101,12 @@ describe('LoginForm', () => {
     const passwordInput = screen.getByTestId('login__form-input-password');
     const loginButton = screen.getByRole('button', { name: /Zaloguj się/i });
 
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(passwordInput, { target: { value: 'P@ssword123' } });
+    fireEvent.change(emailInput, {
+      target: { value: testValidConstants.TEST_VALID_EMAIL },
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
 
     await waitFor(() => fireEvent.click(loginButton)).then(async () => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);
