@@ -2,7 +2,7 @@ import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import LoginForm from './LoginForm';
 import { renderWithProviders } from '../../../__test__/utils';
 import { vi } from 'vitest';
-import { testValidConstants } from '../../../models/constants/test.app';
+import { testValidConstants } from '../../../models/constants/test.constant';
 
 const mockUserLogin = vi.fn();
 const mockUseNavigate = vi.fn();
@@ -81,7 +81,9 @@ describe('LoginForm', () => {
     fireEvent.change(emailInput, {
       target: { value: testValidConstants.TEST_VALID_EMAIL },
     });
-    fireEvent.change(passwordInput, { target: { value: testValidConstants.TEST_VALID_PASS } });
+    fireEvent.change(passwordInput, {
+      target: { value: testValidConstants.TEST_VALID_PASS },
+    });
 
     await waitFor(() => fireEvent.click(loginButton)).then(async () => {
       expect(mockUserLogin).toHaveBeenCalledTimes(1);

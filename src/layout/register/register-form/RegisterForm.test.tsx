@@ -5,7 +5,7 @@ import RegisterForm from './RegisterForm';
 import {
   testInvalidConstants,
   testValidConstants,
-} from '../../../models/constants/test.app';
+} from '../../../models/constants/test.constant';
 
 const mockUserRegister = vi.fn();
 const mockUseNavigate = vi.fn();

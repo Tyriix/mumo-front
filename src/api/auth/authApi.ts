@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '../../models/constants.app';
 import { RegisterSchemaType } from '../../layout/register/register-form/RegisterForm';
 import { LoginSchemaType } from '../../layout/login/login-form/LoginForm';
-import { User } from '../../models/types/auth';
+import { User } from '../../models/types/auth.types';
 
 const REDUCER_PATH = 'authApi';
 const URL_AUTH = '/auth';

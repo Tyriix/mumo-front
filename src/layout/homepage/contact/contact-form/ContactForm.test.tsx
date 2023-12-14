@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 import {
   testInvalidConstants,
   testValidConstants,
-} from '../../../../models/constants/test.app';
+} from '../../../../models/constants/test.constant';
 
 describe('Contact', async () => {
   it('Should render correctly', async () => {

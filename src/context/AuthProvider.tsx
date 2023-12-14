@@ -1,6 +1,6 @@
 import { FC, createContext, useEffect, useMemo, useState } from 'react';
 import Cookies from 'universal-cookie';
-import { AuthContextType, User } from '../models/types/auth';
+import { AuthContextType, User } from '../models/types/auth.types';
 import { useGetMeQuery, useLogoutUserMutation } from '../api/auth/authApi';
 
 interface Props {
