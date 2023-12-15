@@ -6,6 +6,7 @@ import Login from '../pages/login';
 import Calendar from '../pages/calendar';
 import Profile from '../pages/profile';
 import Clients from '../pages/clients';
+import ProtectedRoutes from './privateRoute';
 
 export const NOT_FOUND_PATH = '/404';
 
@@ -16,24 +17,29 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
+    element: <ProtectedRoutes />,
+    children: [
+            {
+                path: "/calendar",
+                element: <Calendar />,
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
+              path: '/clients',
+              element: <Clients />
+            }
+    ],
+      },
+  {
     path: '/login',
     element: <Login />,
   },
   {
     path: '/register',
     element: <Register />,
-  },
-  {
-    path: '/calendar',
-    element: <Calendar />,
-  },
-  {
-    path: '/profile',
-    element: <Profile />,
-  },
-  {
-    path: '/clients',
-    element: <Clients />,
   },
   {
     path: NOT_FOUND_PATH,
