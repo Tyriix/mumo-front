@@ -70,3 +70,8 @@
     margin-top: 1em;
   }
 }
+@media screen and (max-height: 700px) {
+  .navbar{
+    gap: 10px;
+  }
+}
