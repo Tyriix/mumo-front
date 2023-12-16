@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import * as constants from '../../../models/constants.app';
 import ContactFormFields from './contact-form/ContactForm';
 import ContactMap from './contact-map/ContactMap';
 import './contact-section.scss';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { HomepageSections } from '../../../models/enums.app';
 import classNames from 'classnames';
+import { infoConstants } from '../../../models/constants/info.constant';
 
 const ContactSection: FC = () => {
   return (
@@ -20,7 +20,7 @@ const ContactSection: FC = () => {
             <div className='contact__icons'>
               <a
                 className='contact__icons-link'
-                href={constants.FACEBOOK_LINK}
+                href={infoConstants.FACEBOOK_LINK}
                 target='_blank'
               >
                 <FaFacebook
@@ -30,7 +30,7 @@ const ContactSection: FC = () => {
               </a>
               <a
                 className='contact__icons-link'
-                href={constants.INSTAGRAM_LINK}
+                href={infoConstants.INSTAGRAM_LINK}
                 target='_blank'
               >
                 <FaInstagram
@@ -46,10 +46,10 @@ const ContactSection: FC = () => {
                     'contact__info-link',
                     'contact__link-hover'
                   )}
-                  href={`tel:+48${constants.PHONE_NUMBER}`}
+                  href={`tel:+48${infoConstants.PHONE_NUMBER}`}
                 >
                   (+48){' '}
-                  {constants.PHONE_NUMBER.replace(
+                  {infoConstants.PHONE_NUMBER.replace(
                     /(\d{3})(\d{3})(\d{3})/,
                     '$1-$2-$3'
                   )}
@@ -61,9 +61,9 @@ const ContactSection: FC = () => {
                     'contact__info-link',
                     'contact__link-hover'
                   )}
-                  href={`mailto:${constants.MAIL_ADRESS}`}
+                  href={`mailto:${infoConstants.MAIL_ADRESS}`}
                 >
-                  {constants.MAIL_ADRESS}
+                  {infoConstants.MAIL_ADRESS}
                 </a>
               </span>
             </div>

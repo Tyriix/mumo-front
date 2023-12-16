@@ -2,18 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import WaveShape from '../../components/shapes/Wave';
 import LoginForm from './login-form/LoginForm';
 import './login-section.scss';
+import { colorsConstants } from '../../models/constants/style.constant';
 
 const LoginSection = () => {
   const navigate = useNavigate();
-  const WAVE_COLORS = ['#7be5d5', '#21aa96'];
-
   return (
     <>
       <div className='login'>
         <WaveShape
           className='login__form-wave-shape'
-          colorTop={WAVE_COLORS[0]}
-          colorBottom={WAVE_COLORS[1]}
+          colorTop={colorsConstants.WAVE_COLORS[0]}
+          colorBottom={colorsConstants.WAVE_COLORS[1]}
         />
         <div className='login__container'>
           <div className='login__section-form'>

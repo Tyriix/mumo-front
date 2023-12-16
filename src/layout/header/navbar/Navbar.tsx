@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import classNames from 'classnames';
 import { HomepageSections } from '../../../models/enums.app';
@@ -7,7 +7,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   onNavbarAsyncClick,
   onNavbarLinkClick,
-} from '../../../utils/navigateUtils';
+} from '../../../utils/navigate.utils';
+import { AuthContext } from '../../../context/AuthProvider';
 interface Props {
   className?: string;
   toggleMobileNavbar?: () => void;
@@ -17,12 +18,15 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname != '/';
+  const { isAuthenticated, isAdmin, logout } = useContext(AuthContext);
 
   const navigateNotHome = async () => {
     const res = navigate('/');
     return res;
   };
-
+  const handleLogout = (() => {
+    logout()
+  })
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
@@ -112,11 +116,53 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           Kontakt
         </a>
       </div>
-      <MainButton
-        className='navbar__login-button'
-        content={'Zaloguj się'}
-        onClick={() => navigate('/login')}
-      />
+      {isAuthenticated ? (
+        <>
+          <div className='navbar__element'>
+            <a 
+              className='navbar__element-link'
+              onClick={() => navigate('/calendar')}
+            >
+              Kalendarz
+            </a>
+          </div>
+          {isAdmin ? (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => navigate('/clients')}
+              >
+                Klienci
+              </a>
+            </div>
+          ) : (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => navigate('/profile')}
+              >
+                Mój profil
+              </a>
+            </div>
+          )}
+          {isAdmin && (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => handleLogout()}
+              >
+                Wyloguj
+              </a>
+            </div>
+          )}
+        </>
+      ) : (
+        <MainButton
+          className='navbar__login-button'
+          content={'Zaloguj się'}
+          onClick={() => navigate('/login')}
+        />
+      )}
     </div>
   );
 };

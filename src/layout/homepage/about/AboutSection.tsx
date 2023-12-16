@@ -7,6 +7,7 @@ import {
 import { Fade } from 'react-awesome-reveal';
 import './about-section.scss';
 import { HomepageSections } from '../../../models/enums.app';
+import { styleConstants } from '../../../models/constants/style.constant';
 
 const ABOUT_IMAGES = [
   {
@@ -20,8 +21,6 @@ const ABOUT_IMAGES = [
   },
 ];
 
-const FADE_DURATION: number = 1500;
-
 const AboutSection: FC = () => {
   return (
     <div className='about' id={HomepageSections.About}>
@@ -29,7 +28,11 @@ const AboutSection: FC = () => {
         <div className='about__block'>
           <div className='about__content'>
             <h2 className='about__content-header'>o nas</h2>
-            <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
+            <Fade
+              cascade
+              duration={styleConstants.FADE_DURATION}
+              triggerOnce={true}
+            >
               <p className='about__content-paragraph'>
                 Nazywam się Aleksandra Korczyk, szkoleniem psów metodą naturalną
                 zajmuje się od 2010 roku, przez moje ręce przewinęło się już
@@ -66,7 +69,11 @@ const AboutSection: FC = () => {
           </div>
           <div className='about__content'>
             <h2 className='about__content-header'>szkolenie</h2>
-            <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
+            <Fade
+              cascade
+              duration={styleConstants.FADE_DURATION}
+              triggerOnce={true}
+            >
               <p className='about__content-paragraph'>
                 Zajęcia odbywają się w mieście Trzebnica w różnych lokacjach.
               </p>
@@ -80,7 +87,11 @@ const AboutSection: FC = () => {
         </div>
         <div className='about__block'>
           <div className='about__content'>
-            <Fade cascade duration={FADE_DURATION} triggerOnce={true}>
+            <Fade
+              cascade
+              duration={styleConstants.FADE_DURATION}
+              triggerOnce={true}
+            >
               <p className='about__content-paragraph'>
                 Na zajęcia możesz dołączyć w dowolnej chwili już z
                 kilkumiesięcznym szczeniakiem jeśli posiada szczepienie na
