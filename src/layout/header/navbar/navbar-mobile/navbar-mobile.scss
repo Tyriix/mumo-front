@@ -47,3 +47,13 @@ $close-icon-size: 35px;
     display: none;
   }
 }
+@media screen and (max-height: 700px) {
+  .menu-mobile__logotype {
+    padding: 1em 0 1em;
+  }
+  .menu-mobile__close-button {
+    top: 2em;
+    right: 2.5em;
+  }
+  
+}

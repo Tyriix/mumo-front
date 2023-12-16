@@ -18,13 +18,15 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname != '/';
-  const { isAuthenticated, userData } = useContext(AuthContext);
+  const { isAuthenticated, isAdmin, logout } = useContext(AuthContext);
 
   const navigateNotHome = async () => {
     const res = navigate('/');
     return res;
   };
-
+  const handleLogout = (() => {
+    logout()
+  })
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
@@ -115,9 +117,45 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
         </a>
       </div>
       {isAuthenticated ? (
-        <div className='navbar__element'>
-          <p className='navbar__element-link'>Witaj {userData?.first_name}!</p>
-        </div>
+        <>
+          <div className='navbar__element'>
+            <a 
+              className='navbar__element-link'
+              onClick={() => navigate('/calendar')}
+            >
+              Kalendarz
+            </a>
+          </div>
+          {isAdmin ? (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => navigate('/clients')}
+              >
+                Klienci
+              </a>
+            </div>
+          ) : (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => navigate('/profile')}
+              >
+                Mój profil
+              </a>
+            </div>
+          )}
+          {isAdmin && (
+            <div className='navbar__element'>
+              <a 
+                className='navbar__element-link'
+                onClick={() => handleLogout()}
+              >
+                Wyloguj
+              </a>
+            </div>
+          )}
+        </>
       ) : (
         <MainButton
           className='navbar__login-button'
