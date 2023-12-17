@@ -7,7 +7,7 @@ import Header from '../../layout/header/Header';
 import ScrollTopButton from '../../components/buttons/ScrollTopButton';
 import ClientSection from '../../layout/homepage/clients/ClientsSection';
 import Footer from '../../layout/footer/Footer';
-import { HomepageSections } from '../../models/enums.app';
+import { HomepageSections } from '../../models/enums/enums.app';
 
 const Homepage: FC = () => {
   return (

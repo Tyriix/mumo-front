@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './offer-section.scss';
 import OfferCard from './offer-card/OfferCard';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 
 const HomeOfferSection: FC = () => {
   const offerCards = [
