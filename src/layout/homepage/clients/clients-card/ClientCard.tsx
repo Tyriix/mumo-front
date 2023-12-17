@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './client-card.scss';
 import QuotationMark from '../../../../components/shapes/quotation-mark/QuotationMark';
-import { Direction } from '../../../../models/enums.app';
+import { Direction } from '../../../../models/enums/enums.app';
 import { colorsConstants } from '../../../../models/constants/style.constant';
 interface Props {
   name: string;

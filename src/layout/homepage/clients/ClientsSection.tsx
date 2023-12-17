@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './clients-section.scss';
 import ClientCard from './clients-card/ClientCard';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 
 const ClientSection: FC = () => {
   return (

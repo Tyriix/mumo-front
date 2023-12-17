@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Direction } from '../../../models/enums.app';
+import { Direction } from '../../../models/enums/enums.app';
 import '../arrows/arrow-shapes.scss';
 
 interface Props {
