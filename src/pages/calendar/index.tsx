@@ -1,16 +1,17 @@
 import { FC } from 'react';
 import Header from '../../layout/header/Header';
 import Footer from '../../layout/footer/Footer';
-import { Training } from '../../models/types/training.types';
-import { useGetTrainingsQuery } from '../../api/trainings/trainings.api';
+import CalendarSection from '../../layout/calendar/CalendarSection';
+// import { Training } from '../../models/types/training.types';
+// import { useGetTrainingsQuery } from '../../api/trainings/trainings.api';
 
 const Calendar: FC = () => {
-  const { data: trainings, error, isLoading } = useGetTrainingsQuery();
+  // const { data: trainings, error, isLoading } = useGetTrainingsQuery();
 
   return (
     <>
       <Header />
-      <div>
+      {/* <div>
         {isLoading && <p>Loading...</p>}
         {error && <p>Error occurred while fetching data</p>}
         {trainings && (
@@ -22,7 +23,8 @@ const Calendar: FC = () => {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
+      <CalendarSection />
       <Footer isLoginRegister={true} />
     </>
   );
