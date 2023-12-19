@@ -11,8 +11,8 @@ const CalendarSection = () => {
         <div className='calendar__container'>
           <h2 className='calendar__header'>Umów się na zajęcia!</h2>
           <div className='calendar__block'>
-              <ListTrainings />
-              <CalendarTrainings />
+            <ListTrainings />
+            <CalendarTrainings />
           </div>
         </div>
         <div className='calendar__big-circle-container'>
