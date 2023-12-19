@@ -1,11 +1,6 @@
-import './calendar-trainings.scss'
+import './calendar-trainings.scss';
 const CalendarTrainings = () => {
-
-    return(
-    <div>
-        
-    </div>
-        );
+  return <div></div>;
 };
 
 export default CalendarTrainings;

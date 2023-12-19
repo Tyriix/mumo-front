@@ -20,29 +20,29 @@ const CalendarSection = () => {
           </div>
         </div>
         <div className='calendar__big-circle-container'>
-        <HollowCircle
-        className='calendar__full-circle'
-          svgSize={1000}
-          cx={500}
-          cy={500}
-          radius={200}
-          strokeWidth={80}
-          color={colorsConstants.HERO_CIRCLES_COLOR}
-          opacity={0.4}
-        />
-          </div>  
-          <div className='calendar__small-circle-container'>
-        <HollowCircle
-        className='calendar__full-circle'
-          svgSize={300}
-          cx={150}
-          cy={150}
-          radius={60}
-          strokeWidth={25}
-          color={colorsConstants.HERO_CIRCLES_COLOR}
-          opacity={0.3}
-        />
-          </div>     
+          <HollowCircle
+            className='calendar__full-circle'
+            svgSize={1000}
+            cx={500}
+            cy={500}
+            radius={200}
+            strokeWidth={80}
+            color={colorsConstants.HERO_CIRCLES_COLOR}
+            opacity={0.4}
+          />
+        </div>
+        <div className='calendar__small-circle-container'>
+          <HollowCircle
+            className='calendar__full-circle'
+            svgSize={300}
+            cx={150}
+            cy={150}
+            radius={60}
+            strokeWidth={25}
+            color={colorsConstants.HERO_CIRCLES_COLOR}
+            opacity={0.3}
+          />
+        </div>
       </div>
     </>
   );

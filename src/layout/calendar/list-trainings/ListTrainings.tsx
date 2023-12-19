@@ -1,14 +1,11 @@
-import './list-trainings.scss'
+import './list-trainings.scss';
 
 const ListTrainings = () => {
-
-    return(
+  return (
     <div>
-        <div className='calendar__list-container'>
-            
-        </div>
+      <div className='calendar__list-container'></div>
     </div>
-        );
+  );
 };
 
 export default ListTrainings;
