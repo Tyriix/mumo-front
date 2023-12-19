@@ -6,7 +6,7 @@ import {
 } from './about-circles/AboutCircles';
 import { Fade } from 'react-awesome-reveal';
 import './about-section.scss';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 import { styleConstants } from '../../../models/constants/style.constant';
 
 const ABOUT_IMAGES = [

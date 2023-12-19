@@ -1,7 +1,7 @@
 import { FC, createContext, useEffect, useMemo, useState } from 'react';
 import Cookies from 'universal-cookie';
 import { AuthContextType, User } from '../models/types/auth.types';
-import { useGetMeQuery, useLogoutUserMutation } from '../api/auth/authApi';
+import { useGetMeQuery, useLogoutUserMutation } from '../api/auth/auth.api';
 
 interface Props {
   children: React.ReactNode;
@@ -25,7 +25,11 @@ const AuthProvider: FC<Props> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
     Boolean(cookies.get(`${IS_LOGGED_IN_COOKIE}`))
   );
-  const { data: userDataFromApi, isSuccess: getMeSuccess, refetch: refetchGetMe } = useGetMeQuery();
+  const {
+    data: userDataFromApi,
+    isSuccess: getMeSuccess,
+    refetch: refetchGetMe,
+  } = useGetMeQuery();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [userData, setUserData] = useState<User | null>(null);
@@ -36,7 +40,6 @@ const AuthProvider: FC<Props> = ({ children }) => {
       setIsAdmin(userDataFromApi.role === 'admin');
       setUserData(userDataFromApi);
       setIsAuthenticated(true);
-      console.log('dupa');
     }
   }, [isLoggedIn, getMeSuccess, userDataFromApi]);
 

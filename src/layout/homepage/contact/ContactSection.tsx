@@ -3,7 +3,7 @@ import ContactFormFields from './contact-form/ContactForm';
 import ContactMap from './contact-map/ContactMap';
 import './contact-section.scss';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 import classNames from 'classnames';
 import { infoConstants } from '../../../models/constants/info.constant';
 

@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import MainButton from '../../../components/buttons/MainButton';
 import classNames from 'classnames';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 import './navbar.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -24,9 +24,9 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
     const res = navigate('/');
     return res;
   };
-  const handleLogout = (() => {
-    logout()
-  })
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <div className={classNames('navbar', className)}>
       <div className='navbar__element'>
@@ -119,7 +119,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
       {isAuthenticated ? (
         <>
           <div className='navbar__element'>
-            <a 
+            <a
               className='navbar__element-link'
               onClick={() => navigate('/calendar')}
             >
@@ -128,7 +128,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           </div>
           {isAdmin ? (
             <div className='navbar__element'>
-              <a 
+              <a
                 className='navbar__element-link'
                 onClick={() => navigate('/clients')}
               >
@@ -137,7 +137,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
             </div>
           ) : (
             <div className='navbar__element'>
-              <a 
+              <a
                 className='navbar__element-link'
                 onClick={() => navigate('/profile')}
               >
@@ -147,7 +147,7 @@ const Navbar: FC<Props> = ({ className, toggleMobileNavbar }) => {
           )}
           {isAdmin && (
             <div className='navbar__element'>
-              <a 
+              <a
                 className='navbar__element-link'
                 onClick={() => handleLogout()}
               >

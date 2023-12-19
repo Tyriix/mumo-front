@@ -7,7 +7,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { loginFormSchema } from '../../../models/schemas.yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useLoginUserMutation } from '../../../api/auth/authApi';
+import { useLoginUserMutation } from '../../../api/auth/auth.api';
 import { FC, useContext, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { AuthContext } from '../../../context/AuthProvider';

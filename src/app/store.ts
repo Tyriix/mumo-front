@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { messageReducer, messagesApi } from '../api/messages/messagesApi';
+import { messageReducer, messagesApi } from '../api/messages/messages.api';
 import { combineReducers } from 'redux';
-import { authApi } from '../api/auth/authApi';
+import { authApi } from '../api/auth/auth.api';
+import { trainingsApi } from '../api/trainings/trainings.api';
 
 const rootReducer = combineReducers({
   message: messageReducer,
   [messagesApi.reducerPath]: messagesApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
+  [trainingsApi.reducerPath]: trainingsApi.reducer,
 });
 
 export const setupStore = () => {
@@ -15,7 +17,8 @@ export const setupStore = () => {
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
         .concat(messagesApi.middleware)
-        .concat(authApi.middleware),
+        .concat(authApi.middleware)
+        .concat(trainingsApi.middleware),
   });
 };
 

@@ -3,7 +3,7 @@ import './logotype.scss';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { onNavbarAsyncClick } from '../../../utils/navigate.utils';
-import { HomepageSections } from '../../../models/enums.app';
+import { HomepageSections } from '../../../models/enums/enums.app';
 
 interface Props {
   className?: string;

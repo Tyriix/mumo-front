@@ -6,7 +6,7 @@ import MainButton from '../../../../components/buttons/MainButton';
 import { homeContactSchema } from '../../../../models/schemas.yup';
 import { FC, useState } from 'react';
 import classnames from 'classnames';
-import { useSendMessageFromContactMutation } from '../../../../api/messages/messagesApi';
+import { useSendMessageFromContactMutation } from '../../../../api/messages/messages.api';
 
 export type ContactSchemaType = yup.InferType<typeof homeContactSchema>;
 
