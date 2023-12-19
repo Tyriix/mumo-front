@@ -40,7 +40,6 @@ const AuthProvider: FC<Props> = ({ children }) => {
       setIsAdmin(userDataFromApi.role === 'admin');
       setUserData(userDataFromApi);
       setIsAuthenticated(true);
-      console.log('dupa');
     }
   }, [isLoggedIn, getMeSuccess, userDataFromApi]);
 
