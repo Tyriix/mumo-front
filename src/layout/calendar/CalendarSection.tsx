@@ -12,9 +12,7 @@ const CalendarSection = () => {
           <h2 className='calendar__header'>Umów się na zajęcia!</h2>
           <div className='calendar__block'>
               <ListTrainings />
-            <div className='calendar__trainings'>
               <CalendarTrainings />
-            </div>
           </div>
         </div>
         <div className='calendar__big-circle-container'>
