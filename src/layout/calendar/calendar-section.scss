@@ -21,15 +21,7 @@
   gap: 3em;
   padding-bottom: 5em;
 }
-.calendar__list {
-  width: 30em;
-}
-.calendar__trainings {
-  width: 30em;
-  height: 30em;
-  background-color: white;
-  border: 1px solid black;
-}
+
 .calendar__big-circle-container {
   z-index: -1;
   position: absolute;
@@ -69,29 +61,11 @@
     flex-direction: column;
     gap: 2em;
   }
-
-  .calendar__trainings {
-    width: 25em;
-    height: 25em;
-  }
-  .calendar__list {
-    width: 25em;
-    height: 25em;
-  }
 }
 
 @media screen and (max-width: 470px) {
   .calendar__block {
     flex-direction: column;
     gap: 2em;
-  }
-
-  .calendar__trainings {
-    width: 17em;
-    height: 25em;
-  }
-  .calendar__list {
-    width: 17em;
-    height: 25em;
   }
 }
