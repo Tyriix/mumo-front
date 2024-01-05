@@ -21,9 +21,10 @@ const CalendarTrainings: FC = () => {
     const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
 
     const isSelected =
-      !outsideCurrentMonth && highlightedDays.includes(props.day);
-
-    console.log(isSelected);
+      !outsideCurrentMonth &&
+      highlightedDays.some((highlightedDay) =>
+        highlightedDay.isSame(day, 'day')
+      );
 
     return (
       <Badge
@@ -55,6 +56,7 @@ const CalendarTrainings: FC = () => {
           slotProps={{
             day: {
               highlightedDays,
+              // eslint-disable-next-line
             } as any,
           }}
         />
