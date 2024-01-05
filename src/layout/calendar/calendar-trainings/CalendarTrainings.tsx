@@ -3,25 +3,27 @@ import './calendar-trainings.scss';
 import { DateCalendar, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
 import { useGetTrainingsQuery } from '../../../api/trainings/trainings.api';
 import { Badge } from '@mui/material';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 const CalendarTrainings: FC = () => {
   const { data, error, isLoading } = useGetTrainingsQuery();
-  const [highlightedDays, setHighlitedDays] = useState<Date[]>([]);
+  const [highlightedDays, setHighlitedDays] = useState<Dayjs[]>([]);
 
   useEffect(() => {
     if (data) {
-      setHighlitedDays(data.trainings.map((training) => training.date));
+      setHighlitedDays(data.trainings.map((training) => dayjs(training.date)));
     }
   }, [data]);
 
   function ServerDay(
-    props: PickersDayProps<Dayjs> & { highlightedDays?: Date[] }
+    props: PickersDayProps<Dayjs> & { highlightedDays?: Dayjs[] }
   ) {
     const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
 
     const isSelected =
-      !outsideCurrentMonth && highlightedDays.includes(day.toDate());
+      !outsideCurrentMonth && highlightedDays.includes(props.day);
+
+    console.log(isSelected);
 
     return (
       <Badge
