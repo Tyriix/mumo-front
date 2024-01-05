@@ -18,3 +18,13 @@
     height: 25em;
   }
 }
+
+// {data && (
+//   <DemoContainer components={['DateCalendar']}>
+//     {data.trainings.map((training: Training) => (
+//       <DemoItem>
+//         <DateCalendar defaultValue={dayjs(training.date)} readOnly />
+//       </DemoItem>
+//     ))}
+//   </DemoContainer>
+// )}
