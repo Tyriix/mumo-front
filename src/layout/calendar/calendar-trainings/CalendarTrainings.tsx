@@ -2,13 +2,12 @@ import { FC, useEffect, useState } from 'react';
 import './calendar-trainings.scss';
 import { DateCalendar, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
 import { useGetTrainingsQuery } from '../../../api/trainings/trainings.api';
-import dayjs, { Dayjs } from 'dayjs';
 import { Badge } from '@mui/material';
+import { Dayjs } from 'dayjs';
 
 const CalendarTrainings: FC = () => {
   const { data, error, isLoading } = useGetTrainingsQuery();
   const [highlightedDays, setHighlitedDays] = useState<Date[]>([]);
-  const initialValue = dayjs('2022-04-17');
 
   useEffect(() => {
     if (data) {
@@ -19,14 +18,21 @@ const CalendarTrainings: FC = () => {
   function ServerDay(
     props: PickersDayProps<Dayjs> & { highlightedDays?: Date[] }
   ) {
-    const { day, outsideCurrentMonth, ...other } = props;
+    const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
+
+    const isSelected =
+      !outsideCurrentMonth && highlightedDays.includes(day.toDate());
 
     return (
-      <Badge key={props.day.toString()} overlap='circular'>
+      <Badge
+        key={props.day.toString()}
+        overlap='circular'
+        badgeContent={isSelected ? 'x' : undefined}
+      >
         <PickersDay
+          {...other}
           outsideCurrentMonth={outsideCurrentMonth}
           day={day}
-          {...other}
         />
       </Badge>
     );
@@ -40,7 +46,6 @@ const CalendarTrainings: FC = () => {
       </ul>
       {data && (
         <DateCalendar
-          defaultValue={initialValue}
           loading={isLoading}
           slots={{
             day: ServerDay,
