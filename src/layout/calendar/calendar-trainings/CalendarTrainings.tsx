@@ -70,6 +70,7 @@ const CalendarTrainings: FC = () => {
               trainings,
               // eslint-disable-next-line
             } as any,
+    
           }}
         />
       )}

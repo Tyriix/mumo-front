@@ -1,8 +1,41 @@
+$typo_calendar_size: 2.5rem;
+
 .calendar__trainings-container {
   width: 30em;
   height: 30em;
   background-color: white;
   border: 1px solid black;
+}
+
+.calendar__trainings-container {
+  .MuiDateCalendar-root {
+    max-height: 500px;
+  }
+
+  .MuiPickersSlideTransition-root {
+    min-height: 500px;
+  }
+
+  .MuiPickersDay-root {
+    margin: 11px 9px;
+    width: $typo_calendar_size;
+    height: $typo_calendar_size;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .MuiTypography-root {
+    margin: 10px 9px 0;
+    font-family: 'Inter';
+    font-weight: 300;
+    width: $typo_calendar_size;
+    height: $typo_calendar_size;
+  }
+
+  .MuiDateCalendar-viewTransitionContainer {
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 755px) {
