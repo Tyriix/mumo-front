@@ -2,60 +2,72 @@ import { FC, useEffect, useState } from 'react';
 import './calendar-trainings.scss';
 import { DateCalendar, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
 import { useGetTrainingsQuery } from '../../../api/trainings/trainings.api';
-import { Badge } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
+import { darken } from 'polished';
+import { Training } from '../../../models/types/training.types';
+import { TrainingTypesColors } from '../../../models/enums/trainings.enum';
 
 const CalendarTrainings: FC = () => {
-  const { data, error, isLoading } = useGetTrainingsQuery();
-  const [highlightedDays, setHighlitedDays] = useState<Dayjs[]>([]);
+  const { data, isLoading } = useGetTrainingsQuery();
+  const [trainings, setTrainings] = useState<Training[]>([]);
 
   useEffect(() => {
     if (data) {
-      setHighlitedDays(data.trainings.map((training) => dayjs(training.date)));
+      setTrainings(data.trainings);
     }
   }, [data]);
 
-  function ServerDay(
-    props: PickersDayProps<Dayjs> & { highlightedDays?: Dayjs[] }
-  ) {
-    const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
+  const ServerDay = (
+    props: PickersDayProps<Dayjs> & { trainings?: Training[] }
+  ) => {
+    const { trainings = [], day, outsideCurrentMonth, ...other } = props;
+    let selectedTraining: Training | undefined;
 
     const isSelected =
       !outsideCurrentMonth &&
-      highlightedDays.some((highlightedDay) =>
-        highlightedDay.isSame(day, 'day')
+      trainings.some((training) => dayjs(training.date).isSame(day, 'day'));
+
+    if (isSelected) {
+      selectedTraining = trainings.find((training) =>
+        dayjs(training.date).isSame(day, 'day')
       );
+    }
+    const trainingColor = selectedTraining
+      ? TrainingTypesColors[selectedTraining.training_type]
+      : undefined;
 
     return (
-      <Badge
-        key={props.day.toString()}
-        overlap='circular'
-        badgeContent={isSelected ? 'x' : undefined}
-      >
-        <PickersDay
-          {...other}
-          outsideCurrentMonth={outsideCurrentMonth}
-          day={day}
-        />
-      </Badge>
+      <PickersDay
+        {...other}
+        sx={{
+          '&.Mui-selected': {
+            backgroundColor: trainingColor,
+            color: '#fff',
+            fontWeight: 'bold',
+          },
+          '&.Mui-selected:hover': {
+            backgroundColor: darken(0.15, trainingColor || '#000'),
+          },
+        }}
+        selected={isSelected}
+        outsideCurrentMonth={outsideCurrentMonth}
+        day={day}
+      />
     );
-  }
+  };
 
   return (
     <div className='calendar__trainings-container'>
-      <ul>
-        {isLoading && <p>Loading...</p>}
-        {error && <p>Error occurred while fetching data</p>}
-      </ul>
       {data && (
         <DateCalendar
           loading={isLoading}
           slots={{
             day: ServerDay,
           }}
+          sx={{ width: '100%', height: '100%' }}
           slotProps={{
             day: {
-              highlightedDays,
+              trainings,
               // eslint-disable-next-line
             } as any,
           }}
