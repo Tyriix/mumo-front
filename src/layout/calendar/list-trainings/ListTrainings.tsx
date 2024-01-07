@@ -5,9 +5,7 @@ const ListTrainings = () => {
   return (
     <div>
       <div className='calendar__list-container'>
-        <ListBox>
-        
-        </ListBox>
+        <ListBox />
       </div>
     </div>
   );

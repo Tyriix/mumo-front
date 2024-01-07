@@ -1,5 +1,48 @@
-.listBox{
-    background-color: black;
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$input-gray: map.get($colors, input-gray);
+$header-blue: map.get($colors, header-blue);
+
+.listbox__container {
+    .MuiTypography-root{
+        font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    }
+  .MuiBox-root {
+    width: 30em;
+    height: 30em;
+  }
+  .MuiList-root {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .MuiList-root::-webkit-scrollbar {
+    width: 1.4em;
+    background-color: $input-gray;
+    border-radius: 2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+  }
+  .MuiList-root::-webkit-scrollbar-thumb {
+    background-color: $header-blue;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+  }
+  .MuiButtonBase-root {
+    padding: 0px;
+  }
 }

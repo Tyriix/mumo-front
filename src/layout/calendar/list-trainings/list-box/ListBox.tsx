@@ -6,33 +6,36 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
 const ListBox = () => {
-    const { data: trainings, isLoading, isError } = useGetTrainingsQuery();
+  const { data: trainings, isLoading, isError } = useGetTrainingsQuery();
 
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
-  
-    if (isError) {
-      return <div>Error loading trainings</div>;
-    }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-    const desiredRows = 6;
+  if (isError) {
+    return <div>Error loading trainings</div>;
+  }
 
-  // Calculate the height of each list item to fill the available space
-  const itemHeight = `${100 / desiredRows}%`;
-    return(
-        <>
-        <Box sx={{ width: '30em', height: '30em', backgroundColor: 'background.paper' }}>
-        <List sx={{ width: '100%', height: '100%', overflow: 'hidden', overflowY: 'auto', margin: 0, padding: 0}}>
-        {trainings?.trainings?.map((training, index) => (
-          <ListItem key={index} style={{ height: itemHeight }}>
-            <ListRow index={index} data={training} style={undefined} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-        </>
-    );
+  const listRowCount = 6;
+  const itemHeight = `${100 / listRowCount}%`;
+  return (
+    <>
+    <div className='listbox__container'>
+    <Box>
+        <List>
+          {trainings?.trainings?.map((training, index) => (
+            <ListItem
+              key={index}
+              style={{ height: itemHeight }}
+            >
+              <ListRow index={index} data={training} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </div>
+    </>
+  );
 };
 
 export default ListBox;

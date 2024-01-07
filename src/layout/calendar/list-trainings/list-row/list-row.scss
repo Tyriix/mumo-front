@@ -1,0 +1,19 @@
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$border-gray: map.get($colors, border-gray);
+
+
+.list-row__container{
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.list-item__container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-right: 1px solid $border-gray;
+    padding: 0 0.8em 0 0.8em;
+}
+.list-row__list-item-type{
+    margin-left: 0.8em;
+}
