@@ -42,8 +42,6 @@ const CalendarTrainings: FC = () => {
         sx={{
           '&.Mui-selected': {
             backgroundColor: trainingColor,
-            color: '#fff',
-            fontWeight: 'bold',
           },
           '&.Mui-selected:hover': {
             backgroundColor: darken(0.15, trainingColor || '#000'),
@@ -70,7 +68,6 @@ const CalendarTrainings: FC = () => {
               trainings,
               // eslint-disable-next-line
             } as any,
-    
           }}
         />
       )}

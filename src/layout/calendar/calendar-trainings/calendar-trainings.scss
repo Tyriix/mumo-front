@@ -1,27 +1,30 @@
-$typo_calendar_size: 2.5rem;
+$typo-calendar-size: 2.5rem;
+$calendar-conatiner-size: 30em;
 
 .calendar__trainings-container {
-  width: 30em;
-  height: 30em;
+  width: $calendar-conatiner-size;
+  height: $calendar-conatiner-size;
   background-color: white;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .calendar__trainings-container {
   .MuiDateCalendar-root {
-    max-height: 500px;
+    max-height: $calendar-conatiner-size - 2em;
+
+    margin-top: 1em;
   }
 
   .MuiPickersSlideTransition-root {
-    min-height: 500px;
+    min-height: $calendar-conatiner-size;
   }
 
   .MuiPickersDay-root {
     margin: 11px 9px;
-    width: $typo_calendar_size;
-    height: $typo_calendar_size;
+    width: $typo-calendar-size;
+    height: $typo-calendar-size;
     font-family: 'Inter';
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1rem;
   }
 
@@ -29,8 +32,15 @@ $typo_calendar_size: 2.5rem;
     margin: 10px 9px 0;
     font-family: 'Inter';
     font-weight: 300;
-    width: $typo_calendar_size;
-    height: $typo_calendar_size;
+    width: $typo-calendar-size;
+    height: $typo-calendar-size;
+  }
+
+  .MuiPickersCalendarHeader-label {
+    font-size: 1.2rem;
+    font-family: 'Inter';
+    padding-left: 1em;
+    font-weight: 200;
   }
 
   .MuiDateCalendar-viewTransitionContainer {
