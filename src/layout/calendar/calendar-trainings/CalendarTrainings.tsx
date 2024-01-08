@@ -47,6 +47,7 @@ const CalendarTrainings: FC = () => {
             backgroundColor: darken(0.15, trainingColor || '#000'),
           },
         }}
+        onClick={() => alert(selectedTraining?.training_type)}
         selected={isSelected}
         outsideCurrentMonth={outsideCurrentMonth}
         day={day}
