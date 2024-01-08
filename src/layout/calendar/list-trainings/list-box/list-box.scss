@@ -5,24 +5,35 @@ $input-gray: map.get($colors, input-gray);
 $header-blue: map.get($colors, header-blue);
 
 .listbox__container {
-    .MuiTypography-root{
-        font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    }
   .MuiBox-root {
     width: 30em;
     height: 30em;
+    .MuiList-root {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+      margin: 0px;
+      padding: 0px;
+      .MuiListItem-root{
+        background-color: white;
+        padding: 0px 1em 0px 0px;
+        margin-bottom: 1em;
+        .MuiButtonBase-root {
+          height: 100%;
+          padding: 0px;
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          .MuiTypography-root{
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            }
+        }
+      }
+    }
   }
-  .MuiList-root {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
-    margin: 0px !important;
-    padding: 0px !important;
-  }
+  
   .MuiList-root::-webkit-scrollbar {
     width: 1.4em;
     background-color: $input-gray;
@@ -42,7 +53,5 @@ $header-blue: map.get($colors, header-blue);
     -ms-border-radius: 2em;
     -o-border-radius: 2em;
   }
-  .MuiButtonBase-root {
-    padding: 0px;
-  }
+
 }
