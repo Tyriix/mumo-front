@@ -11,6 +11,13 @@ export enum TrainingTypes {
   IndividualHandling = 'individual handling',
 }
 
+export enum TrainingTypesColors {
+  'group training' = '#66b5a7',
+  'individual training' = '#ee9694',
+  'group handling' = '#447e73',
+  'individual handling' = '#cc7170',
+}
+
 export enum TrainingCycleStatus {
   Active = 'active',
   Inactive = 'inactive',
