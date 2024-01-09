@@ -2,30 +2,46 @@ import './list-row.scss';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Training } from '../../../../models/types/training.types';
-import { TrainingTypesColors } from '../../../../models/enums/trainings.enum';
+import { TrainingTypes, TrainingTypesColors } from '../../../../models/enums/trainings.enum';
 import { useEffect } from 'react';
 
 interface ListRowProps {
   index: number;
   data?: Training | null;
 }
+const useClassToFirstListItemSpan = () => {
+  useEffect(() => {
+    const listItems = document.querySelectorAll('.MuiTypography-root');
+
+    listItems.forEach((element) => {
+      element.classList.add('list-row__item-date-text');
+    });
+
+    return () => {
+      listItems.forEach((element) => {
+        element.classList.remove('list-row__item-date-text');
+      });
+    };
+  }, []);
+}
 
 const ListRow = ({ data }: ListRowProps) => {
-  const getPolishTrainingType = (trainingType: string) => {
+  useClassToFirstListItemSpan();
+
+  const getPolishTrainingType = (trainingType: TrainingTypes): string => {
     switch (trainingType) {
-      case 'group training':
+      case TrainingTypes.GroupTraining:
         return 'Trening grupowy';
-      case 'individual training':
+      case TrainingTypes.IndividualTraining:
         return 'Trening indywidualny';
-      case 'group handling':
-        return 'Zajęcia grupowe';
-      case 'individual handling':
-        return 'Zajęcia indywidualne';
+      case TrainingTypes.GroupHandling:
+        return 'Handling grupowy';
+      case TrainingTypes.IndividualHandling:
+        return 'Handling indywidualny';
       default:
-        return 'Nieznany rodzaj';
+        return 'Nieznany typ treningu';
     }
   };
-
   const formatWeekday = (date: Date) => {
     const options: Intl.DateTimeFormatOptions = { weekday: 'short' };
     const formattedWeekday = new Date(date).toLocaleDateString(
@@ -42,30 +58,26 @@ const ListRow = ({ data }: ListRowProps) => {
     const formattedDate = new Date(date).toLocaleDateString('pl-PL', options);
     return `${formattedDate}`;
   };
-  const translateType = (trainingType: string) => {
-    const translatedTrainingType = getPolishTrainingType(trainingType);
+  const translateType = (trainingTypes: TrainingTypes) => {
+    const translatedTrainingType = getPolishTrainingType(trainingTypes);
     return `${translatedTrainingType}`;
   };
 
-  useEffect(() => {
-    const listItems = document.querySelectorAll('.MuiTypography-root');
-
-    listItems.forEach((element) => {
-      element.classList.add('list-row__item-date-text');
-    });
-
-    return () => {
-      listItems.forEach((element) => {
-        element.classList.remove('list-row__item-date-text');
-      });
-    };
-  }, []);
+  
   const trainingColor = data?.training_type
     ? TrainingTypesColors[data.training_type]
     : undefined;
+    
+    const handleClick = () => {
+      if (data) {
+        const trainingType = translateType(data.training_type);
+        alert(`${trainingType}`);
+      }
+    };
+
   return (
     <>
-      <ListItemButton>
+      <ListItemButton onClick={handleClick}>
         <div
           className='list-row__container-date'
           style={{ borderLeft: `7px solid ${trainingColor}` }}
