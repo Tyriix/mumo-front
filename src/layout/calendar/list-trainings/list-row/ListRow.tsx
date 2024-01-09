@@ -64,6 +64,7 @@ const ListRow = ({ index, data }: ListRowProps) => {
   const trainingColor = data?.training_type? TrainingTypesColors[data.training_type] : undefined;
   return (
     <>
+    <div></div>
         <ListItemButton>
           <div className='list-row__container-date' style={{borderLeft: `7px solid ${trainingColor}`}}>
             <ListItemText

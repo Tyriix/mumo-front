@@ -3,10 +3,8 @@ import './list-trainings.scss';
 
 const ListTrainings = () => {
   return (
-    <div>
-      <div className='calendar__list-container'>
-        <ListBox />
-      </div>
+    <div className='calendar__list-container'>
+      <ListBox />
     </div>
   );
 };
