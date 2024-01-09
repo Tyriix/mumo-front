@@ -1,20 +1,63 @@
-.calendar__list-container {
-  width: 30em;
-  height: 30em;
-  background-color: white;
-  border: 1px solid black;
-}
+@use 'sass:map';
+@import '../../../styles/helpers/variables';
 
-@media screen and (max-width: 755px) {
-  .calendar__list-container {
-    width: 25em;
-    height: 25em;
+$input-gray: map.get($colors, input-gray);
+$header-blue: map.get($colors, header-blue);
+$scroll-gray: map.get($colors, scroll-gray);
+$border-radius-size: 2em;
+
+.listbox__container {
+  .MuiBox-root {
+    width: 30em;
+    height: 30em;
+    .MuiList-root {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+      margin: 0px;
+      padding: 0px;
+      .MuiListItem-root {
+        padding: 0px 1em 0px 0px;
+        margin-bottom: 1em;
+        .MuiButtonBase-root {
+          height: 100%;
+          padding: 0px;
+          box-shadow: 4px 4px 4px $scroll-gray;
+          background-color: white;
+
+        }
+      }
+    }
   }
-}
 
-@media screen and (max-width: 470px) {
-  .calendar__list-container {
-    width: 17em;
-    height: 25em;
+  .MuiTypography-root {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+  .MuiList-root::-webkit-scrollbar {
+    width: 1em;
+    background-color: $input-gray;
+    border-radius: $border-radius-size;
+  }
+  .MuiList-root::-webkit-scrollbar-thumb {
+    background-color: $header-blue;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    border-radius: $border-radius-size;
+  }
+  @media screen and (max-width: 755px) {
+    .MuiBox-root {
+      width: 25em;
+    }
+  }
+  @media screen and (max-width: 470px) {
+    .MuiBox-root {
+      width: 18em;
+    }
   }
 }

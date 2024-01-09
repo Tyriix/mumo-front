@@ -1,0 +1,27 @@
+@use 'sass:map';
+@import '../../../../styles/helpers/variables';
+
+$border-gray: map.get($colors, border-gray);
+$margins-size: 0.8em;
+
+.list-row__container-date {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  border-right: 1px solid $border-gray;
+  padding: 0 $margins-size 0 $margins-size;
+  .list-row__list-item-date:first-of-type {
+    margin-top: $margins-size;
+    .list-row__item-date-text {
+      font-size: 18px;
+    }
+  }
+  .list-row__list-item-date:nth-child(2) {
+    margin-bottom: $margins-size;
+  }
+}
+
+.list-row__list-item-type {
+  margin-left: $margins-size;
+}
