@@ -1,20 +1,90 @@
+$typo-calendar-size: 2.5rem;
+$typo-calendar-size-mobile: 1.8rem;
+
+$calendar-conatiner-size-desktop: 30em;
+$calendar-height-mobile: 22em;
+$calendar-width-mobile: 17em;
+
 .calendar__trainings-container {
-  width: 30em;
-  height: 30em;
+  width: $calendar-conatiner-size-desktop;
+  height: $calendar-conatiner-size-desktop;
   background-color: white;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-@media screen and (max-width: 755px) {
-  .calendar__trainings-container {
-    width: 25em;
-    height: 25em;
+.calendar__trainings-container {
+  .MuiDateCalendar-root {
+    max-height: $calendar-conatiner-size-desktop - 2em;
+    margin-top: 1em;
+  }
+
+  .MuiPickersSlideTransition-root {
+    min-height: $calendar-conatiner-size-desktop;
+  }
+
+  .MuiPickersDay-root {
+    margin: 11px 9px;
+    width: $typo-calendar-size;
+    height: $typo-calendar-size;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  .MuiTypography-root {
+    margin: 10px 9px 0;
+    font-family: 'Inter';
+    font-weight: 300;
+    width: $typo-calendar-size;
+    height: $typo-calendar-size;
+  }
+
+  .MuiPickersCalendarHeader-label {
+    font-size: 1.2rem;
+    font-family: 'Inter';
+    padding-left: 1em;
+    font-weight: 200;
+  }
+
+  .MuiDateCalendar-viewTransitionContainer {
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 470px) {
   .calendar__trainings-container {
-    width: 17em;
-    height: 25em;
+    width: $calendar-width-mobile;
+    height: $calendar-height-mobile;
+  }
+
+  .calendar__trainings-container {
+    .MuiDateCalendar-root {
+      margin-top: 0.5em;
+      max-height: $calendar-height-mobile - 2em;
+    }
+
+    .MuiPickersSlideTransition-root {
+      min-height: $calendar-height-mobile;
+    }
+
+    .MuiPickersDay-root {
+      width: $typo-calendar-size-mobile;
+      height: $typo-calendar-size-mobile;
+
+      margin: 7px 4px;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+
+    .MuiTypography-root {
+      margin: 10px 4px 0;
+      width: $typo-calendar-size-mobile;
+      height: $typo-calendar-size-mobile;
+    }
+
+    .MuiPickersCalendarHeader-label {
+      font-size: 1rem;
+      padding-left: 0;
+    }
   }
 }
