@@ -20,20 +20,17 @@ const ListBox = () => {
   const itemHeight = `${100 / listRowCount}%`;
   return (
     <>
-    <div className='listbox__container'>
-    <Box>
-        <List>
-          {trainings?.trainings?.map((training, index) => (
-            <ListItem
-              key={index}
-              style={{ height: itemHeight }}
-            >
-              <ListRow index={index} data={training} />
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    </div>
+      <div className='listbox__container'>
+        <Box>
+          <List>
+            {trainings?.trainings?.map((training, index) => (
+              <ListItem key={index} style={{ height: itemHeight }}>
+                <ListRow index={index} data={training} />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </div>
     </>
   );
 };

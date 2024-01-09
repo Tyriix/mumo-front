@@ -1,5 +1,4 @@
 import './list-row.scss';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Training } from '../../../../models/types/training.types';
@@ -11,7 +10,7 @@ interface ListRowProps {
   data?: Training | null;
 }
 
-const ListRow = ({ index, data }: ListRowProps) => {
+const ListRow = ({ data }: ListRowProps) => {
   const getPolishTrainingType = (trainingType: string) => {
     switch (trainingType) {
       case 'group training':
@@ -47,40 +46,45 @@ const ListRow = ({ index, data }: ListRowProps) => {
     const translatedTrainingType = getPolishTrainingType(trainingType);
     return `${translatedTrainingType}`;
   };
-  
+
   useEffect(() => {
     const listItems = document.querySelectorAll('.MuiTypography-root');
 
-    listItems.forEach(element => {
-      element.classList.add('list-item__date-text');
+    listItems.forEach((element) => {
+      element.classList.add('list-row__item-date-text');
     });
 
     return () => {
-      listItems.forEach(element => {
-        element.classList.remove('list-item__date-text');
+      listItems.forEach((element) => {
+        element.classList.remove('list-row__item-date-text');
       });
     };
   }, []);
-  const trainingColor = data?.training_type? TrainingTypesColors[data.training_type] : undefined;
+  const trainingColor = data?.training_type
+    ? TrainingTypesColors[data.training_type]
+    : undefined;
   return (
     <>
-    <div></div>
-        <ListItemButton>
-          <div className='list-row__container-date' style={{borderLeft: `7px solid ${trainingColor}`}}>
-            <ListItemText
-              className='list-row__list-item-date'
-              primary={data ? formatDate(data.date) : 'Unknown Date'}
-            />
-            <ListItemText
-              className='list-row__list-item-date'
-              primary={data ? formatWeekday(data.date) : 'Unknown Weekday'}
-            />
-          </div>
+      <div></div>
+      <ListItemButton>
+        <div
+          className='list-row__container-date'
+          style={{ borderLeft: `7px solid ${trainingColor}` }}
+        >
           <ListItemText
+            className='list-row__list-item-date'
+            primary={data ? formatDate(data.date) : 'Unknown Date'}
+          />
+          <ListItemText
+            className='list-row__list-item-date'
+            primary={data ? formatWeekday(data.date) : 'Unknown Weekday'}
+          />
+        </div>
+        <ListItemText
           className='list-row__list-item-type'
-            primary={data ? translateType(data.training_type) : 'Unknown Type'}
-          /> 
-        </ListItemButton>
+          primary={data ? translateType(data.training_type) : 'Unknown Type'}
+        />
+      </ListItemButton>
     </>
   );
 };

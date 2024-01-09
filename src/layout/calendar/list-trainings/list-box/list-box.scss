@@ -3,6 +3,9 @@
 
 $input-gray: map.get($colors, input-gray);
 $header-blue: map.get($colors, header-blue);
+$white: map.get($colors, white);
+$scroll-gray: map.get($colors, scroll-gray);
+$border-radius-size: 2em;
 
 .listbox__container {
   .MuiBox-root {
@@ -15,51 +18,56 @@ $header-blue: map.get($colors, header-blue);
       overflow-y: auto;
       margin: 0px;
       padding: 0px;
-      .MuiListItem-root{
-        background-color: white;
+      .MuiListItem-root {
+        background-color: $white;
         padding: 0px 1em 0px 0px;
         margin-bottom: 1em;
         .MuiButtonBase-root {
           height: 100%;
           padding: 0px;
-          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-          .MuiTypography-root{
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            }
+          box-shadow: 4px 4px 4px $scroll-gray;
         }
       }
     }
   }
-  
+
+  .MuiTypography-root {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
   .MuiList-root::-webkit-scrollbar {
     width: 1em;
     background-color: $input-gray;
-    border-radius: 2em;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    -ms-border-radius: 2em;
-    -o-border-radius: 2em;
+    border-radius: $border-radius-size;
+    -webkit-border-radius: $border-radius-size;
+    -moz-border-radius: $border-radius-size;
+    -ms-border-radius: $border-radius-size;
+    -o-border-radius: $border-radius-size;
   }
   .MuiList-root::-webkit-scrollbar-thumb {
     background-color: $header-blue;
     border: 2px solid transparent;
     background-clip: content-box;
-    border-radius: 2em;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    -ms-border-radius: 2em;
-    -o-border-radius: 2em;
+    border-radius: $border-radius-size;
+    -webkit-border-radius: $border-radius-size;
+    -moz-border-radius: $border-radius-size;
+    -ms-border-radius: $border-radius-size;
+    -o-border-radius: $border-radius-size;
   }
-  @media screen and (max-width: 755px){
-    .MuiBox-root{
+  @media screen and (max-width: 755px) {
+    .MuiBox-root {
       width: 25em;
     }
   }
-  @media screen and (max-width: 470px){
-    .MuiBox-root{
+  @media screen and (max-width: 470px) {
+    .MuiBox-root {
       width: 18em;
     }
   }
