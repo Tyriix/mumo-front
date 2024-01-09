@@ -17,7 +17,7 @@ const ListBox = () => {
   }
 
   const listRowCount = 6;
-  const itemHeight = `${100 / listRowCount}%`;
+  const itemHeight = `${101 / listRowCount}%`;
   return (
     <>
       <div className='listbox__container'>

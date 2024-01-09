@@ -3,7 +3,6 @@
 
 $input-gray: map.get($colors, input-gray);
 $header-blue: map.get($colors, header-blue);
-$white: map.get($colors, white);
 $scroll-gray: map.get($colors, scroll-gray);
 $border-radius-size: 2em;
 
@@ -19,13 +18,14 @@ $border-radius-size: 2em;
       margin: 0px;
       padding: 0px;
       .MuiListItem-root {
-        background-color: $white;
         padding: 0px 1em 0px 0px;
         margin-bottom: 1em;
         .MuiButtonBase-root {
           height: 100%;
           padding: 0px;
           box-shadow: 4px 4px 4px $scroll-gray;
+          background-color: white;
+
         }
       }
     }

@@ -65,7 +65,6 @@ const ListRow = ({ data }: ListRowProps) => {
     : undefined;
   return (
     <>
-      <div></div>
       <ListItemButton>
         <div
           className='list-row__container-date'

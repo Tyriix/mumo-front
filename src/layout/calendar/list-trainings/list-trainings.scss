@@ -1,18 +1,15 @@
 .calendar__list-container {
   width: 30em;
-  height: 30em;
 }
 
 @media screen and (max-width: 755px) {
   .calendar__list-container {
     width: 25em;
-    height: 25em;
   }
 }
 
 @media screen and (max-width: 470px) {
   .calendar__list-container {
     width: 17em;
-    height: 25em;
   }
 }
