@@ -51,6 +51,18 @@ $calendar-width-mobile: 17em;
   }
 }
 
+@media screen and (max-width: 755px) {
+  .calendar__trainings-container {
+    width: 25em;
+    height: 25 em;
+
+    .MuiPickersCalendarHeader-label {
+
+      padding-left: 0;
+    }
+  }
+}
+
 @media screen and (max-width: 470px) {
   .calendar__trainings-container {
     width: $calendar-width-mobile;

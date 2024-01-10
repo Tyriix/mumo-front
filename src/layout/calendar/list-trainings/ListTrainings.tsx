@@ -6,18 +6,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
 const ListTrainings = () => {
-  const { data: trainings, isLoading, isError } = useGetTrainingsQuery();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error loading trainings</div>;
-  }
-
+  const { data: trainings } = useGetTrainingsQuery();
   const listRowCount = 6;
   const itemHeight = `${101 / listRowCount}%`;
+
   return (
     <>
     <div className='listbox__container'>
